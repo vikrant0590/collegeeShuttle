@@ -28,7 +28,7 @@ export default class WalkThroughThird extends Component {
                 justifyContent:'center',
                 alignSelf:'center'
               }}
-              onPress={Navigation.home}
+              onPress={Navigation.signUp}
             >
               <Text style={styles.registerButtonText}>Register</Text>
             </Button>

@@ -35,7 +35,11 @@ const colors = {
   loginInputUnderLineColor: '#aac1de',
   dashBoardRightArrow: '#8394a1',
   levelSelectedColor: '#b7b7b7',
-  overlayColor: 'rgba(0, 0, 0, 0.50)'
+  overlayColor: 'rgba(0, 0, 0, 0.50)',
+  signupTitle: '#3F3E3E',
+  googleButton:'#CF4332',
+  facebookButton:'#3e4d9b'
+
 };
 
 export default colors;

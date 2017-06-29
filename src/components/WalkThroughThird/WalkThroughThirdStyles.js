@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ApplicationStyles } from '../../theme';
+import { ApplicationStyles, Fonts } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -19,10 +19,10 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   introText: {
+    ...Fonts.style.regularFont,
     backgroundColor:'transparent',
     color:'#fff',
-    textAlign:'center',
-    fontSize: 18
+    textAlign:'center'
   },
   registerButton: {
     backgroundColor:'#FFF',
@@ -33,9 +33,9 @@ export default StyleSheet.create({
     alignSelf:'center'
   },
   registerButtonText : {
+    ...Fonts.style.regularFont,
     backgroundColor:'transparent',
-    color:'#000',
-    textAlign:'center',
-    fontSize: 18,
+    color:'#D32735',
+    textAlign:'center'
   }
 });

@@ -8,6 +8,8 @@ import BottomTabBar from './TabBar';
 import SettingTabBar from './SettingTabBar';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
+import HomeTab from './HomeTab'
+
 export {
   WalkThrough,
   Home,
@@ -18,5 +20,6 @@ export {
   BottomTabBar,
   SettingTabBar,
   ProfileEdit,
-  Packages
+  Packages,
+  HomeTab
 };

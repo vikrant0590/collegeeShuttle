@@ -1,4 +1,4 @@
-import React,{ Component} from 'react';
+import React,{ Component } from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon } from 'native-base';
 import { ProfileEdit} from '../../containers'
@@ -8,6 +8,7 @@ import styles from './MyProfileStyles';
 import { Actions as NavAction} from 'react-native-router-flux';
 
 export default class MyProfile extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +28,6 @@ export default class MyProfile extends Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
 
       if (response.didCancel) {
         console.log('User cancelled photo picker');
@@ -49,7 +49,6 @@ export default class MyProfile extends Component {
 
 
   onPress = (item) => {
-    console.log('selected item', item);
     switch (item.index) {
       case 0:
         this.setState({
@@ -83,7 +82,8 @@ export default class MyProfile extends Component {
   };
 
   render() {
-    var items = [{index: 0, title: 'Profile Detail'},
+    var items = [
+      {index: 0, title: 'Profile Detail'},
       {index: 1, title: 'Saved Cards'},
       {index: 2, title: 'Friends List'},
       {index: 3, title: 'Buy Package'},

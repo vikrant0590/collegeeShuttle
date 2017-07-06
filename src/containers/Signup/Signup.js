@@ -94,7 +94,7 @@ export default class Signup extends Component {
           <View style={styles.signupButtonContainer}>
             <TouchableOpacity
               style={styles.signupButton}
-              onPress={NavAction.home}
+              onPress={NavAction.tabbar}
             >
               <Text style={styles.signupText}>SIGN UP</Text>
             </TouchableOpacity>

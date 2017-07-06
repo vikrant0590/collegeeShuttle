@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { ApplicationStyles, Fonts } from '../../theme';
+import { ApplicationStyles, Fonts, Colors, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -17,5 +17,17 @@ export default StyleSheet.create({
     height: 29,
     width: 30,
   },
-
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent:'center',
+    paddingBottom: 10,
+    flexDirection: 'column'
+  },
+  tabs: {
+    height: Metrics.tabBarHeight,
+    flexDirection: 'row',
+    paddingTop: 5,
+    backgroundColor: Colors.white
+  }
 });

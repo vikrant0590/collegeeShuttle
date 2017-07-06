@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { WalkThrough, Home, SignUp, Login, MyProfileTabBar,
-  MyTripsTabBar, SettingTabBar, ProfileEdit, Packages  } from './containers';
+import {
+  WalkThrough, Home, SignUp, Login, MyProfile,
+  MyTrips, Setting, ProfileEdit, Packages, TabBar
+} from './containers';
 import { Router, Scene } from 'react-native-router-flux';
 
 
@@ -14,11 +16,13 @@ export default class AppRouter extends Component {
         <Scene key="home"  component={Home}  hideNavBar={true}/>
         <Scene key="signUp"  component={SignUp} title="SignUp"/>
         <Scene key="login" component={Login} title="Login"/>
-        <Scene key ="myprofile" component={MyProfileTabBar} hideNavBar={false}/>
-        <Scene key="mytrips" component={MyTripsTabBar} hideNavBar={false}/>
-        <Scene key="setting" component={SettingTabBar} hideNavBar={true}/>
+        <Scene key ="myprofile" component={MyProfile} hideNavBar={false}/>
+        <Scene key="mytrips" component={MyTrips} hideNavBar={false}/>
+        <Scene key="setting" component={Setting} hideNavBar={true}/>
         <Scene key="profileedit" component={ProfileEdit} hideNavBar={true}/>
         <Scene key="packages" component={Packages} hideNavBar={true}/>
+        <Scene key="tabbar" component={TabBar} hideNavBar={true}/>
+
 
       </Router>
     );

@@ -2,21 +2,24 @@ import Home from './Home';
 import WalkThrough from './WalkThrough';
 import SignUp from './Signup';
 import Login from './Login';
-import MyProfileTabBar from './MyProfileTabBar';
-import MyTripsTabBar from './MyTripsTabBar';
-import BottomTabBar from './TabBar';
-import SettingTabBar from './SettingTabBar';
+import MyProfile from './MyProfile';
+import MyTrips from './MyTrips';
+import BottomTabBar from './BottomTabBar';
+import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
+import TabBar from 'TabBar';
+
 export {
   WalkThrough,
   Home,
   SignUp,
   Login,
-  MyProfileTabBar,
-  MyTripsTabBar,
+  MyProfile,
+  MyTrips,
   BottomTabBar,
-  SettingTabBar,
+  Setting,
   ProfileEdit,
-  Packages
+  Packages,
+  TabBar
 };

@@ -3650,6 +3650,10 @@ react-devtools-core@^2.1.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-base-switch@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-base-switch/-/react-native-base-switch-0.0.6.tgz#c919a47f5abefd4cacea5bd14fa1f23b8d3f1d89"
+
 react-native-drawer@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.3.0.tgz#a0369ec80ff0b61c9f152dbdea91fe76c843113a"
@@ -3673,6 +3677,10 @@ react-native-experimental-navigation@0.28.x:
     fbjs "^0.8.1"
     prop-types "^15.5.10"
 
+react-native-image-picker@^0.26.3:
+  version "0.26.3"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.3.tgz#0ad2eede49501a7046d8046a73813696539c3dcd"
+
 react-native-keyboard-aware-scroll-view@0.2.9, react-native-keyboard-aware-scroll-view@^0.2.9:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.2.9.tgz#2a1ae49cfae90a9665b21763c1f8bd03ed5fb92c"
@@ -3692,6 +3700,12 @@ react-native-router-flux@^3.40.1:
     react-native-keyboard-aware-scroll-view "^0.2.9"
     react-native-tabs "^1.0.9"
     react-static-container "1.0.1"
+
+react-native-scrollable-tab-view@^0.6.7:
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.6.7.tgz#3a5fe8a4bd5bc7eb023f306099323bbd9cc284a2"
+  dependencies:
+    react-timer-mixin "^0.13.3"
 
 react-native-swipe-a-lot@^0.2.1:
   version "0.2.1"

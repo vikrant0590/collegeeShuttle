@@ -28,6 +28,6 @@ const metrics = {
     large: 60,
     logo: 300
   }
-}
+};
 
 export default metrics

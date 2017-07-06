@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ApplicationStyles,Colors } from '../../theme';
+import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -12,33 +12,47 @@ export default StyleSheet.create({
     backgroundColor:'#FDFBF6',
   },
   titleTextStyle:{
+    ...Fonts.style.buttonFont,
     justifyContent:'center',
     alignItems:'center',
-    fontSize:20,
     color:Colors.signupTitle
   },
   loginFacebookContainer:{
-    marginTop:65,
+    marginTop:40,
     marginLeft:44,
   },
   loginFacebookButton:{
     alignItems:"center",
     justifyContent:"center",
-    width:286,
+    width:Metrics.screenWidth - 88,
     height:45,
     backgroundColor:Colors.facebookButton,
     borderRadius:22,
     flexDirection:'row',
-
+  },
+  loginGoogleButton:{
+    alignItems:"center",
+    justifyContent:"center",
+    width:Metrics.screenWidth -88,
+    height:45,
+    backgroundColor:Colors.googleButton,
+    borderRadius:22,
+    flexDirection:'row',
+    marginTop:20,
   },
   facebookButtonText:{
+    ...Fonts.style.buttonText,
+    color:Colors.white,
+  },
+  googleButtonText:{
+    ...Fonts.style.buttonText,
     color:Colors.white,
   },
   facebookButtonImage:{
     flex:0.2,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:"#314190",
+    backgroundColor:Colors.facebookIconBg,
     height:45,
     borderTopLeftRadius: 22,
     borderBottomLeftRadius:22,
@@ -47,7 +61,7 @@ export default StyleSheet.create({
     flex:0.2,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:"#c03b2b",
+    backgroundColor:Colors.googleIconBg,
     height:45,
     borderTopLeftRadius: 22,
     borderBottomLeftRadius:22,
@@ -69,19 +83,49 @@ export default StyleSheet.create({
   loginGoogleContainer:{
     marginLeft:44,
   },
-  loginGoogleButton:{
-    alignItems:"center",
-    justifyContent:"center",
-    width:286,
-    height:45,
-    backgroundColor:Colors.googleButton,
-    borderRadius:22,
+  optionalContainer:{
     flexDirection:'row',
-    marginTop:20,
+    marginTop:30,
+    alignItems:'center',
+    justifyContent:'center'
   },
-  googleButtonText:{
-    color:Colors.white,
-
+  optional:{
+    ...Fonts.style.buttonText,
+    color:Colors.options,
+  },
+  signupButton:{
+    justifyContent:"center",
+    alignItems:'center',
+    borderWidth:1,
+    borderColor:Colors.signupButtonText,
+    borderRadius:22,
+    height:45,
+    width:Metrics.screenWidth - 88,
+  },
+  signupButtonContainer:{
+    marginLeft:44,
+    marginTop:30,
+    width:Metrics.screenWidth - 88
+  },
+  formContainer:{
+    flexDirection:'column',
+    marginTop:20,
+    marginLeft:44,
+    marginRight:44
+  },
+  signupText:{
+    ...Fonts.style.signupButtonText,
+    color:Colors.signupButtonText,
+  },
+  placeholderTextStyle:{
+  },
+  LoginHyperlink:{
+    color:Colors.signupButtonText,
+    ...Fonts.style.buttonText
+  },
+  formIcon:{
+    marginRight:4,
   }
+
 
 });

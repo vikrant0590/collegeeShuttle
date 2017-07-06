@@ -1,4 +1,5 @@
 const colors = {
+  black:'#444444',
   background: '#2f8eed',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
@@ -38,7 +39,21 @@ const colors = {
   overlayColor: 'rgba(0, 0, 0, 0.50)',
   signupTitle: '#3F3E3E',
   googleButton:'#CF4332',
-  facebookButton:'#3e4d9b'
+  facebookButton:'#3e4d9b',
+  signupButtonText:'#D32735',
+  placeholderTextColor:'rgba(51, 51, 51, 0.6)',
+  googleIconBg:'#c03b2b',
+  facebookIconBg:'#314190',
+  options:'#333333',
+  unselectedTabBarTextColor: '#F0C68F',
+  base:'#FDFBF6',
+  settingHeadingTextColor:'#C7C7C7',
+  headerColor:'#fc214f',
+  profileInputHeadingColor:'#A4A4A4',
+  headingColor:'#E14F67',
+  activeTab:'#E00034',
+  inactiveTab:'#BABABA'
+
 
 };
 

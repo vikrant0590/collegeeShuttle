@@ -7,7 +7,9 @@
 		"test": "jest"
 	},
 	"rnpm": {
-		"assets": ["./src/fonts"]
+		"assets": [
+			"./src/fonts"
+		]
 	},
 	"dependencies": {
 		"apisauce": "^0.14.0",
@@ -15,8 +17,11 @@
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.45.1",
+		"react-native-base-switch": "^0.0.6",
+		"react-native-image-picker": "^0.26.3",
 		"react-native-linear-gradient": "^2.0.0",
 		"react-native-router-flux": "^3.40.1",
+		"react-native-scrollable-tab-view": "^0.6.7",
 		"react-native-swipe-a-lot": "^0.2.1",
 		"react-redux": "^5.0.5",
 		"react-router": "^4.1.1",

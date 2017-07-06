@@ -13,6 +13,7 @@ export default class MyProfile extends Component {
     this.state = {
       avatarSource: null,
       editProfile: false,
+      packages: false,
     }
   }
 
@@ -46,7 +47,6 @@ export default class MyProfile extends Component {
       }
     });
   }
-
 
   onPress = (item) => {
     console.log('selected item', item);
@@ -101,7 +101,7 @@ export default class MyProfile extends Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{color: Colors.white}}> My Profile</Title>
+            <Title style={{color: Colors.white}}>My Profile</Title>
           </Body>
           <Right>
             <TouchableOpacity onPress={this.saveData}>
@@ -124,6 +124,7 @@ export default class MyProfile extends Component {
             </View>
           </TouchableOpacity>
         </View>
+
         {!this.state.editProfile ?
           <View style={styles.listContainer}>
             <Content>
@@ -149,6 +150,7 @@ export default class MyProfile extends Component {
           :
           <ProfileEdit/>
         }
+
       </Container>
     )
   }

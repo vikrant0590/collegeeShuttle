@@ -4,5 +4,5 @@ import WalkThroughThird from './WalkThroughThird';
 export {
   WalkThroughFirst,
   WalkThroughSecond,
-  WalkThroughThird
+  WalkThroughThird,
 };

@@ -28,6 +28,12 @@ const images = {
   googlePlus: require('../images/googlePlus.png'),
   fb: require('../images/fb.png'),
   whatsapp: require('../images/whatsapp.png'),
-
+  notification: require('../images/notification.png'),
+  roundtriphome: require('../images/roundtriphome.png'),
+  roundtripunivercity: require('../images/roundtripuniversity.png'),
+  roundtripinputicon: require('../images/roundtripinputicon.png'),
+  roundtripaddicon: require('../images/add.png'),
+  roundtripbusicon: require('../images/busIcon.png'),
+  roundtriptrackicon: require('../images/track.png'),
 };
 export default images;

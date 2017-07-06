@@ -52,9 +52,9 @@ const colors = {
   profileInputHeadingColor:'#A4A4A4',
   headingColor:'#E14F67',
   activeTab:'#E00034',
-  inactiveTab:'#BABABA'
-
-
+  inactiveTab:'#BABABA',
+  thinLineColor: 'rgba(219,38,58,0.14)',
+  roundTripColor: '#EB2345',
 };
 
 export default colors;

@@ -6,6 +6,18 @@ import styles from './BottomTabBarStyle';
 
 export default class BottomTabBar extends Component {
 
+  static get propTypes() {
+    return {
+      goToPage: PropTypes.func,
+      activeTab: PropTypes.number,
+      tabs: PropTypes.array,
+      selectedTabImages: PropTypes.any,
+      tabTitleText:PropTypes.any,
+      tabImages: PropTypes.any,
+      style:PropTypes.any
+    };
+  }
+
   render() {
     const { activeTab, selectedTabImages, tabImages, tabTitleText } = this.props;
 
@@ -31,16 +43,6 @@ export default class BottomTabBar extends Component {
     </View>;
   }
 }
-
-BottomTabBar.propTypes = {
-  goToPage: PropTypes.func,
-  activeTab: PropTypes.number,
-  tabs: PropTypes.array,
-  selectedTabImages: PropTypes.any,
-  tabTitleText:PropTypes.any,
-  tabImages: PropTypes.any,
-  style:PropTypes.any
-};
 
 
 

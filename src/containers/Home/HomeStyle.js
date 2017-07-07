@@ -54,7 +54,7 @@ export default StyleSheet.create({
     },
 
     activeLeftSegmentButton: {
-        flex: 1,
+        flex: 1.12,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomLeftRadius: 15,
@@ -85,7 +85,7 @@ export default StyleSheet.create({
     },
 
     activeRightSegmentButton:{
-        flex: 1.2,
+        flex: 1.12,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomLeftRadius: 16,
@@ -118,109 +118,4 @@ export default StyleSheet.create({
         margin: 5,
         justifyContent: 'center'
     },
-
-    titleHeaderText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.settingHeadingTextColor
-    },
-
-    dayText: {
-        fontSize: Fonts.size.h1,
-        fontFamily: Fonts.lato.base,
-        color: Colors.black,
-        paddingLeft: 30,
-        paddingBottom: 10,
-        paddingTop: 10
-    },
-
-    monthText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.black
-    },
-
-    timeText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.settingHeadingTextColor,
-        paddingTop: 5,
-        paddingBottom: 5
-    },
-
-    busText:{
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.settingHeadingTextColor,
-        paddingTop: 20
-    },
-
-    collegeText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.black,
-        paddingTop: 5,
-        paddingBottom: 5
-    },
-
-    pickupText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.settingHeadingTextColor
-    },
-
-    circleText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.black,
-        paddingTop: 5,
-        paddingBottom: 5
-    },
-
-    dropText: {
-        fontSize: Fonts.size.regular,
-        fontFamily: Fonts.lato.base,
-        color: Colors.settingHeadingTextColor
-    },
-
-    trackNowBtn: {
-        flexDirection: 'row',
-        height: 30
-    },
-
-    trackText:{
-        paddingLeft: 5,
-        fontSize: Fonts.size.regular,
-        textAlign: 'center',
-        alignSelf: 'center',
-        color: Colors.roundTripColor
-    },
-
-    trackIcon: {
-        justifyContent: 'center',
-        alignSelf: 'center',
-        resizeMode: 'contain',
-        height: 20,
-        width: 20
-    },
-
-    thinLine:{
-        height: 105,
-        width: 1,
-        backgroundColor: Colors.thinLineColor,
-        marginLeft: -25,
-        marginRight: 15
-    },
-
-    busIcon:{
-        marginLeft: -15,
-        marginRight: 20,
-        marginTop: 20
-    },
-
-    descriptionText: {
-        fontSize: Fonts.size.h6,
-        fontFamily: Fonts.lato.base
-    },
-
 });

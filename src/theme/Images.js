@@ -35,5 +35,8 @@ const images = {
   roundtripaddicon: require('../images/add.png'),
   roundtripbusicon: require('../images/busIcon.png'),
   roundtriptrackicon: require('../images/track.png'),
+  inviteaddfriendicon: require('../images/inviteAddFriends.png'),
+  searchicon: require('../images/search.png'),
+
 };
 export default images;

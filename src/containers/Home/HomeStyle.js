@@ -35,6 +35,7 @@ export default StyleSheet.create({
         borderWidth: 1.8,
         marginLeft: 80,
         marginRight: 40,
+        justifyContent: 'space-between',
     },
 
     activeSegmentText: {
@@ -57,10 +58,10 @@ export default StyleSheet.create({
         flex: 1.12,
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomLeftRadius: 15,
-        borderBottomRightRadius: 15,
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15,
+        borderBottomLeftRadius: 16,
+        borderBottomRightRadius: 16,
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
         backgroundColor: Colors.white,
     },
 
@@ -118,4 +119,9 @@ export default StyleSheet.create({
         margin: 5,
         justifyContent: 'center'
     },
+
+    Passengers: {
+        marginLeft: 10
+    }
+
 });

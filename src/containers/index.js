@@ -8,7 +8,8 @@ import BottomTabBar from './BottomTabBar';
 import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
-import TabBar from 'TabBar';
+import TabBar from './TabBar';
+import InviteFriend from './InviteFriend';
 
 export {
   WalkThrough,
@@ -21,5 +22,6 @@ export {
   Setting,
   ProfileEdit,
   Packages,
-  TabBar
+  TabBar,
+  InviteFriend
 };

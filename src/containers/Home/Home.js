@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { Container, Content, Row, Col, Icon, Item, Input, Card, CardItem, Body, Left, Right, Tab, Tabs } from 'native-base';
+import { Container, Content, Row, Col, Icon, Item, Input, Card, CardItem, Body, Left, Right } from 'native-base';
 import styles from './HomeStyle';
-import { Colors, Images, Fonts } from '../../theme';
+import { Colors, Images, Fonts, Metrics } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
-import { RoundTrip, RoundTripWeekly, RoundTripCustom } from '../../components';
-
+import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar } from '../../components';
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 export default class Home extends Component {
 
     constructor(){
@@ -71,47 +71,29 @@ export default class Home extends Component {
                             </Item>
                         </View>
                     </LinearGradient>
-                    {(!isWeekly) ?
+                    {(isWeekly) ?
+                        <ScrollableTabView
+                            style={{ backgroundColor: '#FF214F', flex: 1 }}
+                            initialPage={0}
+                            locked={true}
+                            renderTabBar={() =>
+                                <RoundTripTabBar
+                                   tabTitleText={['WEEKLY', 'CUSTOM']}
+                                />
+                              }
+                            >
+                            <View tabLabel="WEEKLY" style={styles.tabView} key="weekly">
+                                <RoundTripWeekly />
+                            </View>
+                            <View tabLabel="CUSTOM" style={styles.tabView} key="custom">
+                                <RoundTripCustom />
+                            </View>
+                        </ScrollableTabView>
+                        :
                         <View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
                             <RoundTrip />
                         </View>
-                        :
-                        <Tabs initialPage={1} tabBarUnderlineStyle= {{ backgroundColor: Colors.white }}>
-                            <Tab
-                                heading="WEEKLY"
-                                textStyle={{
-                                    fontSize: Fonts.size.medium,
-                                    fontFamily: Fonts.lato.bold,
-                                    color: Colors.tabbarColor
-                                }}
-                                tabStyle={{ backgroundColor: Colors.roundTripWeeklyBGColor }}
-                                activeTabStyle={{ backgroundColor: Colors.roundTripWeeklyBGColor }}
-                                activeTextStyle={{
-                                    color: Colors.white,
-                                    fontSize: Fonts.size.medium,
-                                    fontFamily: Fonts.lato.bold
-                                }}>
-                                <RoundTripWeekly />
-                            </Tab>
-                            <Tab
-                                heading="CUSTOM"
-                                textStyle={{
-                                    fontSize: Fonts.size.medium,
-                                    fontFamily: Fonts.lato.bold,
-                                    color: Colors.tabbarColor
-                                }}
-                                tabStyle={{ backgroundColor: Colors.roundTripWeeklyBGColor }}
-                                activeTabStyle={{ backgroundColor: Colors.roundTripWeeklyBGColor }}
-                                activeTextStyle={{
-                                    fontSize: Fonts.size.medium,
-                                    fontFamily: Fonts.lato.bold,
-                                    color: Colors.white
-                                }}>
-                                <RoundTripCustom />
-                            </Tab>
-                        </Tabs>
-
-                    }
+                }
                 </Content>
             </Container>
         )

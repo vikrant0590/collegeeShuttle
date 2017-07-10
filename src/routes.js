@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {
   WalkThrough, Home, SignUp, Login, MyProfile,
-  MyTrips, Setting, ProfileEdit, Packages, TabBar
+  MyTrips, Setting, ProfileEdit, Packages, TabBar, InviteFriend
 } from './containers';
+import { Fonts, Colors } from './theme'
 import { Router, Scene } from 'react-native-router-flux';
-
-
+import { TouchableOpacity, Text, View } from 'react-native';
+import { Icon } from 'native-base';
 export default class AppRouter extends Component {
   render() {
     return (
@@ -22,7 +23,7 @@ export default class AppRouter extends Component {
         <Scene key="profileedit" component={ProfileEdit} hideNavBar={true}/>
         <Scene key="packages" component={Packages} hideNavBar={true}/>
         <Scene key="tabbar" component={TabBar} hideNavBar={true}/>
-
+        <Scene key="invitefriend" component={InviteFriend} hideNavBar={true}  direction='vertical' />
 
       </Router>
     );

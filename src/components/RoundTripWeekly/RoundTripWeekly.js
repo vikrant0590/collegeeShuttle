@@ -5,6 +5,7 @@ import { Colors, Images, Fonts, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import SwipeWeekly from 'react-native-swipe-a-lot';
 import LinearGradient from 'react-native-linear-gradient';
+
 export default class RoundTripWeekly extends Component {
     constructor(){
         super();
@@ -22,8 +23,8 @@ export default class RoundTripWeekly extends Component {
         const swiperpage = [];
         for(let index = 0; index < 5; index ++){
             swiperpage.push(
-                <Card style={{ flex: 1, marginLeft: 15, marginRight: 15, marginTop: 15 }}>
-                    <Col>
+                <Card style={{ marginLeft: 15, marginRight: 15, marginTop: 15, bottom : 0 }} key="swiperpage">
+                    <Col style={{ flex: 1, }}>
                         <Row style={{ height: 40 }}>
                             <CardItem style={{
                                          flex: 1,
@@ -31,7 +32,7 @@ export default class RoundTripWeekly extends Component {
                                          justifyContent: 'center',
                                          alignItems: 'center'
                                     }}>
-                                <Text style={{ fontSize: Fonts.size.medium, fontFamily: Fonts.lato.bold, color: Colors.white }}>THIS WEEK</Text>
+                                <Text style={styles.cardTitleText}>THIS WEEK</Text>
                             </CardItem>
                         </Row>
                         <Row style={{ flex: 1 }}>
@@ -79,54 +80,55 @@ export default class RoundTripWeekly extends Component {
                     }}>
                     {swiperpage}
                 </SwipeWeekly>
-                <View style={{ flex: 1, marginLeft: 40, marginRight: 40, marginTop: 15 }}>
-                    <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>Passengers</Text>
+                <View style={styles.PassengerTextView}>
+                    <Text style={styles.PassengerText}>Passengers</Text>
                 </View>
-                <Card style={{ flex: 1, marginLeft: 40, marginRight: 40, marginTop: 10 }}>
+                <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }}>
                     <Row style={{ flex: 1}}>
-                        <CardItem style={{ marginLeft: 10 }}>
+                        <CardItem style={{ marginLeft: 5 }}>
                             <TouchableOpacity
                                 style={styles.passengersNumberButton}
                                 onPress={this.onPressPassenger}>
-                                <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>1</Text>
+                                <Text style={styles.PassengerBtnText}>1</Text>
                             </TouchableOpacity>
                         </CardItem>
-                        <CardItem style={{ marginLeft: 10 }}>
+                        <CardItem style={{ marginLeft: 5 }}>
                             <TouchableOpacity
                                 style={styles.passengersNumberButton}
                                 onPress={this.onPressPassenger}>
-                                <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>2</Text>
+                                <Text style={styles.PassengerBtnText}>2</Text>
                             </TouchableOpacity>
                         </CardItem>
-                        <CardItem style={{ marginLeft: 10 }}>
+                        <CardItem style={{ marginLeft: 5 }}>
                             <TouchableOpacity
                                 style={styles.passengersNumberButton}
                                 onPress={this.onPressPassenger}>
-                                <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>3</Text>
+                                <Text style={styles.PassengerBtnText}>3</Text>
                             </TouchableOpacity>
                         </CardItem>
-                        <CardItem style={{ marginLeft: 10 }}>
+                        <CardItem style={{ marginLeft: 5 }}>
                             <TouchableOpacity
                                 style={styles.passengersNumberButton}
                                 onPress={this.onPressPassenger}>
-                                <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>4</Text>
+                                <Text style={styles.PassengerBtnText}>4</Text>
                             </TouchableOpacity>
                         </CardItem>
-                        <CardItem style={{ marginLeft: 10 }}>
+                        <CardItem style={{ marginLeft: 5 }}>
                             <TouchableOpacity
                                 style={styles.passengersNumberButton}
                                 onPress={this.onPressPassenger}>
-                                <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.black }}>5</Text>
+                                <Text style={styles.PassengerBtnText}>5</Text>
                             </TouchableOpacity>
                         </CardItem>
                     </Row>
                 </Card>
+                <View>
                     <TouchableOpacity
-                        style={{ flex: 1, height: 52, width: Metrics.screenWidth/2,  alignSelf: 'center', justifyContent: 'center', margin: 15, backgroundColor: '#FF214F', borderRadius: 26 }}
+                        style={styles.searchBtn}
                         onPress={this.onPressPassenger}>
-                        <Text style={{ fontSize: Fonts.size.regular, fontFamily: Fonts.lato.bold, color: Colors.white, alignSelf: 'center' }}>Search</Text>
+                        <Text style={styles.searchBtnText}>Search</Text>
                     </TouchableOpacity>
-
+                </View>
             </View>
         );
     }

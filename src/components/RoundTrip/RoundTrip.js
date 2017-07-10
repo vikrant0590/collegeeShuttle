@@ -3,6 +3,9 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Container, Content, Row, Col, Icon, Item, Input, Card, CardItem, Body, Left, Right  } from 'native-base';
 import styles from './RooundTripStyle';
 import { Colors, Images, Fonts } from '../../theme';
+import { Actions } from 'react-native-router-flux';
+
+
 
 export default class RoundTrip extends Component {
 
@@ -14,23 +17,7 @@ export default class RoundTrip extends Component {
     }
 
     onPressInviteButton = () =>{
-        // invite friend..
-    };
-
-
-    invite = () => {
-        return(
-            <View style={{ flex: 1, marginRight: 10 }}>
-                <TouchableOpacity
-                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
-                    onPress={this.onPressInviteButton}>
-                    <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                    <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                    <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                    <Image source={Images.roundtripaddicon} style={{ height: 34, width: 40, resizeMode: 'contain', marginLeft: 10, alignSelf: 'center' }} />
-                </TouchableOpacity>
-            </View>
-        )
+         Actions.invitefriend();
     };
 
     render(){
@@ -78,7 +65,16 @@ export default class RoundTrip extends Component {
                        </TouchableOpacity>
                        </Body>
                        <Body style={{ marginTop: 30, marginBottom: 20 }}>
-                       {this.invite()}
+                       <View style={{ flex: 1, marginRight: 10 }}>
+                           <TouchableOpacity
+                               style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
+                               onPress={this.onPressInviteButton}>
+                               <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
+                               <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
+                               <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
+                               <Image source={Images.roundtripaddicon} style={{ height: 34, width: 40, resizeMode: 'contain', marginLeft: 10, alignSelf: 'center' }} />
+                           </TouchableOpacity>
+                       </View>
                        </Body>
                    </CardItem>
                </Card>

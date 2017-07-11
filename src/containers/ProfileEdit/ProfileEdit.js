@@ -4,6 +4,7 @@ import { Form, Item, Label, Input, Content, } from 'native-base';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
 import { Fonts, Colors , Images} from '../../theme';
 import styles from './ProfileEditStyle';
+import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class ProfileEdit extends Component {
 
@@ -25,7 +26,8 @@ export default class ProfileEdit extends Component {
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>FIRST NAME</Label>
-                  <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                   />
@@ -34,7 +36,8 @@ export default class ProfileEdit extends Component {
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>LAST NAME</Label>
-                  <Input style={{...Fonts.style.profileInput, color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput, color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                   />
@@ -44,7 +47,8 @@ export default class ProfileEdit extends Component {
             <View style={styles.dropdownFieldContainer}>
               <Item stackedLabel style={{height: 60}}>
                 <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>EMAIL</Label>
-                <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                <Input
+                  style={{...Fonts.style.profileInput,  color:Colors.options}}
                   autoCorrect={false}
                   autoCapitalize="none"
                 />
@@ -59,7 +63,8 @@ export default class ProfileEdit extends Component {
             <View style={styles.dobContainer}>
               <View style={styles.dob}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color:Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
@@ -69,7 +74,8 @@ export default class ProfileEdit extends Component {
               </View>
               <View style={styles.dob}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color:Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
@@ -79,7 +85,8 @@ export default class ProfileEdit extends Component {
               </View>
               <View style={styles.year}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color: Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color: Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
@@ -92,7 +99,8 @@ export default class ProfileEdit extends Component {
               <Item stackedLabel style={{height: 60}}>
                 <Label
                   style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>MOBILE NUMBER</Label>
-                <Input style={{...Fonts.style.profileInput, color:Colors.options}}
+                <Input
+                  style={{...Fonts.style.profileInput, color:Colors.options}}
                   autoCorrect={false}
                   autoCapitalize="none"
                   keyboardType='numeric'
@@ -120,7 +128,8 @@ export default class ProfileEdit extends Component {
                         </View>
                       </View>
                     </MenuTrigger>
-                    <MenuOptions optionsContainerStyle={styles.dropdownOptions}
+                    <MenuOptions
+                      optionsContainerStyle={styles.dropdownOptions}
                       renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
                       <MenuOption value="Chandigarh">
                         <Text >Chandigarh</Text>
@@ -159,7 +168,8 @@ export default class ProfileEdit extends Component {
                         </View>
                       </View>
                     </MenuTrigger>
-                    <MenuOptions optionsContainerStyle={styles.dropdownOptions}
+                    <MenuOptions
+                      optionsContainerStyle={styles.dropdownOptions}
                       renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
                       <MenuOption value="Chitkara">
                         <Text >CHITKARA</Text>
@@ -198,8 +208,12 @@ export default class ProfileEdit extends Component {
                         </View>
                       </View>
                     </MenuTrigger>
-                    <MenuOptions optionsContainerStyle={styles.dropdownOptions}
-                      renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
+                    <MenuOptions
+                      optionsContainerStyle={styles.dropdownOptions}
+                      renderOptionsContainer={(options) =>
+                        <ScrollView>
+                          {options}
+                        </ScrollView>}>
                       <MenuOption value="ABC">
                         <Text >ABC</Text>
                       </MenuOption>
@@ -226,7 +240,8 @@ export default class ProfileEdit extends Component {
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
                     PARENT'S NAME
                   </Label>
-                  <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                   />
@@ -254,7 +269,8 @@ export default class ProfileEdit extends Component {
                         </View>
                       </View>
                     </MenuTrigger>
-                    <MenuOptions optionsContainerStyle={styles.dropdownOptions}
+                    <MenuOptions
+                      optionsContainerStyle={styles.dropdownOptions}
                       renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
                       <MenuOption value="Father">
                         <Text >Father</Text>
@@ -273,9 +289,10 @@ export default class ProfileEdit extends Component {
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
-                   MOBILE NUMBER
+                    MOBILE NUMBER
                   </Label>
-                  <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                     keyboardType='numeric'
@@ -290,6 +307,12 @@ export default class ProfileEdit extends Component {
               </TouchableOpacity>
             </View>
           </Form>
+
+          <View style={{flex:1, height: 40}}>
+            <ModalDropdown options={['option 1', 'option 2']}>
+              <Text>Testing</Text>
+            </ModalDropdown>
+          </View>
         </View>
       </Content>
     );

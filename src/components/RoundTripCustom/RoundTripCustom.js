@@ -10,10 +10,27 @@ export default class RoundTripCustom extends Component {
   constructor() {
     super();
     this.state = {
+      selectedButtonIndex: 0
     }
   }
 
+  onPressPassenger = (index) =>{
+    this.setState({ selectedButtonIndex: index})
+  };
+
   render(){
+
+    const passenger = [];
+    for (let index = 0; index < 5; index ++){
+      passenger.push(
+        <TouchableOpacity
+          style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
+          onPress={() => this.onPressPassenger(index)}>
+          <Text style={styles.PassengerBtnText}>{index + 1}</Text>
+        </TouchableOpacity>
+      )
+    }
+
     return(
       <View style={{flex:1, backgroundColor: Colors.base }}>
         <Calender />
@@ -23,39 +40,7 @@ export default class RoundTripCustom extends Component {
         <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }}>
           <Row style={{ flex: 1}}>
             <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.passengersBtnText}>1</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.passengersBtnText}>2</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.passengersBtnText}>3</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.passengersBtnText}>4</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.passengersBtnText}>5</Text>
-              </TouchableOpacity>
+              {passenger}
             </CardItem>
           </Row>
         </Card>

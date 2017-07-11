@@ -35,6 +35,24 @@ export default StyleSheet.create({
     alignSelf: 'center'
   },
 
+
+  passengersNumberButton:{
+    height: 30,
+    width: 40,
+    marginLeft: 5,
+    alignItems: 'center',
+    justifyContent:'center'
+  },
+
+  SelectedButton:{
+    height: 30,
+    width: 40,
+    marginLeft: 5,
+    alignItems: 'center',
+    justifyContent:'center',
+    backgroundColor: Colors.selectedCalenderDateColor
+  },
+
   PassengerTextView: {
     flex: 1,
     marginLeft: 40,

@@ -39,7 +39,19 @@ export default StyleSheet.create({
 
   passengersNumberButton:{
     height: 30,
-    width: 25,
+    width: 40,
+    marginLeft: 5,
+    alignItems: 'center',
+    justifyContent:'center'
+  },
+
+  SelectedButton:{
+    height: 30,
+    width: 40,
+    marginLeft: 5,
+    alignItems: 'center',
+    justifyContent:'center',
+    backgroundColor: Colors.selectedCalenderDateColor
   },
 
   cardTitleText: {

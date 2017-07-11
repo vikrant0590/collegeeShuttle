@@ -3,8 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
-  ScrollView
 } from 'react-native';
 import {
   Row,
@@ -12,9 +10,6 @@ import {
   Card,
   CardItem,
   Body,
-  Left,
-  Right,
-  Button
 } from 'native-base';
 import { Colors } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
@@ -25,13 +20,15 @@ export default class RoundTripWeekly extends Component {
   constructor(){
     super();
     this.state = {
-      isPlan : false
+      isPlan : false,
+      selectedButtonIndex: 0
     }
   }
 
-  onPressPassenger = () =>{
-    const pNum = (parseInt(this.swiper.getPage()) + 1);
-    this.swiper.swipeToPage(pNum)
+  onPressPassenger = (index) =>{
+    const pNum = (parseInt(index));
+    this.swiper.swipeToPage(pNum);
+    this.setState({ selectedButtonIndex: index})
   };
 
   onPressWeekPlan = () => {
@@ -39,6 +36,17 @@ export default class RoundTripWeekly extends Component {
   };
 
   render(){
+    const passenger = [];
+    for (let index = 0; index < 5; index ++){
+      passenger.push(
+        <TouchableOpacity
+          style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
+          onPress={() => this.onPressPassenger(index)}>
+          <Text style={styles.PassengerBtnText}>{index + 1}</Text>
+        </TouchableOpacity>
+      )
+    }
+
     const swiperpage = [];
     for(let index = 0; index < 5; index ++){
       swiperpage.push(
@@ -122,42 +130,10 @@ export default class RoundTripWeekly extends Component {
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }}>
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }} key="passenger">
           <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.PassengerBtnText}>1</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 , backgroundColor: Colors.selectedCalenderDateColor}}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.PassengerBtnText}>2</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.PassengerBtnText}>3</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.PassengerBtnText}>4</Text>
-              </TouchableOpacity>
-            </CardItem>
-            <CardItem style={{ marginLeft: 5 }}>
-              <TouchableOpacity
-                style={styles.passengersNumberButton}
-                onPress={this.onPressPassenger}>
-                <Text style={styles.PassengerBtnText}>5</Text>
-              </TouchableOpacity>
+            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between' }}>
+              {passenger}
             </CardItem>
           </Row>
         </Card>

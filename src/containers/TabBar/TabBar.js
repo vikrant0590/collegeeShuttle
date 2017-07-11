@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import { View, } from 'react-native';
 import styles from './TabBarStyles';
-import { BottomTabBar, MyProfile, MyTrips, Setting  } from '../../containers';
+import { BottomTabBar, MyProfile, MyTrips, Setting, Home  } from '../../containers';
 import { Images } from '../../theme';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
@@ -25,7 +25,9 @@ export default class TabBar extends Component {
           />
         }
       >
-        <View tabLabel="HOME" style={styles.tabView} />
+        <View tabLabel="HOME" style={styles.tabView}>
+          <Home />
+        </View>
 
         <View tabLabel="MY TRIPS" style={styles.tabView}>
           <MyTrips />

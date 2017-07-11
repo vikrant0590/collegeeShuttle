@@ -30,6 +30,15 @@ const images = {
   whatsapp: require('../images/whatsapp.png'),
   ellipse: require('../images/ellipse.png'),
   add:require('../images/add.png'),
+  notification: require('../images/notification.png'),
+  roundtriphome: require('../images/roundtriphome.png'),
+  roundtripunivercity: require('../images/roundtripuniversity.png'),
+  roundtripinputicon: require('../images/roundtripinputicon.png'),
+  roundtripaddicon: require('../images/add.png'),
+  roundtripbusicon: require('../images/busIcon.png'),
+  roundtriptrackicon: require('../images/track.png'),
+  inviteaddfriendicon: require('../images/inviteAddFriends.png'),
+  searchicon: require('../images/search.png'),
 
 };
 export default images;

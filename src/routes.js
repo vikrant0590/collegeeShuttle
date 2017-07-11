@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import {
   WalkThrough, Home, SignUp, Login, MyProfile,
-  MyTrips, Setting, ProfileEdit, Packages, TabBar,
+  Setting, ProfileEdit, Packages,
   BuyPackage, FriendList, AllTrips,
+  MyTrips, TabBar, InviteFriend
 } from './containers';
 import { Router, Scene } from 'react-native-router-flux';
 
+import { View, Text } from 'react-native';
 
 export default class AppRouter extends Component {
   render() {
     return (
       <Router
-        navigationBarStyle={{backgroundColor:'#fc214f', borderBottomWidth: 0,}}
-      >
+        navigationBarStyle={{backgroundColor:'#fc214f', borderBottomWidth: 0}} >
         <Scene key="walkThrough" component={WalkThrough} hideNavBar={true} initial/>
         <Scene key="home"  component={Home}  hideNavBar={true}/>
         <Scene key="signUp"  component={SignUp} title="SignUp"/>
@@ -26,8 +27,7 @@ export default class AppRouter extends Component {
         <Scene key="tabbar" component={TabBar} hideNavBar={true}/>
         <Scene key="friendlist" component={FriendList} hideNavBar ={true}/>
         <Scene key="allTrips" component={AllTrips} hideNavBar={true}/>
-
-
+        <Scene key="invitefriend" component={InviteFriend} hideNavBar={true} direction='vertical' />
       </Router>
     );
   }

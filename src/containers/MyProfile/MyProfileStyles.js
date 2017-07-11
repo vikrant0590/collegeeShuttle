@@ -52,8 +52,7 @@ export default StyleSheet.create({
   rightArrow:{
     width:12,
     height:13
-  }
-
+  },
 
 
 });

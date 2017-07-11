@@ -32,7 +32,7 @@ export default class WalkThroughThird extends Component {
             >
               <Text style={styles.registerButtonText}>Register</Text>
             </Button>
-            <Button transparent style={{alignSelf:'center'}}>
+            <Button transparent style={{alignSelf:'center'}} onPress={Navigation.login}>
               <Text style={styles.introText}>Login </Text>
             </Button>
           </View>

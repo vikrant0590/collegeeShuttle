@@ -70,7 +70,11 @@ export default class Login extends Component {
           </StyleProvider>
 
           <View style={styles.loginButtonContainer}>
+<<<<<<< HEAD
+            <TouchableOpacity style={styles.signupButton} >
+=======
             <TouchableOpacity style={styles.signupButton} onPress={NavAction.allTrips}>
+>>>>>>> origin/myprofile
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
           </View>

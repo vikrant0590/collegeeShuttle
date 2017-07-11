@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
+import { StyleSheet, Platform } from 'react-native';
+import { ApplicationStyles, Colors, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -12,6 +12,12 @@ export default StyleSheet.create({
   formFirstRow:{
     flexDirection: 'row',
     marginTop: 10,
+    marginLeft: 5,
+    marginRight: 20,
+    marginBottom: 10
+  },
+  mobileInfo:{
+    flexDirection:'row',
     marginLeft: 5,
     marginRight: 20,
     marginBottom: 10
@@ -41,6 +47,39 @@ export default StyleSheet.create({
   year:{
     flex:0.3,
   },
+
+  contentText: {
+    fontSize: 18
+  },
+  dropView:{
+    flexDirection:'row'
+  },
+  dropbox:{
+    height: 60,
+    marginLeft:12
+  },
+  selectedDropDownOption:{
+    width:Platform.OS === 'ios' ? Metrics.screenWidth-75: Metrics.screenWidth - 145
+  },
+  dropIcon:{
+    marginTop:12
+  },
+  dropIconContainer:{
+    width:10
+  },
+  dropboxInputLine:{
+    height:0.6,
+    backgroundColor:Colors.profileInputHeadingColor
+  },
+  parentsInfo:{
+    marginTop:25,
+    marginLeft:20
+  },
+  addIcon:{
+    marginLeft:15,
+    marginRight:15,
+    marginBottom:15
+  }
 
 
 });

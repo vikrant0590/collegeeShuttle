@@ -1,20 +1,32 @@
 import React,{ Component } from 'react';
-import { View} from 'react-native';
-import { Form, Item, Label, Input,Content } from 'native-base';
-import { Fonts, Colors } from '../../theme';
+import { View, Text,Image, TouchableOpacity} from 'react-native';
+import { Form, Item, Label, Input, Content, Icon, Row, Col } from 'native-base';
+import { Fonts, Colors , Images, Metrics} from '../../theme';
 import styles from './ProfileEditStyle';
+import ModalDropdown from 'react-native-modal-dropdown';
+
 export default class ProfileEdit extends Component {
 
+  constructor(props){
+    super(props);
+    this.state ={
+      hometown: '--CHOOSE--',
+      university:'--CHOOSE--',
+      dropPoint:'--CHOOSE--',
+      relationship:'--CHOOSE--',
+    }
+  }
   render(){
     return (
-      <View style={styles.profileInfo}>
-        <Content>
+      <Content>
+        <View style={styles.profileInfo}>
           <Form>
             <View style={styles.formFirstRow}>
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>FIRST NAME</Label>
-                  <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                   />
@@ -23,7 +35,8 @@ export default class ProfileEdit extends Component {
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>LAST NAME</Label>
-                  <Input style={{...Fonts.style.profileInput, color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput, color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
                   />
@@ -33,7 +46,8 @@ export default class ProfileEdit extends Component {
             <View style={styles.dropdownFieldContainer}>
               <Item stackedLabel style={{height: 60}}>
                 <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>EMAIL</Label>
-                <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                <Input
+                  style={{...Fonts.style.profileInput,  color:Colors.options}}
                   autoCorrect={false}
                   autoCapitalize="none"
                 />
@@ -44,31 +58,38 @@ export default class ProfileEdit extends Component {
                 ...Fonts.style.profileLabel,
                 marginTop: 5, color:Colors.profileInputHeadingColor}}>DATE OF BIRTH</Label>
             </View>
+
             <View style={styles.dobContainer}>
               <View style={styles.dob}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color:Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
+                    maxLength={2}
                   />
                 </Item>
               </View>
               <View style={styles.dob}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color:Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
+                    maxLength={2}
                   />
                 </Item>
               </View>
               <View style={styles.year}>
                 <Item stackedLabel style={{height: 40}}>
-                  <Input style={{...Fonts.style.profileInput,  color: Colors.options}}
+                  <Input
+                    style={{...Fonts.style.profileInput,  color: Colors.options}}
                     autoCorrect={false}
                     autoCaptalize="none"
                     keyboardType='numeric'
+                    maxLength={4}
                   />
                 </Item>
               </View>
@@ -77,7 +98,8 @@ export default class ProfileEdit extends Component {
               <Item stackedLabel style={{height: 60}}>
                 <Label
                   style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>MOBILE NUMBER</Label>
-                <Input style={{...Fonts.style.profileInput, color:Colors.options}}
+                <Input
+                  style={{...Fonts.style.profileInput, color:Colors.options}}
                   autoCorrect={false}
                   autoCapitalize="none"
                   keyboardType='numeric'
@@ -85,28 +107,151 @@ export default class ProfileEdit extends Component {
               </Item>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <Item stackedLabel style={{height: 60}}>
-                <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>HOMETOWN</Label>
-                <Input style={{...Fonts.style.profileInput,  color:Colors.options}}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  disabled
-                />
-              </Item>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  HOME TOWN
+                </Label>
+
+                <ModalDropdown options={['CHANDIGARH', 'MOHALI','PANCHKULLA']}
+                  onSelect={(idx, value)=>this.setState({hometown:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.hometown}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
+                  </View>
+                </ModalDropdown>
+
+                <View style={styles.dropboxInputLine}>
+                </View>
+              </View>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <Item stackedLabel style={{height: 60}}>
-                <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>UNIVERSITY</Label>
-                <Input style={{...Fonts.style.profileInput, color:Colors.options}}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  disabled
-                />
-              </Item>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  UNIVERSITY
+                </Label>
+                <ModalDropdown options={['CHITKARA', 'LOVELY','AMITY']}
+                  onSelect={(idx, value)=>this.setState({university:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.university}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
+                  </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
+                </View>
+              </View>
+            </View>
+            <View style={styles.dropdownFieldContainer}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  DROP POINT
+                </Label>
+                <ModalDropdown options={['CHANDIGARH', 'MOHALI','PANCHKULLA']}
+                  onSelect={(idx, value)=>this.setState({dropPoint:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.dropPoint}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
+                  </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.parentsInfo}>
+              <Text  style={{...Fonts.style.profileForm,color:Colors.profileForm}}>Parents Information</Text>
+            </View>
+            <View style={styles.formFirstRow}>
+              <View style={styles.inputContainer}>
+                <Item stackedLabel style={{height: 60}}>
+                  <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
+                    PARENT'S NAME
+                  </Label>
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                  />
+                </Item>
+              </View>
+            </View>
+            <View style={styles.dropdownFieldContainer}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  RELATIONSHIP
+                </Label>
+                <ModalDropdown options={['FATHER', 'MOTHER','BROTHER']}
+                  onSelect={(idx, value)=>this.setState({relationship:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>
+                          {this.state.relationship}
+                        </Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down"/>
+                      </Col>
+                    </Row>
+                  </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
+                </View>
+              </View>
+            </View>
+            <View style={styles.mobileInfo}>
+              <View style={styles.inputContainer}>
+                <Item stackedLabel style={{height: 60}}>
+                  <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
+                    MOBILE NUMBER
+                  </Label>
+                  <Input
+                    style={{...Fonts.style.profileInput,color:Colors.options}}
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    keyboardType='numeric'
+                  />
+                </Item>
+              </View>
+            </View>
+            <View style={styles.formFirstRow}>
+              <Image source={Images.add} style={styles.addIcon}/>
+              <TouchableOpacity>
+                <Text style={{...Fonts.style.profileForm,color:Colors.profileForm}}>Add Another Person</Text>
+              </TouchableOpacity>
             </View>
           </Form>
-        </Content>
-      </View>
+        </View>
+      </Content>
     );
   }
 }

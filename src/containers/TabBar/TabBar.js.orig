@@ -15,7 +15,10 @@ export default class TabBar extends Component {
     return (
       <ScrollableTabView
         initialPage={2}
+<<<<<<< HEAD
+=======
         locked= {true}
+>>>>>>> origin/myprofile
         tabBarPosition="bottom"
         renderTabBar={() =>
           <BottomTabBar

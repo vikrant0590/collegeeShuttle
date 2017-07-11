@@ -9,9 +9,12 @@ import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
 import TabBar from 'TabBar';
+<<<<<<< HEAD
+=======
 import BuyPackage  from './BuyPackage';
 import FriendList from  './FriendList';
 import AllTrips from './AllTrips';
+>>>>>>> origin/myprofile
 
 export {
   WalkThrough,
@@ -24,8 +27,12 @@ export {
   Setting,
   ProfileEdit,
   Packages,
+<<<<<<< HEAD
+  TabBar
+=======
   TabBar,
   BuyPackage,
   FriendList,
   AllTrips
+>>>>>>> origin/myprofile
 };

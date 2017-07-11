@@ -54,7 +54,8 @@ const colors = {
   activeTab:'#E00034',
   inactiveTab:'#BABABA',
   packageHeadingColor:'#e4344c',
-  profileForm:'#e03234'
+  profileForm:'#e03234',
+  availability:'rgba(68, 68, 68, 0.5)',
 
 
 };

@@ -29,6 +29,8 @@ const images = {
   fb: require('../images/fb.png'),
   whatsapp: require('../images/whatsapp.png'),
   ellipse: require('../images/ellipse.png'),
+  ellipseOuter: require('../images/ellipseOuter.png'),
+  inteligent: require('../images/inteligent.png'),
   add:require('../images/add.png'),
 
 };

@@ -44,6 +44,8 @@ const size = {
   headingText:13,
   price:25,
   tripText:15,
+  distancePoint:10,
+
 };
 
 const style = {
@@ -97,6 +99,18 @@ const style = {
   },
   profileForm:{
     fontSize:size.tripText,
+    fontFamily:lato.base
+  },
+  allTripInfo:{
+    fontSize:size.regular,
+    fontFamily:lato.base
+  },
+  distancePoint:{
+    fontSize:size.distancePoint,
+    fontFamily:lato.light
+  },
+  availabiltyNone:{
+    fontSize:size.medium,
     fontFamily:lato.base
   }
 };

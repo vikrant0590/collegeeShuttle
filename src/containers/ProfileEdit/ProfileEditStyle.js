@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
+import { StyleSheet, Platform } from 'react-native';
+import { ApplicationStyles, Colors, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -41,6 +41,73 @@ export default StyleSheet.create({
   year:{
     flex:0.3,
   },
+  menuTrigger: {
+    flexDirection: 'row',
+    paddingHorizontal: 10
+  },
+  menuTriggerText: {
+    color: 'lightgrey',
+    fontWeight: '600',
+    fontSize: 20
+  },
+  disabled: {
+    color: '#ccc'
+  },
+  divider: {
+    marginVertical: 5,
+    marginHorizontal: 2,
+    borderBottomWidth: 1,
+    borderColor: '#ccc'
+  },
+  content: {
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    paddingTop: 20,
+    paddingBottom: 30,
+    borderColor: '#ccc'
+  },
+  contentText: {
+    fontSize: 18
+  },
+  dropdown: {
+    width: Platform.OS === 'ios' ? Metrics.screenWidth-95 : Metrics.screenWidth - 120 ,
+    borderColor: '#999',
+    padding: 5
+  },
+  dropdownOptions: {
+    marginTop: 0,
+    borderColor: '#ccc',
+    borderWidth: 2,
+    width: 120,
+    height: 115,
+  },
+  dropbox:{
+    height: 60,
+    marginLeft:10
+  },
+  selectedDropDownOption:{
+    width:Platform.OS === 'ios' ? Metrics.screenWidth-75: Metrics.screenWidth - 145
+  },
+  dropIcon:{
+    marginTop:12
+  },
+  dropIconContainer:{
+    width:10
+  },
+  dropboxInputLine:{
+    marginTop:0,
+    height:0.6,
+    backgroundColor:Colors.profileInputHeadingColor
+  },
+  parentsInfo:{
+    marginTop:25,
+    marginLeft:20
+  },
+  addIcon:{
+    marginLeft:15,
+    marginRight:15,
+    marginBottom:15
+  }
 
 
 });

@@ -42,6 +42,8 @@ const size = {
   tiny: 8.5,
   tab:9,
   headingText:13,
+  price:25,
+  tripText:15,
 };
 
 const style = {
@@ -55,7 +57,7 @@ const style = {
   },
   buttonText:{
     fontFamily: lato.base,
-    fontSize:15,
+    fontSize:size.tripText,
   },
   tabText:{
     fontFamily:lato.base,
@@ -80,6 +82,22 @@ const style = {
   secretCode:{
     fontSize:size.h6,
     //fontFamily:"Roboto-Bold"
+  },
+  price:{
+    fontSize:size.price,
+    fontFamily:lato.medium
+  },
+  universityFont:{
+    fontSize:size.medium,
+    fontFamily:lato.light
+  },
+  tripsDetailTextFont:{
+    fontSize:size.tripText,
+    fontFamily:lato.light
+  },
+  profileForm:{
+    fontSize:size.tripText,
+    fontFamily:lato.base
   }
 };
 

@@ -52,7 +52,9 @@ const colors = {
   profileInputHeadingColor:'#A4A4A4',
   headingColor:'#E14F67',
   activeTab:'#E00034',
-  inactiveTab:'#BABABA'
+  inactiveTab:'#BABABA',
+  packageHeadingColor:'#e4344c',
+  profileForm:'#e03234'
 
 
 };

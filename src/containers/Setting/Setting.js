@@ -5,6 +5,7 @@ import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
 import {Colors, Images } from '../../theme';
 import { Platform} from 'react-native';
+import {Actions as NavAction} from 'react-native-router-flux';
 export default class Setting extends Component {
   constructor(props){
     super(props);
@@ -35,7 +36,7 @@ export default class Setting extends Component {
       <Container style={{flex:1}}>
         <Header style={{backgroundColor:Colors.headerColor,borderBottomWidth:0}}>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={NavAction.pop}>
               <Icon name="arrow-back" style={{color:'white'}}/>
             </Button>
           </Left>
@@ -166,7 +167,7 @@ export default class Setting extends Component {
                 </TouchableOpacity>
               </ListItem>
               <ListItem>
-                <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}}>
+                <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} onPress={NavAction.login}>
                   <Left>
                     <Text style={styles.listText}>
                       Logout

@@ -13,11 +13,13 @@ export default class Login extends Component {
     return(
       <Container style={{ flex:1, backgroundColor:Colors.base }}>
         <Content>
+
           <View style={styles.titleContainer}>
             <Text style={styles.titleTextStyle}>
               LOGIN
             </Text>
           </View>
+
           <View style={styles.loginFacebookContainer}>
             <TouchableOpacity style={styles.loginFacebookButton}>
               <View style={styles.facebookButtonImage}>
@@ -28,6 +30,7 @@ export default class Login extends Component {
               </View>
             </TouchableOpacity>
           </View>
+
           <View style={styles.loginGoogleContainer}>
             <TouchableOpacity style={styles.loginGoogleButton}>
               <View style={styles.googleButtonImage}>
@@ -38,6 +41,7 @@ export default class Login extends Component {
               </View>
             </TouchableOpacity>
           </View>
+
           <View style={styles.optionalContainer}>
             <View>
               <Text style={styles.optional}>Not yet Registered?</Text>
@@ -48,6 +52,7 @@ export default class Login extends Component {
               </TouchableOpacity>
             </View>
           </View>
+
           <StyleProvider style={getTheme(material)}>
             <View style={styles.formContainer}>
               <Item>
@@ -63,13 +68,13 @@ export default class Login extends Component {
               </Item>
             </View>
           </StyleProvider>
+
           <View style={styles.loginButtonContainer}>
-            <TouchableOpacity
-              style={styles.signupButton}
-            >
+            <TouchableOpacity style={styles.signupButton} onPress={NavAction.allTrips}>
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
           </View>
+
         </Content>
       </Container>
     );

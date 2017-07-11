@@ -28,6 +28,8 @@ const images = {
   googlePlus: require('../images/googlePlus.png'),
   fb: require('../images/fb.png'),
   whatsapp: require('../images/whatsapp.png'),
+  ellipse: require('../images/ellipse.png'),
+  add:require('../images/add.png'),
 
 };
 export default images;

@@ -7,7 +7,7 @@ export default StyleSheet.create({
     borderTopWidth: 1,
     paddingTop: 5,
     borderBottomWidth: 1,
-    borderColor: '#eee',
+    borderColor: Colors.base,
     height: 350
   },
   text: {
@@ -19,5 +19,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.transparent
-  }
+  },
+
 });

@@ -59,6 +59,9 @@ const colors = {
   tabbarColor: 'rgba(255,255,255,0.6)',
   weekHeaderColor: '#C7C7C7',
   timeColor: '#FF253E',
+  unselectColor: '#E03234',
+  selectedCalenderDateColor: '#E1C23E',
+  calenderheaderColor: 'rgba(0, 0, 0, 0.7)'
 };
 
 export default colors;

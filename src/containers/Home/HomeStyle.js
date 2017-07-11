@@ -97,11 +97,20 @@ export default StyleSheet.create({
   },
 
   textBackgroundView:{
+    flex: 1,
     marginTop: 40,
     marginLeft: 60,
     marginRight: 60,
+    marginBottom: 40,
     backgroundColor: 'white',
     borderRadius: 2.5
+  },
+
+  btnText: {
+    fontSize: Fonts.size.regular,
+    fontFamily: Fonts.lato.base,
+    paddingLeft: 5,
+    textAlign: 'left'
   },
 
   textSeprateLine:{

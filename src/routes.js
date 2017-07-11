@@ -3,10 +3,8 @@ import {
   WalkThrough, Home, SignUp, Login, MyProfile,
   MyTrips, Setting, ProfileEdit, Packages, TabBar, InviteFriend
 } from './containers';
-import { Fonts, Colors } from './theme'
+
 import { Router, Scene } from 'react-native-router-flux';
-import { TouchableOpacity, Text, View } from 'react-native';
-import { Icon } from 'native-base';
 export default class AppRouter extends Component {
   render() {
     return (

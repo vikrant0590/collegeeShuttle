@@ -7,13 +7,12 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: Colors.roundTripWeeklyBGColor
   },
   tabs: {
     height: 40,
     flexDirection: 'row',
-    paddingTop: 5,
     borderWidth: 0,
     borderTopWidth: 0,
     borderLeftWidth: 0,

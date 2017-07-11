@@ -34,6 +34,10 @@ class RoundTripTabBar extends Component {
   //    });
   //   }
 
+  handleChangeTab(){
+
+  }
+
   //color between rgb(59,89,152) and rgb(204,204,204)
   iconColor(progress) {
     const red = 59 + (204 - 59) * progress;
@@ -45,23 +49,25 @@ class RoundTripTabBar extends Component {
   render() {
     const { activeTab, tabTitleText } = this.props;
     console.log('Active tab : ',this.props.activeTab);
-    return <View style={[styles.tabs, this.props.style, ]}>
-      {this.props.tabs.map((tab, i) => {
-        return(
-          <TouchableOpacity
-            key={tab}
-            onPress={() => this.props.goToPage(i)}
-            style={[styles.tab, {borderBottomWidth: 3, borderColor: i === activeTab ? Colors.white : Colors.transparent }]}
-          >
-            <Text
-              style={[styles.tabTextStyle, {color: i === activeTab ? Colors.white :  Colors.base}]}
+    return (
+      <View style={[ styles.tabs, this.props.style ]}>
+        {this.props.tabs.map((tab, i) => {
+          return(
+            <TouchableOpacity
+              key={tab}
+              onPress={() => this.props.goToPage(i)}
+              style={[styles.tab, {borderBottomWidth: 3, borderColor: i === activeTab ? Colors.white : Colors.transparent }]}
             >
-              {tabTitleText[i]}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
-    </View>;
+              <Text
+                style={[styles.tabTextStyle, {color: i === activeTab ? Colors.white :  Colors.base}]}
+              >
+                {tabTitleText[i]}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
   }
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Container, Content, Item, Input } from 'native-base';
+import { Container, Content, Item, Input, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
-import { Images } from '../../theme';
+import { Images, Fonts, Colors } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar } from '../../components';
 // var ScrollableTabView = require('react-native-scrollable-tab-view');
@@ -13,23 +13,36 @@ export default class Home extends Component {
     super();
     this.state = {
       isRoundTrip: true,
+      isOneWay: false,
       isWeekly: false,
+      isSizeDefault: false,
     }
   }
 
 
   onPressRoundTripButton = () => {
-    this.setState({ isRoundTrip: ! this.state.isRoundTrip })
+    if(this.state.isOneWay){
+      this.setState({ isRoundTrip: true, isOneWay: false });
+    }
   };
 
   onPressOneWayButton = () => {
-    this.setState({ isRoundTrip: ! this.state.isRoundTrip })
+    if(this.state.isRoundTrip){
+      this.setState({ isOneWay: true, isRoundTrip: false });
+    }
   };
 
   onPressNotificationButton = () => {
-    this.setState({ isWeekly: !this.state.isWeekly })
+
   };
 
+  onPressUniversityButton = () =>{
+    this.setState({ isWeekly: !this.state.isWeekly });
+  };
+
+  onPressHomeButton = () => {
+
+  };
 
   render(){
     const { isRoundTrip, isWeekly } = this.state;
@@ -59,29 +72,51 @@ export default class Home extends Component {
               </View>
             </View>
             <View style={styles.textBackgroundView}>
-              <Item>
-                <Image source={Images.roundtriphome} style={styles.textIcon} />
-                <Input placeholder='University'/>
-              </Item>
+              <Col>
+                <Row>
+                  <Button
+                    transparent
+                    style={{
+                      flex: 1,
+                      justifyContent: 'flex-start',
+                      alignSelf: 'center'
+                    }}
+                    onPress={this.onPressUniversityButton}>
+                    <Image source={Images.roundtriphome} style={styles.textIcon} />
+                    <Text style={styles.btnText}>University</Text>
+                  </Button>
+                </Row>
+              </Col>
               <LinearGradient colors={['#D32735','#FF214F']} style={styles.textSeprateLine}>
                 <Image source={Images.roundtripinputicon} style={styles.textSepratorIcon} />
               </LinearGradient>
-              <Item>
-                <Image source={Images.roundtripunivercity} style={styles.textIcon} />
-                <Input placeholder='Home'/>
-              </Item>
+              <Col>
+                <Row>
+                  <Button
+                    transparent
+                    style={{
+                      flex: 1,
+                      justifyContent: 'flex-start',
+                      alignSelf: 'center'
+                    }}
+                    onPress={this.onPressHomeButton}>
+                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
+                    <Text style={styles.btnText}>Home</Text>
+                  </Button>
+                </Row>
+              </Col>
             </View>
           </LinearGradient>
           {(isWeekly) ?
             <ScrollableTabView
-              style={{ backgroundColor: '#FF214F', flex: 1 }}
+              style={{ backgroundColor: Colors.base, flex: 1 }}
               initialPage={0}
               locked={true}
-              renderTabBar={() =>
-                <RoundTripTabBar
-                  tabTitleText={['WEEKLY', 'CUSTOM']}
-                />
-              }
+              renderTabBar={() =>{
+                return(
+                  <RoundTripTabBar tabTitleText={['WEEKLY', 'CUSTOM']}/>
+                )
+              }}
             >
               <View tabLabel="WEEKLY" style={styles.tabView} key="weekly">
                 <RoundTripWeekly />

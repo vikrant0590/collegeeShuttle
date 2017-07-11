@@ -73,7 +73,10 @@ export default StyleSheet.create({
     width: Metrics.screenWidth/2,
     alignSelf: 'center',
     justifyContent: 'center',
-    margin: 15,
+    marginTop: 35,
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 15,
     backgroundColor: '#FF214F',
     borderRadius: 26
   },

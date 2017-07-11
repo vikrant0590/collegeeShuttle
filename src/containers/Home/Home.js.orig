@@ -1,0 +1,181 @@
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Container, Content, Item, Input, Button, Col, Row } from 'native-base';
+import styles from './HomeStyle';
+import { Images, Fonts, Colors } from '../../theme';
+import LinearGradient from 'react-native-linear-gradient';
+import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar } from '../../components';
+// var ScrollableTabView = require('react-native-scrollable-tab-view');
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+export default class Home extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      isRoundTrip: true,
+<<<<<<< HEAD
+      isOneWay: false,
+      isWeekly: false,
+      isSizeDefault: false,
+=======
+      isWeekly: false,
+>>>>>>> origin/HomeScreen
+    }
+  }
+
+  onPressRoundTripButton = () => {
+    this.setState({ isRoundTrip: ! this.state.isRoundTrip });
+  };
+
+<<<<<<< HEAD
+  onPressRoundTripButton = () => {
+    if(this.state.isOneWay){
+      this.setState({ isRoundTrip: true, isOneWay: false });
+    }
+  };
+
+  onPressOneWayButton = () => {
+    if(this.state.isRoundTrip){
+      this.setState({ isOneWay: true, isRoundTrip: false });
+    }
+  };
+
+  onPressNotificationButton = () => {
+
+  };
+
+  onPressUniversityButton = () =>{
+    this.setState({ isWeekly: !this.state.isWeekly });
+  };
+
+  onPressHomeButton = () => {
+
+  };
+
+  render(){
+=======
+  onPressOneWayButton = () => {
+    this.setState({ isRoundTrip: ! this.state.isRoundTrip });
+  };
+
+  onPressNotificationButton = () => {
+    this.setState({ isWeekly: !this.state.isWeekly })
+  };
+
+  render() {
+>>>>>>> origin/HomeScreen
+    const { isRoundTrip, isWeekly } = this.state;
+    return(
+      <Container>
+        <Content>
+          <LinearGradient colors={['#D32735','#FF214F']} style={styles.commonConatiner}>
+            <View style={styles.header}>
+              <View style={styles.segmentButton}>
+                <TouchableOpacity
+                  style={(isRoundTrip) ? styles.activeLeftSegmentButton : styles.deactiveLeftSegmentButton }
+                  onPress={this.onPressRoundTripButton}>
+                  <Text style={(isRoundTrip) ? styles.activeSegmentText : styles.deactiveSegmentText }>Round Trip</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={(!isRoundTrip) ? styles.activeLeftSegmentButton : styles.deactiveLeftSegmentButton}
+                  onPress={this.onPressOneWayButton}>
+                  <Text style={(!isRoundTrip) ? styles.activeSegmentText : styles.deactiveSegmentText}>One Way</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={{ flex: 0.2}}>
+                <TouchableOpacity
+                  style={styles.notification}
+                  onPress={this.onPressNotificationButton}>
+                  <Image source={Images.notification} style={styles.notificationIcon} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.textBackgroundView}>
+<<<<<<< HEAD
+              <Col>
+                <Row>
+                  <Button
+                    transparent
+                    style={{
+                      flex: 1,
+                      justifyContent: 'flex-start',
+                      alignSelf: 'center'
+                    }}
+                    onPress={this.onPressUniversityButton}>
+                    <Image source={Images.roundtriphome} style={styles.textIcon} />
+                    <Text style={styles.btnText}>University</Text>
+                  </Button>
+                </Row>
+              </Col>
+              <LinearGradient colors={['#D32735','#FF214F']} style={styles.textSeprateLine}>
+                <Image source={Images.roundtripinputicon} style={styles.textSepratorIcon} />
+              </LinearGradient>
+              <Col>
+                <Row>
+                  <Button
+                    transparent
+                    style={{
+                      flex: 1,
+                      justifyContent: 'flex-start',
+                      alignSelf: 'center'
+                    }}
+                    onPress={this.onPressHomeButton}>
+                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
+                    <Text style={styles.btnText}>Home</Text>
+                  </Button>
+                </Row>
+              </Col>
+=======
+              <Item>
+                <Image source={Images.roundtriphome} style={styles.textIcon} />
+                <Input placeholder='University'/>
+              </Item>
+              <LinearGradient colors={['#D32735','#FF214F']} style={styles.textSeprateLine}>
+                <Image source={Images.roundtripinputicon} style={styles.textSepratorIcon} />
+              </LinearGradient>
+              <Item>
+                <Image source={Images.roundtripunivercity} style={styles.textIcon} />
+                <Input placeholder='Home'/>
+              </Item>
+>>>>>>> origin/HomeScreen
+            </View>
+          </LinearGradient>
+          {(isWeekly) ?
+            <ScrollableTabView
+<<<<<<< HEAD
+              style={{ backgroundColor: Colors.base, flex: 1 }}
+              initialPage={0}
+              locked={true}
+              renderTabBar={() =>{
+                return(
+                  <RoundTripTabBar tabTitleText={['WEEKLY', 'CUSTOM']}/>
+                )
+              }}
+=======
+              style={{ backgroundColor: '#FF214F', flex: 1 }}
+              initialPage={0}
+              locked={true}
+              renderTabBar={() =>
+                <RoundTripTabBar
+                  tabTitleText={['WEEKLY', 'CUSTOM']}
+                />
+              }
+>>>>>>> origin/HomeScreen
+            >
+              <View tabLabel="WEEKLY" style={styles.tabView} key="weekly">
+                <RoundTripWeekly />
+              </View>
+              <View tabLabel="CUSTOM" style={styles.tabView} key="custom">
+                <RoundTripCustom />
+              </View>
+            </ScrollableTabView>
+            :
+            <View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+              <RoundTrip />
+            </View>
+          }
+        </Content>
+      </Container>
+    )
+  }
+}

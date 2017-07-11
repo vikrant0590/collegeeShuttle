@@ -1,8 +1,7 @@
 import React,{ Component } from 'react';
-import { View, ScrollView, Text,Image, TouchableOpacity} from 'react-native';
-import { Form, Item, Label, Input, Content, } from 'native-base';
-import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
-import { Fonts, Colors , Images} from '../../theme';
+import { View, Text,Image, TouchableOpacity} from 'react-native';
+import { Form, Item, Label, Input, Content, Icon, Row, Col } from 'native-base';
+import { Fonts, Colors , Images, Metrics} from '../../theme';
 import styles from './ProfileEditStyle';
 import ModalDropdown from 'react-native-modal-dropdown';
 
@@ -108,127 +107,81 @@ export default class ProfileEdit extends Component {
               </Item>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <MenuContext style={{ flex: 1 }}>
-                <View style={styles.dropbox}>
-                  <Label
-                    style={{...Fonts.style.profileLabel,marginLeft:5,
-                      color: Colors.profileInputHeadingColor,marginBottom:10}}>
-                    HOMETOWN
-                  </Label>
-                  <Menu style={styles.dropdown} onSelect={(value) => this.setState({ hometown: value })}>
-                    <MenuTrigger>
-                      <View style={{flexDirection:"row"}}>
-                        <View style={styles.selectedDropDownOption}>
-                          <Text style={{...Fonts.style.profileInput, color:Colors.options,}}>
-                            {this.state.hometown}
-                          </Text>
-                        </View>
-                        <View style={styles.dropIconContainer}>
-                          <Image source={Images.dropdown} style={styles.dropIcon}/>
-                        </View>
-                      </View>
-                    </MenuTrigger>
-                    <MenuOptions
-                      optionsContainerStyle={styles.dropdownOptions}
-                      renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
-                      <MenuOption value="Chandigarh">
-                        <Text >Chandigarh</Text>
-                      </MenuOption>
-                      <MenuOption value="Mohali">
-                        <Text>Mohali</Text>
-                      </MenuOption>
-                      <MenuOption value="Panchkulla">
-                        <Text>Panchkulla</Text>
-                      </MenuOption>
-                    </MenuOptions>
-                  </Menu>
-                  <View style={styles.dropboxInputLine}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  HOME TOWN
+                </Label>
+
+                <ModalDropdown options={['CHANDIGARH', 'MOHALI','PANCHKULLA']}
+                  onSelect={(idx, value)=>this.setState({hometown:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.hometown}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
                   </View>
+                </ModalDropdown>
+
+                <View style={styles.dropboxInputLine}>
                 </View>
-              </MenuContext>
+              </View>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <MenuContext style={{ flex: 1 }}>
-                <View style={styles.dropbox}>
-                  <Label
-                    style={{...Fonts.style.profileLabel,marginLeft:5,
-                      color: Colors.profileInputHeadingColor,marginBottom:10}}>
-                    UNIVERSITY
-                  </Label>
-                  <Menu style={styles.dropdown} onSelect={(value) => this.setState({ university: value })}>
-                    <MenuTrigger>
-                      <View style={{flexDirection:"row"}}>
-                        <View style={styles.selectedDropDownOption}>
-                          <Text style={{...Fonts.style.profileInput, color:Colors.options,}}>
-                            {this.state.university}
-                          </Text>
-                        </View>
-                        <View style={styles.dropIconContainer}>
-                          <Image source={Images.dropdown} style={styles.dropIcon}/>
-                        </View>
-                      </View>
-                    </MenuTrigger>
-                    <MenuOptions
-                      optionsContainerStyle={styles.dropdownOptions}
-                      renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
-                      <MenuOption value="Chitkara">
-                        <Text >CHITKARA</Text>
-                      </MenuOption>
-                      <MenuOption value="Lovely">
-                        <Text>LOVELY</Text>
-                      </MenuOption>
-                      <MenuOption value="Amity">
-                        <Text>AMITY</Text>
-                      </MenuOption>
-                    </MenuOptions>
-                  </Menu>
-                  <View style={styles.dropboxInputLine}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  UNIVERSITY
+                </Label>
+                <ModalDropdown options={['CHITKARA', 'LOVELY','AMITY']}
+                  onSelect={(idx, value)=>this.setState({university:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.university}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
                   </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
                 </View>
-              </MenuContext>
+              </View>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <MenuContext style={{ flex: 1 }}>
-                <View style={styles.dropbox}>
-                  <Label
-                    style={{...Fonts.style.profileLabel,marginLeft:5,
-                      color: Colors.profileInputHeadingColor,marginBottom:10}}>
-                    DROP POINT
-                  </Label>
-                  <Menu style={styles.dropdown} onSelect={(value) => this.setState({ dropPoint: value })}>
-                    <MenuTrigger>
-                      <View style={{flexDirection:"row"}}>
-                        <View style={styles.selectedDropDownOption}>
-                          <Text style={{...Fonts.style.profileInput, color:Colors.options,}}>
-                            {this.state.dropPoint}
-                          </Text>
-                        </View>
-                        <View style={styles.dropIconContainer}>
-                          <Image source={Images.dropdown} style={styles.dropIcon}/>
-                        </View>
-                      </View>
-                    </MenuTrigger>
-                    <MenuOptions
-                      optionsContainerStyle={styles.dropdownOptions}
-                      renderOptionsContainer={(options) =>
-                        <ScrollView>
-                          {options}
-                        </ScrollView>}>
-                      <MenuOption value="ABC">
-                        <Text >ABC</Text>
-                      </MenuOption>
-                      <MenuOption value="XYZ">
-                        <Text>XYZ</Text>
-                      </MenuOption>
-                      <MenuOption value="ZYX">
-                        <Text>ZYX</Text>
-                      </MenuOption>
-                    </MenuOptions>
-                  </Menu>
-                  <View style={styles.dropboxInputLine}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  DROP POINT
+                </Label>
+                <ModalDropdown options={['CHANDIGARH', 'MOHALI','PANCHKULLA']}
+                  onSelect={(idx, value)=>this.setState({dropPoint:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>{this.state.dropPoint}</Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down" />
+                      </Col>
+                    </Row>
                   </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
                 </View>
-              </MenuContext>
+              </View>
             </View>
 
             <View style={styles.parentsInfo}>
@@ -249,43 +202,33 @@ export default class ProfileEdit extends Component {
               </View>
             </View>
             <View style={styles.dropdownFieldContainer}>
-              <MenuContext style={{ flex: 1 }}>
-                <View style={styles.dropbox}>
-                  <Label
-                    style={{...Fonts.style.profileLabel,marginLeft:5,
-                      color: Colors.profileInputHeadingColor,marginBottom:10}}>
-                    RELATIONSHIP
-                  </Label>
-                  <Menu style={styles.dropdown} onSelect={(value) => this.setState({ relationship: value })}>
-                    <MenuTrigger>
-                      <View style={{flexDirection:"row"}}>
-                        <View style={styles.selectedDropDownOption}>
-                          <Text style={{...Fonts.style.profileInput, color:Colors.options,}}>
-                            {this.state.relationship}
-                          </Text>
-                        </View>
-                        <View style={styles.dropIconContainer}>
-                          <Image source={Images.dropdown} style={styles.dropIcon}/>
-                        </View>
-                      </View>
-                    </MenuTrigger>
-                    <MenuOptions
-                      optionsContainerStyle={styles.dropdownOptions}
-                      renderOptionsContainer={(options) => <ScrollView>{options}</ScrollView>}>
-                      <MenuOption value="Father">
-                        <Text >Father</Text>
-                      </MenuOption>
-                      <MenuOption value="Mother">
-                        <Text>Mother</Text>
-                      </MenuOption>
-                    </MenuOptions>
-                  </Menu>
-                  <View style={styles.dropboxInputLine}>
+              <View style={styles.dropbox}>
+                <Label
+                  style={{...Fonts.style.profileLabel,marginLeft:3,
+                    color: Colors.profileInputHeadingColor,marginBottom:10}}>
+                  RELATIONSHIP
+                </Label>
+                <ModalDropdown options={['FATHER', 'MOTHER','BROTHER']}
+                  onSelect={(idx, value)=>this.setState({relationship:value})}
+                  dropdownStyle={{width:Metrics.screenWidth - 55, height:110}}>
+                  <View style={styles.dropView}>
+                    <Row>
+                      <Col style={{flex:0.99}}>
+                        <Text style={{...Fonts.style.profileInput,color:Colors.options}}>
+                          {this.state.relationship}
+                        </Text>
+                      </Col>
+                      <Col style={{flex:0.09}}>
+                        <Icon name="arrow-down"/>
+                      </Col>
+                    </Row>
                   </View>
+                </ModalDropdown>
+                <View style={styles.dropboxInputLine}>
                 </View>
-              </MenuContext>
+              </View>
             </View>
-            <View style={styles.formFirstRow}>
+            <View style={styles.mobileInfo}>
               <View style={styles.inputContainer}>
                 <Item stackedLabel style={{height: 60}}>
                   <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
@@ -307,12 +250,6 @@ export default class ProfileEdit extends Component {
               </TouchableOpacity>
             </View>
           </Form>
-
-          <View style={{flex:1, height: 40}}>
-            <ModalDropdown options={['option 1', 'option 2']}>
-              <Text>Testing</Text>
-            </ModalDropdown>
-          </View>
         </View>
       </Content>
     );

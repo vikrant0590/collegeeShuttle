@@ -119,7 +119,7 @@ export default StyleSheet.create({
   },
 
   textSepratorIcon:{
-    right: -190,
+    marginLeft: Metrics.screenWidth/2,
     top: -12,
     justifyContent: 'center'
   },

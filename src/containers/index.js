@@ -10,6 +10,8 @@ import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
 import TabBar from './TabBar';
 import InviteFriend from './InviteFriend';
+import HelpSupport from './HelpSupport';
+import Offers from './Offers';
 
 export {
   WalkThrough,
@@ -23,5 +25,7 @@ export {
   ProfileEdit,
   Packages,
   TabBar,
-  InviteFriend
+  InviteFriend,
+  HelpSupport,
+  Offers
 };

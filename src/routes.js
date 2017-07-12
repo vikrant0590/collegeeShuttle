@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {
   WalkThrough, Home, SignUp, Login, MyProfile,
-  MyTrips, Setting, ProfileEdit, Packages, TabBar, InviteFriend
+  MyTrips, Setting, ProfileEdit, Packages, TabBar,
+  InviteFriend,
+  HelpSupport,
+  Offers
 } from './containers';
 
 import { Router, Scene } from 'react-native-router-flux';
@@ -22,7 +25,8 @@ export default class AppRouter extends Component {
         <Scene key="packages" component={Packages} hideNavBar={true}/>
         <Scene key="tabbar" component={TabBar} hideNavBar={true}/>
         <Scene key="invitefriend" component={InviteFriend} hideNavBar={true}  direction='vertical' />
-
+        <Scene key="offers" component={Offers} hideNavBar={true}  direction='vertical' />
+        <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
       </Router>
     );
   }

@@ -63,8 +63,8 @@ export default class RoundTrip extends Component {
                 <Text style={styles.trackText}>Track Now</Text>
               </TouchableOpacity>
             </Body>
-            <Body style={{ marginTop: 30, marginBottom: 20 }}>
-              <View style={{ flex: 1, marginRight: 10 }}>
+            <Body style={{ marginTop: 30, marginBottom: 20, marginRight: 10 }}>
+              <View style={styles.inviteView}>
                 <TouchableOpacity
                   style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                   onPress={this.onPressInviteButton}>
@@ -81,9 +81,9 @@ export default class RoundTrip extends Component {
           <Col>
             <Row>
               <CardItem header>
-                <Body>
+                <Body style={{ right: 10 }}>
                   <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor }}>30% OFF</Text> on your booking</Text>
+                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
                 </Body>
               </CardItem>
             </Row>
@@ -94,9 +94,9 @@ export default class RoundTrip extends Component {
                 </Text>
               </CardItem>
             </Row>
-            <Row style={{ top: -20 }}>
-              <CardItem button>
-                <Body>
+            <Row style={{ marginRight: 10 }}>
+              <CardItem>
+                <Body >
                   <Image source={Images.roundtripbusicon} style={styles.busIcon} />
                 </Body>
               </CardItem>

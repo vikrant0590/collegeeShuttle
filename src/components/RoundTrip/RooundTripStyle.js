@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
@@ -122,9 +122,18 @@ export default StyleSheet.create({
   },
 
   busIcon:{
-    marginLeft: -15,
     marginRight: 20,
-    marginTop: 20
+    marginTop: 20,
+    resizeMode: 'contain',
+    ...Platform.select({
+      ios: {
+        aspectRatio:(Metrics.screenWidth === 320) ?  6.5 :  9.5,
+        marginLeft:(Metrics.screenWidth === 320) ?  - Metrics.screenWidth/22 : - Metrics.screenWidth/13,
+      },
+      android:{
+        //set icon and text style...
+      }
+    }),
   },
 
   headerDesText: {
@@ -134,7 +143,7 @@ export default StyleSheet.create({
 
   tripicon: {
     height: 34,
-    width: 40,
+    width: 38,
     resizeMode: 'contain',
     marginLeft: 10,
     alignSelf: 'center'
@@ -144,8 +153,14 @@ export default StyleSheet.create({
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
     color: Colors.settingHeadingTextColor,
-    paddingLeft: 15
-  }
+    paddingLeft: 15,
+  },
+
+  inviteView: {
+    flex: 1,
+    marginRight: Metrics.screenWidth/ 6,
+    aspectRatio: 9.5
+  },
 
 
 

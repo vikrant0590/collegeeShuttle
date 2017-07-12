@@ -39,9 +39,16 @@ export default class MyTrips extends Component {
     const swiperpage = [];
     for(let index = 0; index < 2; index ++){
       swiperpage.push(
-        <Card style={{ flex: 1, marginLeft: 15, marginRight: 15, marginTop: 15 }} key="swiperpage">
-          <Row style={{ flex: 1 }}>
-            <Col style={{ flex: 0.85 }}>
+        <Card
+          style={{
+            flex: 1,
+            marginLeft: 15,
+            marginRight: 15,
+            marginTop: 15,
+            width: Metrics.screenWidth - 30
+          }} key="swiperpage">
+          <Row style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
+            <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
                 <Body
                   style={{ alignItems: 'center' }}>
@@ -51,15 +58,15 @@ export default class MyTrips extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ flex: 0.05, marginTop: 20, marginBottom: 20, marginLeft: 5, marginRight: 5 }}>
-              <View style={{ width: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 }}>
+              <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
             </Col>
-            <Col style={{ flex: 1.1 }}>
-              <Row style={{ flex: 0.65 }}>
+            <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
+              <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
                 <Col style={{ flex: 0.85 }}>
                   <CardItem>
                     <Body style={{ justifyContent: 'flex-start' }}>
-                      <Row>
+                      <Row style={{ flex: 1, marginRight: 10}}>
                         <Text style={styles.myTripUpcomingText}>Upcoming Trip</Text>
                         <Icon
                           name='ios-help-circle-outline'
@@ -68,16 +75,22 @@ export default class MyTrips extends Component {
                             color: Colors.black,
                             justifyContent: 'center',
                             top: 3,
-                            left: 50
+                            left: Metrics.screenWidth/2 - Metrics.screenWidth/2.5,
                           }}
                         />
                       </Row>
-                      <Text style={styles.myTripUniversityText}>University - Home </Text>
+                      <Text style={styles.myTripUniversityText}>University - Home</Text>
                     </Body>
                   </CardItem>
                 </Col>
               </Row>
-              <Row style={{ flex: 0.25,  alignItems: 'flex-end', justifyContent: 'center', marginRight: 10}}>
+              <Row
+                style={{
+                  flex: 0.15,
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  width: Metrics.screenWidth/ 2
+                }}>
                 <CardItem>
                   <Body style={{ }}>
                     <TouchableOpacity
@@ -89,7 +102,13 @@ export default class MyTrips extends Component {
                   </Body>
                 </CardItem>
               </Row>
-              <Row style={{ flex: 0.25, alignItems: 'flex-end', marginRight: 10 }}>
+              <Row
+                style={{
+                  marginBottom: 10,
+                  marginTop: -10,
+                  alignItems: 'flex-start',
+                  marginRight: 10
+                }}>
                 <CardItem>
                   <Body style={{ alignItems: 'flex-end' }}>
                     <TouchableOpacity
@@ -147,20 +166,19 @@ export default class MyTrips extends Component {
           <View style={styles.completedTripView}>
             <Text style={styles.completedTripText}>Completed Trips</Text>
           </View>
-          <View style={{  }}>
+          <View style={{ flex: 1 }}>
             <List
               dataArray={items}
               style={{}}
               renderRow={(item) =>{
                 return(
-                  <ListItem style={{borderBottomWidth: 0}}>
+                  <ListItem style={{borderBottomWidth: 0, flex: 1 }}>
                     <MyTripCell />
                   </ListItem>
                 )}
               }>
             </List>
           </View>
-
         </Content>
       </Container>
     )

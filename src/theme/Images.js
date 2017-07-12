@@ -39,4 +39,5 @@ const images = {
   searchicon: require('../images/search.png'),
 
 };
+
 export default images;

@@ -24,10 +24,10 @@ export default StyleSheet.create({
   },
 
   myTripUniversityText: {
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
-    paddingTop: 5,
+    paddingTop: 15,
   },
 
   myTripTrackText:{
@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
 
   myTripUpcomingText: {
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.thin,
     color: Colors.black,
     paddingTop: 5,

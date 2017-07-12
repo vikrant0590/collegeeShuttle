@@ -5,6 +5,8 @@ import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
 import {Colors, Images } from '../../theme';
 import { Platform} from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
 export default class Setting extends Component {
   constructor(props){
     super(props);
@@ -19,18 +21,22 @@ export default class Setting extends Component {
       switch1: !this.state.switch1,
     });
   };
-    switchValue2 =() => {
-      this.setState({
-        switch2: !this.state.switch2,
-      });
-    };
-      switchValue3 = () => {
-        this.setState({
-          switch3: !this.state.switch3,
-        });
-      };
+  switchValue2 =() => {
+    this.setState({
+      switch2: !this.state.switch2,
+    });
+  };
+  switchValue3 = () => {
+    this.setState({
+      switch3: !this.state.switch3,
+    });
+  };
 
-      render(){
+  onPressTermAndCondition = () => {
+    Actions.helpsupport();
+  };
+
+  render(){
     return(
       <Container style={{flex:1}}>
         <Header style={{backgroundColor:Colors.headerColor,borderBottomWidth:0}}>
@@ -154,7 +160,10 @@ export default class Setting extends Component {
                 </TouchableOpacity>
               </ListItem>
               <ListItem>
-                <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+                <TouchableOpacity
+                  hitSlop={{top:10,bottom:10,right:300}}
+                  style={{flexDirection:'row'}}
+                  onPress={this.onPressTermAndCondition}>
                   <Left>
                     <Text style={styles.listText}>
                       Terms and Condition

@@ -7,6 +7,7 @@ import RoundTripCustom from './RoundTripCustom';
 import Calender from './Calender';
 import InviteFriendCell from './InviteFriendCell';
 import RoundTripTabBar from './RoundTripTabBar';
+import MyTripCell from './MyTripCell';
 
 export {
   WalkThroughFirst,
@@ -17,5 +18,6 @@ export {
   RoundTripCustom,
   Calender,
   InviteFriendCell,
-  RoundTripTabBar
+  RoundTripTabBar,
+  MyTripCell
 };

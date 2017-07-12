@@ -13,12 +13,18 @@ import {
   Row,
   Card,
   CardItem,
+  List,
+  ListItem
 } from 'native-base';
-import { Text, Image } from 'react-native';
+import { Text, Image, TouchableOpacity, View } from 'react-native';
 import SwipeMyTrip from 'react-native-swipe-a-lot';
 import styles from './MyTripsStyles';
-import { Colors } from '../../theme';
+import { Colors, Images, Metrics, Fonts } from '../../theme';
+import { MyTripCell } from '../../components';
 
+
+// dummy data array ...
+const items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
 
 export default class MyTrips extends Component {
 
@@ -33,40 +39,67 @@ export default class MyTrips extends Component {
     const swiperpage = [];
     for(let index = 0; index < 2; index ++){
       swiperpage.push(
-        <Card style={{ flex: 1, marginLeft: 15, marginRight: 15, marginTop: 15, marginBottom: 5 }} key="swiperpage">
+        <Card style={{ flex: 1, marginLeft: 15, marginRight: 15, marginTop: 15 }} key="swiperpage">
           <Row style={{ flex: 1 }}>
             <Col style={{ flex: 0.85 }}>
               <CardItem>
                 <Body
-                  style={{
-                    alignItems: 'center',
-                    borderRightColor: Colors.thinLineColor,
-                    borderRightWidth: 1.5,
-                    marginBottom: 5,
-                    marginTop: 5
-                  }}>
+                  style={{ alignItems: 'center' }}>
                   <Text style={styles.myTripDateText}>25</Text>
                   <Text style={styles.myTripDayText}>Friday</Text>
                   <Text style={styles.monthWeekText}>Feb, 2017</Text>
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ flex: 1.15 }}>
-              <Row style={{ flex: 1 }}>
+            <Col style={{ flex: 0.05, marginTop: 20, marginBottom: 20, marginLeft: 5, marginRight: 5 }}>
+              <View style={{ width: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+            </Col>
+            <Col style={{ flex: 1.1 }}>
+              <Row style={{ flex: 0.65 }}>
+                <Col style={{ flex: 0.85 }}>
+                  <CardItem>
+                    <Body style={{ justifyContent: 'flex-start' }}>
+                      <Row>
+                        <Text style={styles.myTripUpcomingText}>Upcoming Trip</Text>
+                        <Icon
+                          name='ios-help-circle-outline'
+                          style={{
+                            fontSize: 22,
+                            color: Colors.black,
+                            justifyContent: 'center',
+                            top: 3,
+                            left: 50
+                          }}
+                        />
+                      </Row>
+                      <Text style={styles.myTripUniversityText}>University - Home </Text>
+                    </Body>
+                  </CardItem>
+                </Col>
+              </Row>
+              <Row style={{ flex: 0.25,  alignItems: 'flex-end', justifyContent: 'center', marginRight: 10}}>
                 <CardItem>
-                  <Body style={{ justifyContent: 'flex-start' }}>
-                    <Text style={styles.dateWeekText}>Upcoming Trip</Text>
-                    <Text style={styles.myTripDayText}>University - Home </Text>
+                  <Body style={{ }}>
+                    <TouchableOpacity
+                      style={styles.myTripTrackNowBtn}
+                      onPress={this.onPressRoundTripButton}>
+                      <Image source={Images.roundtriptrackicon} style={styles.myTripTrackIcon} />
+                      <Text style={styles.myTripTrackText}>Track Now</Text>
+                    </TouchableOpacity>
                   </Body>
                 </CardItem>
               </Row>
-              <Row style={{ flex: 1 }}>
+              <Row style={{ flex: 0.25, alignItems: 'flex-end', marginRight: 10 }}>
                 <CardItem>
-                  <Body style={{ alignItems: 'center' }}>
-                    <Row style={{ flex: 1, marginLeft: 10 }}>
-                      <Text style={styles.dateWeekText}>27</Text>
-                      <Text style={styles.myTripDayText}>Track Now</Text>
-                    </Row>
+                  <Body style={{ alignItems: 'flex-end' }}>
+                    <TouchableOpacity
+                      style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
+                      onPress={this.onPressInviteButton}>
+                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
+                      <Image source={Images.roundtripaddicon} style={styles.myTripInviteIcon} />
+                    </TouchableOpacity>
                   </Body>
                 </CardItem>
               </Row>
@@ -92,11 +125,42 @@ export default class MyTrips extends Component {
         </Header>
         <Content>
           <SwipeMyTrip
-            circleDefaultStyle = {styles.swipeCircleStyle}
+            circleDefaultStyle = {{
+              backgroundColor: Colors.thinLineColor,
+              height: 10,
+              width: 10,
+              borderRadius: 5,
+              marginTop: Metrics.screenHeight/14
+            }}
             style = {{ backgroundColor: Colors.base }}
-            circleActiveStyle = {styles.swipeCircleActiveStyle}>
+            circleActiveStyle = {{
+              backgroundColor: Colors.timeColor,
+              height: 10,
+              width: 10,
+              borderRadius: 5,
+              marginTop: Metrics.screenHeight/14,
+              marginHorizontal: 2.5,
+              marginVertical: 3
+            }}>
             {swiperpage}
           </SwipeMyTrip>
+          <View style={styles.completedTripView}>
+            <Text style={styles.completedTripText}>Completed Trips</Text>
+          </View>
+          <View style={{  }}>
+            <List
+              dataArray={items}
+              style={{}}
+              renderRow={(item) =>{
+                return(
+                  <ListItem style={{borderBottomWidth: 0}}>
+                    <MyTripCell />
+                  </ListItem>
+                )}
+              }>
+            </List>
+          </View>
+
         </Content>
       </Container>
     )

@@ -11,7 +11,7 @@ import {
   CardItem,
   Body,
 } from 'native-base';
-import { Colors } from '../../theme';
+import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import SwipeWeekly from 'react-native-swipe-a-lot';
 
@@ -50,9 +50,19 @@ export default class RoundTripWeekly extends Component {
     const swiperpage = [];
     for(let index = 0; index < 5; index ++){
       swiperpage.push(
-        <TouchableOpacity style={{ flex: 1}} onPress = {this.onPressWeekPlan}  key="swiperpage">
-          <Card style={{ marginLeft: 15, marginRight: 15, marginTop: 15, bottom : 0 }}>
-            <Col style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={{
+            flex: 1,
+            width: Metrics.screenWidth - 30,
+            marginLeft: 15,
+            marginRight: 15,
+            marginTop: 15,
+            bottom : 0
+          }}
+          onPress = {this.onPressWeekPlan}
+          key="swiperpage">
+          <Card style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
+            <Col style={{ flex: 1, width: Metrics.screenWidth -30 }}>
               <Row style={{ height: 40 }}>
                 {(this.state.isPlan) ?
                   <CardItem

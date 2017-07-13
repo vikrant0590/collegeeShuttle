@@ -36,6 +36,10 @@ export default class Setting extends Component {
     Actions.helpsupport();
   };
 
+  onPressOffers = () => {
+    Actions.offers();
+  };
+
   render(){
     return(
       <Container style={{flex:1}}>
@@ -148,7 +152,10 @@ export default class Setting extends Component {
                 </TouchableOpacity>
               </ListItem>
               <ListItem>
-                <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+                <TouchableOpacity
+                  hitSlop={{top:10,bottom:10,right:300}}
+                  style={{flexDirection:'row'}}
+                  onPress={this.onPressOffers}>
                   <Left>
                     <Text style={styles.listText}>
                     About Us

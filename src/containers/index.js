@@ -12,6 +12,7 @@ import TabBar from './TabBar';
 import InviteFriend from './InviteFriend';
 import HelpSupport from './HelpSupport';
 import Offers from './Offers';
+import Payment from './Payment';
 
 export {
   WalkThrough,
@@ -27,5 +28,6 @@ export {
   TabBar,
   InviteFriend,
   HelpSupport,
-  Offers
+  Offers,
+  Payment
 };

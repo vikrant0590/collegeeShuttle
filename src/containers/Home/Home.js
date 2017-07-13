@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Container, Content, Item, Input, Button, Col, Row } from 'native-base';
+import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
-import { Images, Fonts, Colors } from '../../theme';
+import { Images, Colors } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
-import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar } from '../../components';
-// var ScrollableTabView = require('react-native-scrollable-tab-view');
+import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar, OfferBox, PaymentFailed, PaymentSuccess } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {
 
@@ -33,7 +32,7 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
-
+    this.onPressPaymentSuccessBox();
   };
 
   onPressUniversityButton = () =>{
@@ -42,6 +41,18 @@ export default class Home extends Component {
 
   onPressHomeButton = () => {
 
+  };
+
+  onPressDialogBox = () => {
+    this.refs.offerbox.showDialog()
+  };
+
+  onPressPaymentFailedBox = () =>{
+    this.refs.paymentfailed.showDialogPaymentFailed();
+  };
+
+  onPressPaymentSuccessBox = () =>{
+    this.refs.paymentsuccess.showDialogPaymentSuccess();
   };
 
   render(){
@@ -131,6 +142,9 @@ export default class Home extends Component {
             </View>
           }
         </Content>
+        <OfferBox ref="offerbox"/>
+        <PaymentFailed ref="paymentfailed" />
+        <PaymentSuccess ref="paymentsuccess" />
       </Container>
     )
   }

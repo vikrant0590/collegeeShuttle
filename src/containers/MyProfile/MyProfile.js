@@ -65,8 +65,7 @@ export default class MyProfile extends Component {
         NavAction.packages();
         break;
       case 4:
-
-
+        NavAction.payment();
         break;
       case 5:
 

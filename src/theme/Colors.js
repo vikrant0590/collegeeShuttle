@@ -61,7 +61,9 @@ const colors = {
   timeColor: '#FF253E',
   unselectColor: '#E03234',
   selectedCalenderDateColor: '#E1C23E',
-  calenderheaderColor: 'rgba(0, 0, 0, 0.7)'
+  calenderheaderColor: 'rgba(0, 0, 0, 0.7)',
+  validationBGColor: '#FFC74D',
+  offerContentColor: '#F4F4F4'
 };
 
 export default colors;

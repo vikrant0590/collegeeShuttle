@@ -4,7 +4,8 @@ import {
   MyTrips, Setting, ProfileEdit, Packages, TabBar,
   InviteFriend,
   HelpSupport,
-  Offers
+  Offers,
+  Payment
 } from './containers';
 
 import { Router, Scene } from 'react-native-router-flux';
@@ -27,6 +28,7 @@ export default class AppRouter extends Component {
         <Scene key="invitefriend" component={InviteFriend} hideNavBar={true}  direction='vertical' />
         <Scene key="offers" component={Offers} hideNavBar={true}  direction='vertical' />
         <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
+        <Scene key="payment" component={Payment} hideNavBar={true}/>
       </Router>
     );
   }

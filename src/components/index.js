@@ -8,6 +8,10 @@ import Calender from './Calender';
 import InviteFriendCell from './InviteFriendCell';
 import RoundTripTabBar from './RoundTripTabBar';
 import MyTripCell from './MyTripCell';
+import OfferBox from './OfferModalBox';
+import PaymentFailed from './PaymentfailedBox';
+import PaymentSuccess from './PaymentSuccessBox';
+
 
 export {
   WalkThroughFirst,
@@ -19,5 +23,8 @@ export {
   Calender,
   InviteFriendCell,
   RoundTripTabBar,
-  MyTripCell
+  MyTripCell,
+  OfferBox,
+  PaymentFailed,
+  PaymentSuccess
 };

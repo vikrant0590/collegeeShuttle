@@ -31,7 +31,11 @@ const images = {
   ellipse: require('../images/ellipse.png'),
   ellipseOuter: require('../images/ellipseOuter.png'),
   inteligent: require('../images/inteligent.png'),
-  add:require('../images/add.png'),
+  add: require('../images/add.png'),
+  fullStar: require('../images/fullStar.png'),
+  halfStar: require('../images/halfStar.png'),
+  checkbox: require('../images/checkbox.png'),
+  tick: require('../images/tick.png'),
 
 };
 export default images;

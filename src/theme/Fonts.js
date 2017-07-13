@@ -35,7 +35,6 @@ const size = {
   h4: 26,
   h5: 20,
   h6: 18,
-  input: 18,
   regular: 17,
   medium: 14,
   small: 12,
@@ -112,6 +111,10 @@ const style = {
   availabiltyNone:{
     fontSize:size.medium,
     fontFamily:lato.base
+  },
+  rating:{
+    fontSize:size.headingText,
+    fontFamily:lato.light
   }
 };
 

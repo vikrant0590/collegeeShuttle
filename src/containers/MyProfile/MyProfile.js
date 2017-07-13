@@ -23,6 +23,7 @@ export default class MyProfile extends Component {
       friendlist:false,
     }
   }
+
   onPress = (item) => {
     if(item.index === 0){
       this.setState({
@@ -52,12 +53,14 @@ export default class MyProfile extends Component {
       })
     }
   };
+
   saveData=()=>{
     this.setState({
       profileDetail:false,
       list:true
     })
   };
+
   friendList = () => {
     this.setState({
       friendlist: false,
@@ -65,6 +68,7 @@ export default class MyProfile extends Component {
       myprofile:true
     })
   };
+
   buyPackage =() => {
     this.setState({
       buyPackage:false,
@@ -79,6 +83,7 @@ export default class MyProfile extends Component {
       list:true
     })
   };
+
   myprofile = () =>{
     if(this.state.profileDetail === true){
       this.setState({

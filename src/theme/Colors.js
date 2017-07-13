@@ -56,6 +56,8 @@ const colors = {
   packageHeadingColor:'#e4344c',
   profileForm:'#e03234',
   availability:'rgba(68, 68, 68, 0.5)',
+  reminderButtonColor:'#e0253e'
+
 
 
 };

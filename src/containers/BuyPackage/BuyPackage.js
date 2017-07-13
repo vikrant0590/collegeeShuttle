@@ -9,12 +9,14 @@ export default class BuyPackage extends  Component {
 
   static get propTypes() {
     return {
-      isActive:PropTypes.any
+      isActive:PropTypes.func
     };
   }
+
   back = () => {
     this.props.isActive();
   };
+
   render(){
 
     return(

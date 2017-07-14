@@ -18,7 +18,7 @@ export default class Packages extends  Component {
 
   render(){
     return(
-      <Container style={{flex: 1,backgroundColor:Colors.base}}>
+      <Container style={{backgroundColor:Colors.base}}>
         <Header style={{backgroundColor: Colors.headerColor, borderBottomWidth: 0,
           shadowOffset:{height:0,width:0},shadowOpacity:0}}>
           <Left>
@@ -32,40 +32,39 @@ export default class Packages extends  Component {
           <Right>
           </Right>
         </Header>
-        <View style={styles.offerContainer}>
-          <Image source={Images.offer}/>
-        </View>
-        <View style={styles.headingTextContainer}>
-          <Text style={styles.headingText}>Earn upto $100</Text>
-        </View>
-        <View style={styles.instructionContainer}>
-          <Text style={styles.instruction}>You will get $1 when your friends</Text>
-          <Text style={styles.instruction}>Sign Up and travel a ride</Text>
-        </View>
-        <View style={styles.offerContainer}>
-          <Text style={styles.codelabel}>YOUR CODE</Text>
-        </View>
-        <View style={styles.secrets}>
-          <Text style={styles.secretCode}>CHD3146</Text>
-        </View>
-        <View style={styles.linkLabel}>
-          <Text style={styles.codelabel}>YOUR LINK</Text>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity>
-            <Text style={styles.linkk}>www.collegeshuttle.com/CHD3146</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity>
-            <Image source={Images.whatsapp} style={styles.icon}/>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={Images.fb} style={styles.icon}/>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={Images.googlePlus}/>
-          </TouchableOpacity>
+
+        <View style={styles.container}>
+          <View style={{flex:1, marginTop:20,justifyContent:'center',alignItems:'center'}}>
+            <Image source={Images.offer}/>
+          </View>
+
+          <View style={styles.noticeField}>
+            <Text style={styles.headingText}>Earn upto $100</Text>
+            <Text style={styles.instruction}>You will get $1 when your friends</Text>
+            <Text style={styles.instruction}>Sign Up and travel a ride</Text>
+          </View>
+
+          <View style={styles.codeField}>
+            <Text style={styles.codelabel}>YOUR CODE</Text>
+            <Text style={styles.secretCode}>CHD3146</Text>
+            <Text style={styles.codelabel}>YOUR LINK</Text>
+            <TouchableOpacity>
+              <Text style={styles.links}>www.collegeshuttle.com/CHD3146</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.iconField}>
+            <TouchableOpacity>
+              <Image source={Images.whatsapp} style={styles.icon}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={Images.fb} style={styles.icon}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={Images.googlePlus}/>
+            </TouchableOpacity>
+          </View>
+
         </View>
       </Container>
     )

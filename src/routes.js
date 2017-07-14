@@ -27,7 +27,6 @@ export default class AppRouter extends Component {
         <Scene key="friendlist" component={FriendList} hideNavBar ={true}/>
         <Scene key="allTrips" component={AllTrips} hideNavBar={true}/>
 
-
       </Router>
     );
   }

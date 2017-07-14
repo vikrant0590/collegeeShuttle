@@ -13,7 +13,7 @@ export default StyleSheet.create({
     fontSize: Fonts.size.h1,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
-    padding: 5,
+    paddingTop: 5,
     alignSelf: 'center'
   },
 

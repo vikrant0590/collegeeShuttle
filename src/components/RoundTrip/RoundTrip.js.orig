@@ -5,7 +5,10 @@ import styles from './RooundTripStyle';
 import { Colors, Images } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/MyTripScreen
 export default class RoundTrip extends Component {
 
   constructor(){

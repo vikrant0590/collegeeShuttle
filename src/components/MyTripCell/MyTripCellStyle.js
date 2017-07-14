@@ -4,6 +4,10 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
 
+  myTripCellContainer: {
+    flex: 1
+  },
+
   myTripDateText: {
     fontSize: Fonts.size.h2,
     fontFamily: Fonts.lato.base,
@@ -13,7 +17,7 @@ export default StyleSheet.create({
   },
 
   myTripDayText: {
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.thin,
     color: Colors.black,
     padding: 8,
@@ -29,7 +33,7 @@ export default StyleSheet.create({
   myTripTrackText:{
     paddingLeft: 10,
     fontSize: Fonts.size.medium,
-    fontFamily: Fonts.lato.base,
+    fontFamily: Fonts.lato.regular,
     color: Colors.roundTripColor
   },
 
@@ -40,7 +44,7 @@ export default StyleSheet.create({
   },
 
   myTripUpcomingText: {
-    fontSize: Fonts.size.h6,
+    fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.thin,
     color: Colors.black,
     paddingTop: 5,
@@ -52,27 +56,5 @@ export default StyleSheet.create({
     height: 15,
     width: 15
   },
-
-  myTripInviteIcon: {
-    height: 20,
-    width: 18,
-    resizeMode: 'contain',
-    marginLeft: 10,
-    alignSelf: 'center'
-  },
-
-  completedTripText:{
-    fontSize: Fonts.size.h5,
-    fontFamily: Fonts.lato.regular,
-    color: Colors.unselectColor
-  },
-
-  completedTripView:{
-    marginTop: Metrics.screenHeight/12,
-    marginLeft: 15,
-    marginBottom: 15
-  },
-
-
 
 });

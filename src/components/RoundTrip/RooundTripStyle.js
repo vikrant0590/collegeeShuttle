@@ -127,9 +127,26 @@ export default StyleSheet.create({
     marginTop: 20
   },
 
-  descriptionText: {
+  headerDesText: {
     fontSize: Fonts.size.h6,
     fontFamily: Fonts.lato.base
   },
+
+  tripicon: {
+    height: 34,
+    width: 40,
+    resizeMode: 'contain',
+    marginLeft: 10,
+    alignSelf: 'center'
+  },
+
+  descriptionText: {
+    fontSize: Fonts.size.medium,
+    fontFamily: Fonts.lato.base,
+    color: Colors.settingHeadingTextColor,
+    paddingLeft: 15
+  }
+
+
 
 });

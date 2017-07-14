@@ -1,11 +1,11 @@
 const environment = {
   development: {
     isProduction: false,
-    apiUrl: 'localhost'
+    apiUrl: 'http://stage.collegeshuttles.com'
   },
   production: {
     isProduction: true,
-    apiUrl: 'localhost'
+    apiUrl: 'http://stage.collegeshuttles.com'
   }
 }[process.env.NODE_ENV || 'development'];
 

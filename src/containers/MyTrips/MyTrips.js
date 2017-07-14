@@ -36,7 +36,7 @@ export default class MyTrips extends Component {
   }
 
   onPressTrackNowButton = () =>{
-    Actions.mytripmap();
+
   };
 
   onPressInviteButton = () =>{

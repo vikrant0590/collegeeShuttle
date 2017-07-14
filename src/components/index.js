@@ -19,7 +19,6 @@ export {
   WalkThroughSecond,
   WalkThroughThird,
   InformationModal,
-
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,

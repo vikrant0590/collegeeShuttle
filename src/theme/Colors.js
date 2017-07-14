@@ -65,9 +65,7 @@ const colors = {
   selectedCalenderDateColor: '#E1C23E',
   calenderheaderColor: 'rgba(0, 0, 0, 0.7)',
   validationBGColor: '#FFC74D',
-  offerContentColor: '#F4F4F4'
-  packageHeadingColor:'#e4344c',
-  profileForm:'#e03234',
+  offerContentColor: '#F4F4F4',
   availability:'rgba(68, 68, 68, 0.5)',
   reminderButtonColor:'#e0253e',
   modalFormHeading:'#C7C7C7',

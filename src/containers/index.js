@@ -13,7 +13,10 @@ import BuyPackage  from './BuyPackage';
 import FriendList from  './FriendList';
 import AllTrips from './AllTrips';
 import PassengerDetail from './PassengerDetail';
-
+import InviteFriend from './InviteFriend';
+import HelpSupport from './HelpSupport';
+import Payment from './Payment';
+import Offers from './Offers';
 
 export {
   WalkThrough,
@@ -30,5 +33,9 @@ export {
   BuyPackage,
   FriendList,
   AllTrips,
-  PassengerDetail
+  PassengerDetail,
+  InviteFriend,
+  HelpSupport,
+  Payment,
+  Offers,
 };

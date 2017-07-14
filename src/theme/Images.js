@@ -19,8 +19,8 @@ const images = {
   mobile: require('../images/mobile.png'),
   password: require('../images/password.png'),
   email: require('../images/email.png'),
-  dropdown:require('../images/dropdown.png'),
-  arrowBack:require('../images/arrowBack.png'),
+  dropdown: require('../images/dropdown.png'),
+  arrowBack: require('../images/arrowBack.png'),
   arrowForward: require('../images/arrowForward.png'),
   leftArrow: require('../images/leftArrow.png'),
   rightArrow: require('../images/rightArrow.png'),
@@ -29,7 +29,7 @@ const images = {
   fb: require('../images/fb.png'),
   whatsapp: require('../images/whatsapp.png'),
   ellipse: require('../images/ellipse.png'),
-  add:require('../images/add.png'),
+  add: require('../images/add.png'),
   notification: require('../images/notification.png'),
   roundtriphome: require('../images/roundtriphome.png'),
   roundtripunivercity: require('../images/roundtripuniversity.png'),
@@ -46,14 +46,12 @@ const images = {
   packageicon: require('../images/package.png'),
   collegecardicon: require('../images/collegeCard.png'),
   creditcardicon: require('../images/creditCard.png'),
-  bankmastercardicon: require('../images/bankmastercard.png')
-};
+  bankmastercardicon: require('../images/bankmastercard.png'),
   ellipseOuter: require('../images/ellipseOuter.png'),
   inteligent: require('../images/inteligent.png'),
-  add: require('../images/add.png'),
   fullStar: require('../images/fullStar.png'),
   halfStar: require('../images/halfStar.png'),
   checkbox: require('../images/checkbox.png'),
   tick: require('../images/tick.png'),
-
+};
 export default images;

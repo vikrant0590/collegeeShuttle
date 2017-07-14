@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import {
   WalkThrough, Home, SignUp, Login, MyProfile,
   MyTrips, Setting, ProfileEdit, Packages, TabBar,
-  InviteFriend,
-  HelpSupport,
-  Offers,
-  Payment,
+  BuyPackage, FriendList, AllTrips, PassengerDetail
 } from './containers';
-import {
-  MyTripMap
-} from './components';
-
+import { InformationModal } from './components';
 import { Router, Scene } from 'react-native-router-flux';
 export default class AppRouter extends Component {
+
   render() {
+
+
     return (
       <Router
         navigationBarStyle={{backgroundColor:'#fc214f', borderBottomWidth: 0,}}
@@ -37,6 +34,10 @@ export default class AppRouter extends Component {
         <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
         <Scene key="payment" component={Payment} hideNavBar={true}/>
         <Scene key="mytripmap" component={MyTripMap} hideNavBar={true}/>
+        <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
+        <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
+
+
       </Router>
     );
   }

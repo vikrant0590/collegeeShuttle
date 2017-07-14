@@ -1,14 +1,18 @@
 import React,{ Component } from 'react';
-import { Text, View, TouchableOpacity, Image, } from 'react-native';
-import { Container, Content, List, Header, Left, Body, Right, Title, Button, Icon ,ListItem,} from 'native-base';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon } from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
 import { Images, Colors, } from '../../theme';
 import styles from './MyProfileStyles';
+<<<<<<< HEAD
+import { Actions as NavAction} from 'react-native-router-flux';
+=======
 import Packages from '../../containers/Packages';
 import BuyPackage from "../BuyPackage/BuyPackage";
 import FriendList from "../FriendList/FriendList";
 import {Actions as NavAction}from 'react-native-router-flux';
+>>>>>>> origin/allTrips
 
 export default class MyProfile extends Component {
 
@@ -16,14 +20,11 @@ export default class MyProfile extends Component {
     super(props);
     this.state = {
       avatarSource: null,
-      profileDetail:false,
-      myprofile:true,
-      refer:false,
-      list:true,
-      buyPackage:false,
-      friendlist:false,
+      editProfile: false,
     }
   }
+<<<<<<< HEAD
+=======
 
   onPress = (item) => {
     if(item.index === 0){
@@ -97,6 +98,8 @@ export default class MyProfile extends Component {
     }
   };
 
+>>>>>>> origin/allTrips
+
   selectPhotoTapped() {
     const options = {
       quality: 1.0,
@@ -126,6 +129,40 @@ export default class MyProfile extends Component {
       }
     });
   }
+
+
+  onPress = (item) => {
+    switch (item.index) {
+      case 0:
+        this.setState({
+          editProfile: !this.state.editProfile
+        });
+        break;
+      case 1:
+
+        break;
+      case 2:
+
+        break;
+      case 3:
+        NavAction.packages();
+        break;
+      case 4:
+        NavAction.payment();
+        break;
+      case 5:
+
+        break;
+      default:
+
+    }
+  };
+  saveData=()=>{
+    this.setState({
+      editProfile:!this.state.editProfile
+    })
+  };
+
   render() {
     var items = [
       {index: 0, title: 'Profile Detail'},
@@ -138,18 +175,15 @@ export default class MyProfile extends Component {
     return (
 
       <Container style={{flex: 1}}>
-        {(this.state.myprofile) &&
-        <Header style={{
-          backgroundColor: Colors.headerColor, borderBottomWidth: 0,
-          shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
-        }}>
+        <Header style={{backgroundColor: Colors.headerColor, borderBottomWidth: 0,
+          shadowOffset:{height:0,width:0},shadowOpacity:0}}>
           <Left>
-            <Button transparent onPress={this.myprofile}>
-              <Icon name="arrow-back" style={{color: Colors.white}}/>
+            <Button transparent>
+              <Icon name="arrow-back" style={{color:Colors.white}}/>
             </Button>
           </Left>
           <Body>
-            <Title style={{color: Colors.white}}>My Profile</Title>
+            <Title style={{color: Colors.white}}> My Profile</Title>
           </Body>
           <Right>
             <TouchableOpacity onPress={this.saveData}>
@@ -157,58 +191,45 @@ export default class MyProfile extends Component {
             </TouchableOpacity>
           </Right>
         </Header>
-        }
-        { (this.state.myprofile) &&
-          <View style={styles.avatarContainer}>
-            <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-              <View style={styles.avatar}>
-                { this.state.avatarSource === null ? null :
-                  <Image source={this.state.avatarSource}/>
-                }
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-              <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                <Image source={Images.edit} style={styles.pencil}/>
-                <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        }
-        {(this.state.list === true) &&
+        <View style={styles.avatarContainer}>
+          <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+            <View style={styles.avatar}>
+              { this.state.avatarSource === null ? null :
+                <Image source={this.state.avatarSource}/>
+              }
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <Image source={Images.edit} style={styles.pencil}/>
+              <Text style={{color:Colors.white}}> Edit Profile Picture</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        {!this.state.editProfile ?
+          <View style={styles.listContainer}>
             <Content>
-              <View style={styles.listContainer}>
-                <List dataArray={items}
-                  renderRow={(item) =>
-                    <ListItem>
-                      <TouchableOpacity
-                        onPress={ () => this.onPress(item)}
-                        hitSlop={{top: 10, bottom: 10, right: 300}}
-                        style={{flexDirection: 'row'}}>
-                        <Left>
-                          <Text style={styles.itemList}>{item.title}</Text>
-                        </Left>
-                        <Right>
-                          <Image source={Images.rightArrow} style={styles.rightArrow}/>
-                        </Right>
-                      </TouchableOpacity>
-                    </ListItem>
-                  }
-                />
-              </View>
+              <List dataArray={items}
+                renderRow={(item) =>
+                  <ListItem>
+                    <TouchableOpacity
+                      onPress={ () => this.onPress(item)}
+                      hitSlop={{top: 10, bottom: 10, right: 300}}
+                      style={{flexDirection: 'row'}}>
+                      <Left>
+                        <Text style={styles.itemList}>{item.title}</Text>
+                      </Left>
+                      <Right>
+                        <Image source={Images.rightArrow} style={styles.rightArrow}/>
+                      </Right>
+                    </TouchableOpacity>
+                  </ListItem>
+                }>
+              </List>
             </Content>
-        }
-        {(this.state.profileDetail) &&
+          </View>
+          :
           <ProfileEdit/>
-        }
-        {(this.state.refer) &&
-        <Packages isActive ={() => this.refer()}/>
-        }
-        {(this.state.friendlist) &&
-        <FriendList isActive={() => this.friendList()}/>
-        }
-        {(this.state.buyPackage) &&
-          <BuyPackage isActive={() => this.buyPackage()}/>
         }
       </Container>
     )

@@ -60,22 +60,6 @@ const normalize = (size) => {
 
 const size = {
 <<<<<<< HEAD
-  h1: 38,
-  h2: 34,
-  h3: 30,
-  h4: 26,
-  h5: 20,
-  h6: 18,
-  input: 18,
-  regular: 17,
-  medium: 14,
-  small: 12,
-  tiny: 8.5,
-  tab:9,
-  headingText:13,
-  price:25,
-  tripText:15,
-=======
   h1: normalize(38),
   h2: normalize(34),
   h3: normalize(30),
@@ -89,7 +73,24 @@ const size = {
   tiny: normalize(8.5),
   tab:normalize(9),
   headingText:normalize(13),
->>>>>>> origin/MyTripScreen
+=======
+  h1: 38,
+  h2: 34,
+  h3: 30,
+  h4: 26,
+  h5: 20,
+  h6: 18,
+  regular: 17,
+  medium: 14,
+  small: 12,
+  tiny: 8.5,
+  tab:9,
+  headingText:13,
+  price:25,
+  tripText:15,
+  distancePoint:10,
+
+>>>>>>> origin/allTrips
 };
 
 const style = {
@@ -103,11 +104,7 @@ const style = {
   },
   buttonText:{
     fontFamily: lato.base,
-<<<<<<< HEAD
-    fontSize:size.tripText,
-=======
     fontSize:normalize(15),
->>>>>>> origin/MyTripScreen
   },
   tabText:{
     fontFamily:lato.base,
@@ -148,6 +145,22 @@ const style = {
   profileForm:{
     fontSize:size.tripText,
     fontFamily:lato.base
+  },
+  allTripInfo:{
+    fontSize:size.regular,
+    fontFamily:lato.base
+  },
+  distancePoint:{
+    fontSize:size.distancePoint,
+    fontFamily:lato.light
+  },
+  availabiltyNone:{
+    fontSize:size.medium,
+    fontFamily:lato.base
+  },
+  rating:{
+    fontSize:size.headingText,
+    fontFamily:lato.light
   }
 };
 

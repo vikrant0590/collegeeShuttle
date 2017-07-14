@@ -1,7 +1,7 @@
 import WalkThroughFirst from './WalkThroughFirst';
 import WalkThroughSecond from './WalkThroughSecond';
 import WalkThroughThird from './WalkThroughThird';
-import InformationModal from './InformationModal';
+<<<<<<< HEAD
 import RoundTrip from './RoundTrip';
 import RoundTripWeekly from './RoundTripWeekly';
 import RoundTripCustom from './RoundTripCustom';
@@ -14,12 +14,14 @@ import PaymentFailed from './PaymentfailedBox';
 import PaymentSuccess from './PaymentSuccessBox';
 import MyTripMap from './MyTripMap';
 
+=======
+import InformationModal from './InformationModal';
+>>>>>>> origin/allTrips
 export {
   WalkThroughFirst,
   WalkThroughSecond,
   WalkThroughThird,
-  InformationModal,
-
+<<<<<<< HEAD
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
@@ -31,4 +33,8 @@ export {
   PaymentFailed,
   PaymentSuccess,
   MyTripMap
+=======
+  InformationModal,
+
+>>>>>>> origin/allTrips
 };

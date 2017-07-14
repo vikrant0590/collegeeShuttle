@@ -13,7 +13,11 @@
 	},
 	"dependencies": {
 		"apisauce": "^0.14.0",
+<<<<<<< HEAD
+		"native-base": "2.1.5",
+=======
 		"native-base": "^2.2.1",
+>>>>>>> origin/allTrips
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
 		"react-native": "^0.46.1",

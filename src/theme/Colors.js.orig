@@ -54,6 +54,7 @@ const colors = {
   activeTab:'#E00034',
   packageHeadingColor:'#e4344c',
   profileForm:'#e03234',
+<<<<<<< HEAD
   inactiveTab:'#BABABA',
   thinLineColor: 'rgba(219,38,58,0.14)',
   roundTripColor: '#EB2345',
@@ -66,8 +67,7 @@ const colors = {
   calenderheaderColor: 'rgba(0, 0, 0, 0.7)',
   validationBGColor: '#FFC74D',
   offerContentColor: '#F4F4F4'
-  packageHeadingColor:'#e4344c',
-  profileForm:'#e03234',
+=======
   availability:'rgba(68, 68, 68, 0.5)',
   reminderButtonColor:'#e0253e',
   modalFormHeading:'#C7C7C7',
@@ -78,6 +78,7 @@ const colors = {
 
 
 
+>>>>>>> origin/allTrips
 };
 
 export default colors;

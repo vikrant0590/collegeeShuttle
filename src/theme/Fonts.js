@@ -126,6 +126,22 @@ const style = {
   profileForm:{
     fontSize:size.tripText,
     fontFamily:lato.base
+  },
+  allTripInfo:{
+    fontSize:size.regular,
+    fontFamily:lato.base
+  },
+  distancePoint:{
+    fontSize:size.distancePoint,
+    fontFamily:lato.light
+  },
+  availabiltyNone:{
+    fontSize:size.medium,
+    fontFamily:lato.base
+  },
+  rating:{
+    fontSize:size.headingText,
+    fontFamily:lato.light
   }
 };
 

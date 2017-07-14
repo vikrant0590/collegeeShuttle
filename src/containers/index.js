@@ -8,11 +8,11 @@ import BottomTabBar from './BottomTabBar';
 import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
-import TabBar from './TabBar';
-import InviteFriend from './InviteFriend';
-import HelpSupport from './HelpSupport';
-import Offers from './Offers';
-import Payment from './Payment';
+import TabBar from 'TabBar';
+import BuyPackage  from './BuyPackage';
+import FriendList from  './FriendList';
+import AllTrips from './AllTrips';
+import PassengerDetail from './PassengerDetail';
 
 
 export {
@@ -27,8 +27,8 @@ export {
   ProfileEdit,
   Packages,
   TabBar,
-  InviteFriend,
-  HelpSupport,
-  Offers,
-  Payment,
+  BuyPackage,
+  FriendList,
+  AllTrips,
+  PassengerDetail
 };

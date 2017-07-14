@@ -29,6 +29,7 @@ const images = {
   fb: require('../images/fb.png'),
   whatsapp: require('../images/whatsapp.png'),
   ellipse: require('../images/ellipse.png'),
+<<<<<<< HEAD
   add:require('../images/add.png'),
   notification: require('../images/notification.png'),
   roundtriphome: require('../images/roundtriphome.png'),
@@ -47,7 +48,7 @@ const images = {
   collegecardicon: require('../images/collegeCard.png'),
   creditcardicon: require('../images/creditCard.png'),
   bankmastercardicon: require('../images/bankmastercard.png')
-};
+=======
   ellipseOuter: require('../images/ellipseOuter.png'),
   inteligent: require('../images/inteligent.png'),
   add: require('../images/add.png'),
@@ -55,5 +56,8 @@ const images = {
   halfStar: require('../images/halfStar.png'),
   checkbox: require('../images/checkbox.png'),
   tick: require('../images/tick.png'),
+
+>>>>>>> origin/allTrips
+};
 
 export default images;

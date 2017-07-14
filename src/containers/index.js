@@ -12,6 +12,7 @@ import TabBar from 'TabBar';
 import BuyPackage  from './BuyPackage';
 import FriendList from  './FriendList';
 import AllTrips from './AllTrips';
+import PassengerDetail from './PassengerDetail';
 
 export {
   WalkThrough,
@@ -27,5 +28,6 @@ export {
   TabBar,
   BuyPackage,
   FriendList,
-  AllTrips
+  AllTrips,
+  PassengerDetail
 };

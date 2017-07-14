@@ -56,7 +56,12 @@ const colors = {
   packageHeadingColor:'#e4344c',
   profileForm:'#e03234',
   availability:'rgba(68, 68, 68, 0.5)',
-  reminderButtonColor:'#e0253e'
+  reminderButtonColor:'#e0253e',
+  modalFormHeading:'#C7C7C7',
+  passengerTextColor:'#e03432',
+  passengerLabelColor:'rgba(164,164,164,0.6)'
+
+
 
 
 

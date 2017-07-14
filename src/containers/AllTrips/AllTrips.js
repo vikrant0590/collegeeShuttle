@@ -1,9 +1,13 @@
 import React,{ Component } from 'react';
 import { View, Text, Image, TouchableOpacity} from 'react-native';
-import { Header, Container,Content, Left, Right, Button, Icon, Body, Title, List, Card, CardItem,} from 'native-base';
+import { Header, Container,Content, Left, Right, Button, Icon,
+  Body, Title, List, Card, CardItem,} from 'native-base';
 import { Colors, Images, Fonts , Metrics } from '../../theme';
-import styles from './AllTripsStyle';
 import LinearGradient from 'react-native-linear-gradient';
+import {Actions as NavAction} from 'react-native-router-flux';
+import InformationModal from '../../components/InformationModal';
+import styles from './AllTripsStyle';
+
 export default class AllTrips extends Component {
 
   constructor(props){
@@ -57,110 +61,132 @@ export default class AllTrips extends Component {
   };
 
   render(){
-    var date = new Date();
-    var monthNames = [
+    let date = new Date();
+    let monthNames = [
       "Jan", "Feb", "Mar",
       "Apr", "May", "June", "Jul",
       "Aug", "Sept", "Oct",
       "Nov", "Dec"
     ];
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
 
-    var busService =[
+    const busService =[
       {index:0, name:'College Shuttle Van',amount:'$72', seats:10, stop:1,
         fsu:'04:30 PM',ssm:'08:30 PM', totalTime:'4 hrs 00 mins', star:4.5, rating:25},
       {index:1, name:'College Shuttle Van',amount:'$66', seats: 0, stop:3,
-        fsu:'04:30 PM',ssm:'09:30 PM', totalTime:'4 hrs 30 mins',star:3, rating:25},
+        fsu:'04:30 PM',ssm:'09:30 PM', totalTime:'4 hrs 30 mins',star:3.0, rating:25},
       {index:2, name:'College Shuttle Van',amount:'$70', seats: 10, stop:2,
         fsu:'04:30 PM',ssm:'08:30 PM', totalTime:'4 hrs 00 mins',star:3.5,rating:25},
     ];
 
-    var busInformation = [
+    const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
 
-
     return(
       <Container style={{backgroundColor:Colors.base}}>
-        <Header style={{backgroundColor: Colors.headerColor, borderBottomWidth: 0,
-          shadowOffset:{height:0,width:0},shadowOpacity:0}}>
-          <Left>
-            <Button transparent>
-              <Icon name="arrow-back" style={{color:Colors.white}}/>
-            </Button>
-          </Left>
-          <Body style={{flexDirection:'column'}}>
-            <View>
-              <Title style={{color: Colors.white,marginLeft:-40,marginRight:-40,}}>University - Home</Title>
-            </View>
-            <View style={{flexDirection:'row'}}>
-              <TouchableOpacity>
-                <Image source={Images.arrowBack} style={{marginRight:25, marginTop:4}}/>
-              </TouchableOpacity>
-              <Text style={{color: Colors.white}}>{day + ' '+ monthNames[monthIndex]+ ','+' ' + year}</Text>
-              <TouchableOpacity>
-                <Image source={Images.arrowForward} style={{marginLeft:25,marginTop:4}}/>
-              </TouchableOpacity>
-            </View>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
+            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+            <Left>
+              <Button transparent>
+                <Icon name="arrow-back" style={{color:Colors.white}}/>
+              </Button>
+            </Left>
+            <Body style={{flexDirection:'column'}}>
+              <View>
+                <Title style={{color: Colors.white,marginLeft:-40,marginRight:-40}}>University - Home</Title>
+              </View>
+              <View style={styles.dateRow}>
+                <TouchableOpacity>
+                  <Image source={Images.arrowBack} style={styles.backDate}/>
+                </TouchableOpacity>
+                <Text style={{color: Colors.white}}>{day + ' '+ monthNames[monthIndex]+ ','+' ' + year}</Text>
+                <TouchableOpacity>
+                  <Image source={Images.arrowForward} style={styles.nextDate}/>
+                </TouchableOpacity>
+              </View>
+            </Body>
+            <Right>
+            </Right>
+          </Header>
+        </LinearGradient>
+
         <Content>
-          <View style={{ margin:10, flex:1}}>
+          <View style={styles.container}>
             <List dataArray={busService}
               renderRow={(item) =>
                 <View>
-                  <View style ={{flex:1}}>
+                  <View style ={styles.listContainer}>
                     <Card>
                       <CardItem>
                         <TouchableOpacity onPress={ () => this.onPress(item)}>
-                          <View style={(item.seats > 0 ? {height:Metrics.screenHeight /4.7,marginBottom:15,backgroundColor:Colors.white,} :
-                            {height:Metrics.screenHeight /3,marginBottom:15,backgroundColor:Colors.white,})}>
-                            <View style={{ flexDirection:'row',flex:0.3}}>
-                              <Text  style = {this.nameColor(item.seats)}>{item.name}</Text>
-                              <Text style={{marginLeft:120,...Fonts.style.universityFont}}>{item.seats} Seats</Text>
-                            </View>
-                            <View style={{flexDirection:'row',flex:0.2}}>
-                              <Text style ={{...Fonts.style.distancePoint,
-                                color:Colors.profileForm,marginRight:Metrics.screenWidth / 1.3}}>FSU</Text>
-                              <Text style={{...Fonts.style.distancePoint, color:Colors.profileForm}}>SSM</Text>
+                          <View style={(item.seats > 0 ? {height:Metrics.screenHeight /4.7,
+                            marginBottom:15,backgroundColor:Colors.white} :
+                            {height:Metrics.screenHeight /3,marginBottom:15,backgroundColor:Colors.white})}>
+                            <View style={styles.busNameRow}>
+                              <Text  style = {(item > 0 ? {...Fonts.style.allTripInfo, color:Colors.black } :
+                                {...Fonts.style.allTripInfo, color:Colors.availability})}>
+                                {item.name}
+                              </Text>
+                              <Text style={styles.availableSeatsText}>{item.seats} Seats</Text>
                             </View>
                             {(item.stop === 1) &&
-                  <View style={{flexDirection: 'row',flex:0.3,}}>
-                    <View style={{flexDirection: 'row'}}>
+                            <View style={styles.placeNameRow}>
+                              <Text style={styles.placeStart}>FSU</Text>
+                              <Text style={styles.placeEnd}>SSM</Text>
+                            </View>
+                            }
+                            {(item.stop === 3) &&
+                            <View style={styles.placeNameRow}>
+                              <Text style={styles.secondListStart}>FSU</Text>
+                              <Text style={styles.secondListMiddlePlace}>RKV</Text>
+                              <Text style={styles.secondListMiddlePlace}>GBM</Text>
+                              <Text style={styles.secondListEndPlace}>SSM</Text>
+                            </View>
+                            }
+                            {(item.stop === 2) &&
+                            <View style={styles.placeNameRow}>
+                              <Text style={styles.thirdListPlace}>FSU</Text>
+                              <Text style={styles.thirdListPlace}>GBM</Text>
+                              <Text style={styles.thirdListPlace}>SSM</Text>
+                            </View>
+                            }
+                            {(item.stop === 1) &&
+                  <View style={styles.placeNameRow}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width:Metrics.screenWidth/1.3 + 12, marginLeft: 4,backgroundColor:"red"}}></View>
+                    <View style={styles.singlePathLine}></View>
                     <View>
                       <Image source={Images.inteligent}/>
                     </View>
                   </View>
                             }
                             {(item.stop === 3) &&
-                  <View style={{marginTop: 2, flexDirection: 'row'}}>
-                    <View style={{flexDirection: 'row'}}>
+                  <View style={{marginTop: 2, flexDirection: 'row',flex:0.3}}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10, marginTop: 4}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width: Metrics.screenWidth /4.1,
+                    <View style={{height: 0.9, width: Metrics.screenWidth /4.2,
                       backgroundColor: 'red', marginTop: 7,marginLeft: 4}}>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10, marginTop: 4}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width: Metrics.screenWidth /4.1,
+                    <View style={{height: 0.9, width: Metrics.screenWidth /4.2,
                       backgroundColor: 'red', marginTop: 7,marginLeft: 4}}>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10, marginTop: 4}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width: Metrics.screenWidth /4.1,
+                    <View style={{height: 0.9, width: Metrics.screenWidth /4.2,
                       backgroundColor: 'red', marginTop: 7,marginLeft: 4}}>
                     </View>
                     <View>
@@ -169,19 +195,19 @@ export default class AllTrips extends Component {
                   </View>
                             }
                             {(item.stop === 2) &&
-                  <View style={{marginTop: 2, flexDirection: 'row'}}>
-                    <View style={{flexDirection: 'row'}}>
+                  <View style={{marginTop: 2, flexDirection: 'row', flex:0.2}}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10, marginTop: 4}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width: Metrics.screenWidth /2.6,
+                    <View style={{height: 0.9, width: Metrics.screenWidth /2.6 - 4 ,
                       backgroundColor: 'red', marginTop: 7,marginLeft: 4}}>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={styles.startPoint}>
                       <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={{marginLeft: -10, marginTop: 4}}/>
+                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
                     </View>
-                    <View style={{height: 0.9, width: Metrics.screenWidth /2.6,
+                    <View style={{height: 0.9, width: Metrics.screenWidth /2.6 - 4 ,
                       backgroundColor: 'red', marginTop: 7,marginLeft: 4}}>
                     </View>
                     <View>
@@ -189,17 +215,17 @@ export default class AllTrips extends Component {
                     </View>
                   </View>
                             }
-                            <View style={{flexDirection:'row', flex:0.4}}>
+                            <View style={{flexDirection:'row', flex:0.2}}>
                               <Text style={(item.seats > 0 ? {color:Colors.black}
                                 : {color:Colors.availability})}>{item.fsu}</Text>
-                              <View style={{marginLeft:55,marginRight:50}}>
+                              <View style={{marginLeft:55,marginRight:40, flex:0.1}}>
                                 <Text style={{...Fonts.style.universityFont}}>{item.totalTime}</Text>
                               </View>
                               <Text style={(item.seats > 0 ? {color:Colors.black}
                                 : {color:Colors.availability})}>{item.ssm}</Text>
                             </View>
                             {(item.star === 4.5) &&
-                  <View style={{flexDirection:"column",flex:0.4,}}>
+                  <View style={{flexDirection:"column",flex:0.5,}}>
                     <View style={{flexDirection:"row"}}>
                       <Image source={Images.fullStar} style={{marginRight:3}}/>
                       <Image source={Images.fullStar} style={{marginRight:3}}/>
@@ -222,7 +248,7 @@ export default class AllTrips extends Component {
                   </View>
                             }
                             {(item.star === 3) &&
-                  <View style={{flexDirection:"column",marginTop:25}}>
+                  <View style={{flexDirection:"column",marginTop:20,flex:0.5}}>
                     <View style={{flexDirection:"row"}}>
                       <Image source={Images.fullStar} style={{marginRight:3}}/>
                       <Image source={Images.fullStar} style={{marginRight:3}}/>
@@ -266,12 +292,12 @@ export default class AllTrips extends Component {
                   </View>
                             }
                             {(item.seats === 0) &&
-                        <Container style={{marginTop:15}}>
+                        <View style={{flex:0.6,marginTop:10,marginLeft:5}}>
                           <Content>
                             <Button rounded bordered style={{borderColor:Colors.reminderButtonColor}}>
                               <Text style={{color:Colors.profileForm}}>Notify when available</Text></Button>
                           </Content>
-                        </Container>
+                        </View>
                             }
                           </View>
                         </TouchableOpacity>
@@ -305,7 +331,7 @@ export default class AllTrips extends Component {
                           </View>
 
                           <View style={{flexDirection:'row', flex:0.4}}>
-                            <View style={{marginTop:10,flex:0.1 }}>
+                            <View style={{marginTop:10}}>
                               {(this.state.luggageChecked) ?
                                 <TouchableOpacity onPress={this.luggageChecked}>
                                   <Image source={Images.checkbox}/>
@@ -324,7 +350,7 @@ export default class AllTrips extends Component {
                           </View>
 
                           <View style={{flexDirection:'row',flex:0.4,marginTop:10}}>
-                            <View style={{flex:0}}>
+                            <View>
                               {(this.state.refundTickets) ?
                                 <TouchableOpacity onPress={this.refundTickets}>
                                   <Image source={Images.checkbox}/>
@@ -346,26 +372,26 @@ export default class AllTrips extends Component {
                             </View>
                           </View>
                           <View style={{flex:0.6,}}>
-                          <LinearGradient
-                            colors={['#FC214F','#D32735']}
-                            style={{
-                              width:131,
-                              height:45,
-                              backgroundColor:'red',
-                              borderRadius:22,
-                              marginBottom:0,
-                              alignSelf:"center"
-                            }}>
-                            <TouchableOpacity onPress={this.openModal}
+                            <LinearGradient
+                              colors={['#FC214F','#D32735']}
                               style={{
-                                flex: 1,
-                                backgroundColor: Colors.transparent,
+                                width:131,
+                                height:45,
+                                backgroundColor:'red',
+                                borderRadius:22,
+                                marginBottom:0,
+                                alignSelf:"center"
                               }}>
-                              <Text style={{alignSelf:"center",marginTop:10,
-                                ...Fonts.style.regularFont,color:Colors.white}}>Book Now</Text>
-                            </TouchableOpacity>
-                          </LinearGradient>
-                        </View>
+                              <TouchableOpacity onPress={this.openModal}
+                                style={{
+                                  flex: 1,
+                                  backgroundColor: Colors.transparent,
+                                }}>
+                                <Text style={{alignSelf:"center",marginTop:10,
+                                  ...Fonts.style.regularFont,color:Colors.white}}>Book Now</Text>
+                              </TouchableOpacity>
+                            </LinearGradient>
+                          </View>
                         </View>
                       </CardItem>
                     </Card>
@@ -374,6 +400,9 @@ export default class AllTrips extends Component {
               }
             />
           </View>
+          {this.state.open &&
+          <InformationModal/>
+          }
         </Content>
       </Container>
     )

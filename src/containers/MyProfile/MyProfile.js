@@ -9,6 +9,7 @@ import Packages from '../../containers/Packages';
 import BuyPackage from "../BuyPackage/BuyPackage";
 import FriendList from "../FriendList/FriendList";
 import {Actions as NavAction}from 'react-native-router-flux';
+
 export default class MyProfile extends Component {
 
   constructor(props) {

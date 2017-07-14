@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import {
-  WalkThrough, Home, SignUp, Login, MyProfile,
-  MyTrips, Setting, ProfileEdit, Packages, TabBar,
-  BuyPackage, FriendList, AllTrips, PassengerDetail,
-  InviteFriend, Offers, HelpSupport, Payment, MyTripMap
+  WalkThrough,
+  Home,
+  SignUp,
+  Login,
+  MyProfile,
+  MyTrips,
+  Setting,
+  ProfileEdit,
+  Packages,
+  TabBar,
+  BuyPackage,
+  FriendList,
+  AllTrips,
+  PassengerDetail,
+  InviteFriend,
+  Offers,
+  HelpSupport,
+  Payment
 } from './containers';
 
 import { InformationModal } from './components';

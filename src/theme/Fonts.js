@@ -25,8 +25,7 @@ const lato = {
       semiBold: 'Lato-Semibold',
       thin: 'Lato-Thin'
     }
-  }),
-
+  })
 };
 
 // const normalize = (size) => {

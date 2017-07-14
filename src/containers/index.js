@@ -8,7 +8,7 @@ import BottomTabBar from './BottomTabBar';
 import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
-import TabBar from 'TabBar';
+import TabBar from './TabBar';
 import BuyPackage  from './BuyPackage';
 import FriendList from  './FriendList';
 import AllTrips from './AllTrips';

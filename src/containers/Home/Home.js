@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Container, Content, Item, Input, Button, Col, Row } from 'native-base';
+import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
+import { Images, Colors } from '../../theme';
+import {TabBar} from '../../containers'
 import LinearGradient from 'react-native-linear-gradient';
-import { Images, Fonts, Colors } from '../../theme';
-import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar } from '../../components';
+import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar, OfferBox, PaymentFailed, PaymentSuccess } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {
 
@@ -29,10 +30,11 @@ export default class Home extends Component {
     if(this.state.isRoundTrip){
       this.setState({ isOneWay: true, isRoundTrip: false });
     }
+    this.onPressPaymentSuccessBox();
   };
 
   onPressNotificationButton = () => {
-
+    this.onPressDialogBox();
   };
 
   onPressUniversityButton = () =>{
@@ -40,7 +42,19 @@ export default class Home extends Component {
   };
 
   onPressHomeButton = () => {
+   this.onPressPaymentFailedBox();
+  };
 
+  onPressDialogBox = () => {
+    this.refs.offerbox.showDialog()
+  };
+
+  onPressPaymentFailedBox = () =>{
+    this.refs.paymentfailed.showDialogPaymentFailed();
+  };
+
+  onPressPaymentSuccessBox = () =>{
+    this.refs.paymentsuccess.showDialogPaymentSuccess();
   };
 
   render(){
@@ -125,11 +139,14 @@ export default class Home extends Component {
               </View>
             </ScrollableTabView>
             :
-            <View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+            <View style={styles.RoundTripView}>
               <RoundTrip />
             </View>
           }
         </Content>
+        <OfferBox ref="offerbox"/>
+        <PaymentFailed ref="paymentfailed" />
+        <PaymentSuccess ref="paymentsuccess" />
       </Container>
     )
   }

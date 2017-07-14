@@ -56,7 +56,8 @@ class RoundTripTabBar extends Component {
             <TouchableOpacity
               key={tab}
               onPress={() => this.props.goToPage(i)}
-              style={[styles.tab, {borderBottomWidth: 3, borderColor: i === activeTab ? Colors.white : Colors.transparent }]}
+              style={[
+                styles.tab, {borderBottomWidth: 3, borderColor: i === activeTab ? Colors.white : Colors.transparent }]}
             >
               <Text
                 style={[styles.tabTextStyle, {color: i === activeTab ? Colors.white :  Colors.base}]}

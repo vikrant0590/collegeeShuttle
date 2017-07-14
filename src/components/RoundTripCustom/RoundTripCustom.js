@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Row, Col, Card, CardItem, Body } from 'native-base';
-import { Colors } from '../../theme';
+import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
 import { Calender } from '../../components';
 
@@ -49,8 +49,8 @@ export default class RoundTripCustom extends Component {
           onPress={this.onPressPassenger}>
           <Text style={styles.searchBtnText}>Search</Text>
         </TouchableOpacity>
-        <Card style={{ marginLeft: 15, marginRight: 15 }}>
-          <Row style={{ flex: 1 }}>
+        <Card style={{ marginLeft: 15, marginRight: 15, width: Metrics.screenWidth - 30 }}>
+          <Row style={{ width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.8 }}>
               <CardItem>
                 <Body style={{ borderRightColor: Colors.thinLineColor, borderRightWidth: 1.5, alignItems: 'center' }}>
@@ -70,7 +70,7 @@ export default class RoundTripCustom extends Component {
               </CardItem>
               <Row>
                 <Col>
-                  <Body style={{ top: 20  }}>
+                  <Body style={{ top: 20 }}>
                     <Text style={styles.timeText}>TIME</Text>
                     <Text style={styles.timeHourText}>04:30 PM</Text>
                   </Body>

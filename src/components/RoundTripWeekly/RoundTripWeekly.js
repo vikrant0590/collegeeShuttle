@@ -11,7 +11,7 @@ import {
   CardItem,
   Body,
 } from 'native-base';
-import { Colors } from '../../theme';
+import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import SwipeWeekly from 'react-native-swipe-a-lot';
 
@@ -50,9 +50,19 @@ export default class RoundTripWeekly extends Component {
     const swiperpage = [];
     for(let index = 0; index < 5; index ++){
       swiperpage.push(
-        <TouchableOpacity style={{ flex: 1}} onPress = {this.onPressWeekPlan}  key="swiperpage">
-          <Card style={{ marginLeft: 15, marginRight: 15, marginTop: 15, bottom : 0 }}>
-            <Col style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={{
+            flex: 1,
+            width: Metrics.screenWidth - 30,
+            marginLeft: 15,
+            marginRight: 15,
+            marginTop: 15,
+            bottom : 0
+          }}
+          onPress = {this.onPressWeekPlan}
+          key="swiperpage">
+          <Card style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
+            <Col style={{ flex: 1, width: Metrics.screenWidth -30 }}>
               <Row style={{ height: 40 }}>
                 {(this.state.isPlan) ?
                   <CardItem
@@ -77,12 +87,10 @@ export default class RoundTripWeekly extends Component {
                 }
               </Row>
               <Row style={{ flex: 1 }}>
-                <Col style={{ flex: 1 }}>
+                <Col style={{ flex: 0.99 }}>
                   <CardItem>
                     <Body
                       style={{
-                        borderRightColor: Colors.thinLineColor,
-                        borderRightWidth: 1.5,
                         alignItems: 'center'
                       }}>
                       <Text style={styles.dateWeekText}>25</Text>
@@ -92,7 +100,10 @@ export default class RoundTripWeekly extends Component {
                     </Body>
                   </CardItem>
                 </Col>
-                <Col style={{ flex: 1 }}>
+                <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
+                  <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+                </Col>
+                <Col style={{ flex: 0.99 }}>
                   <CardItem>
                     <Body style={{ alignItems: 'center' }}>
                       <Text style={styles.dateWeekText}>27</Text>

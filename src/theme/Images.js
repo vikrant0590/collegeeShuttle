@@ -39,6 +39,14 @@ const images = {
   roundtriptrackicon: require('../images/track.png'),
   inviteaddfriendicon: require('../images/inviteAddFriends.png'),
   searchicon: require('../images/search.png'),
-
+  rightnavcloseicon: require('../images/closeButton.png'),
+  offerboxbgicon: require('../images/offerbgicon.png'),
+  paymenterroricon: require('../images/paymenterror.png'),
+  paymentComplete: require('../images/complete.png'),
+  packageicon: require('../images/package.png'),
+  collegecardicon: require('../images/collegeCard.png'),
+  creditcardicon: require('../images/creditCard.png'),
+  bankmastercardicon: require('../images/bankmastercard.png')
 };
+
 export default images;

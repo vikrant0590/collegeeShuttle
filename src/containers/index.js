@@ -10,9 +10,10 @@ import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
 import TabBar from './TabBar';
 import InviteFriend from './InviteFriend';
-import BuyPackage from './BuyPackage';
-import FriendList from './FriendList';
-import AllTrips from './AllTrips';
+import HelpSupport from './HelpSupport';
+import Offers from './Offers';
+import Payment from './Payment';
+
 
 export {
   WalkThrough,
@@ -27,7 +28,7 @@ export {
   Packages,
   TabBar,
   InviteFriend,
-  BuyPackage,
-  FriendList,
-  AllTrips
+  HelpSupport,
+  Offers,
+  Payment,
 };

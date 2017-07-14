@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import {
   WalkThrough, Home, SignUp, Login, MyProfile,
-  Setting, ProfileEdit, Packages,
-  BuyPackage, FriendList, AllTrips,
-  MyTrips, TabBar, InviteFriend
+  MyTrips, Setting, ProfileEdit, Packages, TabBar,
+  InviteFriend,
+  HelpSupport,
+  Offers,
+  Payment,
 } from './containers';
+import {
+  MyTripMap
+} from './components';
+
 import { Router, Scene } from 'react-native-router-flux';
-
-import { View, Text } from 'react-native';
-
 export default class AppRouter extends Component {
   render() {
     return (
       <Router
-        navigationBarStyle={{backgroundColor:'#fc214f', borderBottomWidth: 0}} >
+        navigationBarStyle={{backgroundColor:'#fc214f', borderBottomWidth: 0,}}
+      >
         <Scene key="walkThrough" component={WalkThrough} hideNavBar={true} initial/>
         <Scene key="home"  component={Home}  hideNavBar={true}/>
         <Scene key="signUp"  component={SignUp} title="SignUp"/>
@@ -28,6 +32,11 @@ export default class AppRouter extends Component {
         <Scene key="friendlist" component={FriendList} hideNavBar ={true}/>
         <Scene key="allTrips" component={AllTrips} hideNavBar={true}/>
         <Scene key="invitefriend" component={InviteFriend} hideNavBar={true} direction='vertical' />
+        <Scene key="invitefriend" component={InviteFriend} hideNavBar={true}  direction='vertical' />
+        <Scene key="offers" component={Offers} hideNavBar={true}  direction='vertical' />
+        <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
+        <Scene key="payment" component={Payment} hideNavBar={true}/>
+        <Scene key="mytripmap" component={MyTripMap} hideNavBar={true}/>
       </Router>
     );
   }

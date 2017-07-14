@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
 
   myTripUniversityText: {
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
     paddingTop: 5,

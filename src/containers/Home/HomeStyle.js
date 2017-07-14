@@ -27,6 +27,12 @@ export default StyleSheet.create({
     marginRight: 10
   },
 
+  RoundTripView: {
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 15
+  },
+
   segmentButton:{
     flex: 1,
     flexDirection: 'row',
@@ -119,7 +125,7 @@ export default StyleSheet.create({
   },
 
   textSepratorIcon:{
-    right: -190,
+    marginLeft: Metrics.screenWidth/2,
     top: -12,
     justifyContent: 'center'
   },

@@ -33,7 +33,7 @@ export default StyleSheet.create({
   buttonBackStyle:{
     width:Metrics.screenWidth/3,
     height: 45,
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.transparent,
     borderRadius: 22,
     marginBottom: 0,
     alignSelf: "center",

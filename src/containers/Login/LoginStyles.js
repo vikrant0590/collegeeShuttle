@@ -4,8 +4,8 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   titleContainer:{
-    marginLeft:148,
-    marginTop:64,
+    marginLeft:Metrics.screenWidth/2.5,
+    marginTop:Metrics.screenHeight/9,
   },
   titleTextStyle:{
     ...Fonts.style.buttonFont,
@@ -15,12 +15,12 @@ export default StyleSheet.create({
   },
   loginFacebookContainer:{
     marginTop:40,
-    marginLeft:44,
+    marginLeft:Metrics.screenWidth/7,
   },
   loginFacebookButton:{
     alignItems:"center",
     justifyContent:"center",
-    width: Metrics.screenWidth - 88,
+    width: Metrics.screenWidth/1.4,
     height:45,
     backgroundColor:Colors.facebookButton,
     borderRadius:22,
@@ -29,7 +29,7 @@ export default StyleSheet.create({
   loginGoogleButton:{
     alignItems:"center",
     justifyContent:"center",
-    width:Metrics.screenWidth - 88,
+    width:Metrics.screenWidth/1.4,
     height:45,
     backgroundColor:Colors.googleButton,
     borderRadius:22,
@@ -39,7 +39,6 @@ export default StyleSheet.create({
   facebookButtonText:{
     ...Fonts.style.buttonText,
     color:Colors.white,
-
   },
   facebookButtonImage:{
     flex:0.2,
@@ -61,9 +60,9 @@ export default StyleSheet.create({
   },
 
   buttonText:{
-    flex:0.9,
+    flex:0.8,
     alignItems:'flex-start',
-    marginLeft:30
+    marginLeft:10
   },
   facebookImage:{
     height:18,
@@ -74,7 +73,7 @@ export default StyleSheet.create({
     width:17
   },
   loginGoogleContainer:{
-    marginLeft:44,
+    marginLeft:Metrics.screenWidth/7,
   },
   googleButtonText:{
     ...Fonts.style.buttonText,
@@ -91,21 +90,21 @@ export default StyleSheet.create({
     borderColor:Colors.signupButtonText,
     borderRadius:22,
     height:45,
-    width:Metrics.screenWidth - 88,
+    width: Metrics.screenWidth/1.4,
   },
   formContainer:{
     flexDirection:'column',
     marginTop:20,
     marginBottom:30,
-    marginLeft:44,
-    marginRight:44
+    marginLeft:Metrics.screenWidth/8,
+    marginRight:Metrics.screenWidth/8
   },
   inputStyle:{
     fontSize:15,
   },
   optionalContainer:{
     flexDirection:'row',
-    marginTop:50,
+    marginTop:Metrics.screenHeight/20,
     alignItems:'center',
     justifyContent:'center'
   },
@@ -118,9 +117,7 @@ export default StyleSheet.create({
     ...Fonts.style.buttonText
   },
   loginButtonContainer:{
-    width:Metrics.screenWidth - 88,
-    marginLeft:44,
-    marginBottom:150,
+    marginLeft:Metrics.screenWidth/7,
   },
   formIcon:{
     marginRight:4,

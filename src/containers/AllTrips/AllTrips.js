@@ -5,7 +5,7 @@ import { Header, Container, Content, Left, Right, Button, Icon,
 import { Colors, Images } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import InformationModal from '../../components/InformationModal';
-
+import { Actions } from 'react-native-router-flux';
 import styles from './AllTripsStyle';
 
 export default class AllTrips extends Component {
@@ -49,6 +49,11 @@ export default class AllTrips extends Component {
     })
   };
 
+  onPressGoBack = () =>{
+    Actions.pop();
+  };
+
+
   render(){
     let date = new Date();
     let monthNames = [
@@ -81,7 +86,7 @@ export default class AllTrips extends Component {
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
             <Left>
-              <Button transparent>
+              <Button transparent onPress={this.onPressGoBack}>
                 <Icon name="arrow-back" style={{color:Colors.white}}/>
               </Button>
             </Left>

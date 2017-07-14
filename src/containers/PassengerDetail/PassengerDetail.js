@@ -9,6 +9,17 @@ import styles from './PassengerDetailStyle';
 
 export default class PassengerDetail extends Component {
 
+
+
+  onPressPassengerDetails = () =>{
+    NavActions.mytrips();
+  };
+
+  onPressGoBack = () => {
+    NavActions.pop();
+  };
+
+
   render(){
     const passengerDetail =[
       {id:1, firstName:'John',lastName:'Doe', mobile:'09210301030' }
@@ -22,7 +33,7 @@ export default class PassengerDetail extends Component {
             shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
           }}>
             <Left>
-              <Button transparent onPress={NavActions.allTrips}>
+              <Button transparent onPress={this.onPressGoBack}>
                 <Icon name="arrow-back" style={{color: Colors.white}}/>
               </Button>
             </Left>
@@ -136,7 +147,7 @@ export default class PassengerDetail extends Component {
               colors={['#FC214F', '#D32735']}
               style={styles.buttonBackStyle}>
               <TouchableOpacity
-                onPress={this.passengerDetail}
+                onPress={this.onPressPassengerDetails}
                 style={{
                   flex: 1,
                   backgroundColor: Colors.transparent,

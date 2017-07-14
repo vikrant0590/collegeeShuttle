@@ -118,7 +118,7 @@ export default class AllTrips extends Component {
                             <View style={styles.busNameRow}>
                               <View style={styles.busNameHeading}>
                                 <View style={styles.busNameField}>
-                                  <Text  style = {item > 0 ? styles.availableBusNameField :
+                                  <Text  style = {item.seats > 0 ? styles.availableBusNameField :
                                     styles.unavailableBusNameField}>
                                     {item.name}
                                   </Text>

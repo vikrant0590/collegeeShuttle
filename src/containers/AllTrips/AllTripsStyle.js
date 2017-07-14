@@ -315,6 +315,7 @@ export default StyleSheet.create({
     marginBottom:15,
     backgroundColor:Colors.white,
     width:Metrics.screenWidth/1.2},
+
   availableBusNameField:{
     ...Fonts.style.allTripInfo,
     color:Colors.black

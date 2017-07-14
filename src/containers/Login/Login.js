@@ -11,9 +11,8 @@ import material from '../../../native-base-theme/variables/material';
 export default class Login extends Component {
   render() {
     return(
-      <Container style={{ flex:1, backgroundColor:Colors.base }}>
+      <Container style={{backgroundColor:Colors.base }}>
         <Content>
-
           <View style={styles.titleContainer}>
             <Text style={styles.titleTextStyle}>
               LOGIN

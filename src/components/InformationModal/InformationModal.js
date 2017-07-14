@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity} from 'react-native';
 import {List, Item, Label, Input} from 'native-base';
 import Modal from 'react-native-simple-modal';
 import {Actions as NavAction} from 'react-native-router-flux';
-import { Colors, Fonts  } from '../../theme';
+import { Colors, Fonts, Metrics  } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './InformationModalStyle';
 
@@ -15,6 +15,9 @@ export default class InformationModal extends  Component {
       open:true
     }
   }
+  componentWillReceiveProps =() =>{
+    this.setState({ open: true})
+  };
 
   render(){
     const parentsInformation = [
@@ -31,8 +34,11 @@ export default class InformationModal extends  Component {
           padding: 0,
         }}
         containerStyle={{
-          justifyContent: 'center'
+          justifyContent: 'center',
+          marginBottom:Metrics.screenHeight/2,
+
         }}>
+
         <List dataArray={parentsInformation}
           renderRow={(info) =>
             <View style={styles.modalScreen}>

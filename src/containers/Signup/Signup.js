@@ -30,25 +30,26 @@ export default class Signup extends Component {
   };
 
   handleSubmit = () => {
-    const {firstName, lastName, eid, password, mobileNumber} = this.state;
-    if (firstName & lastName, eid, password, mobileNumber) {
-      const {store: {dispatch}} = this.context;
-      dispatch(register({
-        firstName,
-        lastName,
-        eid,
-        password,
-        mobileNumber
-      }));
-    } else {
-      Toast.show({
-        text: 'All fields required!',
-        position: 'bottom',
-        duration: 2000,
-        buttonText: 'Ok'
-      });
-      //NavAction.tabbar
-    }
+    NavAction.tabbar();
+    // const {firstName, lastName, eid, password, mobileNumber} = this.state;
+    // if (firstName & lastName, eid, password, mobileNumber) {
+    //   const {store: {dispatch}} = this.context;
+    //   dispatch(register({
+    //     firstName,
+    //     lastName,
+    //     eid,
+    //     password,
+    //     mobileNumber
+    //   }));
+    // } else {
+    //   Toast.show({
+    //     text: 'All fields required!',
+    //     position: 'bottom',
+    //     duration: 2000,
+    //     buttonText: 'Ok'
+    //   });
+    //   //NavAction.tabbar
+    // }
   };
 
   render() {

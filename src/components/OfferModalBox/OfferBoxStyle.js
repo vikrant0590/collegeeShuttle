@@ -77,17 +77,17 @@ export default StyleSheet.create({
   },
 
   validationView: {
-    marginTop: 15,
+    marginTop: Metrics.screenHeight - Metrics.screenHeight/1.06,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: Colors.validationBGColor,
     borderRadius: 3,
-    height: 40,
+    height: Metrics.screenWidth/12,
     justifyContent: 'center',
   },
 
   validationText: {
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
     color: Colors.white,
     paddingLeft: 20,

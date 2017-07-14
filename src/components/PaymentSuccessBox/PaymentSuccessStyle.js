@@ -4,7 +4,7 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
-    height: Metrics.screenHeight - Metrics.screenHeight/2.2
+    height: Metrics.screenHeight - Metrics.screenHeight/1.8
   },
 
   PaymentViewConatiner: {
@@ -15,30 +15,31 @@ export default StyleSheet.create({
 
   PaymentViewStyle: {
     borderRadius: 2,
-    marginLeft: 40,
-    marginRight: 40,
+    marginLeft: Metrics.screenWidth/ 10,
+    marginRight: Metrics.screenWidth/ 10,
   },
 
   headerImage: {
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: 10
+    marginTop: Metrics.screenWidth/ 30,
   },
 
   buttonIcon:{
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: 5
+    marginTop: Metrics.screenWidth/ 60
   },
 
   inviteFriendBtn:{
-    marginTop: 40,
+    marginTop: Metrics.screenWidth/ 10,
     backgroundColor: Colors.white,
     borderRadius: 16.5,
-    marginRight: 5,
+    marginRight: Metrics.screenWidth/ 25,
+    marginLeft: 5,
     borderWidth: 1,
     borderColor: Colors.unselectColor,
-    height: 35,
+    height: Metrics.screenWidth/ 10,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -58,18 +59,19 @@ export default StyleSheet.create({
   },
 
   ViewDetailsBtn: {
-    marginTop: 40,
+    marginTop: Metrics.screenWidth/ 10,
     backgroundColor: Colors.unselectColor,
     borderRadius: 16.5,
-    marginLeft: 5,
-    height: 35,
+    marginLeft:Metrics.screenWidth/ 25,
+    marginRight: 5,
+    height: Metrics.screenWidth/ 10,
     justifyContent: 'center',
     alignItems: 'center'
   },
 
 
   paymentTextView: {
-    marginTop: 15,
+    marginTop: Metrics.screenWidth/ 22,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -82,7 +84,7 @@ export default StyleSheet.create({
   },
 
   messageTextView: {
-    marginTop: 10,
+    marginTop: Metrics.screenWidth/ 30,
     alignItems: 'center',
     justifyContent: 'center'
   },

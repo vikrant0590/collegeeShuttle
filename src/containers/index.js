@@ -14,6 +14,7 @@ import HelpSupport from './HelpSupport';
 import Offers from './Offers';
 import Payment from './Payment';
 
+
 export {
   WalkThrough,
   Home,
@@ -29,5 +30,5 @@ export {
   InviteFriend,
   HelpSupport,
   Offers,
-  Payment
+  Payment,
 };

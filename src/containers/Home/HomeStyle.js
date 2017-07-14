@@ -27,6 +27,12 @@ export default StyleSheet.create({
     marginRight: 10
   },
 
+  RoundTripView: {
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 15
+  },
+
   segmentButton:{
     flex: 1,
     flexDirection: 'row',

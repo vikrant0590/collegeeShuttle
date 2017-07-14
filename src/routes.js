@@ -5,8 +5,11 @@ import {
   InviteFriend,
   HelpSupport,
   Offers,
-  Payment
+  Payment,
 } from './containers';
+import {
+  MyTripMap
+} from './components';
 
 import { Router, Scene } from 'react-native-router-flux';
 export default class AppRouter extends Component {
@@ -29,6 +32,7 @@ export default class AppRouter extends Component {
         <Scene key="offers" component={Offers} hideNavBar={true}  direction='vertical' />
         <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
         <Scene key="payment" component={Payment} hideNavBar={true}/>
+        <Scene key="mytripmap" component={MyTripMap} hideNavBar={true}/>
       </Router>
     );
   }

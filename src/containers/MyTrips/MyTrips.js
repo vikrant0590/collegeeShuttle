@@ -21,7 +21,7 @@ import SwipeMyTrip from 'react-native-swipe-a-lot';
 import styles from './MyTripsStyles';
 import { Colors, Images, Metrics, Fonts } from '../../theme';
 import { MyTripCell } from '../../components';
-
+import { Actions } from 'react-native-router-flux';
 
 // dummy data array ...
 const items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
@@ -34,6 +34,14 @@ export default class MyTrips extends Component {
 
     }
   }
+
+  onPressTrackNowButton = () =>{
+    Actions.mytripmap();
+  };
+
+  onPressInviteButton = () =>{
+    Actions.invitefriend();
+  };
 
   render(){
     const swiperpage = [];
@@ -95,7 +103,7 @@ export default class MyTrips extends Component {
                   <Body style={{ }}>
                     <TouchableOpacity
                       style={styles.myTripTrackNowBtn}
-                      onPress={this.onPressRoundTripButton}>
+                      onPress={this.onPressTrackNowButton}>
                       <Image source={Images.roundtriptrackicon} style={styles.myTripTrackIcon} />
                       <Text style={styles.myTripTrackText}>Track Now</Text>
                     </TouchableOpacity>

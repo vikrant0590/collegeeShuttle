@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
 import { Images, Colors } from '../../theme';
+import {TabBar} from '../../containers'
 import LinearGradient from 'react-native-linear-gradient';
 import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar, OfferBox, PaymentFailed, PaymentSuccess } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -29,10 +30,11 @@ export default class Home extends Component {
     if(this.state.isRoundTrip){
       this.setState({ isOneWay: true, isRoundTrip: false });
     }
+    this.onPressPaymentSuccessBox();
   };
 
   onPressNotificationButton = () => {
-    this.onPressPaymentSuccessBox();
+    this.onPressDialogBox();
   };
 
   onPressUniversityButton = () =>{
@@ -40,7 +42,7 @@ export default class Home extends Component {
   };
 
   onPressHomeButton = () => {
-
+   this.onPressPaymentFailedBox();
   };
 
   onPressDialogBox = () => {
@@ -137,7 +139,7 @@ export default class Home extends Component {
               </View>
             </ScrollableTabView>
             :
-            <View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+            <View style={styles.RoundTripView}>
               <RoundTrip />
             </View>
           }

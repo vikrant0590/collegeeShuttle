@@ -11,7 +11,7 @@ import MyTripCell from './MyTripCell';
 import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
 import PaymentSuccess from './PaymentSuccessBox';
-
+import MyTripMap from './MyTripMap';
 
 export {
   WalkThroughFirst,
@@ -26,5 +26,6 @@ export {
   MyTripCell,
   OfferBox,
   PaymentFailed,
-  PaymentSuccess
+  PaymentSuccess,
+  MyTripMap
 };

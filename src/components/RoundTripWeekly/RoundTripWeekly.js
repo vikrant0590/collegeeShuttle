@@ -87,12 +87,10 @@ export default class RoundTripWeekly extends Component {
                 }
               </Row>
               <Row style={{ flex: 1 }}>
-                <Col style={{ flex: 1 }}>
+                <Col style={{ flex: 0.99 }}>
                   <CardItem>
                     <Body
                       style={{
-                        borderRightColor: Colors.thinLineColor,
-                        borderRightWidth: 1.5,
                         alignItems: 'center'
                       }}>
                       <Text style={styles.dateWeekText}>25</Text>
@@ -102,7 +100,10 @@ export default class RoundTripWeekly extends Component {
                     </Body>
                   </CardItem>
                 </Col>
-                <Col style={{ flex: 1 }}>
+                <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
+                  <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+                </Col>
+                <Col style={{ flex: 0.99 }}>
                   <CardItem>
                     <Body style={{ alignItems: 'center' }}>
                       <Text style={styles.dateWeekText}>27</Text>

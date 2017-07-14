@@ -47,34 +47,53 @@ export default class Payment extends Component{
             marginLeft: 15,
             marginRight: 15,
             marginTop: 15,
-            width: Metrics.screenWidth - 30
+            width: Metrics.screenWidth - 30,
+            height: Metrics.screenHeight/ 3.5
           }} >
-          <Row style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
+          <Row style={{ flex: 0.65, width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
                 <Body style={{ alignItems: 'center' }}>
-                  <Text style={styles.myTripDateText}>25</Text>
-                  <Text style={styles.myTripDayText}>Friday</Text>
-                  <Text style={styles.monthWeekText}>Feb, 2017</Text>
+                  <Text style={styles.paymentDateText}>25</Text>
+                  <Text style={styles.paymentDayText}>Friday</Text>
+                  <Text style={styles.paymentmonthText}>Feb, 2017</Text>
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 }}>
-              <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+            <Col style={{ marginTop: Metrics.screenWidth/23, marginBottom: Metrics.screenWidth/23, width: 1 }}>
+              <View style={styles.thinLine} />
             </Col>
             <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
               <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
                 <Col style={{ flex: 0.85 }}>
                   <CardItem>
                     <Body style={{ justifyContent: 'flex-start' }}>
-                      <Row style={{ flex: 1, marginRight: 10}}>
-                        <Text style={styles.myTripUpcomingText}>Upcoming Trip</Text>
-                      </Row>
-                      <Text style={styles.myTripUniversityText}>University - Home</Text>
+                      <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
+                      <Text style={styles.paymentUniversityText}>University - Home</Text>
+                      <Text style={[styles.paymentUpcomingText,{paddingTop: 15}]}>BUS NAME</Text>
+                      <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
                     </Body>
                   </CardItem>
                 </Col>
               </Row>
+            </Col>
+          </Row>
+          <Row style={{ flex: 0.33, width: Metrics.screenWidth - 30 }}>
+            <Col style={{ flex: 0.80 }}>
+              <CardItem style={{ backgroundColor: Colors.transparent }}>
+                <Body style={{ alignItems: 'flex-start' }}>
+                  <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
+                  <Text style={styles.paymentUniText}>Uni Circle</Text>
+                </Body>
+              </CardItem>
+            </Col>
+            <Col style={{flex: 1.20, marginRight: 5 }}>
+              <CardItem>
+                <Body style={{justifyContent: 'flex-start', marginTop: -2}}>
+                  <Text style={styles.paymentPickupText}>DROP</Text>
+                  <Text style={styles.paymentUniText}>Metro Station</Text>
+                </Body>
+              </CardItem>
             </Col>
           </Row>
         </Card>
@@ -91,53 +110,29 @@ export default class Payment extends Component{
             marginRight: 15,
             marginTop: 15,
             width: Metrics.screenWidth - 30,
-            height: Metrics.screenHeight/ 6
+            height: Metrics.screenHeight/ 5
           }} >
-          <Col style={{ width: Metrics.screenWidth - 30 }}>
-            <Row style={{ flex: 1, marginTop: 10, alignItems: 'flex-start', justifyContent: 'flex-start'}}>
-              <Image
-                style={{
-                  flex: 0.5,
-                  backgroundColor: 'red',
-                  alignSelf: 'baseline',
-                  resizeMode: 'contain',
-                }} source={Images.bankmastercardicon} />
-            </Row>
-            <Row style={{ flex: 1 , justifyContent: 'center', alignItems: 'center', marginLeft: 5, marginRight: 5 }}>
-              <Col style={{ flex: 0.5 }}>
-                <Text
-                  style={{
-                    fontSize: Fonts.size.medium,
-                    fontFamily: Fonts.lato.base,
-                    textAlign: 'left'
-                  }}>Card Number</Text>
-                <Text
-                  style={{
-                    fontSize: Fonts.size.medium,
-                    fontFamily: Fonts.lato.base,
-                    textAlign: 'left',
-                    justifyContent: 'center'
-                  }}>6757 **** **** 8979</Text>
-              </Col>
-              <Col style={{ flex: 0.5 }}>
-                <Text
-                  style={{
-                    fontSize: Fonts.size.medium,
-                    fontFamily: Fonts.lato.base,
-                    textAlign: 'left',
-                    justifyContent: 'center'
-                  }}>Expiry Date</Text>
-                <Text
-                  style={{
-                    fontSize: Fonts.size.medium,
-                    fontFamily: Fonts.lato.base,
-                    textAlign: 'left',
-                    justifyContent: 'center'
-                  }}>27-Feb-2019</Text>
-              </Col>
-            </Row>
-          </Col>
-
+          <Row
+            style={{
+              marginTop: 15,
+              marginLeft: 15,
+              alignItems: 'flex-start'
+            }}>
+            <Image style={styles.bankmastercardimage} source={Images.bankmastercardicon} />
+          </Row>
+          <Row style={{ marginLeft: Metrics.screenWidth/50, marginRight: Metrics.screenWidth/50 }}>
+            <Col style={{ flex: 0.5 }}>
+              <Text style={styles.cardnumberText}>CARD NUMBER</Text>
+              <Text
+                style={styles.cardDetails}>6757 **** **** 8979</Text>
+            </Col>
+            <Col style={{ flex: 0.5 }}>
+              <Text
+                style={styles.expiryDate}>EXPIRY DATE</Text>
+              <Text
+                style={styles.expiry}>07 / 01</Text>
+            </Col>
+          </Row>
         </Card>
       );
     }
@@ -180,19 +175,14 @@ export default class Payment extends Component{
 
           <Card
             style={{
-              marginTop: Metrics.screenHeight/ 15,
+              marginTop: Metrics.screenHeight/15,
               marginLeft: 15,
               marginRight: 15,
-              height: 60,
+              height: Metrics.screenWidth/6,
               justifyContent:'center',
               alignItems:'center'
             }}>
-            <Text
-              style={{
-                fontSize: Fonts.size.regular,
-                fontFamily: Fonts.lato.base,
-                alignSelf: 'center'
-              }}>Total Payble Amount: $72</Text>
+            <Text style={styles.totalamount}>Total Payble Amount: $72</Text>
           </Card>
 
           <SwipePayment
@@ -215,13 +205,14 @@ export default class Payment extends Component{
 
           <Card
             style={{
-              marginTop: 10,
+              marginTop: 15,
               marginLeft: 15,
               marginRight: 15,
               width: Metrics.screenWidth - 30,
-              marginBottom: 10
+              height: Metrics.screenHeight/3,
             }}>
-            <List>
+            <List
+              style={{ height: Metrics.screenHeight/3, width: Metrics.screenWidth-30, flex: 1 }}>
               <ListItem
                 style={{
                   alignItems: 'center',
@@ -230,38 +221,23 @@ export default class Payment extends Component{
                   backgroundColor: Colors.profileInputHeadingColor
                 }}>
                 <Text
-                  style={{
-                    alignSelf: 'center',
-                    justifyContent: 'center',
-                    color: Colors.white,
-                    fontSize: Fonts.size.regular
-                  }}>Payment Options</Text>
+                  style={styles.paymnetOPtion}>Payment Options</Text>
               </ListItem>
               <ListItem >
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1}}>
-                    <Image style={{}} source={Images.packageicon} />
+                    <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
                   </Col>
                   <Col style={{ flex: 0.7}}>
                     <Text
-                      style={{
-                        fontSize: Fonts.size.medium,
-                        fontFamily: Fonts.lato.base,
-                        color: Colors.placeholderTextColor,
-                        textAlign: 'left'
-                      }}>College Shuttle Package</Text>
+                      style={styles.collegeText}>College Shuttle Package</Text>
                   </Col>
                   <Col style={{ flex: 0.2 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
                       onPress={()=> console.log('test')}>
                       <Text
-                        style={{
-                          fontSize: Fonts.size.medium,
-                          fontFamily: Fonts.lato.base,
-                          color: Colors.timeColor,
-                          textAlign: 'right'
-                        }}>Buy Now</Text>
+                        style={styles.buyNow}>Buy Now</Text>
                     </TouchableOpacity>
                   </Col>
                 </Row>
@@ -273,12 +249,7 @@ export default class Payment extends Component{
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
                     <Text
-                      style={{
-                        fontSize: Fonts.size.medium,
-                        fontFamily: Fonts.lato.base,
-                        color: Colors.black,
-                        textAlign: 'left'
-                      }}>Credit Card</Text>
+                      style={styles.creditcardText}>Credit Card</Text>
                   </Col>
                 </Row>
               </ListItem>
@@ -289,12 +260,7 @@ export default class Payment extends Component{
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
                     <Text
-                      style={{
-                        fontSize: Fonts.size.medium,
-                        fontFamily: Fonts.lato.base,
-                        color: Colors.black,
-                        textAlign: 'left'
-                      }}>Debit Card</Text>
+                      style={styles.debitcardText}>Debit Card</Text>
                   </Col>
                 </Row>
               </ListItem>
@@ -302,33 +268,24 @@ export default class Payment extends Component{
           </Card>
           <Card
             style={{
-              marginTop: 10,
+              marginTop: 15,
               marginLeft: 15,
               marginRight: 15,
-              height: 60,
+              height: Metrics.screenWidth/6,
               justifyContent:'center',
               alignItems:'center'
             }}>
             <Row style={{ flex: 1 }}>
               <Col style={{ flex: 0.7, justifyContent: 'center' }}>
                 <Text
-                  style={{
-                    fontSize: Fonts.size.regular,
-                    fontFamily: Fonts.lato.base,
-                    alignSelf: 'center'
-                  }}>Pacakage Code: CS0094</Text>
+                  style={styles.packagecode}>Pacakage Code: CS0094</Text>
               </Col>
               <Col style={{ flex: 0.3, justifyContent: 'center' }}>
                 <TouchableOpacity
                   style={{ flex: 1, justifyContent: 'center'}}
                   onPress={()=>console.log('test')}>
                   <Text
-                    style={{
-                      fontSize: Fonts.size.medium,
-                      fontFamily: Fonts.lato.base,
-                      textAlign: 'center',
-                      color: Colors.timeColor
-                    }}>Apply</Text>
+                    style={styles.Apply}>Apply</Text>
                 </TouchableOpacity>
               </Col>
             </Row>

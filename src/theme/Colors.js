@@ -72,7 +72,8 @@ const colors = {
   reminderButtonColor:'#e0253e',
   modalFormHeading:'#C7C7C7',
   passengerTextColor:'#e03432',
-  passengerLabelColor:'rgba(164,164,164,0.6)'
+  passengerLabelColor:'rgba(164,164,164,0.6)',
+  startColor:'#ffc23e'
 
 
 

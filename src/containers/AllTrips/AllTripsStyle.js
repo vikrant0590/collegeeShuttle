@@ -176,11 +176,9 @@ export default StyleSheet.create({
     marginTop:20
   },
   amountContainer:{
-    marginLeft:Metrics.screenWidth/2,
     marginTop:-30,
     flex: 0.6,
-    marginRight:20,
-    alignSelf:'flex-end'
+    alignSelf:'flex-end',
   },
   starContainer:{
     flexDirection:"row"
@@ -197,9 +195,7 @@ export default StyleSheet.create({
   },
   ratingRowContainer:{
     flex: 1,
-    flexDirection:'column',
     marginTop:5,
-    width: Metrics.screenWidth - 30,
   },
   starColumnField:{
     flexDirection: 'row',

@@ -288,18 +288,23 @@ export default class AllTrips extends Component {
                     </View>
 
                     <View style={styles.ratingRowContainer}>
-                      <View style={styles.starColumnField}>
-                        <View style={styles.starText}>
-                          <Text style={styles.starTextColor}>{item.star}</Text>
+                      <View style={{flex:1,  flexDirection:'column'}}>
+                        <View style={styles.starColumnField}>
+                          <View style={styles.starText}>
+                            <Text style={styles.starTextColor}>{item.star}</Text>
+                          </View>
+
+                          <View style={styles.ratingColumnField }>
+                            <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+                          </View>
                         </View>
-                        <View style={styles.ratingColumnField }>
-                          <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+
+                        <View style={styles.amountContainer}>
+                          <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                            {item.amount}
+                          </Text>
                         </View>
-                      </View>
-                      <View style={styles.amountContainer}>
-                        <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                          {item.amount}
-                        </Text>
+
                       </View>
                     </View>
                   </View>
@@ -313,18 +318,23 @@ export default class AllTrips extends Component {
                       <Image source={Images.fullStar} style={styles.starGap}/>
                     </View>
                     <View style={styles.ratingRowContainer}>
-                      <View style={styles.starColumnField}>
-                        <View style={styles.starText}>
-                          <Text style={styles.starTextColor}>{item.star}</Text>
+                      <View style={{flex:1,  flexDirection:'column'}}>
+                        <View style={styles.starColumnField}>
+                          <View style={styles.starText}>
+                            <Text style={styles.starTextColor}>{item.star}</Text>
+                          </View>
+
+                          <View style={styles.ratingColumnField }>
+                            <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+                          </View>
                         </View>
-                        <View style={styles.ratingColumnField }>
-                          <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+
+                        <View style={styles.amountContainer}>
+                          <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                            {item.amount}
+                          </Text>
                         </View>
-                      </View>
-                      <View style={styles.amountContainer}>
-                        <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                          {item.amount}
-                        </Text>
+
                       </View>
                     </View>
                   </View>
@@ -339,18 +349,23 @@ export default class AllTrips extends Component {
                       <Image source={Images.halfStar}/>
                     </View>
                     <View style={styles.ratingRowContainer}>
-                      <View style={styles.starColumnField}>
-                        <View style={styles.starText}>
-                          <Text style={styles.starTextColor}>{item.star}</Text>
+                      <View style={{flex:1,  flexDirection:'column'}}>
+                        <View style={styles.starColumnField}>
+                          <View style={styles.starText}>
+                            <Text style={styles.starTextColor}>{item.star}</Text>
+                          </View>
+
+                          <View style={styles.ratingColumnField }>
+                            <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+                          </View>
                         </View>
-                        <View style={styles.ratingColumnField }>
-                          <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
+
+                        <View style={styles.amountContainer}>
+                          <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                            {item.amount}
+                          </Text>
                         </View>
-                      </View>
-                      <View style={styles.amountContainer}>
-                        <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                          {item.amount}
-                        </Text>
+
                       </View>
                     </View>
                   </View>

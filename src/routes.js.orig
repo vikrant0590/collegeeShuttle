@@ -6,9 +6,15 @@ import {
   InviteFriend, Offers, HelpSupport, Payment, MyTripMap
 } from './containers';
 
+<<<<<<< HEAD
 import { InformationModal } from './components';
+=======
+>>>>>>> origin/MyTripScreen
 
 import { Router, Scene } from 'react-native-router-flux';
+
+import { View, Text } from 'react-native';
+
 export default class AppRouter extends Component {
 
   render() {
@@ -31,8 +37,12 @@ export default class AppRouter extends Component {
         <Scene key="offers" component={Offers} hideNavBar={true}  direction='vertical' />
         <Scene key="helpsupport" component={HelpSupport} hideNavBar={true}/>
         <Scene key="payment" component={Payment} hideNavBar={true}/>
+<<<<<<< HEAD
         <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
         <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
+=======
+
+>>>>>>> origin/MyTripScreen
       </Router>
     );
   }

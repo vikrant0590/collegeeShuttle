@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import { Container, Title, Body, Left, Right, Button, Header, Icon,
+import { Container,Content, Title, Body, Left, Right, Button, Header, Icon,
   Form, Item, Input, Label, List, Card, CardItem  } from 'native-base';
 import {  Colors, Fonts, } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
@@ -32,104 +32,113 @@ export default class PassengerDetail extends Component {
             <Right>
             </Right>
           </Header>
-
         </LinearGradient>
         <View style={styles.backScreen}>
-          <View style={styles.formContainer}>
-            <Card>
-              <CardItem>
-                <List dataArray={passengerDetail}
-                  renderRow={(info) =>
-                    <Form>
-                      <View style={styles.passengerContainer}>
-                        <View style={styles.firstPassengerHeading}>
-                          <Text style={{color:Colors.passengerTextColor,...Fonts.style.profileForm}}>Passenger 1</Text>
-                        </View>
-                        <View
-                          style={styles.firstPassengerDetail}>
-                          <View style={styles.inputfield}>
+          <Content>
+            <View style={styles.formContainer}>
+              <Card>
+                <CardItem>
+                  <List dataArray={passengerDetail}
+                    renderRow={(info) =>
+                      <Form>
+                        <View style={styles.passengerContainer}>
+                          <View style={styles.firstPassengerHeading}>
+                            <Text style={{color:Colors.passengerTextColor,...Fonts.style.profileForm}}>
+                              Passenger 1
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.firstPassengerDetail}>
+                            <View style={styles.inputfield}>
+                              <Item stackedLabel style={{height: 60}}>
+                                <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
+                                  FIRST NAME
+                                </Label>
+                                <Input style={{...Fonts.style.profileInput, color: Colors.options}}
+                                  autoCorrect={false}
+                                  autoCapitalize="none"
+                                  value={info.firstName}
+                                />
+                              </Item>
+                            </View>
+                            <View style={styles.inputfield}>
+                              <Item stackedLabel style={{height: 60}}>
+                                <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
+                                  LAST NAME
+                                </Label>
+                                <Input style={{...Fonts.style.profileInput, color: Colors.options}}
+                                  autoCorrect={false}
+                                  autoCapitalize="none"
+                                  value={info.lastName}
+                                />
+                              </Item>
+                            </View>
+                          </View>
+                          <View style={styles.mobileInputField}>
                             <Item stackedLabel style={{height: 60}}>
-                              <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>FIRST
-                                NAME</Label>
-                              <Input style={{...Fonts.style.profileInput, color: Colors.options}}
-                                autoCorrect={false}
-                                autoCapitalize="none"
-                                value={info.firstName}
-                              />
-                            </Item>
-                          </View>
-                          <View style={styles.inputfield}>
-                            <Item stackedLabel style={{height: 60}}>
-                              <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>LAST
-                                NAME</Label>
-                              <Input style={{...Fonts.style.profileInput, color: Colors.options}}
-                                autoCorrect={false}
-                                autoCapitalize="none"
-                                value={info.lastName}
-                              />
-                            </Item>
-                          </View>
-                        </View>
-                        <View style={styles.mobileInputField}>
-                          <Item stackedLabel style={{height: 60}}>
-                            <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
-                              MOBILE NUMBER
-                            </Label>
-                            <Input style={{...Fonts.style.profileInput,color:Colors.options}}
-                              autoCorrect={false}
-                              autoCapitalize="none"
-                              keyboardType='numeric'
-                              value={info.mobile}
-                            />
-                          </Item>
-                        </View>
-                      </View>
-
-                      <View style={styles.passengerContainer}>
-                        <View style={styles.secondPassengerHeading}>
-                          <Text style={{color:Colors.passengerTextColor, ...Fonts.style.profileForm}}>Passenger 2</Text>
-                        </View>
-                        <View
-                          style={styles.secondPassengerDetail}>
-                          <View style={styles.inputfield}>
-                            <Item floatingLabel style={{height: 60}}>
-                              <Label style={{...Fonts.style.buttonText, color: Colors.passengerLabelColor}}>FIRST
-                                NAME</Label>
-                              <Input style={{...Fonts.style.profileInput, color: Colors.options}}
-                                autoCorrect={false}
-                                autoCapitalize="none"
-                              />
-                            </Item>
-                          </View>
-                          <View style={styles.inputfield}>
-                            <Item floatingLabel style={{height: 60}}>
-                              <Label style={{...Fonts.style.buttonText, color: Colors.passengerLabelColor}}>LAST
-                                NAME</Label>
+                              <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
+                                MOBILE NUMBER
+                              </Label>
                               <Input style={{...Fonts.style.profileInput,color:Colors.options}}
                                 autoCorrect={false}
                                 autoCapitalize="none"
+                                keyboardType='numeric'
+                                value={info.mobile}
                               />
                             </Item>
                           </View>
                         </View>
-                        <View style={styles.mobileInputField}>
-                          <Item floatingLabel style={{height: 60}}>
-                            <Label style={{...Fonts.style.buttonText, color:Colors.passengerLabelColor}}>
-                              MOBILE NUMBER
-                            </Label>
-                            <Input style={{...Fonts.style.profileInput,color:Colors.options}}
-                              autoCorrect={false}
-                              autoCapitalize="none"
-                              keyboardType='numeric'
-                            />
-                          </Item>
+
+                        <View style={styles.passengerContainer}>
+                          <View style={styles.secondPassengerHeading}>
+                            <Text style={{color:Colors.passengerTextColor, ...Fonts.style.profileForm}}>
+                              Passenger 2
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.secondPassengerDetail}>
+                            <View style={styles.inputfield}>
+                              <Item floatingLabel style={{height: 60}}>
+                                <Label style={{...Fonts.style.buttonText, color: Colors.passengerLabelColor}}>
+                                  FIRST NAME
+                                </Label>
+                                <Input style={{...Fonts.style.profileInput, color: Colors.options}}
+                                  autoCorrect={false}
+                                  autoCapitalize="none"
+                                />
+                              </Item>
+                            </View>
+                            <View style={styles.inputfield}>
+                              <Item floatingLabel style={{height: 60}}>
+                                <Label style={{...Fonts.style.buttonText, color: Colors.passengerLabelColor}}>
+                                  LAST NAME
+                                </Label>
+                                <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                                  autoCorrect={false}
+                                  autoCapitalize="none"
+                                />
+                              </Item>
+                            </View>
+                          </View>
+                          <View style={styles.mobileInputField}>
+                            <Item floatingLabel style={{height: 60}}>
+                              <Label style={{...Fonts.style.buttonText, color:Colors.passengerLabelColor}}>
+                                MOBILE NUMBER
+                              </Label>
+                              <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                                autoCorrect={false}
+                                autoCapitalize="none"
+                                keyboardType='numeric'
+                              />
+                            </Item>
+                          </View>
                         </View>
-                      </View>
-                    </Form>
-                  }/>
-              </CardItem>
-            </Card>
-          </View>
+                      </Form>
+                    }/>
+                </CardItem>
+              </Card>
+            </View>
+          </Content>
 
           <View style={styles.formButtonContainer}>
             <LinearGradient

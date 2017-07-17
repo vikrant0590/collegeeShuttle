@@ -9,10 +9,10 @@ export default StyleSheet.create({
   },
   firstPassengerHeading:{
     marginLeft:20,
-    marginTop:20
+    marginTop:10
   },
   secondPassengerHeading:{
-    marginTop:30,
+    marginTop:20,
     marginLeft:20
   },
   formContainer:{
@@ -55,7 +55,7 @@ export default StyleSheet.create({
   mobileInputField:{
     flex:1,
     marginRight:20,
-    marginLeft:5
+    marginLeft:5,
   },
   inputfield:{
     flex:1,

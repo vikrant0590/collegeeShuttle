@@ -42,11 +42,20 @@ export default StyleSheet.create({
     alignSelf:'flex-end'
   },
   placeNameRow:{
-    flex: 0.2,
+    flex: 0.3,
+    marginTop:4,
   },
   pathRow:{
-    flexDirection: 'row',
-    flex: 0.2,
+    flex: 0.3,
+    marginTop: 2,
+  },
+  pathRowValue:{
+    flexDirection:'row',
+    flex:1
+  },
+  pathRowContainer:{
+    flexDirection:'row',
+    flex:1
   },
   distanceNameField:{
     flex:1,
@@ -99,7 +108,8 @@ export default StyleSheet.create({
     alignSelf:"flex-end"
   },
   startPoint:{
-    flexDirection: 'row'
+    flexDirection: 'row',
+
   },
   singlePathLine:{
     height: 0.9,
@@ -112,10 +122,7 @@ export default StyleSheet.create({
     marginLeft: -10,
     marginTop:4
   },
-  secondDistancePath:{
-    marginTop: 2,
-    flex:0.3
-  },
+
   secondMiddleDistance:{
     height: 0.9,
     backgroundColor:Colors.headingColor, // Temporary
@@ -311,6 +318,10 @@ export default StyleSheet.create({
     marginBottom:15,
     backgroundColor:Colors.white,
     width:Metrics.screenWidth/1.2},
+  ratingAmountRow:{
+    flex:1,
+    flexDirection:'column'
+  },
 
   availableBusNameField:{
     ...Fonts.style.allTripInfo,
@@ -319,7 +330,7 @@ export default StyleSheet.create({
   unavailableBusNameField:{
     ...Fonts.style.allTripInfo,
     color:Colors.availability
-  }
+  },
 
 
 });

@@ -193,39 +193,38 @@ export default class AllTrips extends Component {
 
                             {(item.stop === 1) &&
                   <View style={styles.pathRow}>
-                    <View style={styles.startPoint}>
-                      <Image source={Images.ellipseOuter}/>
-                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                    </View>
+                    <View style={styles.pathRowContainer}>
+                      <View style={styles.startPoint}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                      </View>
 
-                    <View style={styles.singlePathLine}>
-                    </View>
-
-                    <View>
+                      <View style={styles.singlePathLine}>
+                      </View>
                       <Image source={Images.inteligent}/>
                     </View>
                   </View>
                             }
                             {(item.stop === 3) &&
 
-                  <View style={styles.secondDistancePath}>
+                  <View style={styles.pathRow}>
 
-                    <View style={{flexDirection:'row',flex:1}}>
-                      <View style={{flex:1,flexDirection:'row'}}>
+                    <View style={styles. pathRowContainer}>
+                      <View style={styles.pathRowValue}>
                         <Image source={Images.ellipseOuter}/>
                         <Image source={Images.ellipse} style={styles.innerEllipse}/>
                         <View style={styles.secondMiddleDistance}>
                         </View>
                       </View>
 
-                      <View style={{flex:1,flexDirection:'row'}}>
+                      <View style={styles.pathRowValue}>
                         <Image source={Images.ellipseOuter}/>
                         <Image source={Images.ellipse} style={styles.innerEllipse}/>
                         <View style={styles.secondMiddleDistance}>
                         </View>
                       </View>
 
-                      <View style={{flex:1,flexDirection:'row'}}>
+                      <View style={styles.pathRowValue}>
                         <Image source={Images.ellipseOuter}/>
                         <Image source={Images.ellipse} style={styles.innerEllipse}/>
                         <View style={styles.secondMiddleDistance}>
@@ -237,16 +236,16 @@ export default class AllTrips extends Component {
                             }
 
                             {(item.stop === 2) &&
-                            <View style={styles.secondDistancePath}>
+                            <View style={styles.pathRow}>
 
-                              <View style={{flexDirection:'row',flex:1}}>
-                                <View style={{flex:1,flexDirection:'row'}}>
+                              <View style={styles. pathRowContainer}>
+                                <View style={styles.pathRowValue}>
                                   <Image source={Images.ellipseOuter}/>
                                   <Image source={Images.ellipse} style={styles.innerEllipse}/>
                                   <View style={styles.secondMiddleDistance}>
                                   </View>
                                 </View>
-                                <View style={{flex:1,flexDirection:'row'}}>
+                                <View style={styles.pathRowValue}>
                                   <Image source={Images.ellipseOuter}/>
                                   <Image source={Images.ellipse} style={styles.innerEllipse}/>
                                   <View style={styles.secondMiddleDistance}>
@@ -293,7 +292,7 @@ export default class AllTrips extends Component {
                     </View>
 
                     <View style={styles.ratingRowContainer}>
-                      <View style={{flex:1,  flexDirection:'column'}}>
+                      <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
                             <Text style={styles.starTextColor}>{item.star}</Text>
@@ -323,7 +322,7 @@ export default class AllTrips extends Component {
                       <Image source={Images.fullStar} style={styles.starGap}/>
                     </View>
                     <View style={styles.ratingRowContainer}>
-                      <View style={{flex:1,  flexDirection:'column'}}>
+                      <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
                             <Text style={styles.starTextColor}>{item.star}</Text>
@@ -354,7 +353,7 @@ export default class AllTrips extends Component {
                       <Image source={Images.halfStar}/>
                     </View>
                     <View style={styles.ratingRowContainer}>
-                      <View style={{flex:1,  flexDirection:'column'}}>
+                      <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
                             <Text style={styles.starTextColor}>{item.star}</Text>
@@ -378,11 +377,9 @@ export default class AllTrips extends Component {
                             {(item.seats === 0) &&
 
                         <View style={styles.seatUnavailableButton}>
-                          <Content>
-                            <Button rounded bordered style={{borderColor:Colors.reminderButtonColor}}>
-                              <Text style={styles.seatUnavailableButtonText}>Notify when available</Text>
-                            </Button>
-                          </Content>
+                          <Button rounded bordered style={{borderColor:Colors.reminderButtonColor}}>
+                            <Text style={styles.seatUnavailableButtonText}>Notify when available</Text>
+                          </Button>
                         </View>
                             }
                           </View>

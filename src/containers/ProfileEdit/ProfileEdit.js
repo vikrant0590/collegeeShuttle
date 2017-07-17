@@ -17,6 +17,7 @@ export default class ProfileEdit extends Component {
     }
   }
   render(){
+
     return (
       <Content>
         <View style={styles.profileInfo}>

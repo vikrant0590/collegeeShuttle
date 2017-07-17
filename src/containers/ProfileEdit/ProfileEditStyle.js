@@ -80,6 +80,4 @@ export default StyleSheet.create({
     marginRight:15,
     marginBottom:15
   }
-
-
 });

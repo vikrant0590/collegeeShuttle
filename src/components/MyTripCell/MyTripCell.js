@@ -39,7 +39,7 @@ export default class MyTripCell extends Component {
                       <Icon
                         name='ios-help-circle-outline'
                         style={{
-                          fontSize: 22,
+                          fontSize: Fonts.size.h7,
                           color: Colors.black,
                           justifyContent: 'center',
                           top: 3,

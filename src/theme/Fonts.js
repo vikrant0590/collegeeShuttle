@@ -29,21 +29,6 @@ const lato = {
 
 };
 
-// const normalize = (size) => {
-//   if(pixelRatio == 2){
-//     if(SCREEN_WIDTH == 320){
-//       return size * 0.80;
-//     }else {
-//       return size * 1.0;
-//     }
-//   }
-//   if(pixelRatio == 3){
-//     return size * 1.35;
-//   }
-//   return size * pixelRatio;
-// };
-
-
 const normalize = (size) => {
   if(pixelRatio == 2){
     if(SCREEN_WIDTH == 375){

@@ -53,7 +53,9 @@ export default class MyTripCell extends Component {
                 </CardItem>
               </Col>
             </Row>
-            <Row style={{ flex: 0.25,  alignItems: 'flex-end', justifyContent: 'center', width: Metrics.screenWidth/ 2 }}>
+            <Row
+              style={{ flex: 0.25,  alignItems: 'flex-end', justifyContent: 'center', width: Metrics.screenWidth/ 2 }}
+            >
               <CardItem>
                 <Body style={{  }}>
                   <TouchableOpacity

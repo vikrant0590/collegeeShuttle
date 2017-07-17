@@ -3,24 +3,32 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-  offerContainer:{
-    marginTop:40,
+  container:{
+    flex:1,
+    flexDirection:'column'
+  },
+  noticeField:{
+    flex:1,
+    flexDirection:'column',
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  codeField:{
+    flex:1,
+    flexDirection:"column",
     justifyContent:'center',
     alignItems:'center'
   },
-  headingTextContainer:{
-    marginTop:20,
+  iconField:{
+    flex:1,
+    flexDirection:'row',
     justifyContent:"center",
-    alignItems:'center'
-  },
-  instructionContainer:{
-    marginTop:10,
-    justifyContent:"center",
-    alignItems:'center'
+    alignItems:"center"
   },
   headingText:{
     ...Fonts.style.headingText,
-    color:Colors.headingColor
+    color:Colors.headingColor,
+    marginBottom:10
   },
   instruction:{
     ...Fonts.style.profileInput,
@@ -28,7 +36,8 @@ export default StyleSheet.create({
   },
   codelabel:{
     ...Fonts.style.profileLabel,
-    color:Colors.profileInputHeadingColor
+    color:Colors.profileInputHeadingColor,
+    marginTop:20
   },
   secrets:{
     marginTop:10,
@@ -37,29 +46,16 @@ export default StyleSheet.create({
   },
   secretCode:{
     ...Fonts.style.secretCode,
-    fontFamily:'Roboto-Regular'
+    fontFamily:'Roboto-Regular',
+    marginTop:10
   },
-  linkLabel:{
-    marginTop:30,
-    justifyContent:"center",
-    alignItems:'center'
-  },
-  linkContainer:{
-    marginTop:15,
-    justifyContent:"center",
-    alignItems:'center'
-  },
-  linkk:{
+
+  links:{
     ...Fonts.style.profileInput,
-    color:Colors.headingColor
+    color:Colors.headingColor,
+    marginTop:10
   },
-  iconContainer:{
-    flex:1,
-    flexDirection:"row",
-    marginTop:-30,
-    justifyContent:'center',
-    alignItems:'center'
-  },
+
   icon:{
     marginRight:50,
   }

@@ -127,7 +127,7 @@ export default class MyProfile extends Component {
     });
   }
   render() {
-    var items = [
+    const items = [
       {index: 0, title: 'Profile Detail'},
       {index: 1, title: 'Saved Cards'},
       {index: 2, title: 'Friends List'},

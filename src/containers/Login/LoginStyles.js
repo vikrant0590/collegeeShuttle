@@ -100,7 +100,7 @@ export default StyleSheet.create({
     marginRight:Metrics.screenWidth/8
   },
   inputStyle:{
-    fontSize:15,
+    fontSize:Fonts.size.h9,
   },
   optionalContainer:{
     flexDirection:'row',

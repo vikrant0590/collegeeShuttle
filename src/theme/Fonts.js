@@ -50,6 +50,8 @@ const size = {
   h5: normalize(20),
   h6: normalize(18),
   h7: normalize(22),
+  h8: normalize(40),
+  h9:normalize(15),
   input: normalize(18),
   regular: normalize(17),
   medium: normalize(14),
@@ -70,7 +72,7 @@ const style = {
   },
   buttonText:{
     fontFamily: lato.base,
-    fontSize:normalize(15),
+    fontSize:size.h9,
   },
   tabText:{
     fontFamily:lato.base,

@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { ApplicationStyles, Colors, Metrics } from '../../theme';
+import { ApplicationStyles, Colors, Metrics, Fonts } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
   },
 
   contentText: {
-    fontSize: 18
+    fontSize: Fonts.size.h6
   },
   dropView:{
     flexDirection:'row'

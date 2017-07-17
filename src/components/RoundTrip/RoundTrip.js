@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Row, Col, Icon, Card, CardItem, Body } from 'native-base';
 import styles from './RooundTripStyle';
-import { Colors, Images } from '../../theme';
+import { Colors, Images, Fonts } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 
 
@@ -68,9 +68,9 @@ export default class RoundTrip extends Component {
                 <TouchableOpacity
                   style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                   onPress={this.onPressInviteButton}>
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
                   <Image source={Images.roundtripaddicon} style={styles.tripicon} />
                 </TouchableOpacity>
               </View>

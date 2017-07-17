@@ -79,7 +79,7 @@ export default class MyTrips extends Component {
                         <Icon
                           name='ios-help-circle-outline'
                           style={{
-                            fontSize: 22,
+                            fontSize: Fonts.size.h7,
                             color: Colors.black,
                             justifyContent: 'center',
                             top: 3,
@@ -122,9 +122,12 @@ export default class MyTrips extends Component {
                     <TouchableOpacity
                       style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                       onPress={this.onPressInviteButton}>
-                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
-                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
-                      <Icon name='ios-contact' style={{ fontSize: 20, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon name='ios-contact'
+                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon name='ios-contact'
+                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon name='ios-contact'
+                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
                       <Image source={Images.roundtripaddicon} style={styles.myTripInviteIcon} />
                     </TouchableOpacity>
                   </Body>

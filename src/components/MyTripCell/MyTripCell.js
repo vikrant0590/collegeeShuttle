@@ -62,7 +62,7 @@ export default class MyTripCell extends Component {
                     <Icon
                       name='md-star-outline'
                       style={{
-                        fontSize: 22,
+                        fontSize:Fonts.size.f7,
                         color: Colors.roundTripColor,
                         justifyContent: 'center',
                         top: -4,

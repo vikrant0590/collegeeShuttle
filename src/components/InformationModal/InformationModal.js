@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import {List, Item, Label, Input} from 'native-base';
 import Modal from 'react-native-simple-modal';
-import {Actions as NavAction} from 'react-native-router-flux';
+import {Actions as NavActions} from 'react-native-router-flux';
 import { Colors, Fonts, Metrics  } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './InformationModalStyle';
@@ -17,6 +17,10 @@ export default class InformationModal extends  Component {
   }
   componentWillReceiveProps =() =>{
     this.setState({ open: true})
+  };
+
+  onPressPayment = () => {
+    NavActions.payment();
   };
 
   render(){
@@ -67,13 +71,13 @@ export default class InformationModal extends  Component {
                   </Item>
                 </View>
                 <View style={styles.buttonsContainer}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={this.onPressPayment}>
                     <Text style={styles.skipButtonText}>Skip</Text>
                   </TouchableOpacity>
                   <LinearGradient
                     colors={['#FC214F', '#D32735']}
                     style={styles.linearGradientColor}>
-                    <TouchableOpacity onPress={NavAction.passengerDetail}
+                    <TouchableOpacity onPress={NavActions.passengerDetail}
                       style={styles.proceedButton}>
                       <Text style={styles.proceedButtonText}>Proceed</Text>
                     </TouchableOpacity>

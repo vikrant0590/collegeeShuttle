@@ -49,6 +49,7 @@
 		42B51002AE5D4194A760C38A /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F28E862493E4C28BB359E44 /* Lato-HairlineItalic.ttf */; };
 		5743476802BC4D03ADE122FA /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 534C725435054A0FB60061AF /* MaterialCommunityIcons.ttf */; };
 		5D7E8E1825E44F8FABAD3859 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B073122E894D6EB0D3D3E4 /* Lato-BoldItalic.ttf */; };
+		5DD41C65B68C41C2B4BD1D04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A953412BCBB40AAB7902ABA /* SystemConfiguration.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		60ED5A9814324AF692BAE678 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAEA09FC9BE45919BB38D00 /* Ionicons.ttf */; };
 		658A4CD101054A639C13F193 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D63873C863574B358603B2EA /* Roboto.ttf */; };
@@ -61,6 +62,13 @@
 		7E20A3345E3941BABB9590D2 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 967440C63D9A4C4FB6E89736 /* FontAwesome.ttf */; };
 		7F97DA0E682F49C3912A617E /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209C029A65FC4330BAB5B12A /* Lato-ThinItalic.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8454B7E41F1C998D009CF677 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8454B7DF1F1C998D009CF677 /* GoogleAppUtilities.framework */; };
+		8454B7E51F1C998D009CF677 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8454B7E01F1C998D009CF677 /* GoogleSignIn.bundle */; };
+		8454B7E61F1C998D009CF677 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8454B7E11F1C998D009CF677 /* GoogleSignIn.framework */; };
+		8454B7E71F1C998D009CF677 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8454B7E21F1C998D009CF677 /* GoogleSignInDependencies.framework */; };
+		8454B7E81F1C998D009CF677 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8454B7E31F1C998D009CF677 /* GoogleSymbolUtilities.framework */; };
+		8454B7EA1F1C9BD5009CF677 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8454B7E91F1C9BD5009CF677 /* GoogleService-Info.plist */; };
+		84A48C24871C4EADB8E48E09 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6D039B451C4882B09390C2 /* SafariServices.framework */; };
 		85AAFDABAD80424899E41EC4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E387D5DF12545C6B61BD512 /* Octicons.ttf */; };
 		8A625CEED99947B4858BE222 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77632CD9CEB64F45B35EF015 /* Lato-BlackItalic.ttf */; };
 		9613849153EC47239FC8D9B2 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C0A17295E949638A65F7C9 /* Entypo.ttf */; };
@@ -68,6 +76,7 @@
 		9C9DBAF0A3BF4E148BA6EB82 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 828ADA568E5B48A796907DCC /* Foundation.ttf */; };
 		A3AD01D8DDD94B15920E5022 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8ABE63D968D47099941D3B2 /* libRNImagePicker.a */; };
 		A46FABE7E32C491A80C3ED83 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8A16B0532024E10BB21E5A5 /* EvilIcons.ttf */; };
+		A565DFAF44674462838D5C0C /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F809DBEFD4044004BA556AD3 /* libRNGoogleSignin.a */; };
 		AEE2B09FD18C4270851B9437 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D329F26C3FA44058879B5708 /* Lato-Regular.ttf */; };
 		CD5CCEBBEA13459C9AF3B242 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3EFF91B0A406CB34FB901 /* Lato-SemiboldItalic.ttf */; };
 		D1E3B49E2C8D49CB801B34C2 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DF14C17B16642329137AE92 /* Lato-MediumItalic.ttf */; };
@@ -75,12 +84,14 @@
 		DC2FFC3DA36D4D4092DA9C31 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19670BAA4C9F4ACC8FCD66BE /* SimpleLineIcons.ttf */; };
 		DE771B6AE6254A3B82C93791 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */; };
 		DF90C96A68A14309BE5FD04E /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8DA226E3328492EBD9B748A /* Lato-Thin.ttf */; };
+		E1314952D99C4599BD3B369F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D32F8F560D42C597272DEE /* AddressBook.framework */; };
 		E4276C8B3E324F22B0B24BE0 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A483F2AB95B4CF0ACA7AEC2 /* Lato-LightItalic.ttf */; };
 		E728242474844AC78982DF1A /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09CB4B7A42BF49B89CC3BAF1 /* Ionicons.ttf */; };
 		ED9E30AFC12D4FE79EE0B8D6 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC03696E3E24CD4928ACD0A /* SimpleLineIcons.ttf */; };
 		F80C731616974B33B86B4510 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741014CF17E14564BBD45DCD /* Entypo.ttf */; };
 		F965564A2CC0446380CA8A06 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7076982884B04E4EAC5A6767 /* Lato-HeavyItalic.ttf */; };
 		FA47942225D04DFB9DC0B490 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E76D5E6DFCE24AEEB8D4A2E8 /* Lato-Italic.ttf */; };
+		FACD2C10B10D40D4A45EFB44 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7F84FED3F946F98162BAFE /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +347,13 @@
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
 		};
+		8454B7D91F1C988C009CF677 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D721AA27F3DA4D5D83B5CB8D /* RNGoogleSignin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
+			remoteInfo = RNGoogleSignin;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -369,8 +387,11 @@
 		2D02E47B1E0B4A5D006451C7 /* CollegeShuttle-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CollegeShuttle-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CollegeShuttle-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CollegeShuttle-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DF5807819A403EA3E9A813 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		3A6D039B451C4882B09390C2 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		3B7F84FED3F946F98162BAFE /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4232F434A736491D8CB3A628 /* Lato-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Medium.ttf"; path = "../src/fonts/Lato-Medium.ttf"; sourceTree = "<group>"; };
 		431A75FAF21443A9912B0745 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		4A953412BCBB40AAB7902ABA /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4CF3EFF91B0A406CB34FB901 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-SemiboldItalic.ttf"; path = "../src/fonts/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		534C725435054A0FB60061AF /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		54B073122E894D6EB0D3D3E4 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../src/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -390,11 +411,18 @@
 		7F28E862493E4C28BB359E44 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HairlineItalic.ttf"; path = "../src/fonts/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
 		828ADA568E5B48A796907DCC /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8454B7DF1F1C998D009CF677 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		8454B7E01F1C998D009CF677 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		8454B7E11F1C998D009CF677 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		8454B7E21F1C998D009CF677 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		8454B7E31F1C998D009CF677 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		8454B7E91F1C9BD5009CF677 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8527408C8C9F4CC083101E7B /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		8A483F2AB95B4CF0ACA7AEC2 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-LightItalic.ttf"; path = "../src/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		92D77FE003C74E7F93525CDF /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = "<group>"; };
 		967440C63D9A4C4FB6E89736 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		9D02604D46144EBC87172DAE /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../src/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
+		A7D32F8F560D42C597272DEE /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A884C7191D124228BDBA9142 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../src/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		AD481B00ED6545049A9D2C4B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C7963896B5C2411097FAFEB6 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
@@ -402,6 +430,7 @@
 		D2A32E963CEF458C9BA6E2E4 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		D329F26C3FA44058879B5708 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../src/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		D63873C863574B358603B2EA /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		D721AA27F3DA4D5D83B5CB8D /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		D8ABE63D968D47099941D3B2 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../src/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		E2AC0518659E4802951530A7 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -410,6 +439,7 @@
 		E8DA226E3328492EBD9B748A /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../src/fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		EFAEA09FC9BE45919BB38D00 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F7FFA134C5BE4F94AB4D43CE /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		F809DBEFD4044004BA556AD3 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
 		F93585AAACAE4F799CEF0730 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../src/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +471,15 @@
 				00E23848BC1A4116B6C6BDC6 /* libRCTActionSheet.a in Frameworks */,
 				A3AD01D8DDD94B15920E5022 /* libRNImagePicker.a in Frameworks */,
 				266D334FB77746C5AB189BC3 /* libRNVectorIcons.a in Frameworks */,
+				FACD2C10B10D40D4A45EFB44 /* libz.tbd in Frameworks */,
+				A565DFAF44674462838D5C0C /* libRNGoogleSignin.a in Frameworks */,
+				8454B7E71F1C998D009CF677 /* GoogleSignInDependencies.framework in Frameworks */,
+				8454B7E61F1C998D009CF677 /* GoogleSignIn.framework in Frameworks */,
+				8454B7E81F1C998D009CF677 /* GoogleSymbolUtilities.framework in Frameworks */,
+				84A48C24871C4EADB8E48E09 /* SafariServices.framework in Frameworks */,
+				8454B7E41F1C998D009CF677 /* GoogleAppUtilities.framework in Frameworks */,
+				5DD41C65B68C41C2B4BD1D04 /* SystemConfiguration.framework in Frameworks */,
+				E1314952D99C4599BD3B369F /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +588,7 @@
 		13B07FAE1A68108700A75B9A /* CollegeShuttle */ = {
 			isa = PBXGroup;
 			children = (
+				8454B7E91F1C9BD5009CF677 /* GoogleService-Info.plist */,
 				6C801EDE1F024F2000E3F028 /* launch.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -578,6 +618,22 @@
 				84421FC71F19027A001E93B2 /* libdouble-conversion.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5A94A025C6674927AEDB3637 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8454B7DF1F1C998D009CF677 /* GoogleAppUtilities.framework */,
+				8454B7E01F1C998D009CF677 /* GoogleSignIn.bundle */,
+				8454B7E11F1C998D009CF677 /* GoogleSignIn.framework */,
+				8454B7E21F1C998D009CF677 /* GoogleSignInDependencies.framework */,
+				8454B7E31F1C998D009CF677 /* GoogleSymbolUtilities.framework */,
+				3B7F84FED3F946F98162BAFE /* libz.tbd */,
+				3A6D039B451C4882B09390C2 /* SafariServices.framework */,
+				4A953412BCBB40AAB7902ABA /* SystemConfiguration.framework */,
+				A7D32F8F560D42C597272DEE /* AddressBook.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -649,6 +705,7 @@
 				5512600E871240A5909B6029 /* SwipeALot.xcodeproj */,
 				6F970280A2E047E09566D508 /* RNImagePicker.xcodeproj */,
 				D2A32E963CEF458C9BA6E2E4 /* RNVectorIcons.xcodeproj */,
+				D721AA27F3DA4D5D83B5CB8D /* RNGoogleSignin.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -670,6 +727,7 @@
 				00E356EF1AD99517003FC87E /* CollegeShuttleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				A9A6F45277094CCA8FC9ECE6 /* Resources */,
+				5A94A025C6674927AEDB3637 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -682,6 +740,14 @@
 				00E356EE1AD99517003FC87E /* CollegeShuttleTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* CollegeShuttle-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* CollegeShuttle-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8454B7B81F1C988C009CF677 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8454B7DA1F1C988C009CF677 /* libRNGoogleSignin.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -894,6 +960,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 8454B7B81F1C988C009CF677 /* Products */;
+					ProjectRef = D721AA27F3DA4D5D83B5CB8D /* RNGoogleSignin.xcodeproj */;
 				},
 				{
 					ProductGroup = 6C6837301F0E082800628EF2 /* Products */;
@@ -1157,6 +1227,13 @@
 			remoteRef = 84421FC61F19027A001E93B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8454B7DA1F1C988C009CF677 /* libRNGoogleSignin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGoogleSignin.a;
+			remoteRef = 8454B7D91F1C988C009CF677 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1173,6 +1250,7 @@
 			files = (
 				6C801EDF1F024F2000E3F028 /* launch.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8454B7EA1F1C9BD5009CF677 /* GoogleService-Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F80C731616974B33B86B4510 /* Entypo.ttf in Resources */,
 				202AC38A636E489F8A617140 /* EvilIcons.ttf in Resources */,
@@ -1195,6 +1273,7 @@
 				413B86198359476FB6D874EC /* Lato-Heavy.ttf in Resources */,
 				F965564A2CC0446380CA8A06 /* Lato-HeavyItalic.ttf in Resources */,
 				FA47942225D04DFB9DC0B490 /* Lato-Italic.ttf in Resources */,
+				8454B7E51F1C998D009CF677 /* GoogleSignIn.bundle in Resources */,
 				6DAEECD5A89A427D997ECD08 /* Lato-Light.ttf in Resources */,
 				E4276C8B3E324F22B0B24BE0 /* Lato-LightItalic.ttf in Resources */,
 				3C6E2ECFA9584DF5B3AFD436 /* Lato-Medium.ttf in Resources */,
@@ -1341,12 +1420,14 @@
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = CollegeShuttleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1370,12 +1451,14 @@
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = CollegeShuttleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1396,14 +1479,23 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 4S25KUPQC2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = CollegeShuttle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1421,14 +1513,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4S25KUPQC2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = CollegeShuttle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1457,11 +1558,13 @@
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = "CollegeShuttle-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1495,11 +1598,13 @@
 					"$(SRCROOT)/../node_modules/react-native-swipe-a-lot/ios/SwipeALot/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = "CollegeShuttle-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1534,6 +1639,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CollegeShuttle-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1558,6 +1664,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

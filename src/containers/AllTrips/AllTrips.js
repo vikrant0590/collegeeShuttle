@@ -313,7 +313,7 @@ export default class AllTrips extends Component {
                       </View>
                     </View>
                   </View>
-                            }
+                           }
                             {(item.star === 3) &&
                   <View style={styles.amountRow}>
 

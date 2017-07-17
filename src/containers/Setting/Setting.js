@@ -5,7 +5,7 @@ import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
 import {Colors, Images } from '../../theme';
 import { Platform} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions as NavAction } from 'react-native-router-flux';
 
 export default class Setting extends Component {
   constructor(props){

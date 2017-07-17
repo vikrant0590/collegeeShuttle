@@ -4,12 +4,19 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   titleContainer:{
-    marginLeft:Metrics.screenWidth/2.5,
-    marginTop:Metrics.screenHeight/9,
+    marginTop:Metrics.screenHeight/14,
   },
   container:{
     flex:1,
-    backgroundColor:'#FDFBF6',
+    marginBottom:20
+  },
+  loginMedium:{
+    flex:0.3,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  formInputs:{
+    flex:0.5
   },
   titleTextStyle:{
     ...Fonts.style.buttonFont,
@@ -18,9 +25,7 @@ export default StyleSheet.create({
     color:Colors.signupTitle
   },
   loginFacebookContainer:{
-    flex:1,
     marginTop:40,
-    marginLeft:Metrics.screenWidth/7,
   },
   loginFacebookButton:{
     alignItems:"center",
@@ -71,7 +76,8 @@ export default StyleSheet.create({
   buttonText:{
     flex:0.9,
     alignItems:'flex-start',
-    marginLeft:10
+    marginLeft:10,
+
   },
   facebookImage:{
     height:18,
@@ -81,14 +87,9 @@ export default StyleSheet.create({
     height:17,
     width:17
   },
-  loginGoogleContainer:{
-    marginLeft:Metrics.screenWidth/7,
-  },
   optionalContainer:{
     flexDirection:'row',
     marginTop:Metrics.screenHeight/20,
-    alignItems:'center',
-    justifyContent:'center'
   },
   optional:{
     ...Fonts.style.buttonText,
@@ -104,14 +105,16 @@ export default StyleSheet.create({
     width: Metrics.screenWidth/1.4,
   },
   signupButtonContainer:{
-    marginLeft:Metrics.screenWidth/7,
-    marginTop:30,
+    flex:0.2,
+    justifyContent:"center",
+    alignItems:"center",
   },
   formContainer:{
     flexDirection:'column',
-    marginTop:20,
+    marginTop:10,
     marginLeft:Metrics.screenWidth/8,
-    marginRight:Metrics.screenWidth/8
+    marginRight:Metrics.screenWidth/8,
+    marginBottom:20
   },
   signupText:{
     ...Fonts.style.signupButtonText,

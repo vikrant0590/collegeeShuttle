@@ -28,18 +28,19 @@ const lato = {
   })
 };
 
+
 const normalize = (size) => {
-  if(pixelRatio == 2){
+  if(pixelRatio == 2 ){
     if(SCREEN_WIDTH == 375){
-      return size * 1;
+      return size * (Platform.OS === 'ios' ? 1 : size);
     }
-    return size * 0.90;
+    return size * (Platform.OS === 'ios' ? 0.90 : size) ;
   }
   if(pixelRatio == 3){
-    return size * 1.15;
+    return size * (Platform.OS === 'ios' ? 1.15 : size);
   }
-  return size * pixelRatio;
 };
+
 
 
 const size = {
@@ -52,6 +53,7 @@ const size = {
   h7: normalize(22),
   h8: normalize(40),
   h9:normalize(15),
+  h10: normalize(25),
   input: normalize(18),
   regular: normalize(17),
   medium: normalize(14),
@@ -99,7 +101,7 @@ const style = {
     //fontFamily:"Roboto-Bold"
   },
   price:{
-    fontSize:size.price,
+    fontSize:size.h10,
     fontFamily:lato.medium
   },
   universityFont:{

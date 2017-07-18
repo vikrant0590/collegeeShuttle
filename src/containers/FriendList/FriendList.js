@@ -1,10 +1,11 @@
 import React,{ Component } from 'react';
-import {View, Text, Image, } from 'react-native';
+import {View, Text, Image } from 'react-native';
 import { Container, Header, Left, Body,
-  Right, Icon, Title, Button, List, ListItem, } from 'native-base';
-import { Colors, Images  } from '../../theme';
+  Right, Icon, Title, Button, List, ListItem, Card, CardItem } from 'native-base';
+import { Colors, } from '../../theme';
 import styles from './FriendListStyle';
-import { PropTypes } from 'prop-types'
+import { PropTypes } from 'prop-types';
+import LinearGradient from 'react-native-linear-gradient';
 export default class FriendList extends  Component {
 
   static get propTypes() {
@@ -25,39 +26,45 @@ export default class FriendList extends  Component {
       {index: 3, name: 'Muru', university:'VN University', trips:3}];
     return(
       <Container style={{flex:1,backgroundColor:Colors.base,}}>
-        <Header style={{backgroundColor: Colors.headerColor, borderBottomWidth: 0,
-          shadowOffset:{height:0,width:0},shadowOpacity:0}}>
-          <Left>
-            <Button transparent onPress={this.back}>
-              <Icon name="arrow-back" style={{color:Colors.white}}/>
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{color: Colors.white}}>Friends</Title>
-          </Body>
-          <Right>
-            <Image source={Images.edit}/>
-          </Right>
-        </Header>
-        <View style={styles.listContainer}>
-          <List dataArray={friends}
-            renderRow={(item) =>
-              <ListItem bordered="true">
-                <View style={{flexDirection:'row'}}>
-                  <View>
-                    <Image style={styles.profileImage}/>
-                  </View>
-                  <View style={{flexDirection:'column'}}>
-                    <Text style={styles.name}>{item.name}</Text>
-                    <Text style={styles.university}>{item.university}</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.trip}>{item.trips}{'  '}Trips Done</Text>
-                  </View>
-                </View>
-              </ListItem>
-            }
-          />
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
+            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+            <Left>
+              <Button transparent onPress={this.back}>
+                <Icon name="arrow-back" style={{color:Colors.white}}/>
+              </Button>
+            </Left>
+            <Body>
+              <Title style={{color: Colors.white}}>Friends</Title>
+            </Body>
+            <Right>
+              <Icon name="ios-person-add" style={{marginRight:10,color:'white'}}/>
+            </Right>
+          </Header>
+        </LinearGradient>
+        <View style={styles.container}>
+          <Card>
+            <CardItem>
+              <List dataArray={friends}
+                renderRow={(item) =>
+                  <ListItem bordered="true">
+                    <View style={styles.listContainer}>
+                      <View style={{flex:0.2}}>
+                        <Image style={styles.profileImage}/>
+                      </View>
+                      <View style={styles.nameContainer}>
+                        <Text style={styles.name}>{item.name}</Text>
+                        <Text style={styles.university}>{item.university}</Text>
+                      </View>
+                      <View style={styles.tripDetails}>
+                        <Text style={styles.trip}>{item.trips} Trips Done</Text>
+                      </View>
+                    </View>
+                  </ListItem>
+                }
+              />
+            </CardItem>
+          </Card>
         </View>
       </Container>
     )

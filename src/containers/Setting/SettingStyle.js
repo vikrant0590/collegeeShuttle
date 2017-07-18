@@ -6,7 +6,8 @@ export default StyleSheet.create({
   listContainer:{
     flex:1,
     margin:17,
-    backgroundColor:Colors.white
+    backgroundColor:Colors.transparent,
+    marginBottom:10,
   },
   listHeadingContainer: {
     height:39,

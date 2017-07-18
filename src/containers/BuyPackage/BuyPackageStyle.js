@@ -6,36 +6,36 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   choice:{
     ...Fonts.style.regularFont,
-    marginRight:9,
     color:Colors.packageHeadingColor
   },
   price:{
     ...Fonts.style.price,
     color:Colors.black,
-    marginLeft:Metrics.screenWidth - 300
+    alignSelf:'flex-end'
   },
   ellipse:{
-    marginRight:9,
-    marginTop:9
+    margin:9
   },
   tripContainer:{
     flex:1,
     margin:10
   },
   tripItem:{
-    height: (Platform.OS === 'ios') ? 120 : 135,
-    marginBottom:20,
-    backgroundColor:Colors.white
+    flex:1,
+    height: (Platform.OS === 'ios') ? Metrics.screenHeight /4.7 : Metrics.screenHeight/ 4.9,
+    backgroundColor:Colors.white,
+    marginLeft:10,
+    flexDirection:'column'
+
   },
   buyNowContainer:{
-    flexDirection:'row',
-    marginTop:20,
-    marginLeft:20
+    marginTop:10
   },
   tripDescription:{
+    flex:0.6,
     flexDirection:"row",
-    marginTop:35,
-    marginLeft:20
+    justifyContent:'center',
+    alignItems:'center',
   }
 
 });

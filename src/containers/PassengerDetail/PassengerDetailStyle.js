@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   formContainer:{
     flex:0.7,
-    backgroundColor:Colors.white,
+    backgroundColor:Colors.transparent,
     margin:15
   },
   formButtonContainer:{

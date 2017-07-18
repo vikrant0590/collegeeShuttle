@@ -140,31 +140,24 @@ export default class MyProfile extends Component {
     return (
 
       <Container>
+        {(this.state.myprofile) &&
+        <Header style={{ backgroundColor: '#FC214F' }}>
+          <Left>
+            <Button transparent onPress={this.myprofile}>
+              <Icon name="arrow-back" style={{color: Colors.white}}/>
+            </Button>
+          </Left>
+          <Body>
+            <Title style={{color: Colors.white}}>My Profile</Title>
+          </Body>
+          <Right>
+            <TouchableOpacity onPress={this.saveData}>
+              <Text style={styles.saveButton}>SAVE</Text>
+            </TouchableOpacity>
+          </Right>
+        </Header>
+        }
         <Content>
-          {(this.state.myprofile) &&
-          <LinearGradient colors={['#FC214F', '#D32735']}>
-            <Header style={{
-              backgroundColor: Colors.transparent, borderBottomWidth: 0,
-              shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
-            }}>
-              <Left>
-                <Button transparent onPress={this.myprofile}>
-                  <Icon name="arrow-back" style={{color: Colors.white}}/>
-                </Button>
-              </Left>
-              <Body>
-                <Title style={{color: Colors.white}}>My Profile</Title>
-              </Body>
-              <Right>
-                <TouchableOpacity onPress={this.saveData}>
-                  <Text style={styles.saveButton}>SAVE</Text>
-                </TouchableOpacity>
-              </Right>
-            </Header>
-          </LinearGradient>
-
-          }
-
           { (this.state.myprofile) &&
           <LinearGradient colors={['#FC214F', '#D32735']}>
             <View style={styles.avatarContainer}>

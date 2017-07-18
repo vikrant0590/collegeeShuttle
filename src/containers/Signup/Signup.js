@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Container, Content, Item, Input, StyleProvider, Toast } from 'native-base';
+import { Container, Content, Item, Input, StyleProvider } from 'native-base';
 import {Actions as NavAction} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
+import SnackBar from 'react-native-snackbar-dialog';
+import Spinner from 'react-native-loading-spinner-overlay';
+import { connect } from 'react-redux';
 
 import styles from './SignupStyles';
 import { Images, Colors } from '../../theme';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
-
 import { register } from '../../redux/modules/register';
 
 export default class Signup extends Component {
@@ -16,45 +18,64 @@ export default class Signup extends Component {
   constructor() {
     super();
     this.state = {
-      showToast: false,
-      firstName: undefined,
-      lastName: undefined,
+      fn: undefined,
+      ln: undefined,
       eid: undefined,
       password: undefined,
-      mobileNumber: undefined
+      pn: undefined,
+      isVisible: false
     };
   }
 
   static contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    register: PropTypes.object
   };
 
   handleSubmit = () => {
-    //NavAction.tabbar();
-    const {firstName, lastName, eid, password, mobileNumber} = this.state;
-    if (firstName & lastName, eid, password, mobileNumber) {
+    const {fn, ln, eid, password, pn} = this.state;
+    if (fn & ln, eid, password, pn) {
       const {store: {dispatch}} = this.context;
-      dispatch(register({
-        firstName,
-        lastName,
+      let data = {
+        fn,
+        ln,
         eid,
         password,
-        mobileNumber
-      }));
+        pn
+      };
+      this.setState({isVisible: true});
+      dispatch(register(data))
+        .then(() => {
+          this.setState({isVisible: false});
+          NavAction.tabbar();
+        })
+        .catch(ex => {
+          this.setState({isVisible: false});
+          SnackBar.show(ex.error.message, {
+            duration: 1000,
+            confirmText: 'Ok',
+            tapToClose: true,
+            onConfirm: () => {
+              SnackBar.dismiss()
+            }
+          });
+        });
     } else {
-      Toast.show({
-        text: 'All fields required!',
-        position: 'bottom',
-        duration: 2000,
-        buttonText: 'Ok'
+      SnackBar.show('All fields required!', {
+        duration: 1000,
+        confirmText: 'Ok',
+        tapToClose: true,
+        onConfirm: () => {
+          SnackBar.dismiss()
+        }
       });
-      //NavAction.tabbar
     }
   };
 
   render() {
     return(
       <Container style={{backgroundColor:Colors.base}}>
+        <Spinner visible={this.state.isVisible} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <Content>
           <View style={styles.container}>
             <View style={styles.loginMedium}>
@@ -104,8 +125,8 @@ export default class Signup extends Component {
                       autoCorrect={false}
                       returnKeyType="next"
                       autoFocus ={false}
-                      onChangeText={(firstName) => {
-                        this.setState({firstName});
+                      onChangeText={(fn) => {
+                        this.setState({fn});
                       }}
                     />
                   </Item>
@@ -115,8 +136,8 @@ export default class Signup extends Component {
                       autoCorrect={false}
                       returnKeyType="next"
                       placeholderTextColor={Colors.placeholderTextColor}
-                      onChangeText={(lastName) => {
-                        this.setState({lastName});
+                      onChangeText={(ln) => {
+                        this.setState({ln});
                       }}
                     />
                   </Item>
@@ -147,8 +168,8 @@ export default class Signup extends Component {
                     <Input placeholder="Mobile Number"
                       keyboardType = 'numeric'
                       placeholderTextColor={Colors.placeholderTextColor}
-                      onChangeText={(mobileNumber) => {
-                        this.setState({mobileNumber});
+                      onChangeText={(pn) => {
+                        this.setState({pn});
                       }}
                     />
                   </Item>

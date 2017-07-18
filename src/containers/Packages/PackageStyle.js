@@ -19,11 +19,18 @@ export default StyleSheet.create({
     justifyContent:'center',
     alignItems:'center'
   },
+  imageField:{
+    flex:1,
+    marginTop:20,
+    justifyContent:'center',
+    alignItems:'center'
+  },
   iconField:{
     flex:1,
     flexDirection:'row',
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    marginBottom:20
   },
   headingText:{
     ...Fonts.style.headingText,

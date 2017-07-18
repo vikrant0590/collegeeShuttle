@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   listContainer:{
     flex:1,
-    backgroundColor:'white',
+    backgroundColor:Colors.transparent,
     marginTop:20,
     marginLeft:20,
     marginRight:10,
@@ -21,19 +21,23 @@ export default StyleSheet.create({
 
   },
   avatarContainer:{
-    height:135,
-    backgroundColor:Colors.headerColor,
-    alignItems:'center'
+    flex:1,
+    height:Metrics.screenHeight/5,
+    backgroundColor:Colors.transparent,
+    alignItems:'center',
+  },
+  editPicture:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   avatar:{
     width:90,
     height:90,
     borderRadius:45,
-    borderColor:'white',
-    justifyContent:'center',
-    alignItems:'center',
+    borderColor:Colors.white,
     marginBottom:10,
-    backgroundColor:'white'
+    backgroundColor:Colors.white
   },
   saveButton:{
     color:Colors.white,

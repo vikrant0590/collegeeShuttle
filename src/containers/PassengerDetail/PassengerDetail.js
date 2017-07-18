@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Platform} from 'react-native';
 import { Container,Content, Title, Body, Left, Right, Button, Header, Icon,
   Form, Item, Input, Label, List, Card, CardItem  } from 'native-base';
 import {  Colors, Fonts, } from '../../theme';
@@ -61,7 +61,7 @@ export default class PassengerDetail extends Component {
                           <View
                             style={styles.firstPassengerDetail}>
                             <View style={styles.inputfield}>
-                              <Item stackedLabel style={{height: 60}}>
+                              <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>
                                 <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
                                   FIRST NAME
                                 </Label>
@@ -73,7 +73,7 @@ export default class PassengerDetail extends Component {
                               </Item>
                             </View>
                             <View style={styles.inputfield}>
-                              <Item stackedLabel style={{height: 60}}>
+                              <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>
                                 <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
                                   LAST NAME
                                 </Label>
@@ -86,7 +86,7 @@ export default class PassengerDetail extends Component {
                             </View>
                           </View>
                           <View style={styles.mobileInputField}>
-                            <Item stackedLabel style={{height: 60}}>
+                            <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>
                               <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
                                 MOBILE NUMBER
                               </Label>
@@ -149,22 +149,23 @@ export default class PassengerDetail extends Component {
                 </CardItem>
               </Card>
             </View>
-          </Content>
 
-          <View style={styles.formButtonContainer}>
-            <LinearGradient
-              colors={['#FC214F', '#D32735']}
-              style={styles.buttonBackStyle}>
-              <TouchableOpacity
-                onPress={this.onPressPassengerDetails}
-                style={{
-                  flex: 1,
-                  backgroundColor: Colors.transparent,
-                }}>
-                <Text style={styles.formButtonStyle}>Book Now</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
+
+            <View style={styles.formButtonContainer}>
+              <LinearGradient
+                colors={['#FC214F', '#D32735']}
+                style={styles.buttonBackStyle}>
+                <TouchableOpacity
+                  onPress={this.onPressPassengerDetails}
+                  style={{
+                    flex: 1,
+                    backgroundColor: Colors.transparent,
+                  }}>
+                  <Text style={styles.formButtonStyle}>Book Now</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+          </Content>
         </View>
       </Container>
 

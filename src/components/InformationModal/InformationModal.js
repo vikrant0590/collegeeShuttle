@@ -15,8 +15,14 @@ export default class InformationModal extends  Component {
       open:true
     }
   }
+
   componentWillReceiveProps =() =>{
     this.setState({ open: true})
+  };
+
+  closeModal =() =>{
+    this.setState({ open: false});
+    NavAction.passengerDetail();
   };
 
   render(){
@@ -73,7 +79,7 @@ export default class InformationModal extends  Component {
                   <LinearGradient
                     colors={['#FC214F', '#D32735']}
                     style={styles.linearGradientColor}>
-                    <TouchableOpacity onPress={NavAction.passengerDetail}
+                    <TouchableOpacity onPress={this.closeModal}
                       style={styles.proceedButton}>
                       <Text style={styles.proceedButtonText}>Proceed</Text>
                     </TouchableOpacity>

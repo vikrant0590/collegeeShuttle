@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import { Text, View, TouchableOpacity, Image, } from 'react-native';
-import { Container, Content, List, Header, Left, Body, Right, Title, Button, Icon ,ListItem,} from 'native-base';
+import { Container, Content, List, Header, Left, Body, Right, Title,
+  Button, Icon ,ListItem,Card, CardItem} from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
 import { Images, Colors, } from '../../theme';
@@ -9,6 +10,7 @@ import Packages from '../../containers/Packages';
 import BuyPackage from "../BuyPackage/BuyPackage";
 import FriendList from "../FriendList/FriendList";
 import {Actions as NavAction}from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class MyProfile extends Component {
 
@@ -137,79 +139,93 @@ export default class MyProfile extends Component {
 
     return (
 
-      <Container style={{flex: 1}}>
-        {(this.state.myprofile) &&
-        <Header style={{
-          backgroundColor: Colors.headerColor, borderBottomWidth: 0,
-          shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
-        }}>
-          <Left>
-            <Button transparent onPress={this.myprofile}>
-              <Icon name="arrow-back" style={{color: Colors.white}}/>
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{color: Colors.white}}>My Profile</Title>
-          </Body>
-          <Right>
-            <TouchableOpacity onPress={this.saveData}>
-              <Text style={styles.saveButton}>SAVE</Text>
-            </TouchableOpacity>
-          </Right>
-        </Header>
-        }
-        { (this.state.myprofile) &&
-          <View style={styles.avatarContainer}>
-            <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-              <View style={styles.avatar}>
-                { this.state.avatarSource === null ? null :
-                  <Image source={this.state.avatarSource}/>
-                }
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-              <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                <Image source={Images.edit} style={styles.pencil}/>
-                <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        }
-        {(this.state.list === true) &&
+      <Container>
+        <Content>
+          {(this.state.myprofile) &&
+          <LinearGradient colors={['#FC214F', '#D32735']}>
+            <Header style={{
+              backgroundColor: Colors.transparent, borderBottomWidth: 0,
+              shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
+            }}>
+              <Left>
+                <Button transparent onPress={this.myprofile}>
+                  <Icon name="arrow-back" style={{color: Colors.white}}/>
+                </Button>
+              </Left>
+              <Body>
+                <Title style={{color: Colors.white}}>My Profile</Title>
+              </Body>
+              <Right>
+                <TouchableOpacity onPress={this.saveData}>
+                  <Text style={styles.saveButton}>SAVE</Text>
+                </TouchableOpacity>
+              </Right>
+            </Header>
+          </LinearGradient>
+
+          }
+
+          { (this.state.myprofile) &&
+          <LinearGradient colors={['#FC214F', '#D32735']}>
+            <View style={styles.avatarContainer}>
+              <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+                <View style={styles.avatar}>
+                  { this.state.avatarSource === null ? null :
+                    <Image source={this.state.avatarSource}/>
+                  }
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+                <View style={styles.editPicture}>
+                  <Image source={Images.edit} style={styles.pencil}/>
+                  <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
+          }
+
+          {(this.state.list === true) &&
             <Content>
               <View style={styles.listContainer}>
-                <List dataArray={items}
-                  renderRow={(item) =>
-                    <ListItem>
-                      <TouchableOpacity
-                        onPress={ () => this.onPress(item)}
-                        hitSlop={{top: 10, bottom: 10, right: 300}}
-                        style={{flexDirection: 'row'}}>
-                        <Left>
-                          <Text style={styles.itemList}>{item.title}</Text>
-                        </Left>
-                        <Right>
-                          <Image source={Images.rightArrow} style={styles.rightArrow}/>
-                        </Right>
-                      </TouchableOpacity>
-                    </ListItem>
-                  }
-                />
+                <Card>
+                  <CardItem>
+                    <List dataArray={items}
+                      renderRow={(item) =>
+                        <ListItem>
+                          <TouchableOpacity
+                            onPress={ () => this.onPress(item)}
+                            hitSlop={{top: 10, bottom: 10, right: 300}}
+                            style={{flexDirection: 'row'}}>
+                            <Left>
+                              <Text style={styles.itemList}>{item.title}</Text>
+                            </Left>
+                            <Right>
+                              <Image source={Images.rightArrow} style={styles.rightArrow}/>
+                            </Right>
+                          </TouchableOpacity>
+                        </ListItem>
+                      }
+                    />
+                  </CardItem>
+                </Card>
               </View>
             </Content>
-        }
-        {(this.state.profileDetail) &&
-          <ProfileEdit/>
-        }
-        {(this.state.refer) &&
-        <Packages isActive ={() => this.refer()}/>
-        }
-        {(this.state.friendlist) &&
-        <FriendList isActive={() => this.friendList()}/>
-        }
-        {(this.state.buyPackage) &&
-          <BuyPackage isActive={() => this.buyPackage()}/>
-        }
+          }
+          {(this.state.profileDetail) &&
+            <ProfileEdit/>
+          }
+          {(this.state.refer) &&
+          <Packages isActive ={() => this.refer()}/>
+          }
+          {(this.state.friendlist) &&
+          <FriendList isActive={() => this.friendList()}/>
+          }
+          {(this.state.buyPackage) &&
+            <BuyPackage isActive={() => this.buyPackage()}/>
+          }
+        </Content>
+
       </Container>
     )
   }

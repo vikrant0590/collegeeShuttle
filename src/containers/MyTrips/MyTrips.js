@@ -56,7 +56,7 @@ export default class MyTrips extends Component {
             width: Metrics.screenWidth - 30
           }} key="swiperpage">
           <Row style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
-            <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
+            <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 ,}}>
               <CardItem>
                 <Body
                   style={{ alignItems: 'center' }}>
@@ -66,15 +66,15 @@ export default class MyTrips extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 }}>
+            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 ,}}>
               <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
             </Col>
-            <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
-              <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
-                <Col style={{ flex: 0.85 }}>
+            <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2, }}>
+              <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2,}}>
+                <Col style={{ flex: 0.85,}}>
                   <CardItem>
-                    <Body style={{ justifyContent: 'flex-start' }}>
-                      <Row style={{ flex: 1, marginRight: 10}}>
+                    <Body style={{ justifyContent: 'flex-start'}}>
+                      <Row style={{ flex: 1, marginRight: 10,}}>
                         <Text style={styles.myTripUpcomingText}>Upcoming Trip</Text>
                         <Icon
                           name='ios-help-circle-outline'
@@ -97,7 +97,7 @@ export default class MyTrips extends Component {
                   flex: 0.15,
                   alignItems: 'flex-end',
                   justifyContent: 'center',
-                  width: Metrics.screenWidth/ 2
+                  width: Metrics.screenWidth/ 2,
                 }}>
                 <CardItem>
                   <Body style={{ }}>
@@ -118,7 +118,7 @@ export default class MyTrips extends Component {
                   marginRight: 10
                 }}>
                 <CardItem>
-                  <Body style={{ alignItems: 'flex-end' }}>
+                  <Body style={{ alignItems: 'flex-end'}}>
                     <TouchableOpacity
                       style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                       onPress={this.onPressInviteButton}>

@@ -106,6 +106,7 @@ export default StyleSheet.create({
   signupButtonContainer:{
     marginLeft:Metrics.screenWidth/7,
     marginTop:30,
+    marginBottom: 30,
   },
   formContainer:{
     flexDirection:'column',

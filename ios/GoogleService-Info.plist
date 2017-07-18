@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>839264292251-uboe3e9ss94to8np7cks77j5g0uolj83.apps.googleusercontent.com</string>
+	<string>444844025445-j0sm6aavdfvqcuid2uu86e819qp7q78f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.839264292251-uboe3e9ss94to8np7cks77j5g0uolj83</string>
+	<string>com.googleusercontent.apps.444844025445-j0sm6aavdfvqcuid2uu86e819qp7q78f</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Obeo</string>
 	<key>PROJECT_ID</key>
-	<string>collegeshuttle-388b7</string>
+	<string>collegeshuttle-746ac</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -23,6 +23,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:839264292251:ios:187bf4cb0a7b66e0</string>
+	<string>1:444844025445:ios:187bf4cb0a7b66e0</string>
 </dict>
 </plist>

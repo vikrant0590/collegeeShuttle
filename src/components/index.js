@@ -13,6 +13,8 @@ import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
 import PaymentSuccess from './PaymentSuccessBox';
 import MyTripMap from './MyTripMap';
+import GoogleLogin from './Googlesignin';
+import FaceboolLogin from './Facebooksignin';
 
 export {
   WalkThroughFirst,
@@ -29,5 +31,7 @@ export {
   OfferBox,
   PaymentFailed,
   PaymentSuccess,
-  MyTripMap
+  MyTripMap,
+  GoogleLogin,
+  FaceboolLogin
 };

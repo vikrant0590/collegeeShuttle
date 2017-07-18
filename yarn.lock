@@ -3658,6 +3658,10 @@ react-native-experimental-navigation@^0.28.0:
     fbjs "^0.8.1"
     prop-types "^15.5.10"
 
+react-native-fbsdk@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.6.0.tgz#08fdc00e9ca777f724a70029a5b1c3794b49b882"
+
 react-native-google-signin@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/react-native-google-signin/-/react-native-google-signin-0.10.0.tgz#cc47d3726165735ee61e3a4a589c2ced888f1a98"

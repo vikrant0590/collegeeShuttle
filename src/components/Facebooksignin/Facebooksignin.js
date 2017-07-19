@@ -33,8 +33,6 @@ export default class Facebooksignin extends Component {
     store: PropTypes.object
   };
 
-  // facebook sign in only for ios, right now.
-
   onPressFacebookSignIn = () => {
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
       (result) => {

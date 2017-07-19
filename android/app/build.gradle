@@ -91,12 +91,12 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '25.0.1'
 
     defaultConfig {
         applicationId "com.collegeshuttle"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         ndk {
@@ -154,13 +154,15 @@ dependencies {
     compile project(':react-native-image-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])
     // From node_modules
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.google.android.gms:play-services-location:11.0.1'
+    compile 'com.google.android.gms:play-services-auth:11.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.facebook.react:react-native:+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile(project(':react-native-google-signin')) {
         exclude group: "com.google.android.gms"
     }
-    compile 'com.google.android.gms:play-services-auth:11.0.2'
+
 }
 
 // Run this once to be able to run the application with BUCK

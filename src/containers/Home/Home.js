@@ -42,7 +42,7 @@ export default class Home extends Component {
   };
 
   onPressHomeButton = () => {
-   this.onPressPaymentFailedBox();
+    this.onPressPaymentFailedBox();
   };
 
   onPressDialogBox = () => {

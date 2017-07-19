@@ -28,8 +28,6 @@ export default class Googlesignin extends Component {
     store: PropTypes.object
   };
 
-  // google sign in only for ios, right now.
-
   onPressGoogleSignIn = () => {
     GoogleSignin.hasPlayServices({ autoResolve: true }).then(() => {
       console.log('Play services active');

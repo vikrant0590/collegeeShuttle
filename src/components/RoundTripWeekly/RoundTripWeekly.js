@@ -41,7 +41,7 @@ export default class RoundTripWeekly extends Component {
       passenger.push(
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)}>
+          onPress={() => this.onPressPassenger(index)} key={index}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )

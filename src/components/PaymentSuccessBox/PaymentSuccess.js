@@ -4,6 +4,8 @@ import PaymentModalSuccess from 'react-native-simple-modal';
 import styles from './PaymentSuccessStyle';
 import { Images, Metrics } from '../../theme';
 import { Row, Col } from 'native-base';
+import { Actions as NavAction } from 'react-native-router-flux';
+
 export default class PaymentSuccess extends Component {
 
   constructor(){
@@ -16,11 +18,13 @@ export default class PaymentSuccess extends Component {
   showDialogPaymentSuccess = () => {
     this.setState({
       open: true,
-    })
+    });
   };
 
-  onPressTryAgain = () => {
-    this.setState({open: false})
+  onPressViewDetails = () => {
+    this.setState({open: false});
+    NavAction.tabbar({type:'reset', selectedTab:1 });
+
   };
 
   render(){
@@ -71,7 +75,7 @@ export default class PaymentSuccess extends Component {
                 </Col>
                 <Col style={{ flex: 0.5 }}>
                   <TouchableOpacity
-                    onPress={this.onPressTryAgain}
+                    onPress={this.onPressViewDetails}
                     style={styles.ViewDetailsBtn}>
                     <Text
                       style={styles.viewDetailText}>

@@ -15,28 +15,23 @@ import {
   Card,
   List,
   ListItem,
-  Grid
 } from 'native-base';
-import { Colors, Fonts, Metrics, Images } from '../../theme';
+import { Colors, Metrics, Images } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
+import { PaymentSuccess } from '../../components';
 
 export default class Payment extends Component{
   constructor(){
     super();
-    this.state ={
-
-    }
   }
 
-
   onPressProcess = () =>{
-
+    this.refs.paymentsuccess.showDialogPaymentSuccess();
   };
 
-
-  render(){
+  render() {
 
     const paymentswiper = [];
     for(let index = 0; index < 2; index ++){
@@ -248,8 +243,9 @@ export default class Payment extends Component{
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Text
-                      style={styles.creditcardText}>Credit Card</Text>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={()=> Actions.pop()}>
+                      <Text style={styles.creditcardText}>Credit Card</Text>
+                    </Button>
                   </Col>
                 </Row>
               </ListItem>
@@ -259,8 +255,9 @@ export default class Payment extends Component{
                     <Image style={{ resizeMode: 'contain' }} source={Images.collegecardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Text
-                      style={styles.debitcardText}>Debit Card</Text>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={()=> Actions.pop()}>
+                      <Text style={styles.debitcardText}>Debit Card</Text>
+                    </Button>
                   </Col>
                 </Row>
               </ListItem>
@@ -297,8 +294,8 @@ export default class Payment extends Component{
               <Text style={styles.ProcessBtnText}>Process</Text>
             </TouchableOpacity>
           </View>
-
         </Content>
+        <PaymentSuccess ref="paymentsuccess" />
       </Container>
     )
   }

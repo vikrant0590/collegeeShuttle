@@ -33,43 +33,44 @@ export default class Signup extends Component {
   };
 
   handleSubmit = () => {
-    const {fn, ln, eid, password, pn} = this.state;
-    if (fn & ln, eid, password, pn) {
-      const {store: {dispatch}} = this.context;
-      let data = {
-        fn,
-        ln,
-        eid,
-        password,
-        pn
-      };
-      this.setState({isVisible: true});
-      dispatch(register(data))
-        .then(() => {
-          this.setState({isVisible: false});
-          NavAction.tabbar();
-        })
-        .catch(ex => {
-          this.setState({isVisible: false});
-          SnackBar.show(ex.error.message, {
-            duration: 1000,
-            confirmText: 'Ok',
-            tapToClose: true,
-            onConfirm: () => {
-              SnackBar.dismiss()
-            }
-          });
-        });
-    } else {
-      SnackBar.show('All fields required!', {
-        duration: 1000,
-        confirmText: 'Ok',
-        tapToClose: true,
-        onConfirm: () => {
-          SnackBar.dismiss()
-        }
-      });
-    }
+    NavAction.tabbar();
+    // const {fn, ln, eid, password, pn} = this.state;
+    // if (fn & ln, eid, password, pn) {
+    //   const {store: {dispatch}} = this.context;
+    //   let data = {
+    //     fn,
+    //     ln,
+    //     eid,
+    //     password,
+    //     pn
+    //   };
+    //   this.setState({isVisible: true});
+    //   dispatch(register(data))
+    //     .then(() => {
+    //       this.setState({isVisible: false});
+    //       NavAction.tabbar();
+    //     })
+    //     .catch(ex => {
+    //       this.setState({isVisible: false});
+    //       SnackBar.show(ex.error.message, {
+    //         duration: 1000,
+    //         confirmText: 'Ok',
+    //         tapToClose: true,
+    //         onConfirm: () => {
+    //           SnackBar.dismiss()
+    //         }
+    //       });
+    //     });
+    // } else {
+    //   SnackBar.show('All fields required!', {
+    //     duration: 1000,
+    //     confirmText: 'Ok',
+    //     tapToClose: true,
+    //     onConfirm: () => {
+    //       SnackBar.dismiss()
+    //     }
+    //   });
+    // }
   };
 
   render() {

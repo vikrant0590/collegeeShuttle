@@ -12,7 +12,7 @@ export default class PassengerDetail extends Component {
 
 
   onPressPassengerDetails = () =>{
-    NavActions.mytrips();
+    NavActions.payment();
   };
 
   onPressGoBack = () => {

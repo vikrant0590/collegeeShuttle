@@ -3,9 +3,16 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
 import { Images, Colors } from '../../theme';
-import {TabBar} from '../../containers'
 import LinearGradient from 'react-native-linear-gradient';
-import { RoundTrip, RoundTripWeekly, RoundTripCustom, RoundTripTabBar, OfferBox, PaymentFailed, PaymentSuccess } from '../../components';
+import
+{
+  RoundTrip,
+  RoundTripWeekly,
+  RoundTripCustom,
+  RoundTripTabBar,
+  OfferBox,
+  PaymentFailed
+} from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {
 
@@ -30,7 +37,6 @@ export default class Home extends Component {
     if(this.state.isRoundTrip){
       this.setState({ isOneWay: true, isRoundTrip: false });
     }
-    this.onPressPaymentSuccessBox();
   };
 
   onPressNotificationButton = () => {
@@ -42,7 +48,7 @@ export default class Home extends Component {
   };
 
   onPressHomeButton = () => {
-   this.onPressPaymentFailedBox();
+    this.onPressPaymentFailedBox();
   };
 
   onPressDialogBox = () => {
@@ -53,9 +59,6 @@ export default class Home extends Component {
     this.refs.paymentfailed.showDialogPaymentFailed();
   };
 
-  onPressPaymentSuccessBox = () =>{
-    this.refs.paymentsuccess.showDialogPaymentSuccess();
-  };
 
   render(){
     const { isRoundTrip, isWeekly } = this.state;
@@ -96,7 +99,7 @@ export default class Home extends Component {
                     }}
                     onPress={this.onPressUniversityButton}>
                     <Image source={Images.roundtriphome} style={styles.textIcon} />
-                    <Text style={styles.btnText}>University</Text>
+                    <Text style={styles.btnText}>From</Text>
                   </Button>
                 </Row>
               </Col>
@@ -114,7 +117,7 @@ export default class Home extends Component {
                     }}
                     onPress={this.onPressHomeButton}>
                     <Image source={Images.roundtripunivercity} style={styles.textIcon} />
-                    <Text style={styles.btnText}>Home</Text>
+                    <Text style={styles.btnText}>To</Text>
                   </Button>
                 </Row>
               </Col>
@@ -145,8 +148,6 @@ export default class Home extends Component {
           }
         </Content>
         <OfferBox ref="offerbox"/>
-        <PaymentFailed ref="paymentfailed" />
-        <PaymentSuccess ref="paymentsuccess" />
       </Container>
     )
   }

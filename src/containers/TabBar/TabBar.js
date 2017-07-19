@@ -12,9 +12,13 @@ const tabsTitles = [ 'HOME','MY TRIPS','PROFILE','SETTINGS'];
 export default class TabBar extends Component {
 
   render() {
+    let initial = 0;
+    if(this.props.selectedTab) {
+      initial = this.props.selectedTab;
+    }
     return (
       <ScrollableTabView
-        initialPage={0}
+        initialPage={initial}
         locked= {true}
         tabBarPosition="bottom"
         renderTabBar={() =>

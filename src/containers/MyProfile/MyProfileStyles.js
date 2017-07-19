@@ -37,6 +37,7 @@ export default StyleSheet.create({
     borderRadius:45,
     borderColor:Colors.white,
     marginBottom:10,
+    marginTop:10,
     backgroundColor:Colors.white
   },
   saveButton:{

@@ -28,8 +28,7 @@ export default class BuyPackage extends  Component {
     return(
       <Container style={{flex: 1,backgroundColor:Colors.base}}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
-          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
-            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+          <Header style={{backgroundColor: Colors.transparent}}>
             <Left>
               <Button transparent onPress={this.back}>
                 <Icon name="arrow-back" style={{color:Colors.white}}/>

@@ -15,6 +15,7 @@ import { register } from '../../redux/modules/register';
 
 export default class Signup extends Component {
 
+
   constructor() {
     super();
     this.state = {
@@ -23,7 +24,8 @@ export default class Signup extends Component {
       eid: undefined,
       password: undefined,
       pn: undefined,
-      isVisible: false
+      isVisible: false,
+      message: 'Please Enter Valid Email ID',
     };
   }
 
@@ -32,34 +34,55 @@ export default class Signup extends Component {
     register: PropTypes.object
   };
 
+  //email validation ...
+
+  validateEmail = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
   handleSubmit = () => {
     const {fn, ln, eid, password, pn} = this.state;
+
+
     if (fn & ln, eid, password, pn) {
-      const {store: {dispatch}} = this.context;
-      let data = {
-        fn,
-        ln,
-        eid,
-        password,
-        pn
-      };
-      this.setState({isVisible: true});
-      dispatch(register(data))
-        .then(() => {
-          this.setState({isVisible: false});
-          NavAction.tabbar();
+
+      if (!this.validateEmail(eid)) {
+        SnackBar.show(this.state.message, {
+          duration: 1000,
+          confirmText: 'Ok',
+          tapToClose: true,
+          onConfirm: () => {
+            SnackBar.dismiss()
+          }
         })
-        .catch(ex => {
-          this.setState({isVisible: false});
-          SnackBar.show(ex.error.message, {
-            duration: 1000,
-            confirmText: 'Ok',
-            tapToClose: true,
-            onConfirm: () => {
-              SnackBar.dismiss()
-            }
+      } else {
+        const {store: {dispatch}} = this.context;
+        let data = {
+          fn,
+          ln,
+          eid,
+          password,
+          pn
+        };
+        this.setState({isVisible: true});
+        dispatch(register(data))
+          .then(() => {
+            this.setState({isVisible: false});
+            NavAction.tabbar();
+          })
+          .catch(ex => {
+            this.setState({isVisible: false});
+            SnackBar.show(ex.error.message, {
+              duration: 1000,
+              confirmText: 'Ok',
+              tapToClose: true,
+              onConfirm: () => {
+                SnackBar.dismiss()
+              }
+            });
           });
-        });
+      }
     } else {
       SnackBar.show('All fields required!', {
         duration: 1000,
@@ -71,6 +94,7 @@ export default class Signup extends Component {
       });
     }
   };
+
 
   render() {
     return(
@@ -145,6 +169,7 @@ export default class Signup extends Component {
                     <Image source={Images.email} style={styles.formIcon}/>
                     <Input placeholder="Email Address"
                       autoCorrect={false}
+                      autoCapitalize={'none'}
                       keyboardType = "email-address"
                       placeholderTextColor={Colors.placeholderTextColor}
                       onChangeText={(eid) => {

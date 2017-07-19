@@ -2,16 +2,98 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import {Container, Content, Item, Input, StyleProvider } from 'native-base';
 import {Actions as NavAction} from 'react-native-router-flux';
+import SnackBar from 'react-native-snackbar-dialog';
 import { Images,Colors } from '../../theme';
+import Spinner from 'react-native-loading-spinner-overlay';
+import PropTypes from 'prop-types';
 
 import styles from './LoginStyles';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
+import { login } from '../../redux/modules/auth';
 
 export default class Login extends Component {
+
+  static  propTypes = {
+    dispatch: PropTypes.func,
+
+  };
+
+  static contextTypes = {
+    store: PropTypes.object,
+    login: PropTypes.object
+  };
+
+  constructor(props){
+    super(props);
+    this.state ={
+      eid: undefined,
+      password: undefined,
+      message: 'Please Enter Valid Email ID',
+      isVisible: false
+    }
+  }
+
+  //email validation ...
+
+  validateEmail = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
+
+  onPressLoginButton = () => {
+    const {eid, password} = this.state;
+    if (eid) {
+      if (!this.validateEmail(eid)) {
+        SnackBar.show(this.state.message, {
+          duration: 1000,
+          confirmText: 'Ok',
+          tapToClose: true,
+          onConfirm: () => {
+            SnackBar.dismiss()
+          }
+        })
+      } else {
+        if (eid && password) {
+          this.setState({isVisible: true});
+          const {store: {dispatch}} = this.context;
+          dispatch(login({eid, password}))
+            .then(() => {
+              this.setState({ isVisible:false});
+              NavAction.tabbar();
+            }).catch(() => {
+              this.setState({isVisible: false});
+              SnackBar.show('Invalid Username and Password.', {
+                duration: 1000,
+                confirmText: 'Ok',
+                tapToClose: true,
+                onConfirm: () => {
+                  SnackBar.dismiss()
+                }
+              });
+            })
+        }
+      }
+    } else {
+      SnackBar.show('All fields required!', {
+        duration: 1000,
+        confirmText: 'Ok',
+        tapToClose: true,
+        onConfirm: () => {
+          SnackBar.dismiss()
+        }
+      });
+    }
+
+  };
+
+
+
   render() {
     return(
       <Container style={{backgroundColor:Colors.base }}>
+        <Spinner visible={this.state.isVisible} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <Content>
           <View style={styles.titleContainer}>
             <Text style={styles.titleTextStyle}>
@@ -57,19 +139,31 @@ export default class Login extends Component {
               <Item>
                 <Image source={Images.email} style={styles.formIcon}/>
                 <Input placeholder="Email Address"
-                  placeholderTextColor={Colors.placeholderTextColor}/>
+                  autoCorrect={false}
+                  autoCapitalize={'none'}
+                  placeholderTextColor={Colors.placeholderTextColor}
+                  onChangeText={(eid) => {
+                    this.setState({eid});
+                  }}
+
+                />
               </Item>
               <Item>
                 <Image source={Images.password} style={styles.formIcon}/>
                 <Input placeholder="Password"
                   secureTextEntry={true}
-                  placeholderTextColor={Colors.placeholderTextColor}/>
+                  placeholderTextColor={Colors.placeholderTextColor}
+                  onChangeText={(password) => {
+                    this.setState({password});
+                  }}
+
+                />
               </Item>
             </View>
           </StyleProvider>
 
           <View style={styles.loginButtonContainer}>
-            <TouchableOpacity style={styles.signupButton} onPress={NavAction.allTrips}>
+            <TouchableOpacity style={styles.signupButton} onPress={this.onPressLoginButton}>
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
           </View>

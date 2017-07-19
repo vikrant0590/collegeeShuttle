@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
-import { Text, View, TouchableOpacity,Image} from 'react-native';
-import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, } from 'native-base';
+import { Text, View, TouchableOpacity,Image,} from 'react-native';
+import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
@@ -33,6 +33,12 @@ locationService = () => {
     locationService: !this.state.locationService,
   });
 };
+onPressLogout =() => {
+  NavAction.login();
+};
+
+
+
 
 render(){
   return(
@@ -41,7 +47,7 @@ render(){
         <Header style={{backgroundColor:Colors.transparent,borderBottomWidth:0}}>
           <Left>
             <Button transparent onPress={NavAction.pop}>
-              <Image source={Images.arrowBack}/>
+              <Icon name="arrow-back" style={{color: Colors.white}}/>
             </Button>
           </Left>
           <Body>
@@ -172,7 +178,7 @@ render(){
               </TouchableOpacity>
             </ListItem>
             <ListItem>
-              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} onPress={NavAction.login}>
+              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} onPress={this.onPressLogout}>
                 <Left>
                   <Text style={styles.listText}>
                     Logout

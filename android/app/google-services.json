@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "444844025445",
+    "project_id": "collegeshuttle-746ac"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444844025445:android:b9c142a13958c28a",
+        "android_client_info": {
+          "package_name": "com.collegeshuttle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444844025445-88dfa300dd4ccjhusqmclslc8c69oc2e.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "444844025445-omplv724e9q2aoqgf947mu72sqg2dl51.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.collegeshuttle",
+            "certificate_hash": "8702f37e0fdc31f89ab5909bf316042f1ab02e52"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9hk5WS5SvonP2MzuhMaO9UT5hFQorU0s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,8 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <RNGoogleSignin/RNGoogleSignin.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppDelegate
 
@@ -33,5 +35,18 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  BOOL shouldOpen = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                   openURL:url
+                                                         sourceApplication:sourceApplication
+                                                                annotation:annotation];
+  
+  
+  return shouldOpen = shouldOpen ? shouldOpen : [RNGoogleSignin application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
 
 @end

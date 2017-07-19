@@ -22,7 +22,7 @@ import styles from './MyTripsStyles';
 import { Colors, Images, Metrics, Fonts } from '../../theme';
 import { MyTripCell } from '../../components';
 import { Actions } from 'react-native-router-flux';
-
+import LinearGradient from 'react-native-linear-gradient';
 // dummy data array ...
 const items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
 
@@ -141,18 +141,20 @@ export default class MyTrips extends Component {
 
     return(
       <Container style={{flex:1}}>
-        <Header style={{ backgroundColor:'#fc214f',borderBottomWidth:0 }}>
-          <Left>
-            <Button transparent>
-              <Icon name="arrow-back" style={{color:'white'}}/>
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{color:'white'}}>My Trips</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{ borderBottomWidth:0, backgroundColor: Colors.transparent, }}>
+            <Left>
+              <Button transparent>
+                <Icon name="arrow-back" style={{color:'white'}}/>
+              </Button>
+            </Left>
+            <Body>
+              <Title style={{color:'white'}}>My Trips</Title>
+            </Body>
+            <Right>
+            </Right>
+          </Header>
+        </LinearGradient>
         <Content>
           <SwipeMyTrip
             circleDefaultStyle = {{

@@ -26,16 +26,7 @@ export default StyleSheet.create({
     borderRadius:22,
     flexDirection:'row',
   },
-  loginGoogleButton:{
-    alignItems:"center",
-    justifyContent:"center",
-    width:Metrics.screenWidth/1.4,
-    height:45,
-    backgroundColor:Colors.googleButton,
-    borderRadius:22,
-    flexDirection:'row',
-    marginTop:20,
-  },
+
   facebookButtonText:{
     ...Fonts.style.buttonText,
     color:Colors.white,
@@ -49,15 +40,7 @@ export default StyleSheet.create({
     borderTopLeftRadius: 22,
     borderBottomLeftRadius:22,
   },
-  googleButtonImage:{
-    flex:0.2,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:Colors.googleIconBg,
-    height:45,
-    borderTopLeftRadius: 22,
-    borderBottomLeftRadius:22,
-  },
+
 
   buttonText:{
     flex:0.8,

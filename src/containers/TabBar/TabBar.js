@@ -13,9 +13,8 @@ export default class TabBar extends Component {
 
   render() {
     let initial = 0;
-    if(this.props.selectedTab) {
-      initial = this.props.selectedTab;
-    }
+  
+    console.log('initial',initial);
     return (
       <ScrollableTabView
         initialPage={initial}
@@ -23,6 +22,7 @@ export default class TabBar extends Component {
         tabBarPosition="bottom"
         renderTabBar={() =>
           <BottomTabBar
+            activeTab={initial}
             tabImages={inactivetabImages}
             selectedTabImages={activeTabImages}
             tabTitleText={tabsTitles}

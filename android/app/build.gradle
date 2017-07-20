@@ -148,15 +148,16 @@ repositories {
 }
 
 dependencies {
-    compile project(':react-native-google-signin')
     compile project(':react-native-fbsdk')
     compile project(':react-native-linear-gradient')
     compile project(':react-native-vector-icons')
     compile project(':react-native-image-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])
     // From node_modules
-    compile 'com.google.android.gms:play-services-location:11.0.1'
-    compile 'com.google.android.gms:play-services-auth:11.0.1'
+//    compile 'com.google.android.gms:play-services-location:11.0.1'
+//    compile 'com.google.android.gms:play-services-auth:11.0.1'
+    compile 'com.google.android.gms:play-services-wearable:11.0.1'
+    compile 'com.google.android.gms:play-services:11.0.1'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.facebook.react:react-native:+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'

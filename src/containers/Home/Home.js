@@ -11,7 +11,8 @@ import
   RoundTripCustom,
   RoundTripTabBar,
   OfferBox,
-  PaymentFailed
+  PaymentFailed,
+  PaymentSuccess
 } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {
@@ -40,7 +41,9 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
-    this.onPressDialogBox();
+    this.refs.offerbox.showDialog();
+    // this.refs.paymentsuccess.showDialogPaymentSuccess();
+    // this.refs.paymentfailed.showDialogPaymentFailed();
   };
 
   onPressUniversityButton = () =>{
@@ -48,16 +51,16 @@ export default class Home extends Component {
   };
 
   onPressHomeButton = () => {
-    this.onPressPaymentFailedBox();
+
   };
 
-  onPressDialogBox = () => {
-    this.refs.offerbox.showDialog()
-  };
+  // onPressDialogBox = () => {
+  //   this.refs.offerbox.showDialog();
+  // };
 
-  onPressPaymentFailedBox = () =>{
-    this.refs.paymentfailed.showDialogPaymentFailed();
-  };
+  // onPressPaymentFailedBox = () =>{
+  //   this.refs.paymentfailed.showDialogPaymentFailed();
+  // };
 
 
   render(){

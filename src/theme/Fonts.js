@@ -39,6 +39,7 @@ const normalize = (size) => {
   if(pixelRatio == 3){
     return size * (Platform.OS === 'ios' ? 1.15 : size);
   }
+  return size;
 };
 
 

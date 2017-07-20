@@ -3,16 +3,15 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Item, Input, StyleProvider } from 'native-base';
 import {Actions as NavAction} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
-import SnackBar from 'react-native-snackbar-dialog';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { validationOnEmail} from '../../helpers/EmailValidation';
-import { connect } from 'react-redux';
 
 import styles from './SignupStyles';
 import { Images, Colors } from '../../theme';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import { register } from '../../redux/modules/register';
+import { toast } from '../../helpers/ToastMessage';
 
 export default class Signup extends Component {
 
@@ -57,39 +56,18 @@ export default class Signup extends Component {
         dispatch(register(data))
           .then(() => {
             this.setState({isVisible: false});
-            NavAction.tabbar();
+            toast('Successfully Register!');
+            NavAction.login();
           })
           .catch(ex => {
             this.setState({isVisible: false});
-            SnackBar.show(ex.error.message, {
-              duration: 1000,
-              confirmText: 'Ok',
-              tapToClose: true,
-              onConfirm: () => {
-                SnackBar.dismiss()
-              }
-            });
+            toast(ex.error.message);
           });
       } else {
-
-        SnackBar.show('Please Enter Valid Email Address.', {
-          duration: 1000,
-          confirmText: 'Ok',
-          tapToClose: true,
-          onConfirm: () => {
-            SnackBar.dismiss()
-          }
-        });
+        toast('Please Enter Valid Email Address.');
       }
     } else {
-      SnackBar.show('All fields required!', {
-        duration: 1000,
-        confirmText: 'Ok',
-        tapToClose: true,
-        onConfirm: () => {
-          SnackBar.dismiss()
-        }
-      });
+      toast('All fields required!');
     }
   };
 

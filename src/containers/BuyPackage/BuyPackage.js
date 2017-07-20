@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View, Text, Image, } from 'react-native';
+import {View, Text, Image, TouchableOpacity } from 'react-native';
 import { Container, Header, Left, Body, Right, Icon, Title,Content, Button, Card, CardItem, List, } from 'native-base';
 import { Colors, Fonts, Images, Metrics  } from '../../theme';
 import styles from './BuyPackageStyle';
@@ -58,9 +58,9 @@ export default class BuyPackage extends  Component {
                   <CardItem style={{ width: Metrics.screenWidth - 30}}>
                     <View style={styles.tripItem}>
 
-                      <View style={{flexDirection:'row',flex:0.4}}>
+                      <View style={styles.tripHeading}>
 
-                        <View style={{flex:1,flexDirection:'row'}}>
+                        <View style={styles.tripHeadingItem}>
                           <Text style={styles.choice}>Triple Play</Text>
                           <Image source={Images.ellipse} style={styles.ellipse}/>
                           <Text style={styles.choice}>{item.totalTrips} Trips</Text>
@@ -73,19 +73,19 @@ export default class BuyPackage extends  Component {
                       </View>
 
                       <View style={styles.tripDescription}>
-                        <View style={{flexDirection:'column', flex:1,}}>
+                        <View style={styles.tripDetails}>
                           <Text style={{color: Colors.black}}>{item.weekend} Weekend Trip{"\n"}</Text>
                           <Text style={{color: Colors.black}}>{item.holiday} Holiday Trip </Text>
                         </View>
                         <View style={{flex:1}}>
-                          <Button rounded
-                            onPress={this.onPressBuyNow}
-                            style={{
-                              backgroundColor: Colors.headingColor,
-                              width: Metrics.screenWidth / 2.6,
-                            }}>
-                            <Text style={{...Fonts.style.regularFont, color: Colors.white,}}>Buy Now</Text>
-                          </Button>
+                          <LinearGradient
+                            colors={['#FC214F','#D32735']}
+                            style={styles.bookButton}>
+                            <TouchableOpacity onPress={this.onPressBuyNow}
+                              style={styles.bookButtonDefaultColor}>
+                              <Text style={styles.bookButtonText} >Buy Now</Text>
+                            </TouchableOpacity>
+                          </LinearGradient>
                         </View>
                       </View>
                     </View>
@@ -100,3 +100,4 @@ export default class BuyPackage extends  Component {
     )
   }
 }
+

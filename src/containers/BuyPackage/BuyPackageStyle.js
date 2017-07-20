@@ -36,6 +36,33 @@ export default StyleSheet.create({
     flexDirection:"row",
     justifyContent:'center',
     alignItems:'center',
-  }
+  },
+  tripHeading:{
+    flexDirection:'row',flex:0.4
+  },
+  tripHeadingItem:{
+    flex:1,flexDirection:'row'
+  },
+  tripDetails:{
+    flexDirection:'column', flex:1
+  },
+  bookButton:{
+    width:Metrics.screenWidth/3,
+    height:45,
+    backgroundColor:Colors.transparent,
+    borderRadius:22,
+    marginBottom:0,
+    alignSelf:"center"
+  },
+  bookButtonDefaultColor:{
+    flex: 1,
+    backgroundColor: Colors.transparent,
+  },
+  bookButtonText:{
+    alignSelf:"center",
+    marginTop:10,
+    ...Fonts.style.regularFont,
+    color:Colors.white
+  },
 
 });

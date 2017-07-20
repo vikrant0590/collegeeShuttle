@@ -15,6 +15,11 @@ import SwipeWeekly from 'react-native-swipe-a-lot';
 import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
+<<<<<<< HEAD
+=======
+import SwipeWeekly from 'react-native-swipe-a-lot';
+import { Actions} from 'react-native-router-flux';
+>>>>>>> origin/signin
 
 
 export default class RoundTripWeekly extends Component {
@@ -28,9 +33,14 @@ export default class RoundTripWeekly extends Component {
 
   onPressPassenger = (index) =>{
     const pNum = (parseInt(index));
+<<<<<<< HEAD
+    //this.swiper.swipeToPage(pNum);
+    this.setState({ selectedButtonIndex: index})
+=======
     this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
     Actions.allTrips();
+>>>>>>> origin/signin
   };
 
   onPressSearch = () => {

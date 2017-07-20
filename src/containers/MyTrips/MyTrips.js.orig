@@ -23,7 +23,10 @@ import { Colors, Images, Metrics, Fonts } from '../../theme';
 import { MyTripCell } from '../../components';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/signin
 // dummy data array ...
 const items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho'];
 
@@ -141,6 +144,18 @@ export default class MyTrips extends Component {
     }
 
     return(
+<<<<<<< HEAD
+      <Container style={{flex:1}}>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{ borderBottomWidth:0, backgroundColor: Colors.transparent, }}>
+            <Left>
+              <Button transparent>
+                <Icon name="arrow-back" style={{color:'white'}}/>
+              </Button>
+            </Left>
+            <Body>
+              <Title style={{color:'white'}}>My Trips</Title>
+=======
       <Container>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
@@ -152,6 +167,7 @@ export default class MyTrips extends Component {
             </Left>
             <Body>
               <Title style={{color: Colors.white}}>My Trips</Title>
+>>>>>>> origin/signin
             </Body>
             <Right>
             </Right>

@@ -30,12 +30,10 @@ export function register(data) {
     api
       .post('/api/register', data)
       .then((res) => {
-        console.log('res', res);
         dispatch({ type: REGISTER_SUCCESS, result: res });
         resolve(res);
       })
       .catch((ex) => {
-        console.log('ex', ex);
         dispatch({ type: REGISTER_FAIL });
         reject(ex);
       });

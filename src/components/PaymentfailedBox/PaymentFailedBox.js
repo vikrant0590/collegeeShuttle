@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import PaymentModalFailed from 'react-native-simple-modal';
+import {Actions } from 'react-native-router-flux';
 import styles from './PaymentFailedBoxStyle';
 import { Images } from '../../theme';
 
@@ -21,6 +22,7 @@ export default class PaymentFailedBox extends Component {
 
   onPressTryAgain = () => {
     this.setState({open: false})
+    Actions.payment();
   };
 
   render(){
@@ -29,7 +31,6 @@ export default class PaymentFailedBox extends Component {
       <PaymentModalFailed
         open={open}
         overlayBackground={'rgba(0, 0, 0, 0.3)'}
-        modalDidOpen={() => console.log('open')}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.PaymentViewConatiner}
         modalStyle={styles.PaymentViewStyle}

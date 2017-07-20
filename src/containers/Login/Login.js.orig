@@ -3,11 +3,14 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import {Container, Content, Item, Input, StyleProvider } from 'native-base';
 import {Actions as NavAction} from 'react-native-router-flux';
 import { Images,Colors } from '../../theme';
+<<<<<<< HEAD
 import { GoogleLogin, FaceboolLogin } from '../../components';
+=======
 import Spinner from 'react-native-loading-spinner-overlay';
 import PropTypes from 'prop-types';
 
 import { validationOnEmail} from '../../helpers/EmailValidation';
+>>>>>>> origin/signin
 import styles from './LoginStyles';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';

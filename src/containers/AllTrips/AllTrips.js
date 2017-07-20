@@ -390,7 +390,7 @@ export default class AllTrips extends Component {
 
                   {(this.state.availability && item.index === 0) &&
                     <Card>
-                      <CardItem>
+                      <CardItem style={{marginTop:-9}}>
                         <View style={styles.seatBookingContainer}>
                           <View style={styles.pickupLocationHeadingContainer}>
                             <Text style={styles.pickupLocationHeadingText}>

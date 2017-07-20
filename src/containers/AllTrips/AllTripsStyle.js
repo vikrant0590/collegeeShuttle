@@ -21,6 +21,7 @@ export default StyleSheet.create({
   },
   listContainer:{
     flex:1,
+    marginBottom:5
   },
   busNameRow:{
     flexDirection:'row',

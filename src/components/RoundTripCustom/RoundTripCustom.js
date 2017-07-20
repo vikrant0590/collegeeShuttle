@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Row, Col, Card, CardItem, Body } from 'native-base';
+import {Actions} from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
 import { Calender } from '../../components';
@@ -15,7 +16,11 @@ export default class RoundTripCustom extends Component {
   }
 
   onPressPassenger = (index) =>{
-    this.setState({ selectedButtonIndex: index})
+    this.setState({ selectedButtonIndex: index});
+
+  };
+  onPressSearch =() =>{
+    Actions.allTrips();
   };
 
   render(){
@@ -46,7 +51,7 @@ export default class RoundTripCustom extends Component {
         </Card>
         <TouchableOpacity
           style={styles.searchBtn}
-          onPress={this.onPressPassenger}>
+          onPress={this.onPressSearch}>
           <Text style={styles.searchBtnText}>Search</Text>
         </TouchableOpacity>
         <Card style={{ marginLeft: 15, marginRight: 15, width: Metrics.screenWidth - 30 }}>

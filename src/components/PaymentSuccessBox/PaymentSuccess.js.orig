@@ -5,6 +5,8 @@ import {Actions} from 'react-native-router-flux';
 import styles from './PaymentSuccessStyle';
 import { Images, Metrics } from '../../theme';
 import { Row, Col } from 'native-base';
+import { Actions as NavAction } from 'react-native-router-flux';
+
 export default class PaymentSuccess extends Component {
 
   constructor(){
@@ -22,8 +24,12 @@ export default class PaymentSuccess extends Component {
 
   onPressViewDetails = () => {
     this.setState({open: false});
+<<<<<<< HEAD
     NavAction.tabbar({type:'reset', selectedTab:1 });
 
+=======
+    Actions.mytrips();
+>>>>>>> origin/signin
   };
 
   render(){

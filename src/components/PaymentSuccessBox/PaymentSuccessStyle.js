@@ -4,7 +4,7 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
-    height: Metrics.screenHeight - Metrics.screenHeight/1.8
+    height: Metrics.screenHeight - Metrics.screenHeight/2
   },
 
   PaymentViewConatiner: {
@@ -22,7 +22,7 @@ export default StyleSheet.create({
   headerImage: {
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: Metrics.screenWidth/ 30,
+    marginTop: Metrics.screenWidth/ 20,
   },
 
   buttonIcon:{

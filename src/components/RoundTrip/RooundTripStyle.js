@@ -123,17 +123,18 @@ export default StyleSheet.create({
 
   busIcon:{
     marginRight: 20,
-    marginTop: 20,
     resizeMode: 'contain',
-    ...Platform.select({
-      ios: {
-        aspectRatio:(Metrics.screenWidth === 320) ?  6.5 :  9.5,
-        marginLeft:(Metrics.screenWidth === 320) ?  - Metrics.screenWidth/22 : - Metrics.screenWidth/13,
-      },
-      android:{
-        //set icon and text style...
-      }
-    }),
+    marginBottom: 10,
+    width: Metrics.screenWidth - 80,
+    // ...Platform.select({
+    //   ios: {
+    //     aspectRatio:(Metrics.screenWidth === 320) ?  6.5 :  9.5,
+    //     marginLeft:(Metrics.screenWidth === 320) ?  - Metrics.screenWidth/22 : - Metrics.screenWidth/13,
+    //   },
+    //   android:{
+    //     //set icon and text style...
+    //   }
+    // }),
   },
 
   headerDesText: {
@@ -153,7 +154,6 @@ export default StyleSheet.create({
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
     color: Colors.settingHeadingTextColor,
-    paddingLeft: 15,
   },
 
   inviteView: {

@@ -41,9 +41,13 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
+<<<<<<< HEAD
+
+=======
     this.refs.offerbox.showDialog();
     // this.refs.paymentsuccess.showDialogPaymentSuccess();
     // this.refs.paymentfailed.showDialogPaymentFailed();
+>>>>>>> origin/iOSUIFiexed
   };
 
   onPressUniversityButton = () =>{

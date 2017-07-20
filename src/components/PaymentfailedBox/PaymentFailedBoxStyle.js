@@ -30,8 +30,9 @@ export default StyleSheet.create({
     marginLeft: 32,
     marginRight: 32,
     backgroundColor: Colors.timeColor,
-    borderRadius: 16.5,
+    borderRadius: 20,
     height: 45,
+    width: 120,
     justifyContent: 'center',
     alignItems: 'center'
   },

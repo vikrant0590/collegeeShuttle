@@ -29,7 +29,24 @@ export default class PaymentSuccess extends Component {
   };
 
   onPressCloseBtn = () => {
-    this.setState({open: false})
+    this.setState({open: false});
+  };
+
+  onPressWhatAppShare = () =>{
+
+  };
+
+  onPressFacebookShare = () =>{
+
+  };
+
+  onPressGoogleShare = () =>{
+
+  };
+
+  onPressInviteFriend = () => {
+    this.setState({open: false});
+    NavAction.invitefriend();
   };
 
 
@@ -79,14 +96,20 @@ export default class PaymentSuccess extends Component {
               <Text style={styles.paymentText}>SHARE NOW</Text>
             </View>
             <Row style={{ marginTop: Metrics.screenWidth/ 30, marginBottom: Metrics.screenWidth/ 30 }}>
-              <Col>
-                <Image style={styles.buttonIcon} source={Images.whatsapp}/>
+              <Col style={{ flex: 3.3 }}>
+                <Button transparent onPress={this.onPressWhatAppShare} style={{ flex: 1, alignSelf: 'center' }}>
+                  <Image style={styles.buttonIcon} source={Images.whatsapp}/>
+                </Button>
               </Col>
-              <Col>
-                <Image style={styles.buttonIcon} source={Images.fb}/>
+              <Col style={{ flex: 3.3 }}>
+                <Button transparent onPress={this.onPressFacebookShare} style={{ flex: 1, alignSelf: 'center' }}>
+                  <Image style={styles.buttonIcon} source={Images.fb}/>
+                </Button>
               </Col>
-              <Col>
-                <Image style={styles.buttonIcon} source={Images.googlePlus}/>
+              <Col style={{ flex: 3.3 }}>
+                <Button transparent onPress={this.onPressGoogleShare} style={{ flex: 1, alignSelf: 'center'}}>
+                  <Image style={styles.buttonIcon} source={Images.googlePlus}/>
+                </Button>
               </Col>
             </Row>
           </View>
@@ -94,7 +117,7 @@ export default class PaymentSuccess extends Component {
             <Row style={{ flex: 1}}>
               <Col style={{ flex: 0.5 }}>
                 <TouchableOpacity
-                  onPress={this.onPressTryAgain}
+                  onPress={this.onPressInviteFriend}
                   style={styles.inviteFriendBtn}>
                   <Text
                     style={styles.inviteText}>
@@ -115,7 +138,6 @@ export default class PaymentSuccess extends Component {
             </Row>
           </View>
         </View>
-
       </PaymentModalSuccess>
     )
   }

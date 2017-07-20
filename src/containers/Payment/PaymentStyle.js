@@ -16,7 +16,6 @@ export default StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 15,
-    backgroundColor: '#FF214F',
     borderRadius: 26
   },
 
@@ -121,9 +120,9 @@ export default StyleSheet.create({
 
   ProcessBtnText: {
     fontSize: Fonts.size.regular,
-    fontFamily: Fonts.lato.bold,
+    fontFamily: Fonts.lato.base,
     color: Colors.white,
-    alignSelf: 'center'
+    textAlign: 'center',
   },
 
   paymentDateText: {

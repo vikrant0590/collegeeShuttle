@@ -20,8 +20,6 @@ export default class BottomTabBar extends Component {
 
   render() {
     const { activeTab, selectedTabImages, tabImages, tabTitleText } = this.props;
-    console.log('activeTab',activeTab);
-
     return <View style={[styles.tabs, this.props.style, ]}>
       {this.props.tabs.map((tab, i) => {
         return <TouchableOpacity

@@ -41,9 +41,7 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
-    this.refs.offerbox.showDialog();
-    // this.refs.paymentsuccess.showDialogPaymentSuccess();
-    // this.refs.paymentfailed.showDialogPaymentFailed();
+
   };
 
   onPressUniversityButton = () =>{
@@ -53,14 +51,6 @@ export default class Home extends Component {
   onPressHomeButton = () => {
 
   };
-
-  // onPressDialogBox = () => {
-  //   this.refs.offerbox.showDialog();
-  // };
-
-  // onPressPaymentFailedBox = () =>{
-  //   this.refs.paymentfailed.showDialogPaymentFailed();
-  // };
 
 
   render(){

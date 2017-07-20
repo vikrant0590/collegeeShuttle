@@ -95,7 +95,7 @@ export default StyleSheet.create({
 
   searchBtnText: {
     fontSize: Fonts.size.regular,
-    fontFamily: Fonts.lato.bold,
+    fontFamily: Fonts.lato.base,
     color: Colors.white,
     alignSelf: 'center'
   },

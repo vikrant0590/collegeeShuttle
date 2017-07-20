@@ -13,7 +13,7 @@ export default class TabBar extends Component {
 
   render() {
     let initial = 0;
-  
+
     console.log('initial',initial);
     return (
       <ScrollableTabView

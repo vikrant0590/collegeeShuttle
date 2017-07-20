@@ -22,12 +22,11 @@ export default class PassengerDetail extends Component {
   };
 
   onPressAddButton = () => {
-    NavAction.pop();
-
+    NavAction.payment();
   };
 
   onPressCloseButton =() => {
-    NavAction.payment();
+    NavAction.pop();
   };
 
   render(){

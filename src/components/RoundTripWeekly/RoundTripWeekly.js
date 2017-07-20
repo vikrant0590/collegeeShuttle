@@ -15,7 +15,7 @@ import SwipeWeekly from 'react-native-swipe-a-lot';
 import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class RoundTripWeekly extends Component {
   constructor(){
@@ -30,7 +30,7 @@ export default class RoundTripWeekly extends Component {
     const pNum = (parseInt(index));
     this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
-    Actions.allTrips();
+    NavAction.allTrips();
   };
 
   onPressSearch = () => {
@@ -47,7 +47,7 @@ export default class RoundTripWeekly extends Component {
       passenger.push(
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)} key={index}>
+          onPress={() => this.onPressPassenger(index)} key={index + 1}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )
@@ -149,18 +149,18 @@ export default class RoundTripWeekly extends Component {
         </View>
         <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }} key="passenger">
           <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between' }}>
+            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between', marginRight: 5 }}>
               {passenger}
             </CardItem>
           </Row>
         </Card>
-        <View>
+        <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtn}>
           <TouchableOpacity
-            style={styles.searchBtn}
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.transparent }}
             onPress={this.onPressSearch}>
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
       </View>
     );
   }

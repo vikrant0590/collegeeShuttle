@@ -31,7 +31,7 @@ export default StyleSheet.create({
   titleHeaderText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor,
+    color: Colors.profileInputHeadingColor,
   },
 
   dayText: {
@@ -51,7 +51,7 @@ export default StyleSheet.create({
   timeText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor,
+    color: Colors.profileInputHeadingColor,
     paddingTop: 5,
     paddingBottom: 5
   },
@@ -59,7 +59,7 @@ export default StyleSheet.create({
   busText:{
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor,
+    color: Colors.profileInputHeadingColor,
     paddingTop: 20
   },
 
@@ -74,7 +74,7 @@ export default StyleSheet.create({
   pickupText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor
+    color: Colors.profileInputHeadingColor
   },
 
   circleText: {
@@ -88,7 +88,7 @@ export default StyleSheet.create({
   dropText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor
+    color: Colors.profileInputHeadingColor
   },
 
   trackNowBtn: {
@@ -153,7 +153,7 @@ export default StyleSheet.create({
   descriptionText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
-    color: Colors.settingHeadingTextColor,
+    color: Colors.profileInputHeadingColor,
   },
 
   inviteView: {

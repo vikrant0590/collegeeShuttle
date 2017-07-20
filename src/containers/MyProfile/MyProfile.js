@@ -141,7 +141,7 @@ export default class MyProfile extends Component {
 
       <Container>
         {(this.state.myprofile) &&
-        <Header style={{ backgroundColor: '#FC214F' }}>
+        <Header style={{ backgroundColor: '#FC214F',borderBottomColor:Colors.transparent}}>
           <Left>
             <Button transparent onPress={this.myprofile}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>

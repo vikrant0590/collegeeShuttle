@@ -85,6 +85,7 @@ export default class RoundTrip extends Component {
           transparent
           style={{
             top: 10,
+            marginBottom:20,
             height: Metrics.screenHeight/ 5.5,
           }}
           onPress={()=> console.log()}>

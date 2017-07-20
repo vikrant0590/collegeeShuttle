@@ -18,7 +18,6 @@ import {
   Offers,
   HelpSupport,
   Payment,
-  AddCard,
 } from './containers';
 
 import { InformationModal, WalkThroughFirst } from './components';
@@ -91,7 +90,6 @@ export default class AppRouter extends Component {
         <Scene key="payment" component={Payment} hideNavBar={true}/>
         <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
         <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
-        <Scene key ="addCard" component={AddCard} hideNavBar={true}/>
       </Router>
     );
   }

@@ -43,7 +43,6 @@ export default class Login extends Component {
     if (eid && password) {
 
       if (this.validateEmail(eid)) {
-
         this.setState({isVisible: true});
         const {store: {dispatch}} = this.context;
         dispatch(login({eid, password}))

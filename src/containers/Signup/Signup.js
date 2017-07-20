@@ -34,9 +34,10 @@ export default class Signup extends Component {
     register: PropTypes.object
   };
 
-  validateEmail = (data) =>{
-    validationOnEmail(data);
+  validateEmail =(data) =>{
+    return validationOnEmail(data);
   };
+
 
   handleSubmit = () => {
 

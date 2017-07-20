@@ -39,7 +39,6 @@ export default class OfferBox extends Component {
       <OfferModalBox
         open={open}
         overlayBackground={'rgba(0, 0, 0, 0.3)'}
-        modalDidOpen={() => console.log('open')}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.boxViewConatiner}
         modalStyle={styles.boxViewStyle}

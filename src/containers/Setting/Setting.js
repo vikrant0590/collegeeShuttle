@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Text, View, TouchableOpacity,Image,} from 'react-native';
+import { Text, View, TouchableOpacity,Image, AsyncStorage } from 'react-native';
 import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './SettingStyle';
@@ -34,6 +34,7 @@ locationService = () => {
   });
 };
 onPressLogout =() => {
+  AsyncStorage.removeItem('userCredentials');
   NavAction.login();
 };
 

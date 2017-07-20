@@ -48,7 +48,6 @@ class RoundTripTabBar extends Component {
 
   render() {
     const { activeTab, tabTitleText } = this.props;
-    console.log('Active tab : ',this.props.activeTab);
     return (
       <View style={[ styles.tabs, this.props.style ]}>
         {this.props.tabs.map((tab, i) => {

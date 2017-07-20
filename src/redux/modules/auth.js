@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action = {}) {
     case LOGIN:
       return { ...state, isBusy: true };
     case LOGIN_SUCCESS:
-      return { ...state, isBusy: false };
+      return { ...state, user: action.result };
     case LOGIN_FAIL:
       return { ...state, isBusy: false };
     default:
@@ -29,9 +29,8 @@ export function login(data) {
     api
       .post('/api/login', data)
       .then((res) => {
-        console.log("********", res);
         dispatch({ type: LOGIN_SUCCESS, result: res });
-        // AsyncStorage.setItem('userData', JSON.stringify(data));
+        AsyncStorage.setItem('userCredentials', JSON.stringify(data));
         resolve(res);
       })
       .catch((ex) => {

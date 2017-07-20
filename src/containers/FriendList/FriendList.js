@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import {View, Text, Image } from 'react-native';
-import { Container, Header, Left, Body,
+import { Container, Header, Left, Body, Content,
   Right, Icon, Title, Button, List, ListItem, Card, CardItem } from 'native-base';
 import { Colors, } from '../../theme';
 import styles from './FriendListStyle';
@@ -25,7 +25,7 @@ export default class FriendList extends  Component {
       {index: 2, name: 'Susan',university:'VN University', trips:3},
       {index: 3, name: 'Muru', university:'VN University', trips:3}];
     return(
-      <Container style={{flex:1,backgroundColor:Colors.base,}}>
+      <View style={{flex:1,backgroundColor:Colors.base,}}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -42,7 +42,7 @@ export default class FriendList extends  Component {
             </Right>
           </Header>
         </LinearGradient>
-        <View style={styles.container}>
+        <Content>
           <Card>
             <CardItem>
               <List dataArray={friends}
@@ -65,8 +65,8 @@ export default class FriendList extends  Component {
               />
             </CardItem>
           </Card>
-        </View>
-      </Container>
+        </Content>
+      </View>
     )
   }
 }

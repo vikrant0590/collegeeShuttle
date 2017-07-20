@@ -19,6 +19,10 @@ export default class RoundTrip extends Component {
     Actions.invitefriend();
   };
 
+  firstOfferPlan =() => {
+    Actions.buypackage();
+  };
+
   render(){
     return(
       <View>
@@ -77,32 +81,34 @@ export default class RoundTrip extends Component {
             </Body>
           </CardItem>
         </Card>
-        <Card style={{ top: 10 }}>
-          <Col>
-            <Row>
-              <CardItem header>
-                <Body style={{ right: 10 }}>
-                  <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
-                </Body>
-              </CardItem>
-            </Row>
-            <Row>
-              <CardItem cardBody>
-                <Text style={styles.descriptionText}>
-                  Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
-                </Text>
-              </CardItem>
-            </Row>
-            <Row style={{ marginRight: 10 }}>
-              <CardItem>
-                <Body >
-                  <Image source={Images.roundtripbusicon} style={styles.busIcon} />
-                </Body>
-              </CardItem>
-            </Row>
-          </Col>
-        </Card>
+        <TouchableOpacity onPress={this.firstOfferPlan}>
+          <Card style={{ top: 10 }}>
+            <Col>
+              <Row>
+                <CardItem header>
+                  <Body style={{ right: 10 }}>
+                    <Text style={styles.headerDesText}>Get upto
+                      <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
+                  </Body>
+                </CardItem>
+              </Row>
+              <Row>
+                <CardItem cardBody>
+                  <Text style={styles.descriptionText}>
+                    Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
+                  </Text>
+                </CardItem>
+              </Row>
+              <Row style={{ marginRight: 10 }}>
+                <CardItem>
+                  <Body >
+                    <Image source={Images.roundtripbusicon} style={styles.busIcon} />
+                  </Body>
+                </CardItem>
+              </Row>
+            </Col>
+          </Card>
+        </TouchableOpacity>
       </View>
     )
   }

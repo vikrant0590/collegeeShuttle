@@ -5,6 +5,8 @@ import { Colors, Fonts, Images, Metrics  } from '../../theme';
 import styles from './BuyPackageStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
+import {Actions as NavAction} from 'react-native-router-flux';
+import {OfferBox } from '../../components';
 
 export default class BuyPackage extends  Component {
 
@@ -14,8 +16,15 @@ export default class BuyPackage extends  Component {
     };
   }
 
-  back = () => {
-    this.props.isActive();
+  onPressBackButton = () => {
+    if (this.props.isActive === undefined) {
+      NavAction.pop();
+    } else {
+      this.props.isActive();
+    }
+  };
+  onPressBuyNow = () =>{
+    this.refs.offerbox.showDialog();
   };
 
   render(){
@@ -30,7 +39,7 @@ export default class BuyPackage extends  Component {
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent}}>
             <Left>
-              <Button transparent onPress={this.back}>
+              <Button transparent onPress={this.onPressBackButton}>
                 <Icon name="arrow-back" style={{color:Colors.white}}/>
               </Button>
             </Left>
@@ -70,6 +79,7 @@ export default class BuyPackage extends  Component {
                         </View>
                         <View style={{flex:1}}>
                           <Button rounded
+                            onPress={this.onPressBuyNow}
                             style={{
                               backgroundColor: Colors.headingColor,
                               width: Metrics.screenWidth / 2.6,
@@ -85,6 +95,7 @@ export default class BuyPackage extends  Component {
               }/>
           </View>
         </Content>
+        <OfferBox ref="offerbox"/>
       </Container>
     )
   }

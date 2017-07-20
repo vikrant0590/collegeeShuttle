@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import PaymentModalSuccess from 'react-native-simple-modal';
+import {Actions} from 'react-native-router-flux';
 import styles from './PaymentSuccessStyle';
 import { Images, Metrics } from '../../theme';
 import { Row, Col } from 'native-base';
@@ -19,8 +20,9 @@ export default class PaymentSuccess extends Component {
     })
   };
 
-  onPressTryAgain = () => {
-    this.setState({open: false})
+  onPressViewDetails = () => {
+    this.setState({open: false});
+    Actions.mytrips();
   };
 
   render(){
@@ -71,7 +73,7 @@ export default class PaymentSuccess extends Component {
                 </Col>
                 <Col style={{ flex: 0.5 }}>
                   <TouchableOpacity
-                    onPress={this.onPressTryAgain}
+                    onPress={this.onPressViewDetails}
                     style={styles.ViewDetailsBtn}>
                     <Text
                       style={styles.viewDetailText}>

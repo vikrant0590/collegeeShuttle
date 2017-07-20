@@ -15,9 +15,10 @@ import {
   Card,
   List,
   ListItem,
-  Grid
+
 } from 'native-base';
-import { Colors, Fonts, Metrics, Images } from '../../theme';
+import { PaymentFailed, PaymentSuccess } from '../../components';
+import { Colors, Metrics, Images } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
@@ -30,9 +31,19 @@ export default class Payment extends Component{
     }
   }
 
+  onPressProceed = () => {
+    var payment = Math.floor((Math.random() * 10) + 1);
+    console.log("PAYMENT",payment);
+    if(payment > 5){
+      this.refs.paymentsuccess.showDialogPaymentSuccess();
+    } else {
+      this.refs.paymentfailed.showDialogPaymentFailed();
 
-  onPressProcess = () =>{
+    }
 
+  };
+  onPressBuyNow = () =>{
+    Actions.addCard();
   };
 
 
@@ -235,7 +246,7 @@ export default class Payment extends Component{
                   <Col style={{ flex: 0.2 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
-                      onPress={()=> console.log('test')}>
+                      onPress={this.onPressBuyNow}>
                       <Text
                         style={styles.buyNow}>Buy Now</Text>
                     </TouchableOpacity>
@@ -293,12 +304,14 @@ export default class Payment extends Component{
           <View>
             <TouchableOpacity
               style={styles.ProcessBtn}
-              onPress={this.onPressProcess}>
-              <Text style={styles.ProcessBtnText}>Process</Text>
+              onPress={this.onPressProceed}>
+              <Text style={styles.ProcessBtnText}>Proceed</Text>
             </TouchableOpacity>
           </View>
 
         </Content>
+        <PaymentFailed ref="paymentfailed" />
+        <PaymentSuccess ref="paymentsuccess" />
       </Container>
     )
   }

@@ -6,6 +6,7 @@ import SnackBar from 'react-native-snackbar-dialog';
 import { Images,Colors } from '../../theme';
 import Spinner from 'react-native-loading-spinner-overlay';
 import PropTypes from 'prop-types';
+import { validationOnEmail} from '../../helpers/EmailValidation';
 
 import styles from './LoginStyles';
 import getTheme from '../../../native-base-theme/components';
@@ -29,24 +30,40 @@ export default class Login extends Component {
     this.state ={
       eid: undefined,
       password: undefined,
-      message: 'Please Enter Valid Email ID',
       isVisible: false
     }
   }
-
-  //email validation ...
-
-  validateEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+  validateEmail =(data) =>{
+    return validationOnEmail(data);
   };
 
 
   onPressLoginButton = () => {
     const {eid, password} = this.state;
-    if (eid) {
-      if (!this.validateEmail(eid)) {
-        SnackBar.show(this.state.message, {
+    if (eid && password) {
+
+      if (this.validateEmail(eid)) {
+
+        this.setState({isVisible: true});
+        const {store: {dispatch}} = this.context;
+        dispatch(login({eid, password}))
+          .then(() => {
+            this.setState({ isVisible:false});
+            NavAction.tabbar();
+          }).catch(() => {
+            this.setState({isVisible: false});
+            SnackBar.show('Invalid Username and Password.', {
+              duration: 1000,
+              confirmText: 'Ok',
+              tapToClose: true,
+              onConfirm: () => {
+                SnackBar.dismiss()
+              }
+            });
+          });
+
+      } else {
+        SnackBar.show('Please Enter Valid Email Address.', {
           duration: 1000,
           confirmText: 'Ok',
           tapToClose: true,
@@ -54,26 +71,6 @@ export default class Login extends Component {
             SnackBar.dismiss()
           }
         })
-      } else {
-        if (eid && password) {
-          this.setState({isVisible: true});
-          const {store: {dispatch}} = this.context;
-          dispatch(login({eid, password}))
-            .then(() => {
-              this.setState({ isVisible:false});
-              NavAction.tabbar();
-            }).catch(() => {
-              this.setState({isVisible: false});
-              SnackBar.show('Invalid Username and Password.', {
-                duration: 1000,
-                confirmText: 'Ok',
-                tapToClose: true,
-                onConfirm: () => {
-                  SnackBar.dismiss()
-                }
-              });
-            })
-        }
       }
     } else {
       SnackBar.show('All fields required!', {

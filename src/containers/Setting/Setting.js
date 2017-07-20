@@ -37,6 +37,10 @@ onPressLogout =() => {
   NavAction.login();
 };
 
+onPressPackageCode=() => {
+  NavAction.buypackage();
+};
+
 
 
 
@@ -142,7 +146,11 @@ render(){
               </TouchableOpacity>
             </ListItem>
             <ListItem>
-              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}
+                onPress ={this.onPressPackageCode}
+
+              >
                 <Left>
                   <Text style={styles.listText}>
                   Package Code

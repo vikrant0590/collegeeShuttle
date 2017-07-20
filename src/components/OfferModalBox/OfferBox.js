@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import OfferModalBox from 'react-native-simple-modal';
+import {Actions as NavAction} from 'react-native-router-flux';
 import { Row, Col } from 'native-base';
 import styles from './OfferBoxStyle';
 import { Images, Fonts } from '../../theme';
@@ -17,6 +18,15 @@ export default class OfferBox extends Component {
     this.setState({
       open: true,
     })
+  };
+  onCloseModal =() =>{
+    this.setState({ open : false});
+  };
+
+  onPressCopyCode = () =>{
+    this.setState({open: false});
+    NavAction.payment();
+
   };
 
   onPressValidation = () => {
@@ -60,10 +70,12 @@ export default class OfferBox extends Component {
                   </Text>
                 </Col>
                 <Col style={{ justifyContent: 'center', flex: 0.4 }}>
-                  <Text
-                    style={styles.codeCopyText}>
+                  <TouchableOpacity onPress={this.onPressCopyCode}>
+                    <Text
+                      style={styles.codeCopyText}>
                     Copy Code
-                  </Text>
+                    </Text>
+                  </TouchableOpacity>
                 </Col>
               </Row>
             </View>

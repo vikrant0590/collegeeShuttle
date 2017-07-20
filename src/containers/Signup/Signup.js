@@ -5,6 +5,7 @@ import {Actions as NavAction} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
 import SnackBar from 'react-native-snackbar-dialog';
 import Spinner from 'react-native-loading-spinner-overlay';
+import { validationOnEmail} from '../../helpers/EmailValidation';
 import { connect } from 'react-redux';
 
 import styles from './SignupStyles';
@@ -24,8 +25,7 @@ export default class Signup extends Component {
       eid: undefined,
       password: undefined,
       pn: undefined,
-      isVisible: false,
-      message: 'Please Enter Valid Email ID',
+      isVisible: false
     };
   }
 
@@ -34,29 +34,16 @@ export default class Signup extends Component {
     register: PropTypes.object
   };
 
-  //email validation ...
-
-  validateEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+  validateEmail = (data) =>{
+    validationOnEmail(data);
   };
 
   handleSubmit = () => {
+
     const {fn, ln, eid, password, pn} = this.state;
 
-
     if (fn & ln, eid, password, pn) {
-
-      if (!this.validateEmail(eid)) {
-        SnackBar.show(this.state.message, {
-          duration: 1000,
-          confirmText: 'Ok',
-          tapToClose: true,
-          onConfirm: () => {
-            SnackBar.dismiss()
-          }
-        })
-      } else {
+      if (this.validateEmail(eid)) {
         const {store: {dispatch}} = this.context;
         let data = {
           fn,
@@ -82,6 +69,16 @@ export default class Signup extends Component {
               }
             });
           });
+      } else {
+
+        SnackBar.show('Please Enter Valid Email Address.', {
+          duration: 1000,
+          confirmText: 'Ok',
+          tapToClose: true,
+          onConfirm: () => {
+            SnackBar.dismiss()
+          }
+        });
       }
     } else {
       SnackBar.show('All fields required!', {

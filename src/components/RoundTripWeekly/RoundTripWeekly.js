@@ -14,6 +14,7 @@ import {
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import SwipeWeekly from 'react-native-swipe-a-lot';
+import { Actions as NavAction} from 'react-native-router-flux';
 
 
 export default class RoundTripWeekly extends Component {
@@ -29,6 +30,7 @@ export default class RoundTripWeekly extends Component {
     const pNum = (parseInt(index));
     this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index})
+    NavAction.allTrips();
   };
 
   onPressWeekPlan = () => {

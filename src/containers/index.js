@@ -17,6 +17,8 @@ import InviteFriend from './InviteFriend';
 import HelpSupport from './HelpSupport';
 import Payment from './Payment';
 import Offers from './Offers';
+import AddCard from './AddCard';
+
 
 export {
   WalkThrough,
@@ -38,4 +40,5 @@ export {
   HelpSupport,
   Payment,
   Offers,
+  AddCard,
 };

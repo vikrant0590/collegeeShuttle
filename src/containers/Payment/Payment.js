@@ -43,6 +43,9 @@ export default class Payment extends Component{
 
   };
   onPressBuyNow = () =>{
+
+  };
+  onPressCard = () => {
     Actions.addCard();
   };
 
@@ -253,28 +256,35 @@ export default class Payment extends Component{
                   </Col>
                 </Row>
               </ListItem>
+
               <ListItem>
-                <Row style={{ flex: 1}}>
-                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                    <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
-                  </Col>
-                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Text
-                      style={styles.creditcardText}>Credit Card</Text>
-                  </Col>
-                </Row>
+                <TouchableOpacity onPress={this.onPressCard}>
+                  <Row style={{ flex: 1}}>
+                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                      <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
+                    </Col>
+                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                      <Text
+                        style={styles.creditcardText}>Credit Card</Text>
+                    </Col>
+                  </Row>
+                </TouchableOpacity>
               </ListItem>
+
               <ListItem >
-                <Row style={{ flex: 1}}>
-                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                    <Image style={{ resizeMode: 'contain' }} source={Images.collegecardicon} />
-                  </Col>
-                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Text
-                      style={styles.debitcardText}>Debit Card</Text>
-                  </Col>
-                </Row>
+                <TouchableOpacity onPress={this.onPressCard}>
+                  <Row style={{ flex: 1}}>
+                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                      <Image style={{ resizeMode: 'contain' }} source={Images.collegecardicon} />
+                    </Col>
+                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                      <Text
+                        style={styles.debitcardText}>Debit Card</Text>
+                    </Col>
+                  </Row>
+                </TouchableOpacity>
               </ListItem>
+
             </List>
           </Card>
           <Card

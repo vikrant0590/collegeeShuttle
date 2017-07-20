@@ -30,11 +30,10 @@ export default class Home extends Component {
     if(this.state.isRoundTrip){
       this.setState({ isOneWay: true, isRoundTrip: false });
     }
-    this.onPressPaymentSuccessBox();
   };
 
   onPressNotificationButton = () => {
-    this.onPressDialogBox();
+
   };
 
   onPressUniversityButton = () =>{

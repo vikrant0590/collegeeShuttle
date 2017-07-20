@@ -17,6 +17,9 @@ export default class RoundTripCustom extends Component {
 
   onPressPassenger = (index) =>{
     this.setState({ selectedButtonIndex: index});
+
+  };
+  onPressSearch =() =>{
     Actions.allTrips();
   };
 
@@ -48,7 +51,7 @@ export default class RoundTripCustom extends Component {
         </Card>
         <TouchableOpacity
           style={styles.searchBtn}
-          onPress={this.onPressPassenger}>
+          onPress={this.onPressSearch}>
           <Text style={styles.searchBtnText}>Search</Text>
         </TouchableOpacity>
         <Card style={{ marginLeft: 15, marginRight: 15, width: Metrics.screenWidth - 30 }}>

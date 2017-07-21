@@ -23,7 +23,7 @@ export default class PaymentSuccess extends Component {
 
   onPressViewDetails = () => {
     this.setState({open: false});
-    NavAction.tabbar({type:'reset', selectedTab:1 });
+    NavAction.mytrips();
 
   };
 

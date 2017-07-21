@@ -402,14 +402,14 @@ export default class AllTrips extends Component {
                             </View>
                             <View style={styles.pickupPlaceContainer}>
                               <List dataArray={busInformation}
-                                    renderRow={(items) =>
-                                      <View style={styles.pickDropRow}>
-                                        <Text style={styles.pickDropPlaceText}>
-                                          {items.boardingpoint}
-                                        </Text>
-                                        <Text style={styles.pickDropPlaceText}>{items.drop}</Text>
-                                      </View>
-                                    }/>
+                                renderRow={(items) =>
+                                  <View style={styles.pickDropRow}>
+                                    <Text style={styles.pickDropPlaceText}>
+                                      {items.boardingpoint}
+                                    </Text>
+                                    <Text style={styles.pickDropPlaceText}>{items.drop}</Text>
+                                  </View>
+                                }/>
                             </View>
 
                             <View style={styles.luggageBoxOption}>
@@ -421,7 +421,8 @@ export default class AllTrips extends Component {
                                   </TouchableOpacity>
                                   :
                                   <TouchableOpacity onPress={this.luggageChecked}>
-                                    <Image source={Images.checkbox}/>
+                                    <View style={styles.uncheckBox}>
+                                    </View>
                                   </TouchableOpacity>
                                 }
                               </View>
@@ -433,7 +434,7 @@ export default class AllTrips extends Component {
                             </View>
 
                             <View style={styles.refundBoxOption}>
-                              <View>
+                              <View style={{flex:0.1}}>
                                 {(this.state.refundTickets) ?
                                   <TouchableOpacity onPress={this.refundTickets}>
                                     <Image source={Images.checkbox}/>
@@ -441,7 +442,8 @@ export default class AllTrips extends Component {
                                   </TouchableOpacity>
                                   :
                                   <TouchableOpacity onPress={this.refundTickets}>
-                                    <Image source={Images.checkbox}/>
+                                    <View style={styles.uncheckBox}>
+                                    </View>
                                   </TouchableOpacity>
                                 }
                               </View>
@@ -459,7 +461,7 @@ export default class AllTrips extends Component {
                                 colors={['#FC214F','#D32735']}
                                 style={styles.bookButton}>
                                 <TouchableOpacity onPress={this.openModal}
-                                                  style={styles.bookButtonDefaultColor}>
+                                  style={styles.bookButtonDefaultColor}>
                                   <Text style={styles.bookButtonText}>Book Now</Text>
                                 </TouchableOpacity>
                               </LinearGradient>
@@ -467,9 +469,9 @@ export default class AllTrips extends Component {
                           </View>
                         </CardItem>
                       </Card>
-                      }
-                    </View>
                   }
+                </View>
+              }
             />
           </View>
 

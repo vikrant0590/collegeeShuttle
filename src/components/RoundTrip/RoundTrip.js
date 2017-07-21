@@ -8,18 +8,15 @@ import { Actions } from 'react-native-router-flux';
 
 export default class RoundTrip extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-      // set state..
-    }
-  }
-
   onPressInviteButton = () =>{
     Actions.invitefriend();
   };
 
   firstOfferPlan =() => {
+    Actions.buypackage();
+  };
+
+  onPressGetOff = () =>{
     Actions.buypackage();
   };
 
@@ -88,13 +85,13 @@ export default class RoundTrip extends Component {
             marginBottom:20,
             height: Metrics.screenHeight/ 5.5,
           }}
-          onPress={()=> console.log()}>
+          onPress={this.onPressGetOff}>
           <Card style={{ flex: 1, marginLeft: -13, marginRight: -13, marginTop: -10, marginBottom: -13 }}>
             <Row style={{ flex: 0.25}}>
               <CardItem>
                 <Body style={{ }}>
                   <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
+                    <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
                 </Body>
               </CardItem>
             </Row>

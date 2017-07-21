@@ -30,7 +30,6 @@ export default class RoundTripWeekly extends Component {
     const pNum = (parseInt(index));
     //this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
-    Actions.allTrips();
   };
 
   onPressSearch = () => {

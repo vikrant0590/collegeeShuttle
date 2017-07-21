@@ -84,6 +84,5 @@ export default StyleSheet.create({
     borderRadius: 2,
     marginLeft: Metrics.screenWidth/ 10,
     marginRight: Metrics.screenWidth/ 10,
-  }
-
+  },
 });

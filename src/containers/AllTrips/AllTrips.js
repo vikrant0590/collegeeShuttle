@@ -81,7 +81,7 @@ export default class AllTrips extends Component {
 
     return(
 
-      <Container style={{backgroundColor:Colors.base}}>
+      <Container style={{backgroundColor:Colors.base, marginBottom: 60 }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>

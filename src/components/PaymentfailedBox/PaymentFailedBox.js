@@ -21,12 +21,15 @@ export default class PaymentFailedBox extends Component {
   };
 
   onPressTryAgain = () => {
-    this.setState({open: false})
+    this.setState({open: false});
     Actions.payment();
   };
 
+
+
+
   onPressCloseBtn = () => {
-    this.setState({open: false})
+    this.setState({open: false});
   };
 
   render(){

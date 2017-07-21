@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity
+} from 'react-native';
 import {
   Container,
   Content,
@@ -15,30 +20,30 @@ import {
   Card,
   List,
   ListItem,
-
 } from 'native-base';
 import { PaymentFailed, PaymentSuccess } from '../../components';
-import { AddCard } from '../../containers';
 import { Colors, Metrics, Images } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
-
+import LinearGradient from 'react-native-linear-gradient';
 export default class Payment extends Component{
 
+
   onPressProceed = () => {
-    var payment = Math.floor((Math.random() * 10) + 1);
+    const payment = Math.floor((Math.random() * 10) + 1);
+    console.log("PAYMENT",payment);
     if(payment > 5){
       this.refs.paymentsuccess.showDialogPaymentSuccess();
     } else {
       this.refs.paymentfailed.showDialogPaymentFailed();
-
     }
 
   };
   onPressBuyNow = () =>{
 
   };
+
   onPressCard = () => {
     Actions.addCard();
   };
@@ -57,7 +62,7 @@ export default class Payment extends Component{
             marginTop: 15,
             width: Metrics.screenWidth - 30,
             height: Metrics.screenHeight/ 3.5
-          }} >
+          }} key={index}>
           <Row style={{ flex: 0.65, width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
@@ -119,7 +124,7 @@ export default class Payment extends Component{
             marginTop: 15,
             width: Metrics.screenWidth - 30,
             height: Metrics.screenHeight/ 5
-          }} >
+          }} key={index}>
           <Row
             style={{
               marginTop: 15,
@@ -148,17 +153,21 @@ export default class Payment extends Component{
 
     return(
       <Container style={{ flex:1, backgroundColor: Colors.base }}>
-        <Header style={{ backgroundColor:Colors.headerColor, borderBottomWidth:0 }}>
-          <Left>
-            <Button transparent onPress={()=> Actions.pop()}>
-              <Icon name="arrow-back" style={{color:Colors.white}}/>
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{ color:Colors.white }}>Payment</Title>
-          </Body>
-          <Right />
-        </Header>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
+            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+            <Left>
+              <Button transparent onPress={()=> Actions.pop()}>
+                <Icon name="arrow-back" style={{color:Colors.white}}/>
+              </Button>
+            </Left>
+            <Body>
+              <Title style={{ color:Colors.white }}>Payment</Title>
+            </Body>
+            <Right />
+          </Header>
+        </LinearGradient>
+
         <Content>
           <SwipePayment
             circleDefaultStyle = {{
@@ -304,11 +313,13 @@ export default class Payment extends Component{
             </Row>
           </Card>
           <View>
-            <TouchableOpacity
-              style={styles.ProcessBtn}
-              onPress={this.onPressProceed}>
-              <Text style={styles.ProcessBtnText}>Proceed</Text>
-            </TouchableOpacity>
+            <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.ProcessBtn}>
+              <TouchableOpacity
+                style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}
+                onPress={this.onPressProceed}>
+                <Text style={styles.ProcessBtnText}>Proceed</Text>
+              </TouchableOpacity>
+            </LinearGradient>
           </View>
         </Content>
         <PaymentFailed ref="paymentfailed" />

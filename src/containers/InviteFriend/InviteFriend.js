@@ -19,7 +19,7 @@ import {
 import styles from './InviteFriendStyle';
 import { Colors, Images } from '../../theme';
 import { Actions } from 'react-native-router-flux';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class InviteFriend extends Component {
   constructor() {
@@ -35,17 +35,21 @@ export default class InviteFriend extends Component {
   render() {
     return(
       <Container style={{ backgroundColor: Colors.base }}>
-        <Header style={{backgroundColor:'#fc214f',borderBottomWidth:0}}>
-          <Left/>
-          <Body>
-            <Title style={{color:'white'}}>Invite Friends</Title>
-          </Body>
-          <Right>
-            <Button transparent onPress={()=> Actions.pop()}>
-              <Text style={styles.navRightCancelBtnText}>Cancel</Text>
-            </Button>
-          </Right>
-        </Header>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
+            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+            <Left />
+            <Body>
+              <Title style={{color: Colors.white}}>Invite Friends</Title>
+            </Body>
+            <Right>
+              <Button transparent onPress={()=> Actions.pop()}>
+                <Text style={styles.navRightCancelBtnText}>Cancel</Text>
+              </Button>
+            </Right>
+          </Header>
+        </LinearGradient>
+
         <Row style={{ flex: 1, height: 40, marginLeft: 15, marginTop: 15, marginRight: 15 }}>
           <Col style={{ flex: 0.85, height: 40 }}>
             <Row

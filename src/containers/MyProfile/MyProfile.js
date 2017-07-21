@@ -1,10 +1,28 @@
 import React,{ Component } from 'react';
-import { Text, View, TouchableOpacity, Image, } from 'react-native';
-import { Container, Content, List, Header, Left, Body, Right, Title,
-  Button, Icon ,ListItem,Card, CardItem} from 'native-base';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import {
+  Container,
+  Content,
+  List,
+  Header,
+  Left,
+  Body,
+  Right,
+  Title,
+  Button,
+  Icon,
+  ListItem,
+  Card,
+  CardItem
+} from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
-import { Images, Colors, } from '../../theme';
+import { Images, Colors, Metrics } from '../../theme';
 import styles from './MyProfileStyles';
 import Packages from '../../containers/Packages';
 import BuyPackage from "../BuyPackage/BuyPackage";
@@ -99,7 +117,7 @@ export default class MyProfile extends Component {
     }
   };
 
-  selectPhotoTapped() {
+  selectPhotoTapped = ()=> {
     const options = {
       quality: 1.0,
       maxWidth: 500,
@@ -127,7 +145,9 @@ export default class MyProfile extends Component {
         });
       }
     });
-  }
+  };
+
+
   render() {
     const items = [
       {index: 0, title: 'Profile Detail'},
@@ -139,9 +159,9 @@ export default class MyProfile extends Component {
 
     return (
 
-      <Container>
+      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
         {(this.state.myprofile) &&
-        <Header style={{ backgroundColor: '#FC214F' }}>
+        <Header style={{ backgroundColor: '#FC214F', borderBottomWidth: 0 }}>
           <Left>
             <Button transparent onPress={this.myprofile}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>
@@ -161,14 +181,14 @@ export default class MyProfile extends Component {
           { (this.state.myprofile) &&
           <LinearGradient colors={['#FC214F', '#D32735']}>
             <View style={styles.avatarContainer}>
-              <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+              <TouchableOpacity onPress={this.selectPhotoTapped}>
                 <View style={styles.avatar}>
                   { this.state.avatarSource === null ? null :
                     <Image source={this.state.avatarSource}/>
                   }
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+              <TouchableOpacity onPress={this.selectPhotoTapped}>
                 <View style={styles.editPicture}>
                   <Image source={Images.edit} style={styles.pencil}/>
                   <Text style={{color: Colors.white}}> Edit Profile Picture</Text>

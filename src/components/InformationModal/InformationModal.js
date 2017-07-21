@@ -1,13 +1,21 @@
 import React,{ Component } from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import {List, Item, Label, Input} from 'native-base';
+import { PropTypes } from 'prop-types';
 import Modal from 'react-native-simple-modal';
 import {Actions as NavActions} from 'react-native-router-flux';
 import { Colors, Fonts, Metrics  } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './InformationModalStyle';
 
+
 export default class InformationModal extends  Component {
+
+  static get propTypes() {
+    return {
+      open:PropTypes.func
+    };
+  }
 
   constructor(props){
     super(props);
@@ -21,7 +29,19 @@ export default class InformationModal extends  Component {
   };
 
   onPressPayment = () => {
+    this.setState({ open:false});
     NavActions.payment();
+  };
+
+  onPressProceed = () => {
+    this.setState({ open:false});
+    this.props.open();
+    NavActions.passengerDetail();
+  };
+
+  closeModal =() =>{
+    this.setState({ open:false});
+    //this.props.open();
   };
 
   render(){
@@ -32,7 +52,7 @@ export default class InformationModal extends  Component {
     return(
       <Modal
         open={this.state.open}
-        modalDidClose={()=> this.setState({open:false})}
+        modalDidClose={this.closeModal}
         overlayBackground={'rgba(0, 0, 0, 0.40)'}
         modalStyle={{
           margin: 25,
@@ -78,7 +98,7 @@ export default class InformationModal extends  Component {
                   <LinearGradient
                     colors={['#FC214F', '#D32735']}
                     style={styles.linearGradientColor}>
-                    <TouchableOpacity onPress={NavActions.passengerDetail}
+                    <TouchableOpacity onPress={this.onPressProceed}
                       style={styles.proceedButton}>
                       <Text style={styles.proceedButtonText}>Proceed</Text>
                     </TouchableOpacity>

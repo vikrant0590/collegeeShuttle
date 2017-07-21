@@ -33,7 +33,7 @@ export default class RoundTrip extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ flex: 1.1 }}>
+            <Col style={{ flex: 1.1, marginRight: 3 }}>
               <CardItem>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={styles.titleHeaderText}>DESTINATION</Text>

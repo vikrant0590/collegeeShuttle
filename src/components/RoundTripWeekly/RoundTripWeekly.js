@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  ScrollView
 } from 'react-native';
 
 import {
@@ -13,24 +14,27 @@ import {
   Body,
 } from 'native-base';
 
-import SwipeWeekly from 'react-native-swipe-a-lot';
 import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import LinearGradient from 'react-native-linear-gradient';
 
+
+const items = [
+  {index: 0, header: 'THIS WEEK', date: '25', day: 'Friday', month: 'Feb, 2017', time: '04:00 PM'},
+  {index: 1, header: 'NEXT WEEK', date: '02', day: 'Sunday', month: 'Mar, 2017', time: '05:00 PM'}];
+
 export default class RoundTripWeekly extends Component {
   constructor(){
     super();
     this.state = {
-      isPlan : false,
+      isPlanThisWeek : false,
+      isPlanNextWeek : false,
       selectedButtonIndex: 0
     }
   }
 
   onPressPassenger = (index) =>{
-    const pNum = (parseInt(index));
-    this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
     NavAction.allTrips();
   };
@@ -39,8 +43,140 @@ export default class RoundTripWeekly extends Component {
     NavAction.allTrips();
   };
 
-  onPressWeekPlan = () => {
-    this.setState({ isPlan : true })
+  onPressThisWeekPlan = () => {
+    this.setState({ isPlanThisWeek : true, isPlanNextWeek: false });
+  };
+
+  onPressNextWeekPlan = () => {
+    this.setState({ isPlanThisWeek : false, isPlanNextWeek: true });
+  };
+
+  calenderThisWeekPlainView = () => {
+    return(
+      <TouchableOpacity
+        style={styles.swiperPagerBtn}
+        onPress = {this.onPressThisWeekPlan}>
+        <Card style={{ flex: 1, width: Metrics.screenWidth - 60 }}>
+          <Col style={{ flex: 1, width: Metrics.screenWidth -60 }}>
+            <Row style={{ height: 40 }}>
+              {(this.state.isPlanThisWeek) ?
+                <CardItem
+                  style={{
+                    flex: 1,
+                    backgroundColor: Colors.timeColor,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                  <Text style={styles.cardTitleText}>{items[0].header}</Text>
+                </CardItem>
+                :
+                <CardItem
+                  style={{
+                    flex: 1,
+                    backgroundColor: Colors.weekHeaderColor,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                  <Text style={styles.cardTitleText}>{items[0].header}</Text>
+                </CardItem>
+              }
+            </Row>
+            <Row style={{ flex: 1 }}>
+              <Col style={{ flex: 0.99 }}>
+                <CardItem>
+                  <Body
+                    style={{
+                      alignItems: 'center'
+                    }}>
+                    <Text style={styles.dateWeekText}>{items[0].date}</Text>
+                    <Text style={styles.dayWeekText}>{items[0].day}</Text>
+                    <Text style={styles.monthWeekText}>{items[0].month}</Text>
+                    <Text style={styles.timeWeekText}>{items[0].time}</Text>
+                  </Body>
+                </CardItem>
+              </Col>
+              <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
+                <View style={styles.lineCol} />
+              </Col>
+              <Col style={{ flex: 0.99 }}>
+                <CardItem>
+                  <Body style={{ alignItems: 'center' }}>
+                    <Text style={styles.dateWeekText}>{items[0].date}</Text>
+                    <Text style={styles.dayWeekText}>{items[0].day}</Text>
+                    <Text style={styles.monthWeekText}>{items[0].month}</Text>
+                    <Text style={styles.timeWeekText}>{items[0].time}</Text>
+                  </Body>
+                </CardItem>
+              </Col>
+            </Row>
+          </Col>
+        </Card>
+      </TouchableOpacity>
+    )
+  };
+
+  calenderNextWeekPlainView = () => {
+    return(
+      <TouchableOpacity
+        style={styles.swiperPagerBtn}
+        onPress = {this.onPressNextWeekPlan}>
+        <Card style={{ flex: 1, width: Metrics.screenWidth - 60 }}>
+          <Col style={{ flex: 1, width: Metrics.screenWidth - 60 }}>
+            <Row style={{ height: 40 }}>
+              {(this.state.isPlanNextWeek) ?
+                <CardItem
+                  style={{
+                    flex: 1,
+                    backgroundColor: Colors.timeColor,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                  <Text style={styles.cardTitleText}>{items[1].header}</Text>
+                </CardItem>
+                :
+                <CardItem
+                  style={{
+                    flex: 1,
+                    backgroundColor: Colors.weekHeaderColor,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                  <Text style={styles.cardTitleText}>{items[1].header}</Text>
+                </CardItem>
+              }
+            </Row>
+            <Row style={{ flex: 1 }}>
+              <Col style={{ flex: 0.99 }}>
+                <CardItem>
+                  <Body
+                    style={{
+                      alignItems: 'center'
+                    }}>
+                    <Text style={styles.dateWeekText}>{items[1].date}</Text>
+                    <Text style={styles.dayWeekText}>{items[1].day}</Text>
+                    <Text style={styles.monthWeekText}>{items[1].month}</Text>
+                    <Text style={styles.timeWeekText}>{items[1].time}</Text>
+                  </Body>
+                </CardItem>
+              </Col>
+              <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
+                <View style={styles.lineCol} />
+              </Col>
+              <Col style={{ flex: 0.99 }}>
+                <CardItem>
+                  <Body style={{ alignItems: 'center' }}>
+                    <Text style={styles.dateWeekText}>{items[1].date}</Text>
+                    <Text style={styles.dayWeekText}>{items[1].day}</Text>
+                    <Text style={styles.monthWeekText}>{items[1].month}</Text>
+                    <Text style={styles.timeWeekText}>{items[1].time}</Text>
+                  </Body>
+                </CardItem>
+              </Col>
+            </Row>
+          </Col>
+        </Card>
+      </TouchableOpacity>
+    )
   };
 
   render(){
@@ -55,96 +191,28 @@ export default class RoundTripWeekly extends Component {
       )
     }
 
-    const swiperpage = [];
-    for(let index = 0; index < 5; index ++){
-      swiperpage.push(
-        <TouchableOpacity
-          style={styles.swiperPagerBtn}
-          onPress = {this.onPressWeekPlan}
-          key="swiperpage">
-          <Card style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
-            <Col style={{ flex: 1, width: Metrics.screenWidth -30 }}>
-              <Row style={{ height: 40 }}>
-                {(this.state.isPlan) ?
-                  <CardItem
-                    style={{
-                      flex: 1,
-                      backgroundColor: Colors.timeColor,
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}>
-                    <Text style={styles.cardTitleText}>THIS WEEK</Text>
-                  </CardItem>
-                  :
-                  <CardItem
-                    style={{
-                      flex: 1,
-                      backgroundColor: Colors.weekHeaderColor,
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}>
-                    <Text style={styles.cardTitleText}>THIS WEEK</Text>
-                  </CardItem>
-                }
-              </Row>
-              <Row style={{ flex: 1 }}>
-                <Col style={{ flex: 0.99 }}>
-                  <CardItem>
-                    <Body
-                      style={{
-                        alignItems: 'center'
-                      }}>
-                      <Text style={styles.dateWeekText}>25</Text>
-                      <Text style={styles.dayWeekText}>Friday</Text>
-                      <Text style={styles.monthWeekText}>Feb, 2017</Text>
-                      <Text style={styles.timeWeekText}>04:00 PM</Text>
-                    </Body>
-                  </CardItem>
-                </Col>
-                <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
-                  <View style={styles.lineCol} />
-                </Col>
-                <Col style={{ flex: 0.99 }}>
-                  <CardItem>
-                    <Body style={{ alignItems: 'center' }}>
-                      <Text style={styles.dateWeekText}>27</Text>
-                      <Text style={styles.dayWeekText}>Friday</Text>
-                      <Text style={styles.monthWeekText}>Feb, 2017</Text>
-                      <Text style={styles.timeWeekText}>04:30 PM</Text>
-                    </Body>
-                  </CardItem>
-                </Col>
-              </Row>
-            </Col>
-          </Card>
-        </TouchableOpacity>
-      );
-    }
-
     return(
       <View style={{ backgroundColor: Colors.base, flex: 1 }}>
-        <SwipeWeekly
-          ref={(c) => this.swiper = c}
-          circleDefaultStyle = {{
-            backgroundColor: Colors.transparent,
-            height: 0,
-            width: 0,
-            borderRadius: 0,
-          }}
-          style = {{ backgroundColor: Colors.base }}
-          circleActiveStyle = {{
-            backgroundColor: Colors.transparent,
-            height: 0,
-            marginTop: 0
+        <ScrollView
+          horizontal
+          showsVerticalScrollIndicator = {false}
+          style={{
+            width: Metrics.screenWidth + Metrics.screenWidth/11,
+            backfaceVisibility: 'hidden'
           }}>
-          {swiperpage}
-        </SwipeWeekly>
+          <View style={{ marginLeft: 0 }}>
+            {this.calenderThisWeekPlainView()}
+          </View>
+          <View style={{ marginLeft: -40}}>
+            {this.calenderNextWeekPlainView()}
+          </View>
+        </ScrollView>
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }} key="passenger">
-          <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between', marginRight: 5 }}>
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10,height:50}} key="passenger">
+          <Row style={{ flex: 1 }}>
+            <CardItem style={{ justifyContent: 'space-between', flex:1 }}>
               {passenger}
             </CardItem>
           </Row>

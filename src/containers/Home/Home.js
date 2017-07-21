@@ -4,8 +4,7 @@ import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
 import { Images, Colors, Metrics } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
-import
-{
+import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
@@ -123,8 +122,7 @@ export default class Home extends Component {
                 return(
                   <RoundTripTabBar tabTitleText={['WEEKLY', 'CUSTOM']}/>
                 )
-              }}
-            >
+              }}>
               <View tabLabel="WEEKLY" style={styles.tabView} key="weekly">
                 <RoundTripWeekly />
               </View>

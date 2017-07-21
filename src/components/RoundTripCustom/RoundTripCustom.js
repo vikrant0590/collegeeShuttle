@@ -29,8 +29,9 @@ export default class RoundTripCustom extends Component {
     for (let index = 0; index < 5; index ++){
       passenger.push(
         <TouchableOpacity
-          style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)} key={index + 1}>
+          style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton }
+          onPress={() => this.onPressPassenger(index)}
+          key={index + 1}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )
@@ -42,9 +43,9 @@ export default class RoundTripCustom extends Component {
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }}>
-          <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5 }}>
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10, height: 50 }}>
+          <Row style={{ flex: 1 }}>
+            <CardItem style={{ justifyContent: 'space-between', flex:1  }}>
               {passenger}
             </CardItem>
           </Row>
@@ -56,7 +57,6 @@ export default class RoundTripCustom extends Component {
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>
         </LinearGradient>
-
         <Card style={{ marginLeft: 15, marginRight: 15, width: Metrics.screenWidth - 30 }}>
           <Row style={{ width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.8 }}>
@@ -77,14 +77,14 @@ export default class RoundTripCustom extends Component {
                 </Body>
               </CardItem>
               <Row>
-                <Col>
-                  <Body style={{ top: 20 }}>
-                    <Text style={styles.timeText}>TIME</Text>
+                <Col style={{ flex: 0.4 }}>
+                  <Body style={{ top: 20, marginRight: 3, alignItems: 'flex-start' }}>
+                    <Text style={[styles.timeText]}>TIME</Text>
                     <Text style={styles.timeHourText}>04:30 PM</Text>
                   </Body>
                 </Col>
-                <Col>
-                  <Body style={{ top: 20 }}>
+                <Col style={{ flex: 0.6 }}>
+                  <Body style={{ top: 20, marginRight: 3 }}>
                     <Text style={styles.pickupText}>PICKUP POINT</Text>
                     <Text style={styles.circleText}>Uni Circle</Text>
                   </Body>

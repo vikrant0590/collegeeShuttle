@@ -43,9 +43,18 @@ export default StyleSheet.create({
     justifyContent:'center'
   },
 
+  PassengerBtnText: {
+    fontSize: Fonts.size.regular,
+    fontFamily: Fonts.lato.bold,
+    color: Colors.black
+  },
+
+
   SelectedButton:{
-    height: 30,
-    width: 40,
+    paddingBottom:12,
+    marginTop:14,
+    height: 65,
+    width: 45,
     marginLeft: 5,
     alignItems: 'center',
     justifyContent:'center',

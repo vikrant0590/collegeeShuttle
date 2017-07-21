@@ -3,14 +3,15 @@ import { View, Text, Image } from 'react-native';
 import { Colors } from '../../theme';
 import styles from './TabIconStyle';
 import PropTypes from 'prop-types';
-const propTypes = {
-  selected: PropTypes.bool,
-  title: PropTypes.string,
-  tabIcon: PropTypes.any,
-  selectedTabIcon: PropTypes.any
-};
 
 export default class TabIcon extends Component{
+
+  static propTypes = {
+    selected: PropTypes.bool,
+    title: PropTypes.string,
+    tabIcon: PropTypes.any,
+    selectedTabIcon: PropTypes.any
+  };
 
   render() {
     return(
@@ -26,6 +27,5 @@ export default class TabIcon extends Component{
       </View>
     )
   }
-
 }
-TabIcon.propTypes = propTypes;
+

@@ -26,12 +26,11 @@ import {
 } from './components';
 import {
   Images,
-  Colors,
-  Metrics
+  Colors
 } from './theme';
 import { login } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
-import { AsyncStorage, StyleSheet  } from 'react-native';
+import { AsyncStorage  } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './routesStyle';
 export default class AppRouter extends Component {
@@ -39,7 +38,6 @@ export default class AppRouter extends Component {
   static contextTypes = {
     store: PropTypes.object
   };
-
   constructor(props) {
     super(props);
     this.state = {

@@ -48,7 +48,7 @@ onPressPackageCode=() => {
 
 render(){
   return(
-    <Container>
+    <Container style={{ marginBottom: Metrics.tabBarHeight }}>
       <LinearGradient colors={['#FC214F', '#D32735']}>
         <Header style={{backgroundColor:Colors.transparent,borderBottomWidth:0}}>
           <Left>

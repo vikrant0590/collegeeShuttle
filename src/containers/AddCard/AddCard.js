@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Actions as NavAction} from 'react-native-router-flux';
 import styles from './AddCardStyle';
 
-export default class PassengerDetail extends Component {
+export default class AddCard extends Component {
 
   constructor(props){
     super(props);

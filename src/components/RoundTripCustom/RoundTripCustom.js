@@ -42,9 +42,9 @@ export default class RoundTripCustom extends Component {
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }}>
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10, height:50 }}>
           <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5 }}>
+            <CardItem style={{ justifyContent: 'space-between', flex:1  }}>
               {passenger}
             </CardItem>
           </Row>

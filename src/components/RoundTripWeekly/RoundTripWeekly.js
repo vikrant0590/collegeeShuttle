@@ -28,19 +28,20 @@ export default class RoundTripWeekly extends Component {
 
   onPressPassenger = (index) =>{
     const pNum = (parseInt(index));
-    this.swiper.swipeToPage(pNum);
+    //this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
     Actions.allTrips();
   };
 
   onPressWeekPlan = () => {
-    this.setState({ isPlan : true })
+    this.setState({ isPlan : !this.state.isPlan })
   };
 
   render(){
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(
+
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
           onPress={() => this.onPressPassenger(index)}>
@@ -50,7 +51,7 @@ export default class RoundTripWeekly extends Component {
     }
 
     const swiperpage = [];
-    for(let index = 0; index < 5; index ++){
+    for(let index = 0; index < 2; index ++){
       swiperpage.push(
         <TouchableOpacity
           style={{
@@ -143,9 +144,9 @@ export default class RoundTripWeekly extends Component {
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }} key="passenger">
-          <Row style={{ flex: 1}}>
-            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between' }}>
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10,height:50}} key="passenger">
+          <Row style={{ flex: 1, }}>
+            <CardItem style={{ justifyContent: 'space-between', flex:1 }}>
               {passenger}
             </CardItem>
           </Row>

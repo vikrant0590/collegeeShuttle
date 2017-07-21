@@ -10,9 +10,7 @@ import
   RoundTripWeekly,
   RoundTripCustom,
   RoundTripTabBar,
-  OfferBox,
-  PaymentFailed,
-  PaymentSuccess
+  OfferBox
 } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {

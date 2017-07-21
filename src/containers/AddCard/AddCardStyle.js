@@ -85,4 +85,11 @@ export default StyleSheet.create({
     marginLeft: Metrics.screenWidth/ 10,
     marginRight: Metrics.screenWidth/ 10,
   },
+  uncheckBox:{
+    backgroundColor:Colors.clockColor,
+    height:18,
+    width:18.3,
+    marginTop:0.2
+  }
+
 });

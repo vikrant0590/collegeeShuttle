@@ -1,10 +1,10 @@
 import React,{ Component } from 'react';
 import { Text, View, TouchableOpacity,Image, AsyncStorage } from 'react-native';
-import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon } from 'native-base';
+import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon, Card } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
-import {Colors, Images } from '../../theme';
+import {Colors, Images, Metrics } from '../../theme';
 import { Platform} from 'react-native';
 import { Actions as NavAction } from 'react-native-router-flux';
 
@@ -33,6 +33,7 @@ locationService = () => {
     locationService: !this.state.locationService,
   });
 };
+
 onPressLogout =() => {
   AsyncStorage.removeItem('userCredentials');
   NavAction.login();
@@ -47,7 +48,7 @@ onPressPackageCode=() => {
 
 render(){
   return(
-    <Container>
+    <Container style={{ marginBottom: Metrics.tabBarHeight }}>
       <LinearGradient colors={['#FC214F', '#D32735']}>
         <Header style={{backgroundColor:Colors.transparent,borderBottomWidth:0}}>
           <Left>
@@ -63,12 +64,26 @@ render(){
         </Header>
       </LinearGradient>
       <Content>
-        <View style={styles.listContainer}>
-          <View style={styles.listHeadingContainer}>
-            <Text style={styles.listHeadingText}>GENERAL SETTINGS</Text>
-          </View>
-          <List style={{flex:1,backgroundColor:Colors.white}}>
-            <ListItem>
+        <Card style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+          <List style={{ width: Metrics.screenWidth-50, flex: 1 }}>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: 0,
+                marginRight: -19,
+                backgroundColor: Colors.profileInputHeadingColor
+              }}>
+              <Text
+                style={styles.listHeadingText}>GENERAL SETTINGS</Text>
+            </ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <Left>
                 <Text style={styles.listText}>
                     Show Notifications
@@ -90,7 +105,13 @@ render(){
                 </TouchableOpacity>
               </Right>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <Left>
                 <Text style={styles.listText}>
                   Parents Notifications
@@ -112,7 +133,13 @@ render(){
                 </TouchableOpacity>
               </Right>
             </ListItem>
-            <ListItem >
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <Left>
                 <Text style={styles.listText}>
                   Location Service
@@ -134,7 +161,13 @@ render(){
                 </TouchableOpacity>
               </Right>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
                 <Left>
                   <Text style={styles.listText}>
@@ -146,7 +179,13 @@ render(){
                 </Right>
               </TouchableOpacity>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <TouchableOpacity
                 hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}
                 onPress ={this.onPressPackageCode}
@@ -162,7 +201,13 @@ render(){
                 </Right>
               </TouchableOpacity>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
                 <Left>
                   <Text style={styles.listText}>
@@ -174,7 +219,13 @@ render(){
                 </Right>
               </TouchableOpacity>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
                 <Left>
                   <Text style={styles.listText}>
@@ -186,19 +237,22 @@ render(){
                 </Right>
               </TouchableOpacity>
             </ListItem>
-            <ListItem>
+            <ListItem
+              style={{
+                marginRight: -19,
+                borderBottomWidth: 0
+              }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} onPress={this.onPressLogout}>
                 <Left>
                   <Text style={styles.listText}>
                     Logout
                   </Text>
                 </Left>
-                <Right>
-                </Right>
+                <Right />
               </TouchableOpacity>
             </ListItem>
           </List>
-        </View>
+        </Card>
       </Content>
     </Container>
   )

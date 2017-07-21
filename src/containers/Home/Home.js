@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
-import { Images, Colors } from '../../theme';
+import { Images, Colors, Metrics } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import
 {
@@ -10,9 +10,7 @@ import
   RoundTripWeekly,
   RoundTripCustom,
   RoundTripTabBar,
-  OfferBox,
-  PaymentFailed,
-  PaymentSuccess
+  OfferBox
 } from '../../components';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 export default class Home extends Component {
@@ -41,9 +39,7 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
-    this.refs.offerbox.showDialog();
-    // this.refs.paymentsuccess.showDialogPaymentSuccess();
-    // this.refs.paymentfailed.showDialogPaymentFailed();
+
   };
 
   onPressUniversityButton = () =>{
@@ -54,19 +50,11 @@ export default class Home extends Component {
 
   };
 
-  // onPressDialogBox = () => {
-  //   this.refs.offerbox.showDialog();
-  // };
-
-  // onPressPaymentFailedBox = () =>{
-  //   this.refs.paymentfailed.showDialogPaymentFailed();
-  // };
-
 
   render(){
     const { isRoundTrip, isWeekly } = this.state;
     return(
-      <Container>
+      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
         <Content>
           <LinearGradient colors={['#D32735','#FF214F']} style={styles.commonConatiner}>
             <View style={styles.header}>

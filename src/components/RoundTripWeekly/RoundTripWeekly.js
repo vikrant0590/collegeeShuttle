@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+
 import {
   Row,
   Col,
@@ -11,11 +12,12 @@ import {
   CardItem,
   Body,
 } from 'native-base';
+
 import SwipeWeekly from 'react-native-swipe-a-lot';
 import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class RoundTripWeekly extends Component {
   constructor(){
@@ -30,6 +32,10 @@ export default class RoundTripWeekly extends Component {
     const pNum = (parseInt(index));
     //this.swiper.swipeToPage(pNum);
     this.setState({ selectedButtonIndex: index});
+<<<<<<< HEAD
+=======
+    NavAction.allTrips();
+>>>>>>> origin/master
   };
 
   onPressSearch = () => {
@@ -47,7 +53,7 @@ export default class RoundTripWeekly extends Component {
 
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)} key={index}>
+          onPress={() => this.onPressPassenger(index)} key={index + 1}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )
@@ -57,14 +63,7 @@ export default class RoundTripWeekly extends Component {
     for(let index = 0; index < 2; index ++){
       swiperpage.push(
         <TouchableOpacity
-          style={{
-            flex: 1,
-            width: Metrics.screenWidth - 30,
-            marginLeft: 15,
-            marginRight: 15,
-            marginTop: 15,
-            bottom : 0
-          }}
+          style={styles.swiperPagerBtn}
           onPress = {this.onPressWeekPlan}
           key="swiperpage">
           <Card style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
@@ -107,7 +106,7 @@ export default class RoundTripWeekly extends Component {
                   </CardItem>
                 </Col>
                 <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
-                  <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+                  <View style={styles.lineCol} />
                 </Col>
                 <Col style={{ flex: 0.99 }}>
                   <CardItem>
@@ -147,20 +146,26 @@ export default class RoundTripWeekly extends Component {
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
+<<<<<<< HEAD
         <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10,height:50}} key="passenger">
           <Row style={{ flex: 1, }}>
             <CardItem style={{ justifyContent: 'space-between', flex:1 }}>
+=======
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10 }} key="passenger">
+          <Row style={{ flex: 1}}>
+            <CardItem style={{ marginLeft: 5, justifyContent: 'space-between', marginRight: 5 }}>
+>>>>>>> origin/master
               {passenger}
             </CardItem>
           </Row>
         </Card>
-        <View>
+        <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtnView}>
           <TouchableOpacity
             style={styles.searchBtn}
             onPress={this.onPressSearch}>
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
       </View>
     );
   }

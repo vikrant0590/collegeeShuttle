@@ -65,6 +65,7 @@ const size = {
 };
 
 const style = {
+
   regularFont: {
     fontFamily: lato.base,
     fontSize: size.h6,

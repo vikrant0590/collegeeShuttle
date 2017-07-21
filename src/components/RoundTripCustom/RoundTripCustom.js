@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
 import { Calender } from '../../components';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class RoundTripCustom extends Component {
   constructor() {
@@ -30,7 +30,7 @@ export default class RoundTripCustom extends Component {
       passenger.push(
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)}>
+          onPress={() => this.onPressPassenger(index)} key={index + 1}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )
@@ -49,11 +49,14 @@ export default class RoundTripCustom extends Component {
             </CardItem>
           </Row>
         </Card>
-        <TouchableOpacity
-          style={styles.searchBtn}
-          onPress={this.onPressSearch}>
-          <Text style={styles.searchBtnText}>Search</Text>
-        </TouchableOpacity>
+        <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtn}>
+          <TouchableOpacity
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.transparent }}
+            onPress={this.onPressSearch}>
+            <Text style={styles.searchBtnText}>Search</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
         <Card style={{ marginLeft: 15, marginRight: 15, width: Metrics.screenWidth - 30 }}>
           <Row style={{ width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.8 }}>

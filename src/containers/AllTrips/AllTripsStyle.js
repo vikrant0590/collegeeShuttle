@@ -336,7 +336,7 @@ export default StyleSheet.create({
   uncheckBox:{
     backgroundColor:Colors.clockColor,
     height:18.4,
-    width:18.4
+    width:18.4,
   }
 
 

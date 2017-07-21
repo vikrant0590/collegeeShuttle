@@ -15,7 +15,7 @@ import PaymentSuccess from './PaymentSuccessBox';
 import MyTripMap from './MyTripMap';
 import GoogleLogin from './Googlesignin';
 import FaceboolLogin from './Facebooksignin';
-
+import TabIcon from './TabIcon';
 export {
   WalkThroughFirst,
   WalkThroughSecond,
@@ -33,5 +33,6 @@ export {
   PaymentSuccess,
   MyTripMap,
   GoogleLogin,
-  FaceboolLogin
+  FaceboolLogin,
+  TabIcon
 };

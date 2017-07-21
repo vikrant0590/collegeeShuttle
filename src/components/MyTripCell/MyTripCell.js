@@ -15,9 +15,19 @@ export default class MyTripCell extends Component {
 
   render(){
     return(
-      <Card style={{ flex: 1, marginTop: -5, marginBottom: -5, width: Metrics.screenWidth }}>
+      <Card
+        style={{
+          flex: 1,
+          marginTop: -5,
+          marginBottom: -5,
+          width: Metrics.screenWidth
+        }}>
         <Row style={{ width: Metrics.screenWidth }}>
-          <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
+          <Col
+            style={{
+              flex: 0.75,
+              width: Metrics.screenWidth/ 2
+            }}>
             <CardItem>
               <Body style={{ alignItems: 'center' }}>
                 <Text style={styles.myTripDateText}>25</Text>
@@ -26,11 +36,28 @@ export default class MyTripCell extends Component {
               </Body>
             </CardItem>
           </Col>
-          <Col style={{ marginTop: 20, marginBottom: 20, width: 1 }}>
-            <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+          <Col
+            style={{
+              marginTop: 20,
+              marginBottom: 20,
+              width: 1
+            }}>
+            <View style={{
+              flex: 1,
+              height: Metrics.screenHeight/ 7,
+              backgroundColor: Colors.thinLineColor
+            }} />
           </Col>
-          <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
-            <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
+          <Col
+            style={{
+              flex: 1.25,
+              width: Metrics.screenWidth/ 2
+            }}>
+            <Row
+              style={{
+                flex: 0.65,
+                width: Metrics.screenWidth/ 2
+              }}>
               <Col style={{ flex: 0.85}}>
                 <CardItem>
                   <Body style={{ justifyContent: 'flex-start' }}>
@@ -54,20 +81,25 @@ export default class MyTripCell extends Component {
               </Col>
             </Row>
             <Row
-              style={{ flex: 0.25,  alignItems: 'flex-end', justifyContent: 'center', width: Metrics.screenWidth/ 2 }}
+              style={{
+                flex: 0.25,
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                width: Metrics.screenWidth/ 2
+              }}
             >
               <CardItem>
-                <Body style={{  }}>
+                <Body>
                   <TouchableOpacity
                     style={styles.myTripTrackNowBtn}
                     onPress={this.onPressRoundTripButton}>
                     <Icon
                       name='md-star-outline'
                       style={{
-                        fontSize:Fonts.size.f7,
+                        fontSize:Fonts.size.h5,
                         color: Colors.roundTripColor,
                         justifyContent: 'center',
-                        top: -4,
+                        top: -2.5,
                       }}
                     />
                     <Text style={styles.myTripTrackText}>Rate and Review</Text>

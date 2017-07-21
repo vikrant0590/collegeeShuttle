@@ -71,7 +71,8 @@ const colors = {
   modalFormHeading:'#C7C7C7',
   passengerTextColor:'#e03432',
   passengerLabelColor:'rgba(164,164,164,0.6)',
-  startColor:'#ffc23e'
+  startColor:'#ffc23e',
+  tabBarbgColor: 'rgba(219,38,58,0.14)'
 
 
 

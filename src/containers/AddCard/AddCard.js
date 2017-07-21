@@ -132,7 +132,8 @@ export default class AddCard extends Component {
                               </TouchableOpacity>
                               :
                               <TouchableOpacity onPress={this.agreedPolicy}>
-                                <Image source={Images.checkbox}/>
+                                <View style={styles.uncheckBox}>
+                                </View>
                               </TouchableOpacity>
                             }
                           </View>

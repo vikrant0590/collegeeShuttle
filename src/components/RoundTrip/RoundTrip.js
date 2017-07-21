@@ -8,17 +8,20 @@ import { Actions } from 'react-native-router-flux';
 
 export default class RoundTrip extends Component {
 
+
   onPressInviteButton = () =>{
     Actions.invitefriend();
-  };
-
-  firstOfferPlan =() => {
-    Actions.buypackage();
   };
 
   onPressGetOff = () =>{
     Actions.buypackage();
   };
+
+
+  onPressGetOff = () =>{
+    Actions.buypackage();
+  };
+
 
   render(){
     return(

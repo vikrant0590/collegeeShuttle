@@ -40,7 +40,7 @@ export default class Payment extends Component{
 
   };
   onPressCard = () => {
-    this.refs.addCard.showDialogAddCard();
+    Actions.addCard();
   };
 
 
@@ -313,7 +313,6 @@ export default class Payment extends Component{
         </Content>
         <PaymentFailed ref="paymentfailed" />
         <PaymentSuccess ref="paymentsuccess" />
-        <AddCard ref="addCard" />
       </Container>
     )
   }

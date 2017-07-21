@@ -14,7 +14,6 @@ export default class PassengerDetail extends Component {
     this.state ={
       agreed:true,
     }
-
   }
 
   agreedPolicy = () => {

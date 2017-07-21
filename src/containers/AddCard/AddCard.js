@@ -44,7 +44,7 @@ export default class PassengerDetail extends Component {
             <Left>
             </Left>
             <Body>
-              <Title style={{color: Colors.white,}}>Add Card</Title>
+            <Title style={{color: Colors.white,}}>Add Card</Title>
             </Body>
             <Right>
               <TouchableOpacity onPress={this.onPressCloseButton}>
@@ -60,7 +60,7 @@ export default class PassengerDetail extends Component {
               <Card>
                 <CardItem>
                   <List dataArray={passengerCardDetail}
-                    renderRow={(info) =>
+                        renderRow={(info) =>
                       <Form>
                         <View style={styles.cardField}>
                           <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>

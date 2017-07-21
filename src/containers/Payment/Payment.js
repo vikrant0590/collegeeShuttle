@@ -65,9 +65,9 @@ export default class Payment extends Component{
             <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
                 <Body style={{ alignItems: 'center' }}>
-                  <Text style={styles.paymentDateText}>25</Text>
-                  <Text style={styles.paymentDayText}>Friday</Text>
-                  <Text style={styles.paymentmonthText}>Feb, 2017</Text>
+                <Text style={styles.paymentDateText}>25</Text>
+                <Text style={styles.paymentDayText}>Friday</Text>
+                <Text style={styles.paymentmonthText}>Feb, 2017</Text>
                 </Body>
               </CardItem>
             </Col>
@@ -79,10 +79,10 @@ export default class Payment extends Component{
                 <Col style={{ flex: 0.85 }}>
                   <CardItem>
                     <Body style={{ justifyContent: 'flex-start' }}>
-                      <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
-                      <Text style={styles.paymentUniversityText}>University - Home</Text>
-                      <Text style={[styles.paymentUpcomingText,{paddingTop: 15}]}>BUS NAME</Text>
-                      <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
+                    <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
+                    <Text style={styles.paymentUniversityText}>University - Home</Text>
+                    <Text style={[styles.paymentUpcomingText,{paddingTop: 15}]}>BUS NAME</Text>
+                    <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
                     </Body>
                   </CardItem>
                 </Col>
@@ -93,16 +93,16 @@ export default class Payment extends Component{
             <Col style={{ flex: 0.80 }}>
               <CardItem style={{ backgroundColor: Colors.transparent }}>
                 <Body style={{ alignItems: 'flex-start' }}>
-                  <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
-                  <Text style={styles.paymentUniText}>Uni Circle</Text>
+                <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
+                <Text style={styles.paymentUniText}>Uni Circle</Text>
                 </Body>
               </CardItem>
             </Col>
             <Col style={{flex: 1.20, marginRight: 5 }}>
               <CardItem>
                 <Body style={{justifyContent: 'flex-start', marginTop: -2}}>
-                  <Text style={styles.paymentPickupText}>DROP</Text>
-                  <Text style={styles.paymentUniText}>Metro Station</Text>
+                <Text style={styles.paymentPickupText}>DROP</Text>
+                <Text style={styles.paymentUniText}>Metro Station</Text>
                 </Body>
               </CardItem>
             </Col>

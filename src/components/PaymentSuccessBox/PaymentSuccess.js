@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import PaymentModalSuccess from 'react-native-simple-modal';
-import {Actions} from 'react-native-router-flux';
 import styles from './PaymentSuccessStyle';
 import { Images, Fonts, Colors, Metrics } from '../../theme';
 import { Row, Col, Icon, Button } from 'native-base';

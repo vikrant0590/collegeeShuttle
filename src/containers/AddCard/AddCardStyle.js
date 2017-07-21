@@ -73,6 +73,17 @@ export default StyleSheet.create({
     marginRight:20,
     marginLeft:5,
   },
+  AddCardViewConatiner: {
+    flex:1,
+    justifyContent: 'center',
+    margin: 0,
+    borderRadius: 10
+  },
 
+  AddCardViewStyle: {
+    borderRadius: 2,
+    marginLeft: Metrics.screenWidth/ 10,
+    marginRight: Metrics.screenWidth/ 10,
+  }
 
 });

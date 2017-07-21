@@ -33,6 +33,7 @@ locationService = () => {
     locationService: !this.state.locationService,
   });
 };
+
 onPressLogout =() => {
   AsyncStorage.removeItem('userCredentials');
   NavAction.login();

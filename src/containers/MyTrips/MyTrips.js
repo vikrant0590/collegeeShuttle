@@ -29,12 +29,6 @@ const items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho'];
 
 export default class MyTrips extends Component {
 
-  constructor(){
-    super();
-    this.state= {
-
-    }
-  }
 
   onPressTrackNowButton = () =>{
 
@@ -101,7 +95,7 @@ export default class MyTrips extends Component {
                   width: Metrics.screenWidth/ 2,
                 }}>
                 <CardItem>
-                  <Body style={{ }}>
+                  <Body>
                     <TouchableOpacity
                       style={styles.myTripTrackNowBtn}
                       onPress={this.onPressTrackNowButton}>
@@ -121,14 +115,33 @@ export default class MyTrips extends Component {
                 <CardItem>
                   <Body style={{ alignItems: 'flex-end'}}>
                     <TouchableOpacity
-                      style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
+                      style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        justifyContent: 'center'
+                      }}
                       onPress={this.onPressInviteButton}>
-                      <Icon name='ios-contact'
-                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
-                      <Icon name='ios-contact'
-                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
-                      <Icon name='ios-contact'
-                        style={{ fontSize: Fonts.size.h5, alignSelf: 'center', marginLeft: 10 }} />
+                      <Icon
+                        name='ios-contact'
+                        style={{
+                          fontSize: Fonts.size.h5,
+                          alignSelf: 'center',
+                          marginLeft: 10
+                        }} />
+                      <Icon
+                        name='ios-contact'
+                        style={{
+                          fontSize: Fonts.size.h5,
+                          alignSelf: 'center',
+                          marginLeft: 10
+                        }} />
+                      <Icon
+                        name='ios-contact'
+                        style={{
+                          fontSize: Fonts.size.h5,
+                          alignSelf: 'center',
+                          marginLeft: 10
+                        }} />
                       <Image source={Images.roundtripaddicon} style={styles.myTripInviteIcon} />
                     </TouchableOpacity>
                   </Body>
@@ -141,7 +154,7 @@ export default class MyTrips extends Component {
     }
 
     return(
-      <Container>
+      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
             backgroundColor: Colors.transparent }}>

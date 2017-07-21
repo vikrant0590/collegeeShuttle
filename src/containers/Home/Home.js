@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
-import { Images, Colors } from '../../theme';
+import { Images, Colors, Metrics } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import
 {
@@ -56,7 +56,7 @@ export default class Home extends Component {
   render(){
     const { isRoundTrip, isWeekly } = this.state;
     return(
-      <Container>
+      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
         <Content>
           <LinearGradient colors={['#D32735','#FF214F']} style={styles.commonConatiner}>
             <View style={styles.header}>

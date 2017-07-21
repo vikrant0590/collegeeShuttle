@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+
 import {
   Row,
   Col,
@@ -11,6 +12,7 @@ import {
   CardItem,
   Body,
 } from 'native-base';
+
 import SwipeWeekly from 'react-native-swipe-a-lot';
 import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
@@ -57,14 +59,7 @@ export default class RoundTripWeekly extends Component {
     for(let index = 0; index < 5; index ++){
       swiperpage.push(
         <TouchableOpacity
-          style={{
-            flex: 1,
-            width: Metrics.screenWidth - 30,
-            marginLeft: 15,
-            marginRight: 15,
-            marginTop: 15,
-            bottom : 0
-          }}
+          style={styles.swiperPagerBtn}
           onPress = {this.onPressWeekPlan}
           key="swiperpage">
           <Card style={{ flex: 1, width: Metrics.screenWidth - 30 }}>
@@ -107,7 +102,7 @@ export default class RoundTripWeekly extends Component {
                   </CardItem>
                 </Col>
                 <Col style={{ marginTop: 20, marginBottom: 20,flex: 0.01 }}>
-                  <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+                  <View style={styles.lineCol} />
                 </Col>
                 <Col style={{ flex: 0.99 }}>
                   <CardItem>
@@ -154,9 +149,9 @@ export default class RoundTripWeekly extends Component {
             </CardItem>
           </Row>
         </Card>
-        <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtn}>
+        <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtnView}>
           <TouchableOpacity
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.transparent }}
+            style={styles.searchBtn}
             onPress={this.onPressSearch}>
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>

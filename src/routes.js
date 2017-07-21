@@ -19,13 +19,21 @@ import {
   Payment,
   AddCard
 } from './containers';
-import { Images, Colors, Metrics } from './theme';
-import { InformationModal, WalkThroughFirst } from './components';
+import {
+  InformationModal,
+  WalkThroughFirst,
+  TabIcon
+} from './components';
+import {
+  Images,
+  Colors,
+  Metrics
+} from './theme';
 import { login } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
 import { AsyncStorage, StyleSheet  } from 'react-native';
 import PropTypes from 'prop-types';
-import TabIcon from './TabIcon';
+import styles from './routesStyle';
 export default class AppRouter extends Component {
 
   static contextTypes = {
@@ -160,22 +168,3 @@ export default class AppRouter extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  tabBarStyle: {
-    backgroundColor: Colors.base,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: Metrics.tabBarHeight,
-    shadowColor: Colors.tabBarbgColor,
-    shadowOffset: {
-      marginTop: 2.5,
-      width: 1,
-      height: 1
-    },
-    shadowOpacity: 1,
-    elevation: 2,
-  },
-  tabBarSelectedItemStyle: {
-    backgroundColor: Colors.transparent,
-  },
-});

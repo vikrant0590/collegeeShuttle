@@ -259,35 +259,29 @@ export default class Payment extends Component{
               </ListItem>
 
               <ListItem>
-                <TouchableOpacity
-                  style = {{ flexDirection: 'row', flex: 1 }}
-                  onPress={this.onPressCard}>
-                  <Row style={{ flex: 1}}>
-                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                      <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
-                    </Col>
-                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                      <Text
-                        style={styles.creditcardText}>Credit Card</Text>
-                    </Col>
-                  </Row>
-                </TouchableOpacity>
+                <Row style={{ flex: 1}}>
+                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                    <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
+                  </Col>
+                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
+                      <Text style={styles.creditcardText}>Credit Card</Text>
+                    </Button>
+                  </Col>
+                </Row>
               </ListItem>
 
               <ListItem >
-                <TouchableOpacity
-                  style = {{ flexDirection: 'row', flex: 1 }}
-                  onPress={this.onPressCard}>
-                  <Row style={{ flex: 1}}>
-                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                      <Image style={{ resizeMode: 'contain' }} source={Images.collegecardicon} />
-                    </Col>
-                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                      <Text
-                        style={styles.debitcardText}>Debit Card</Text>
-                    </Col>
-                  </Row>
-                </TouchableOpacity>
+                <Row style={{ flex: 1}}>
+                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                    <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
+                  </Col>
+                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
+                      <Text style={styles.creditcardText}>Debit Card</Text>
+                    </Button>
+                  </Col>
+                </Row>
               </ListItem>
 
             </List>

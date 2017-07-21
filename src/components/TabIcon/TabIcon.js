@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { Colors, Fonts } from './theme';
+import { View, Text, Image } from 'react-native';
+import { Colors } from '../../theme';
+import styles from './TabIconStyle';
 import PropTypes from 'prop-types';
 const propTypes = {
   selected: PropTypes.bool,
@@ -27,20 +28,4 @@ export default class TabIcon extends Component{
   }
 
 }
-
-const styles = StyleSheet.create({
-  tabIcon: {
-    marginBottom: 2,
-    marginTop: 2,
-    width: 32,
-    height: 32,
-    resizeMode: 'contain'
-  },
-  tabText: {
-    fontFamily:Fonts.lato.base,
-    fontSize:Fonts.size.tab
-  },
-});
-
-
 TabIcon.propTypes = propTypes;

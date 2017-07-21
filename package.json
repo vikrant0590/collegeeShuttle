@@ -19,6 +19,8 @@
 		"react-native": "^0.46.1",
 		"react-native-base-switch": "^0.0.6",
 		"react-native-calendars": "^1.4.0",
+		"react-native-fbsdk": "0.6.0",
+		"react-native-google-signin": "^0.10.0",
 		"react-native-image-picker": "^0.26.3",
 		"react-native-linear-gradient": "^2.0.0",
 		"react-native-loading-spinner-overlay": "^0.5.1",

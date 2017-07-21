@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Row, Col, Icon, Card, CardItem, Body } from 'native-base';
+import { Row, Col, Icon, Card, CardItem, Body, Button } from 'native-base';
 import styles from './RooundTripStyle';
-import { Colors, Images, Fonts } from '../../theme';
+import { Colors, Images, Fonts, Metrics } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 
 
@@ -81,34 +81,37 @@ export default class RoundTrip extends Component {
             </Body>
           </CardItem>
         </Card>
-        <TouchableOpacity onPress={this.firstOfferPlan}>
-          <Card style={{ top: 10 }}>
-            <Col>
-              <Row>
-                <CardItem header>
-                  <Body style={{ right: 10 }}>
-                    <Text style={styles.headerDesText}>Get upto
-                      <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
-                  </Body>
-                </CardItem>
-              </Row>
-              <Row>
-                <CardItem cardBody>
-                  <Text style={styles.descriptionText}>
-                    Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
-                  </Text>
-                </CardItem>
-              </Row>
-              <Row style={{ marginRight: 10 }}>
-                <CardItem>
-                  <Body >
-                    <Image source={Images.roundtripbusicon} style={styles.busIcon} />
-                  </Body>
-                </CardItem>
-              </Row>
-            </Col>
+        <Button
+          transparent
+          style={{
+            top: 10,
+            marginBottom:20,
+            height: Metrics.screenHeight/ 5.5,
+          }}
+          onPress={()=> console.log()}>
+          <Card style={{ flex: 1, marginLeft: -13, marginRight: -13, marginTop: -10, marginBottom: -13 }}>
+            <Row style={{ flex: 0.25}}>
+              <CardItem>
+                <Body style={{ }}>
+                  <Text style={styles.headerDesText}>Get upto
+                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
+                </Body>
+              </CardItem>
+            </Row>
+            <Row style={{ flex: 0.5 }}>
+              <CardItem  style={{ marginTop: 10}}>
+                <Text style={styles.descriptionText}>
+                  Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
+                </Text>
+              </CardItem>
+            </Row>
+            <Row style={{ flex: 0.25 }}>
+              <Body style={{ marginLeft: -15, marginBottom: 10 }} >
+                <Image source={Images.roundtripbusicon} style={styles.busIcon} />
+              </Body>
+            </Row>
           </Card>
-        </TouchableOpacity>
+        </Button>
       </View>
     )
   }

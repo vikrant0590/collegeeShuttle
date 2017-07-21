@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Row, Col, Icon, Card, CardItem, Body } from 'native-base';
+import { Row, Col, Icon, Card, CardItem, Body, Button } from 'native-base';
 import styles from './RooundTripStyle';
-import { Colors, Images } from '../../theme';
+import { Colors, Images, Fonts, Metrics } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/MyTripScreen
 export default class RoundTrip extends Component {
 
   constructor(){
@@ -20,6 +17,10 @@ export default class RoundTrip extends Component {
 
   onPressInviteButton = () =>{
     Actions.invitefriend();
+  };
+
+  firstOfferPlan =() => {
+    Actions.buypackage();
   };
 
   render(){
@@ -66,46 +67,81 @@ export default class RoundTrip extends Component {
                 <Text style={styles.trackText}>Track Now</Text>
               </TouchableOpacity>
             </Body>
-            <Body style={{ marginTop: 30, marginBottom: 20 }}>
-              <View style={{ flex: 1, marginRight: 10 }}>
+            <Body style={{ marginTop: 30, marginBottom: 20, marginRight: 10 }}>
+              <View style={styles.inviteView}>
                 <TouchableOpacity
                   style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                   onPress={this.onPressInviteButton}>
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: 40, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
+                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
                   <Image source={Images.roundtripaddicon} style={styles.tripicon} />
                 </TouchableOpacity>
               </View>
             </Body>
           </CardItem>
         </Card>
-        <Card style={{ top: 10 }}>
-          <Col>
-            <Row>
-              <CardItem header>
-                <Body>
+<<<<<<< HEAD
+        <TouchableOpacity onPress={this.firstOfferPlan}>
+          <Card style={{ top: 10 }}>
+            <Col>
+              <Row>
+                <CardItem header>
+                  <Body style={{ right: 10 }}>
+                    <Text style={styles.headerDesText}>Get upto
+                      <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
+                  </Body>
+                </CardItem>
+              </Row>
+              <Row>
+                <CardItem cardBody>
+                  <Text style={styles.descriptionText}>
+                    Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
+                  </Text>
+                </CardItem>
+              </Row>
+              <Row style={{ marginRight: 10 }}>
+                <CardItem>
+                  <Body >
+                    <Image source={Images.roundtripbusicon} style={styles.busIcon} />
+                  </Body>
+                </CardItem>
+              </Row>
+            </Col>
+          </Card>
+        </TouchableOpacity>
+=======
+        <Button
+          transparent
+          style={{
+            top: 10,
+            height: Metrics.screenHeight/ 5.5,
+          }}
+          onPress={()=> console.log()}>
+          <Card style={{ flex: 1, marginLeft: -13, marginRight: -13, marginTop: -10, marginBottom: -13 }}>
+            <Row style={{ flex: 0.25}}>
+              <CardItem>
+                <Body style={{ }}>
                   <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor }}>30% OFF</Text> on your booking</Text>
+                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
                 </Body>
               </CardItem>
             </Row>
-            <Row>
-              <CardItem cardBody>
+            <Row style={{ flex: 0.5 }}>
+              <CardItem  style={{ marginTop: 10}}>
                 <Text style={styles.descriptionText}>
                   Lorem lpsum is simply dummy text {'\n'}of the printing and typesetting.
                 </Text>
               </CardItem>
             </Row>
-            <Row style={{ top: -20 }}>
-              <CardItem button>
-                <Body>
-                  <Image source={Images.roundtripbusicon} style={styles.busIcon} />
-                </Body>
-              </CardItem>
+            <Row style={{ flex: 0.25 }}>
+              <Body style={{ marginLeft: -15, marginBottom: 10 }} >
+                <Image source={Images.roundtripbusicon} style={styles.busIcon} />
+              </Body>
             </Row>
-          </Col>
-        </Card>
+          </Card>
+        </Button>
+>>>>>>> origin/iOSUIFiexed
       </View>
     )
   }

@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import {View, Text,Image, TouchableOpacity, Platform} from 'react-native';
+import {View, Text,Image, TouchableOpacity, Platform, Modal} from 'react-native';
 import { Container,Content, Title, Body, Left, Right, Header,
   Form, Item, Input, Label, List, Card, CardItem, } from 'native-base';
 import {  Colors, Fonts, Images } from '../../theme';
@@ -13,9 +13,19 @@ export default class AddCard extends Component {
     super(props);
     this.state ={
       agreed:true,
-    }
-
+      open: false
+    };
   }
+
+  showDialogAddCard = () => {
+    this.setState({
+      open: true,
+    });
+  };
+  onPressCloseBtn = () => {
+    NavAction.pop();
+  };
+
 
   agreedPolicy = () => {
     this.setState({ agreed:!this.state.agreed })
@@ -23,52 +33,51 @@ export default class AddCard extends Component {
 
   onPressAddButton = () => {
     NavAction.pop();
-
   };
 
-  onPressCloseButton =() => {
-    NavAction.payment();
-  };
-
-  render(){
+  render() {
+    const { open } = this.state;
     const passengerCardDetail =[
       {id:1, name:"John Doe", cardNumber:"5647 7484 6767", expiryDate:"01/21", cvv:'233', }
     ];
 
     return(
       <Container>
-        <LinearGradient colors={['#FC214F', '#D32735']}>
-          <Header style={{
-            backgroundColor: Colors.transparent, borderBottomWidth: 0,
-            shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
-          }}>
-            <Left>
-            </Left>
-            <Body>
-              <Title style={{color: Colors.white,}}>Add Card</Title>
-            </Body>
-            <Right>
-              <TouchableOpacity onPress={this.onPressCloseButton}>
-                <Image source={Images.closeButton} style={{marginRight:5}}/>
-              </TouchableOpacity>
-            </Right>
-          </Header>
-        </LinearGradient>
-
-        <View style={styles.backScreen}>
-          <Content>
-            <View style={styles.formContainer}>
-              <Card>
-                <CardItem>
-                  <List dataArray={passengerCardDetail}
-                    renderRow={(info) =>
+        <Modal
+          animationType={"slide"}
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {alert("Modal has been closed.")}}
+        >
+          <LinearGradient colors={['#FC214F', '#D32735']}>
+            <Header style={{
+              backgroundColor: Colors.transparent
+            }}>
+              <Left/>
+              <Body>
+                <Title style={{color: Colors.white,}}>Add Card</Title>
+              </Body>
+              <Right>
+                <TouchableOpacity onPress={this.onPressCloseBtn}>
+                  <Image source={Images.closeButton} style={{marginRight:5}}/>
+                </TouchableOpacity>
+              </Right>
+            </Header>
+          </LinearGradient>
+          <View style={styles.backScreen}>
+            <Content>
+              <View style={styles.formContainer}>
+                <Card>
+                  <CardItem>
+                    <List dataArray={passengerCardDetail} renderRow={(info) =>
                       <Form>
                         <View style={styles.cardField}>
                           <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>
                             <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
                               CARD NUMBER
                             </Label>
-                            <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                            <Input
+                              style={{...Fonts.style.profileInput,color:Colors.options}}
                               autoCorrect={false}
                               autoCapitalize="none"
                               value={info.cardNumber}
@@ -82,7 +91,8 @@ export default class AddCard extends Component {
                               <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
                                 EXPIRY DATE
                               </Label>
-                              <Input style={{...Fonts.style.profileInput, color: Colors.options}}
+                              <Input
+                                style={{...Fonts.style.profileInput, color: Colors.options}}
                                 value={info.expiryDate}
                               />
                             </Item>
@@ -90,9 +100,10 @@ export default class AddCard extends Component {
                           <View style={styles.cvvfield}>
                             <Item stackedLabel style={{height: (Platform.OS === 'ios' ?  60 : 70)}}>
                               <Label style={{...Fonts.style.profileLabel, color: Colors.profileInputHeadingColor}}>
-                               CVV
+                                CVV
                               </Label>
-                              <Input style={{...Fonts.style.profileInput, color: Colors.options}}
+                              <Input
+                                style={{...Fonts.style.profileInput, color: Colors.options}}
                                 value={info.cvv}
                               />
                             </Item>
@@ -103,7 +114,8 @@ export default class AddCard extends Component {
                             <Label style={{...Fonts.style.profileLabel, color:Colors.profileInputHeadingColor}}>
                               NAME ON CARD
                             </Label>
-                            <Input style={{...Fonts.style.profileInput,color:Colors.options}}
+                            <Input
+                              style={{...Fonts.style.profileInput,color:Colors.options}}
                               autoCorrect={false}
                               autoCapitalize="none"
                               value={info.name}
@@ -113,6 +125,7 @@ export default class AddCard extends Component {
                         <View style={styles.confirmPolicy}>
                           <View style={{flex:0.1}}>
                             {(this.state.agreed) ?
+
                               <TouchableOpacity onPress={this.agreedPolicy}>
                                 <Image source={Images.checkbox}/>
                                 <Image source={Images.tick} style={{marginLeft: 4, marginTop: -14}}/>
@@ -126,33 +139,30 @@ export default class AddCard extends Component {
                           <View style={styles.confirmFieldTextContainer}>
                             <Text style={styles.confirmField}> Securely save card details</Text>
                           </View>
-
                         </View>
                       </Form>
                     }/>
-                </CardItem>
-              </Card>
-            </View>
-
-
-            <View style={styles.formButtonContainer}>
-              <LinearGradient
-                colors={['#FC214F', '#D32735']}
-                style={styles.buttonBackStyle}>
-                <TouchableOpacity
-                  onPress={this.onPressAddButton}
-                  style={{
-                    flex: 1,
-                    backgroundColor: Colors.transparent,
-                  }}>
-                  <Text style={styles.formButtonStyle}>Add</Text>
-                </TouchableOpacity>
-              </LinearGradient>
-            </View>
-          </Content>
-        </View>
+                  </CardItem>
+                </Card>
+              </View>
+              <View style={styles.formButtonContainer}>
+                <LinearGradient
+                  colors={['#FC214F', '#D32735']}
+                  style={styles.buttonBackStyle}>
+                  <TouchableOpacity
+                    onPress={this.onPressAddButton}
+                    style={{
+                      flex: 1,
+                      backgroundColor: Colors.transparent,
+                    }}>
+                    <Text style={styles.formButtonStyle}>Add</Text>
+                  </TouchableOpacity>
+                </LinearGradient>
+              </View>
+            </Content>
+          </View>
+        </Modal>
       </Container>
-
     );
   }
 }

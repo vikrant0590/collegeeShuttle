@@ -11,10 +11,10 @@ import {
   CardItem,
   Body,
 } from 'native-base';
+import SwipeWeekly from 'react-native-swipe-a-lot';
+import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
-import SwipeWeekly from 'react-native-swipe-a-lot';
-import { Actions} from 'react-native-router-flux';
 
 
 export default class RoundTripWeekly extends Component {
@@ -33,6 +33,10 @@ export default class RoundTripWeekly extends Component {
     Actions.allTrips();
   };
 
+  onPressSearch = () => {
+    NavAction.allTrips();
+  };
+
   onPressWeekPlan = () => {
     this.setState({ isPlan : !this.state.isPlan })
   };
@@ -44,7 +48,7 @@ export default class RoundTripWeekly extends Component {
 
         <TouchableOpacity
           style={index === this.state.selectedButtonIndex ? styles.SelectedButton : styles.passengersNumberButton}
-          onPress={() => this.onPressPassenger(index)}>
+          onPress={() => this.onPressPassenger(index)} key={index}>
           <Text style={styles.PassengerBtnText}>{index + 1}</Text>
         </TouchableOpacity>
       )
@@ -154,7 +158,7 @@ export default class RoundTripWeekly extends Component {
         <View>
           <TouchableOpacity
             style={styles.searchBtn}
-            onPress={this.onPressPassenger}>
+            onPress={this.onPressSearch}>
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>
         </View>

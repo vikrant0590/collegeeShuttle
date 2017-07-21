@@ -12,13 +12,17 @@ const tabsTitles = [ 'HOME','MY TRIPS','PROFILE','SETTINGS'];
 export default class TabBar extends Component {
 
   render() {
+    let initial = 0;
+  
+    console.log('initial',initial);
     return (
       <ScrollableTabView
-        initialPage={0}
+        initialPage={initial}
         locked= {true}
         tabBarPosition="bottom"
         renderTabBar={() =>
           <BottomTabBar
+            activeTab={initial}
             tabImages={inactivetabImages}
             selectedTabImages={activeTabImages}
             tabTitleText={tabsTitles}

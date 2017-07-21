@@ -18,22 +18,16 @@ import {
 
 } from 'native-base';
 import { PaymentFailed, PaymentSuccess } from '../../components';
+import { AddCard } from '../../containers';
 import { Colors, Metrics, Images } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
 
 export default class Payment extends Component{
-  constructor(){
-    super();
-    this.state ={
-
-    }
-  }
 
   onPressProceed = () => {
     var payment = Math.floor((Math.random() * 10) + 1);
-    console.log("PAYMENT",payment);
     if(payment > 5){
       this.refs.paymentsuccess.showDialogPaymentSuccess();
     } else {
@@ -258,31 +252,29 @@ export default class Payment extends Component{
               </ListItem>
 
               <ListItem>
-                <TouchableOpacity onPress={this.onPressCard}>
-                  <Row style={{ flex: 1}}>
-                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                      <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
-                    </Col>
-                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                      <Text
-                        style={styles.creditcardText}>Credit Card</Text>
-                    </Col>
-                  </Row>
-                </TouchableOpacity>
+                <Row style={{ flex: 1}}>
+                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                    <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
+                  </Col>
+                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
+                      <Text style={styles.creditcardText}>Credit Card</Text>
+                    </Button>
+                  </Col>
+                </Row>
               </ListItem>
 
               <ListItem >
-                <TouchableOpacity onPress={this.onPressCard}>
-                  <Row style={{ flex: 1}}>
-                    <Col style={{ flex: 0.1, justifyContent: 'center'}}>
-                      <Image style={{ resizeMode: 'contain' }} source={Images.collegecardicon} />
-                    </Col>
-                    <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                      <Text
-                        style={styles.debitcardText}>Debit Card</Text>
-                    </Col>
-                  </Row>
-                </TouchableOpacity>
+                <Row style={{ flex: 1}}>
+                  <Col style={{ flex: 0.1, justifyContent: 'center'}}>
+                    <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
+                  </Col>
+                  <Col style={{ flex: 0.9, justifyContent: 'center'}}>
+                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
+                      <Text style={styles.creditcardText}>Debit Card</Text>
+                    </Button>
+                  </Col>
+                </Row>
               </ListItem>
 
             </List>
@@ -318,7 +310,6 @@ export default class Payment extends Component{
               <Text style={styles.ProcessBtnText}>Proceed</Text>
             </TouchableOpacity>
           </View>
-
         </Content>
         <PaymentFailed ref="paymentfailed" />
         <PaymentSuccess ref="paymentsuccess" />

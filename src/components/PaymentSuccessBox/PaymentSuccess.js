@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import PaymentModalSuccess from 'react-native-simple-modal';
-import {Actions} from 'react-native-router-flux';
 import styles from './PaymentSuccessStyle';
-import { Images, Metrics } from '../../theme';
-import { Row, Col } from 'native-base';
+import { Images, Fonts, Colors, Metrics } from '../../theme';
+import { Row, Col, Icon, Button } from 'native-base';
+import { Actions as NavAction } from 'react-native-router-flux';
+
 export default class PaymentSuccess extends Component {
 
   constructor(){
@@ -17,13 +18,19 @@ export default class PaymentSuccess extends Component {
   showDialogPaymentSuccess = () => {
     this.setState({
       open: true,
-    })
+    });
   };
 
   onPressViewDetails = () => {
     this.setState({open: false});
-    Actions.mytrips();
+    NavAction.tabbar({type:'reset', selectedTab:1 });
+
   };
+
+  onPressCloseBtn = () => {
+    this.setState({open: false})
+  };
+
 
   render(){
     const { open } = this.state;
@@ -35,8 +42,32 @@ export default class PaymentSuccess extends Component {
         containerStyle={styles.PaymentViewConatiner}
         modalStyle={styles.PaymentViewStyle}>
         <View style={styles.container}>
-          <Image style={styles.headerImage} source={Images.paymentComplete}/>
-          <View>
+          <View style={{ flex: 0.15 }}>
+            <Row>
+              <Col style={{ flex: 0.9, alignItems: 'center', marginLeft: 30 }}>
+                <Image style={styles.headerImage} source={Images.paymentComplete}/>
+              </Col>
+              <Col style={{ flex: 0.1, marginRight: 10 }}>
+                <Button
+                  transparent
+                  style={{
+                    width: 30,
+                    height: 30,
+                    justifyContent: 'center'
+                  }} onPress={this.onPressCloseBtn}>
+                  <Icon
+                    name="md-close"
+                    style={{
+                      fontSize: Fonts.size.regular,
+                      alignSelf: 'center',
+                      color: Colors.placeholderTextColor
+                    }}
+                  />
+                </Button>
+              </Col>
+            </Row>
+          </View>
+          <View style={{ flex: 0.75  }}>
             <View style={styles.paymentTextView}>
               <Text style={styles.paymentText}>Thank you{'\n'} for your purchase</Text>
             </View>
@@ -57,33 +88,33 @@ export default class PaymentSuccess extends Component {
                 <Image style={styles.buttonIcon} source={Images.googlePlus}/>
               </Col>
             </Row>
-
-            <View>
-              <Row style={{ flex: 1}}>
-                <Col style={{ flex: 0.5 }}>
-                  <TouchableOpacity
-                    onPress={this.onPressTryAgain}
-                    style={styles.inviteFriendBtn}>
-                    <Text
-                      style={styles.inviteText}>
-                      Invite Friends
-                    </Text>
-                  </TouchableOpacity>
-                </Col>
-                <Col style={{ flex: 0.5 }}>
-                  <TouchableOpacity
-                    onPress={this.onPressViewDetails}
-                    style={styles.ViewDetailsBtn}>
-                    <Text
-                      style={styles.viewDetailText}>
-                     View Details
-                    </Text>
-                  </TouchableOpacity>
-                </Col>
-              </Row>
-            </View>
+          </View>
+          <View style={{ flex: 0.30  }}>
+            <Row style={{ flex: 1}}>
+              <Col style={{ flex: 0.5 }}>
+                <TouchableOpacity
+                  onPress={this.onPressTryAgain}
+                  style={styles.inviteFriendBtn}>
+                  <Text
+                    style={styles.inviteText}>
+                    Invite Friends
+                  </Text>
+                </TouchableOpacity>
+              </Col>
+              <Col style={{ flex: 0.5 }}>
+                <TouchableOpacity
+                  onPress={this.onPressViewDetails}
+                  style={styles.ViewDetailsBtn}>
+                  <Text
+                    style={styles.viewDetailText}>
+                   View Details
+                  </Text>
+                </TouchableOpacity>
+              </Col>
+            </Row>
           </View>
         </View>
+
       </PaymentModalSuccess>
     )
   }

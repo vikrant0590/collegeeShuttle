@@ -29,6 +29,7 @@ export default class InformationModal extends  Component {
   };
 
   onPressPayment = () => {
+    this.setState({ open:false});
     NavActions.payment();
   };
 
@@ -40,7 +41,7 @@ export default class InformationModal extends  Component {
 
   closeModal =() =>{
     this.setState({ open:false});
-    this.props.open();
+    //this.props.open();
   };
 
   render(){

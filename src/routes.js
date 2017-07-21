@@ -17,7 +17,7 @@ import {
   Offers,
   HelpSupport,
   Payment,
-  AddCard,
+  AddCard
 } from './containers';
 import { Images, Colors, Metrics } from './theme';
 import { InformationModal, WalkThroughFirst } from './components';

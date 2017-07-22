@@ -7,7 +7,6 @@ import RoundTripWeekly from './RoundTripWeekly';
 import RoundTripCustom from './RoundTripCustom';
 import Calender from './Calender';
 import InviteFriendCell from './InviteFriendCell';
-import RoundTripTabBar from './RoundTripTabBar';
 import MyTripCell from './MyTripCell';
 import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
@@ -26,7 +25,6 @@ export {
   RoundTripCustom,
   Calender,
   InviteFriendCell,
-  RoundTripTabBar,
   MyTripCell,
   OfferBox,
   PaymentFailed,

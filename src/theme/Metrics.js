@@ -14,7 +14,16 @@ const metrics = {
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
   navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
-  tabBarHeight: 65,
+  ...Platform.select({
+    ios:{
+      tabBarHeight: (width === 320) ? 60 : 65,
+    },
+    android: {
+      tabBarHeight: 65,
+    }
+  }),
+
+
   buttonRadius: 4,
   icons: {
     tiny: 15,

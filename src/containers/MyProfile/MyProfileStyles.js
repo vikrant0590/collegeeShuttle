@@ -8,14 +8,14 @@ export default StyleSheet.create({
     flex:1,
     color: Colors.black,
     height:36,
-    alignItems:"center",
+    alignSelf:"center",
     justifyContent:'center',
   },
   listContainer:{
     flex:1,
     backgroundColor:Colors.transparent,
-    marginTop:20,
-    marginLeft:20,
+    marginTop:15,
+    marginLeft:15,
     marginRight:10,
     marginBottom:10,
 
@@ -50,7 +50,7 @@ export default StyleSheet.create({
   },
   profileInfo:{
     flex:1,
-    backgroundColor:Colors.white,
+    backgroundColor:Colors.base,
     margin:10,
     width: Metrics.screenWidth-20,
   },

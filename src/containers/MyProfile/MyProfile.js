@@ -159,7 +159,7 @@ export default class MyProfile extends Component {
 
     return (
 
-      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
+      <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         {(this.state.myprofile) &&
         <Header style={{ backgroundColor: '#FC214F', borderBottomWidth: 0 }}>
           <Left>
@@ -179,12 +179,12 @@ export default class MyProfile extends Component {
         }
         <Content>
           { (this.state.myprofile) &&
-          <LinearGradient colors={['#FC214F', '#D32735']}>
+          <LinearGradient colors={['#FC214F', '#D32735']} style={{ height: Metrics.screenHeight/3.7 }}>
             <View style={styles.avatarContainer}>
               <TouchableOpacity onPress={this.selectPhotoTapped}>
                 <View style={styles.avatar}>
                   { this.state.avatarSource === null ? null :
-                    <Image source={this.state.avatarSource}/>
+                    <Image source={this.state.avatarSource} />
                   }
                 </View>
               </TouchableOpacity>
@@ -202,25 +202,37 @@ export default class MyProfile extends Component {
             <Content>
               <View style={styles.listContainer}>
                 <Card>
-                  <CardItem>
-                    <List dataArray={items}
-                      renderRow={(item) =>
-                        <ListItem>
-                          <TouchableOpacity
-                            onPress={ () => this.onPress(item)}
-                            hitSlop={{top: 10, bottom: 10, right: 300}}
-                            style={{flexDirection: 'row'}}>
-                            <Left>
-                              <Text style={styles.itemList}>{item.title}</Text>
-                            </Left>
-                            <Right>
-                              <Image source={Images.rightArrow} style={styles.rightArrow}/>
-                            </Right>
-                          </TouchableOpacity>
-                        </ListItem>
-                      }
-                    />
-                  </CardItem>
+                  <List
+                    dataArray={items}
+                    renderRow={(item) =>
+                      <ListItem
+                        style={{
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginRight: -19,
+                          borderColor: Colors.thinLineColor
+                        }}>
+                        <TouchableOpacity
+                          onPress={ () => this.onPress(item)}
+                          hitSlop={{top: 10, bottom: 10, right: 300}}
+                          style={{flexDirection: 'row', justifyContent: 'center'}}>
+                          <Left
+                            style={{
+                              justifyContent: 'center',
+                              top: 8
+                            }}>
+                            <Text style={styles.itemList}>{item.title}</Text>
+                          </Left>
+                          <Right
+                            style={{
+                              marginRight: 20,
+                            }}>
+                            <Image source={Images.rightArrow} style={styles.rightArrow}/>
+                          </Right>
+                        </TouchableOpacity>
+                      </ListItem>
+                    }
+                  />
                 </Card>
               </View>
             </Content>

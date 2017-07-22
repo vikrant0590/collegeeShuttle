@@ -18,13 +18,18 @@ import { Actions as NavAction } from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import LinearGradient from 'react-native-linear-gradient';
-
+import PropTypes from 'prop-types';
 
 const items = [
   {index: 0, header: 'THIS WEEK', date: '25', day: 'Friday', month: 'Feb, 2017', time: '04:00 PM'},
   {index: 1, header: 'NEXT WEEK', date: '02', day: 'Sunday', month: 'Mar, 2017', time: '05:00 PM'}];
 
 export default class RoundTripWeekly extends Component {
+
+  static propTypes = {
+    isActive: PropTypes.bool
+  };
+
   constructor(){
     super();
     this.state = {
@@ -36,7 +41,6 @@ export default class RoundTripWeekly extends Component {
 
   onPressPassenger = (index) =>{
     this.setState({ selectedButtonIndex: index});
-    NavAction.allTrips();
   };
 
   onPressSearch = () => {
@@ -180,6 +184,7 @@ export default class RoundTripWeekly extends Component {
   };
 
   render(){
+    console.log('weekly render');
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(
@@ -203,17 +208,17 @@ export default class RoundTripWeekly extends Component {
           <View style={{ marginLeft: 0 }}>
             {this.calenderThisWeekPlainView()}
           </View>
-          <View style={{ marginLeft: -40}}>
+          <View style={{ marginLeft: -40 }}>
             {this.calenderNextWeekPlainView()}
           </View>
         </ScrollView>
         <View style={styles.PassengerTextView}>
           <Text style={styles.PassengerText}>Passengers</Text>
         </View>
-        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10,height:50}} key="passenger">
+        <Card style={{ flex: 1, marginLeft: 35, marginRight: 35, marginTop: 10,height:50 }} key="passenger">
           <Row style={{ flex: 1 }}>
             <CardItem style={{ justifyContent: 'space-between', flex:1 }}>
-              {passenger}
+              { passenger }
             </CardItem>
           </Row>
         </Card>

@@ -30,7 +30,7 @@ import {
 } from './theme';
 import { login } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
-import { AsyncStorage  } from 'react-native';
+import { AsyncStorage, StatusBar, View  } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './routesStyle';
 export default class AppRouter extends Component {

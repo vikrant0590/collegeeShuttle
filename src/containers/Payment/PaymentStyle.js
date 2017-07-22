@@ -156,7 +156,7 @@ export default StyleSheet.create({
     fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
-    paddingTop: 5,
+    paddingTop: 2.5,
   },
 
   paymentPickupText: {

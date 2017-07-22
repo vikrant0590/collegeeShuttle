@@ -5,7 +5,7 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   profileInfo:{
     flex:1,
-    backgroundColor:Colors.white,
+    backgroundColor:Colors.base,
     margin:10,
     width: Metrics.screenWidth-20,
   },

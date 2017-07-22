@@ -143,8 +143,8 @@ export default StyleSheet.create({
   },
 
   tripicon: {
-    height: 34,
-    width: 38,
+    height: 32,
+    width: 34,
     resizeMode: 'contain',
     marginLeft: 10,
     alignSelf: 'center'

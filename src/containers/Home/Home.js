@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
-import { Images, Colors, Metrics } from '../../theme';
+import { Images, Colors, Metrics, Fonts } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
-  RoundTripTabBar,
   OfferBox
 } from '../../components';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
+
 export default class Home extends Component {
 
   constructor(){
@@ -21,6 +20,8 @@ export default class Home extends Component {
       isOneWay: false,
       isWeekly: false,
       isSizeDefault: false,
+      isWeeklyActive: true,
+      isCustomActive: false
     }
   }
 
@@ -49,11 +50,19 @@ export default class Home extends Component {
 
   };
 
+  onPressWeeklyButton = () => {
+    this.setState({ isWeeklyActive: true, isCustomActive: false });
+  };
+
+  onPressCustomBtton = () => {
+    this.setState({ isWeeklyActive: false, isCustomActive: true });
+  };
+
 
   render(){
     const { isRoundTrip, isWeekly } = this.state;
     return(
-      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
+      <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         <Content>
           <LinearGradient colors={['#D32735','#FF214F']} style={styles.commonConatiner}>
             <View style={styles.header}>
@@ -88,7 +97,7 @@ export default class Home extends Component {
                       alignSelf: 'center'
                     }}
                     onPress={this.onPressUniversityButton}>
-                    <Image source={Images.roundtriphome} style={styles.textIcon} />
+                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
                     <Text style={styles.btnText}>From</Text>
                   </Button>
                 </Row>
@@ -106,7 +115,7 @@ export default class Home extends Component {
                       alignSelf: 'center'
                     }}
                     onPress={this.onPressHomeButton}>
-                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
+                    <Image source={Images.roundtriphome} style={styles.textIcon} />
                     <Text style={styles.btnText}>To</Text>
                   </Button>
                 </Row>
@@ -114,22 +123,49 @@ export default class Home extends Component {
             </View>
           </LinearGradient>
           {(isWeekly) ?
-            <ScrollableTabView
-              style={{ backgroundColor: Colors.base, flex: 1 }}
-              initialPage={0}
-              locked={true}
-              renderTabBar={() =>{
-                return(
-                  <RoundTripTabBar tabTitleText={['WEEKLY', 'CUSTOM']}/>
-                )
-              }}>
-              <View tabLabel="WEEKLY" style={styles.tabView} key="weekly">
-                <RoundTripWeekly />
+            <View style={{ backgroundColor: Colors.base }}>
+              <View style={{ height: 40, backgroundColor: '#FF214F', flexDirection: 'row' }}>
+                <TouchableOpacity
+                  style={{
+                    flex: 0.5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderBottomWidth: (this.state.isWeeklyActive) ? 5 : 0,
+                    borderBottomColor: (this.state.isWeeklyActive) ? Colors.base : Colors.transparent
+                  }}
+                  onPress={this.onPressWeeklyButton}>
+                  <Text
+                    style={{
+                      fontSize: Fonts.size.medium,
+                      fontFamily: Fonts.lato.bold,
+                      fontWeight: '600',
+                      paddingTop: (this.state.isCustomActive) ? 5 : 0,
+                      color: (this.state.isWeeklyActive) ? Colors.white : Colors.hpmeSubHeaderBtnColor
+                    }}>WEEKLY</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={{
+                    flex: 0.5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderBottomWidth: (this.state.isCustomActive) ? 5 : 0,
+                    borderBottomColor: (this.state.isCustomActive) ? Colors.base : Colors.transparent
+                  }}
+                  onPress={this.onPressCustomBtton}>
+                  <Text
+                    style={{
+                      fontSize: Fonts.size.medium,
+                      fontFamily: Fonts.lato.bold,
+                      fontWeight: '600',
+                      paddingTop: (this.state.isCustomActive) ? 5 : 0,
+                      color: (this.state.isCustomActive) ? Colors.white : Colors.hpmeSubHeaderBtnColor
+                    }}>CUSTOM</Text>
+                </TouchableOpacity>
               </View>
-              <View tabLabel="CUSTOM" style={styles.tabView} key="custom">
-                <RoundTripCustom />
-              </View>
-            </ScrollableTabView>
+              {(this.state.isWeeklyActive) ? <RoundTripWeekly /> :  <RoundTripCustom /> }
+            </View>
+
             :
             <View style={styles.RoundTripView}>
               <RoundTrip />

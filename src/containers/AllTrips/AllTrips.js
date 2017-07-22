@@ -401,15 +401,16 @@ export default class AllTrips extends Component {
                               </Text>
                             </View>
                             <View style={styles.pickupPlaceContainer}>
-                              <List dataArray={busInformation}
-                                    renderRow={(items) =>
-                                      <View style={styles.pickDropRow}>
-                                        <Text style={styles.pickDropPlaceText}>
-                                          {items.boardingpoint}
-                                        </Text>
-                                        <Text style={styles.pickDropPlaceText}>{items.drop}</Text>
-                                      </View>
-                                    }/>
+                              <List
+                                dataArray={busInformation}
+                                renderRow={(items) =>
+                                  <View style={styles.pickDropRow}>
+                                    <Text style={styles.pickDropPlaceText}>
+                                      {items.boardingpoint}
+                                    </Text>
+                                    <Text style={styles.pickDropPlaceText}>{items.drop}</Text>
+                                  </View>
+                                }/>
                             </View>
 
                             <View style={styles.luggageBoxOption}>
@@ -458,8 +459,9 @@ export default class AllTrips extends Component {
                               <LinearGradient
                                 colors={['#FC214F','#D32735']}
                                 style={styles.bookButton}>
-                                <TouchableOpacity onPress={this.openModal}
-                                                  style={styles.bookButtonDefaultColor}>
+                                <TouchableOpacity
+                                  onPress={this.openModal}
+                                  style={styles.bookButtonDefaultColor}>
                                   <Text style={styles.bookButtonText}>Book Now</Text>
                                 </TouchableOpacity>
                               </LinearGradient>
@@ -467,12 +469,11 @@ export default class AllTrips extends Component {
                           </View>
                         </CardItem>
                       </Card>
-                      }
-                    </View>
                   }
+                </View>
+              }
             />
           </View>
-
           {this.state.open &&
           <InformationModal open ={()=> this.openModal()}/>
           }

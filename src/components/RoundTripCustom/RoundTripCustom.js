@@ -6,8 +6,13 @@ import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
 import { Calender } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
-
+import PropTypes from 'prop-types';
 export default class RoundTripCustom extends Component {
+
+  static propTypes = {
+    isActive: PropTypes.bool
+  };
+
   constructor() {
     super();
     this.state = {
@@ -24,7 +29,7 @@ export default class RoundTripCustom extends Component {
   };
 
   render(){
-
+    console.log('custom render');
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(
@@ -70,7 +75,7 @@ export default class RoundTripCustom extends Component {
               </CardItem>
             </Col>
             <Col style={{ flex: 1.2 }}>
-              <CardItem>
+              <CardItem style={{ width: Metrics.screenWidth/2.2}}>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={styles.titleHeaderText}>DESTINATION</Text>
                   <Text style={styles.monthText}>University - Home</Text>

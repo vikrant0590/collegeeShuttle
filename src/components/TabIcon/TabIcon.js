@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StatusBar } from 'react-native';
 import { Colors } from '../../theme';
 import styles from './TabIconStyle';
 import PropTypes from 'prop-types';
@@ -16,6 +16,7 @@ export default class TabIcon extends Component{
   render() {
     return(
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <StatusBar barStyle="light-content" />
         <Image
           style={styles.tabIcon}
           source={this.props.selected ? this.props.selectedTabIcon : this.props.tabIcon} />

@@ -72,12 +72,8 @@ const colors = {
   passengerTextColor:'#e03432',
   passengerLabelColor:'rgba(164,164,164,0.6)',
   startColor:'#ffc23e',
-  tabBarbgColor: 'rgba(219,38,58,0.14)'
-
-
-
-
-
+  tabBarbgColor: 'rgba(219,38,58,0.14)',
+  hpmeSubHeaderBtnColor: 'rgba(255, 255, 255, 0.6)',
 };
 
 export default colors;

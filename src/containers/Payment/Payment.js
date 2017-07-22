@@ -63,7 +63,7 @@ export default class Payment extends Component{
             width: Metrics.screenWidth - 30,
             height: Metrics.screenHeight/ 3.5
           }} key={index}>
-          <Row style={{ flex: 0.65, width: Metrics.screenWidth - 30 }}>
+          <Row style={{ flex: 0.75, width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
                 <Body style={{ alignItems: 'center' }}>
@@ -78,31 +78,29 @@ export default class Payment extends Component{
             </Col>
             <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
               <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
-                <Col style={{ flex: 0.85 }}>
-                  <CardItem>
-                    <Body style={{ justifyContent: 'flex-start' }}>
-                      <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
-                      <Text style={styles.paymentUniversityText}>University - Home</Text>
-                      <Text style={[styles.paymentUpcomingText,{paddingTop: 15}]}>BUS NAME</Text>
-                      <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
-                    </Body>
-                  </CardItem>
-                </Col>
+                <CardItem>
+                  <Body style={{ justifyContent: 'flex-start' }}>
+                    <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
+                    <Text style={styles.paymentUniversityText}>University - Home</Text>
+                    <Text style={[styles.paymentUpcomingText,{paddingTop: 10}]}>BUS NAME</Text>
+                    <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
+                  </Body>
+                </CardItem>
               </Row>
             </Col>
           </Row>
-          <Row style={{ flex: 0.33, width: Metrics.screenWidth - 30 }}>
-            <Col style={{ flex: 0.80 }}>
-              <CardItem style={{ backgroundColor: Colors.transparent }}>
+          <Row style={{ flex: 0.25, width: Metrics.screenWidth - 30, marginBottom: 10, marginTop: 10 }}>
+            <Col style={{ flex: 0.5, width: Metrics.screenWidth/5 }}>
+              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
                   <Text style={styles.paymentUniText}>Uni Circle</Text>
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{flex: 1.20, marginRight: 5 }}>
-              <CardItem>
-                <Body style={{justifyContent: 'flex-start', marginTop: -2}}>
+            <Col style={{flex: 0.6, marginRight: 5, width: Metrics.screenWidth/3 }}>
+              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
+                <Body style={{justifyContent: 'flex-start'}}>
                   <Text style={styles.paymentPickupText}>DROP</Text>
                   <Text style={styles.paymentUniText}>Metro Station</Text>
                 </Body>
@@ -245,11 +243,11 @@ export default class Payment extends Component{
                   <Col style={{ flex: 0.1}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
                   </Col>
-                  <Col style={{ flex: 0.7}}>
+                  <Col style={{ flex: 0.6}}>
                     <Text
                       style={styles.collegeText}>College Shuttle Package</Text>
                   </Col>
-                  <Col style={{ flex: 0.2 }}>
+                  <Col style={{ flex: 0.3 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
                       onPress={this.onPressBuyNow}>

@@ -184,7 +184,6 @@ export default class RoundTripWeekly extends Component {
   };
 
   render(){
-    console.log('weekly render');
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(

@@ -29,7 +29,6 @@ export default class RoundTripCustom extends Component {
   };
 
   render(){
-    console.log('custom render');
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(

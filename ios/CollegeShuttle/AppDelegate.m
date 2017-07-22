@@ -29,12 +29,6 @@
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-// [application setStatusBarHidden:NO];
-// [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-// UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-// if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-//    statusBar.backgroundColor = [UIColor blueColor];
-//  }
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

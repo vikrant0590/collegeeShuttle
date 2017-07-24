@@ -1,6 +1,19 @@
 import React,{Component} from 'react';
-import {View, Text, Image, TouchableOpacity } from 'react-native';
-import { Container, Header, Left, Body, Right, Icon, Title,Content, Button, Card, CardItem, List, } from 'native-base';
+import {View, Text, Image, TouchableOpacity, StatusBar } from 'react-native';
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Right,
+  Icon,
+  Title,
+  Content,
+  Button,
+  Card,
+  CardItem,
+  List
+} from 'native-base';
 import { Colors, Images, Metrics, Fonts  } from '../../theme';
 import styles from './BuyPackageStyle';
 import { PropTypes } from 'prop-types';

@@ -1,9 +1,9 @@
 import React,{ Component } from 'react';
-import {View, Image, Text, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity, StatusBar} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title,Content } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { PropTypes } from 'prop-types';
-import { Colors, Images, Metrics, Fonts } from '../../theme';
+import { Colors, Images, Fonts } from '../../theme';
 import styles from './PackageStyle';
 
 export default class Packages extends  Component {
@@ -20,6 +20,7 @@ export default class Packages extends  Component {
   render(){
     return(
       <Container style={{backgroundColor:Colors.base}}>
+        <StatusBar barStyle="light-content" />
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -35,7 +36,7 @@ export default class Packages extends  Component {
             </Right>
           </Header>
         </LinearGradient>
-        <Content style={{  }}>
+        <Content>
 
           <View style={styles.container}>
             <View style={styles.imageField}>

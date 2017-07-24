@@ -26,14 +26,14 @@ export default class InformationModal extends  Component {
     })
   };
 
-  onPressPayment = () => {
-    this.setState({ open:false});
-    NavActions.payment();
-  };
-
   onPressProceed = () => {
     this.setState({ open:false});
     NavActions.passengerDetail();
+  };
+
+  onPressSkip = () => {
+    this.setState({ open:false});
+    NavActions.payment();
   };
 
   closeModal =() =>{
@@ -87,7 +87,7 @@ export default class InformationModal extends  Component {
                   </Item>
                 </View>
                 <View style={styles.buttonsContainer}>
-                  <TouchableOpacity onPress={this.onPressPayment}>
+                  <TouchableOpacity onPress={this.onPressSkip}>
                     <Text style={styles.skipButtonText}>Skip</Text>
                   </TouchableOpacity>
                   <LinearGradient

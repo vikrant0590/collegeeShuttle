@@ -111,7 +111,13 @@ export default class AllTrips extends Component {
             </Left>
             <Body style={{flexDirection:'column'}}>
               <View>
-                <Title style={{color: Colors.white,marginLeft:-40,marginRight:-40, ...Fonts.style.title }}>University - Home</Title>
+                <Title
+                  style={{
+                    color: Colors.white,
+                    marginLeft:-40,
+                    marginRight:-40,
+                    ...Fonts.style.title
+                  }}>University - Home</Title>
               </View>
               <View style={styles.dateRow}>
                 <TouchableOpacity>
@@ -465,7 +471,8 @@ export default class AllTrips extends Component {
                                   </TouchableOpacity>
                                   :
                                   <TouchableOpacity onPress={this.luggageChecked}>
-                                    <Image source={Images.checkbox}/>
+                                    <View style={styles.uncheckBox}>
+                                    </View>
                                   </TouchableOpacity>
                                 }
                               </View>

@@ -16,7 +16,6 @@ export default class TabIcon extends Component{
   render() {
     return(
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <StatusBar barStyle="light-content" />
         <Image
           style={styles.tabIcon}
           source={this.props.selected ? this.props.selectedTabIcon : this.props.tabIcon} />

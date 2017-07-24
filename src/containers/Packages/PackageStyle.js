@@ -10,27 +10,29 @@ export default StyleSheet.create({
   noticeField:{
     flex:1,
     flexDirection:'column',
-    justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    height:Metrics.screenHeight/5.5,
+    justifyContent:'flex-start',
   },
   codeField:{
     flex:1,
     flexDirection:"column",
-    justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    height:Metrics.screenWidth/3,
   },
   imageField:{
     flex:1,
-    marginTop:20,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    height:Metrics.screenHeight/4.5,
   },
   iconField:{
     flex:1,
     flexDirection:'row',
     justifyContent:"center",
-    alignItems:"center",
-    marginBottom:20
+    alignItems:"flex-end",
+    marginTop:10,
+    height:Metrics.screenWidth/4,
   },
   headingText:{
     ...Fonts.style.headingText,

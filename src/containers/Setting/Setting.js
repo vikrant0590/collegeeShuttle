@@ -44,13 +44,11 @@ onPressPackageCode=() => {
 };
 
 
-
-
 render(){
   return(
     <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
       <LinearGradient colors={['#FC214F', '#D32735']}>
-        <Header style={{backgroundColor:Colors.transparent,borderBottomWidth:0}}>
+        <Header style={{ backgroundColor:Colors.transparent,borderBottomWidth:0 }}>
           <Left>
             <Button transparent onPress={NavAction.pop}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>

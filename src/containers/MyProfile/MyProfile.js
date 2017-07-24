@@ -18,7 +18,6 @@ import {
   Icon,
   ListItem,
   Card,
-  CardItem
 } from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
@@ -75,17 +74,17 @@ export default class MyProfile extends Component {
       })
     }
   };
+
   myProfile = () =>{
     this.setState({
       myprofile:true,
       list:true,
       profileDetail:false,
       buyPackage:false,
-      friendList:false,
+      friendlist:false,
       refer: false,
     })
   };
-
   saveData=()=>{
     this.setState({
       profileDetail:false,
@@ -94,15 +93,15 @@ export default class MyProfile extends Component {
   };
 
   setMyProfile = () =>{
-    if(this.state.profileDetail === true){
-      this.setState({
-        myprofile:true,
-        list:true,
-        profileDetail:false
-      })
-    }else {
-      NavAction.pop();
-    }
+    this.setState({
+      myprofile:true,
+      list:true,
+      profileDetail:false,
+      friendlist:false,
+      refer:false,
+      buyPackage:false
+    });
+
   };
 
   selectPhotoTapped = ()=> {
@@ -153,7 +152,7 @@ export default class MyProfile extends Component {
         <Header style={{ backgroundColor: '#FC214F',borderBottomColor:Colors.transparent}}>
 
           <Left>
-            <Button transparent onPress={this.myprofile}>
+            <Button transparent onPress={this.setMyProfile}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>
             </Button>
           </Left>

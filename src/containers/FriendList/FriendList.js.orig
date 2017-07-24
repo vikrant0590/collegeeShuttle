@@ -1,4 +1,8 @@
 import React,{ Component } from 'react';
+<<<<<<< HEAD
+import {View, Text, Image } from 'react-native';
+import {
+=======
 import {
   View,
   Text,
@@ -6,6 +10,7 @@ import {
   from 'react-native';
 import {
   Container,
+>>>>>>> origin/EditProfileFixes
   Header,
   Left,
   Body,
@@ -17,8 +22,14 @@ import {
   List,
   ListItem,
   Card,
+<<<<<<< HEAD
+  CardItem
+} from 'native-base';
+import { Colors, Fonts } from '../../theme';
+=======
   CardItem } from 'native-base';
-import { Colors, Metrics, Fonts } from '../../theme';
+import { Colors, Metrics } from '../../theme';
+>>>>>>> origin/EditProfileFixes
 import styles from './FriendListStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';

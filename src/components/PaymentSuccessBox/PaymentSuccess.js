@@ -23,8 +23,7 @@ export default class PaymentSuccess extends Component {
 
   onPressViewDetails = () => {
     this.setState({open: false});
-    NavAction.tabbar({type:'reset' });
-
+    NavAction.tabbar({type:'reset'});
   };
 
   onPressCloseBtn = () => {

@@ -1,8 +1,24 @@
 import React,{ Component } from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
-import { Container,Content, Title, Body, Left, Right, Button, Header, Icon,
-  Form, Item, Input, Label, List, Card, CardItem  } from 'native-base';
-import {  Colors, Fonts, } from '../../theme';
+import {View, Text, TouchableOpacity, Platform, StatusBar} from 'react-native';
+import {
+  Container,
+  Content,
+  Title,
+  Body,
+  Left,
+  Right,
+  Button,
+  Header,
+  Icon,
+  Form,
+  Item,
+  Input,
+  Label,
+  List,
+  Card,
+  CardItem
+} from 'native-base';
+import {  Colors, Fonts, Metrics } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import {Actions as NavActions} from 'react-native-router-flux';
 import styles from './PassengerDetailStyle';
@@ -23,21 +39,27 @@ export default class PassengerDetail extends Component {
     ];
     return(
       <Container>
+        <StatusBar barStyle="light-content" />
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
-            backgroundColor: Colors.transparent, borderBottomWidth: 0,
-            shadowOffset: {height: 0, width: 0}, shadowOpacity: 0
+            backgroundColor: Colors.transparent
           }}>
-            <Left>
+            <Left style={{ flex: 0.2 }}>
               <Button transparent onPress={this.onPressGoBack}>
                 <Icon name="arrow-back" style={{color: Colors.white}}/>
               </Button>
             </Left>
-            <Body>
-              <Title style={{color: Colors.white, ...Fonts.style.title}}>Passenger Detail</Title>
+            <Body style={{
+              flex: 0.6,
+              alignItems: 'center',
+              justifyContent: 'center' }}>
+              <Title style={{
+                color: Colors.white,
+                ...Fonts.style.title,
+                alignSelf: 'center'
+              }}>Passenger Detail</Title>
             </Body>
-            <Right>
-            </Right>
+            <Right style={{ flex: 0.2 }} />
           </Header>
         </LinearGradient>
         <View style={styles.backScreen}>

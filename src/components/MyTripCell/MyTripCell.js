@@ -12,8 +12,8 @@ export default class MyTripCell extends Component {
       <Card
         style={{
           flex: 1,
-          marginTop: -5,
-          marginBottom: -5,
+          marginTop: -7.5,
+          marginBottom: -7.5,
           width: Metrics.screenWidth
         }}>
         <Row style={{ width: Metrics.screenWidth }}>

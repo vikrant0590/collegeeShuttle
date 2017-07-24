@@ -19,7 +19,7 @@ export default class Packages extends  Component {
 
   render(){
     return(
-      <Container style={{backgroundColor:Colors.base, marginBottom: Metrics.tabBarHeight}}>
+      <Container style={{backgroundColor:Colors.base}}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -35,7 +35,7 @@ export default class Packages extends  Component {
             </Right>
           </Header>
         </LinearGradient>
-        <Content>
+        <Content style={{  }}>
 
           <View style={styles.container}>
             <View style={styles.imageField}>

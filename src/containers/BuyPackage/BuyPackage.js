@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {View, Text, Image, TouchableOpacity } from 'react-native';
 import { Container, Header, Left, Body, Right, Icon, Title,Content, Button, Card, CardItem, List, } from 'native-base';
-import { Colors, Images, Metrics  } from '../../theme';
+import { Colors, Images, Metrics, Fonts  } from '../../theme';
 import styles from './BuyPackageStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -44,7 +44,7 @@ export default class BuyPackage extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>Packages</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title }}>Packages</Title>
             </Body>
             <Right>
             </Right>

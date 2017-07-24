@@ -34,7 +34,7 @@ export default class PassengerDetail extends Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{fontSize:Fonts.size.medium, color: Colors.white,}}>Passenger Detail</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title}}>Passenger Detail</Title>
             </Body>
             <Right>
             </Right>

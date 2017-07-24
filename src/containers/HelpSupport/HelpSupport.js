@@ -26,7 +26,7 @@ export default class HelpSupport extends Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Help Support</Title>
+            <Title style={{ color: Colors.white, ...Fonts.style.title }}>Help Support</Title>
           </Body>
           <Right />
         </Header>

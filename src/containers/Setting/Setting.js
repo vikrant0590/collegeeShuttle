@@ -4,7 +4,7 @@ import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, B
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
-import {Colors, Images, Metrics } from '../../theme';
+import {Colors, Images, Metrics, Fonts } from '../../theme';
 import { Platform} from 'react-native';
 import { Actions as NavAction } from 'react-native-router-flux';
 
@@ -57,7 +57,7 @@ render(){
             </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Settings</Title>
+            <Title style={{color:'white', ...Fonts.style.title }}>Settings</Title>
           </Body>
           <Right>
           </Right>

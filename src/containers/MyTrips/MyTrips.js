@@ -164,7 +164,7 @@ export default class MyTrips extends Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>My Trips</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title}}>My Trips</Title>
             </Body>
             <Right>
             </Right>

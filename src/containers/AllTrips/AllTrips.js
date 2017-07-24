@@ -111,7 +111,7 @@ export default class AllTrips extends Component {
             </Left>
             <Body style={{flexDirection:'column'}}>
               <View>
-                <Title style={{color: Colors.white,marginLeft:-40,marginRight:-40}}>University - Home</Title>
+                <Title style={{color: Colors.white,marginLeft:-40,marginRight:-40, ...Fonts.style.title }}>University - Home</Title>
               </View>
               <View style={styles.dateRow}>
                 <TouchableOpacity>

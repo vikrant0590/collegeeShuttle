@@ -23,7 +23,7 @@ import {
   ListItem,
 } from 'native-base';
 import { PaymentFailed, PaymentSuccess } from '../../components';
-import { Colors, Metrics, Images } from '../../theme';
+import { Colors, Metrics, Images, Fonts } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
@@ -159,7 +159,7 @@ export default class Payment extends Component{
               </Button>
             </Left>
             <Body>
-              <Title style={{ color:Colors.white }}>Payment</Title>
+              <Title style={{ color:Colors.white, ...Fonts.style.title }}>Payment</Title>
             </Body>
             <Right />
           </Header>

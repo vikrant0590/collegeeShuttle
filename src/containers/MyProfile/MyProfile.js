@@ -22,7 +22,7 @@ import {
 } from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
-import { Images, Colors, Metrics } from '../../theme';
+import { Images, Colors, Metrics, Fonts } from '../../theme';
 import styles from './MyProfileStyles';
 import Packages from '../../containers/Packages';
 import BuyPackage from "../BuyPackage/BuyPackage";
@@ -158,7 +158,7 @@ export default class MyProfile extends Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{color: Colors.white}}>My Profile</Title>
+            <Title style={{color: Colors.white, ...Fonts.style.title}}>My Profile</Title>
           </Body>
           <Right>
             <TouchableOpacity onPress={this.saveData}>

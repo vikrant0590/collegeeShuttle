@@ -1,8 +1,20 @@
 import React,{ Component } from 'react';
 import {View, Text, Image } from 'react-native';
-import { Container, Header, Left, Body, Content,
-  Right, Icon, Title, Button, List, ListItem, Card, CardItem } from 'native-base';
-import { Colors, } from '../../theme';
+import {
+  Header,
+  Left,
+  Body,
+  Content,
+  Right,
+  Icon,
+  Title,
+  Button,
+  List,
+  ListItem,
+  Card,
+  CardItem
+} from 'native-base';
+import { Colors, Fonts } from '../../theme';
 import styles from './FriendListStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -35,7 +47,7 @@ export default class FriendList extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>Friends</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title }}>Friends</Title>
             </Body>
             <Right>
               <Icon name="ios-person-add" style={{marginRight:10,color:'white'}}/>

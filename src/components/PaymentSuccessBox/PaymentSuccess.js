@@ -23,12 +23,12 @@ export default class PaymentSuccess extends Component {
 
   onPressViewDetails = () => {
     this.setState({open: false});
-    NavAction.tabbar({type:'reset', selectedTab:2 });
+    NavAction.tabbar({type:'reset' });
 
   };
 
   onPressCloseBtn = () => {
-    this.setState({open: false});
+    this.setState({ open: false });
   };
 
   onPressWhatAppShare = () =>{

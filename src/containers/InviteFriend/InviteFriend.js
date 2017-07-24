@@ -17,7 +17,7 @@ import {
   Col
 } from 'native-base';
 import styles from './InviteFriendStyle';
-import { Colors, Images } from '../../theme';
+import { Colors, Images, Fonts } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -42,7 +42,7 @@ export default class InviteFriend extends Component {
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
             <Left />
             <Body>
-              <Title style={{color: Colors.white}}>Invite Friends</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title }}>Invite Friends</Title>
             </Body>
             <Right>
               <Button transparent onPress={()=> Actions.pop()}>

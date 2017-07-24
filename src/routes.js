@@ -36,7 +36,7 @@ import styles from './routesStyle';
 export default class AppRouter extends Component {
 
   static contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
   };
   constructor(props) {
     super(props);
@@ -86,8 +86,8 @@ export default class AppRouter extends Component {
           tabBarStyle={styles.tabBarStyle}
           hideNavBar={true}
           tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
-          initial={this.state.logged}>
-
+          initial={this.state.logged}
+        >
           <Scene
             key="tab1"
             title="HOME"

@@ -133,7 +133,11 @@ const style = {
   rating:{
     fontSize:size.headingText,
     fontFamily:lato.light
-  }
+  },
+  title:{
+    fontSize: size.regular,
+    fontFamily: lato.base
+  },
 };
 
 export default {

@@ -14,7 +14,7 @@ export default class RoundTrip extends Component {
   };
 
   onPressGetOff = () =>{
-    Actions.buypackage();
+    Actions.buypackages();
   };
 
 
@@ -87,7 +87,7 @@ export default class RoundTrip extends Component {
               <CardItem>
                 <Body style={{ }}>
                   <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
+                    <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
                 </Body>
               </CardItem>
             </Row>

@@ -8,7 +8,6 @@ export default StyleSheet.create({
 
   },
 
-
   dateWeekText: {
     fontSize: Fonts.size.h1,
     fontFamily: Fonts.lato.base,

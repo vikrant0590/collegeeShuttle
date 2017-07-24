@@ -477,7 +477,7 @@ export default class AllTrips extends Component {
                             </View>
 
                             <View style={styles.refundBoxOption}>
-                              <View>
+                              <View style={{flex:0.1}}>
                                 {(this.state.refundTickets) ?
                                   <TouchableOpacity onPress={this.refundTickets}>
                                     <Image source={Images.checkbox}/>
@@ -485,7 +485,8 @@ export default class AllTrips extends Component {
                                   </TouchableOpacity>
                                   :
                                   <TouchableOpacity onPress={this.refundTickets}>
-                                    <Image source={Images.checkbox}/>
+                                    <View style={styles.uncheckBox}>
+                                    </View>
                                   </TouchableOpacity>
                                 }
                               </View>
@@ -525,7 +526,3 @@ export default class AllTrips extends Component {
     )
   }
 }
-/*{this.state.open &&
- <InformationModal open ={()=> this.openModal()}/>
- }
- */

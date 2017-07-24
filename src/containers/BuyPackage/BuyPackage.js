@@ -12,15 +12,15 @@ export default class BuyPackage extends  Component {
 
   static get propTypes() {
     return {
-      isActive:PropTypes.func
+      myProfile:PropTypes.func
     };
   }
 
   onPressBackButton = () => {
-    if (this.props.isActive === undefined) {
+    if (this.props.myProfile === undefined) {
       NavAction.pop();
     } else {
-      this.props.isActive();
+      this.props.myProfile();
     }
   };
   onPressBuyNow = () =>{
@@ -35,7 +35,7 @@ export default class BuyPackage extends  Component {
     ];
 
     return(
-      <Container style={{flex: 1,backgroundColor:Colors.base}}>
+      <Container style={{flex: 1,backgroundColor:Colors.base, marginBottom: Metrics.tabBarHeight}}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent}}>
             <Left>

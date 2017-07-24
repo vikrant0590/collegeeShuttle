@@ -199,7 +199,7 @@ export default class RoundTripWeekly extends Component {
       <View style={{ backgroundColor: Colors.base, flex: 1 }}>
         <ScrollView
           horizontal
-          showsVerticalScrollIndicator = {false}
+          showsHorizontalScrollIndicator= {false}
           style={{
             width: Metrics.screenWidth + Metrics.screenWidth/11,
             backfaceVisibility: 'hidden'

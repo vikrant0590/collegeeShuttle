@@ -125,7 +125,7 @@ export default StyleSheet.create({
     marginRight: 20,
     resizeMode: 'contain',
     marginBottom: 10,
-    width: Metrics.screenWidth - 80,
+    width: Metrics.screenWidth - 72,
   },
 
   headerDesText: {

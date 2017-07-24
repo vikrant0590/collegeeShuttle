@@ -21,7 +21,9 @@ export default class Home extends Component {
       isWeekly: false,
       isSizeDefault: false,
       isWeeklyActive: true,
-      isCustomActive: false
+      isCustomActive: false,
+      fromText: 'From',
+      toText: 'To',
     }
   }
 
@@ -44,6 +46,11 @@ export default class Home extends Component {
 
   onPressUniversityButton = () =>{
     this.setState({ isWeekly: !this.state.isWeekly });
+    if(this.state.isWeekly){
+      this.setState({ fromText: 'From', toText: 'To' });
+    }else {
+      this.setState({ fromText: 'University', toText: 'Home' });
+    }
   };
 
   onPressHomeButton = () => {
@@ -98,7 +105,14 @@ export default class Home extends Component {
                     }}
                     onPress={this.onPressUniversityButton}>
                     <Image source={Images.roundtripunivercity} style={styles.textIcon} />
-                    <Text style={styles.btnText}>From</Text>
+                    <Text
+                      style={{
+                        fontSize: Fonts.size.regular,
+                        fontFamily: Fonts.lato.base,
+                        paddingLeft: 5,
+                        textAlign: 'left',
+                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{this.state.fromText}</Text>
                   </Button>
                 </Row>
               </Col>
@@ -116,7 +130,14 @@ export default class Home extends Component {
                     }}
                     onPress={this.onPressHomeButton}>
                     <Image source={Images.roundtriphome} style={styles.textIcon} />
-                    <Text style={styles.btnText}>To</Text>
+                    <Text
+                      style={{
+                        fontSize: Fonts.size.regular,
+                        fontFamily: Fonts.lato.base,
+                        paddingLeft: 5,
+                        textAlign: 'left',
+                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{this.state.toText}</Text>
                   </Button>
                 </Row>
               </Col>

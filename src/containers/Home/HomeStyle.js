@@ -128,7 +128,7 @@ export default StyleSheet.create({
     fontFamily: Fonts.lato.base,
     paddingLeft: 5,
     textAlign: 'left',
-    color: Colors.settingHeadingTextColor
+    color: Colors.profileInputHeadingColor
   },
 
   textSeprateLine:{

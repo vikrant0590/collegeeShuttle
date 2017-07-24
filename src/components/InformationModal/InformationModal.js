@@ -11,21 +11,19 @@ import styles from './InformationModalStyle';
 
 export default class InformationModal extends  Component {
 
-  static get propTypes() {
-    return {
-      open:PropTypes.func
-    };
-  }
+
 
   constructor(props){
     super(props);
     this.state ={
-      open:true
+      open:false
     }
   }
 
-  componentWillReceiveProps =() =>{
-    this.setState({ open: true})
+  showInformationDialog = () => {
+    this.setState({
+      open: true,
+    })
   };
 
   onPressPayment = () => {
@@ -35,13 +33,11 @@ export default class InformationModal extends  Component {
 
   onPressProceed = () => {
     this.setState({ open:false});
-    this.props.open();
     NavActions.passengerDetail();
   };
 
   closeModal =() =>{
-    this.setState({ open:false});
-    //this.props.open();
+    this.setState({ open:false });
   };
 
   render(){
@@ -60,8 +56,7 @@ export default class InformationModal extends  Component {
         }}
         containerStyle={{
           justifyContent: 'center',
-          marginBottom:Metrics.screenHeight/2,
-
+          marginBottom:0,
         }}>
 
         <List dataArray={parentsInformation}

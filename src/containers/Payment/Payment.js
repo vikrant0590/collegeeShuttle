@@ -3,7 +3,8 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import {
   Container,
@@ -48,9 +49,7 @@ export default class Payment extends Component{
     Actions.addCard();
   };
 
-
   render(){
-
     const paymentswiper = [];
     for(let index = 0; index < 2; index ++){
       paymentswiper.push(
@@ -117,10 +116,10 @@ export default class Payment extends Component{
         <Card
           style={{
             flex: 1,
-            marginLeft: 15,
-            marginRight: 15,
+            marginLeft: (index === 0) ? 15 : -40,
+            marginRight: (index === 0) ? 50 : 15,
             marginTop: 15,
-            width: Metrics.screenWidth - 30,
+            width: Metrics.screenWidth - 60,
             height: Metrics.screenHeight/ 5
           }} key={index}>
           <Row
@@ -132,12 +131,12 @@ export default class Payment extends Component{
             <Image style={styles.bankmastercardimage} source={Images.bankmastercardicon} />
           </Row>
           <Row style={{ marginLeft: Metrics.screenWidth/50, marginRight: Metrics.screenWidth/50 }}>
-            <Col style={{ flex: 0.5 }}>
+            <Col style={{ flex: 0.6 }}>
               <Text style={styles.cardnumberText}>CARD NUMBER</Text>
               <Text
                 style={styles.cardDetails}>6757 **** **** 8979</Text>
             </Col>
-            <Col style={{ flex: 0.5 }}>
+            <Col style={{ flex: 0.4 }}>
               <Text
                 style={styles.expiryDate}>EXPIRY DATE</Text>
               <Text
@@ -200,23 +199,11 @@ export default class Payment extends Component{
             <Text style={styles.totalamount}>Total Payble Amount: $72</Text>
           </Card>
 
-          <SwipePayment
-            circleDefaultStyle = {{
-              backgroundColor: Colors.thinLineColor,
-              height: 0,
-              width: 0,
-              borderRadius: 0,
-
-            }}
-            style = {{ backgroundColor: Colors.base }}
-            circleActiveStyle = {{
-              backgroundColor: Colors.timeColor,
-              height: 0,
-              width: 0,
-              borderRadius: 0,
-            }}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator= {false}>
             {BankCardSwiper}
-          </SwipePayment>
+          </ScrollView>
 
           <Card
             style={{
@@ -227,18 +214,22 @@ export default class Payment extends Component{
               height: Metrics.screenHeight/3,
             }}>
             <List
-              style={{ height: Metrics.screenHeight/3, width: Metrics.screenWidth-30, flex: 1 }}>
+              style={{ height: Metrics.screenHeight/4, width: Metrics.screenWidth-30, flex: 1 }}>
               <ListItem
                 style={{
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginLeft: 0,
+                  height: (Metrics.screenHeight/4)/3,
                   backgroundColor: Colors.profileInputHeadingColor
                 }}>
                 <Text
                   style={styles.paymnetOPtion}>Payment Options</Text>
               </ListItem>
-              <ListItem >
+              <ListItem
+                style={{
+                  height: (Metrics.screenHeight/4)/3,
+                }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
@@ -258,7 +249,7 @@ export default class Payment extends Component{
                 </Row>
               </ListItem>
 
-              <ListItem>
+              <ListItem style={{ height: (Metrics.screenHeight/4)/3 }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
@@ -271,7 +262,7 @@ export default class Payment extends Component{
                 </Row>
               </ListItem>
 
-              <ListItem >
+              <ListItem style={{ borderBottomWidth: 0 }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />

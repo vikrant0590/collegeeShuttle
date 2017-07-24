@@ -1,8 +1,20 @@
 import React,{ Component } from 'react';
 import { View, Text, Image, TouchableOpacity} from 'react-native';
-import { Header, Container, Content, Left, Right, Button, Icon,
-  Body, Title, List, Card, CardItem,} from 'native-base';
-import { Colors, Images } from '../../theme';
+import {
+  Header,
+  Container,
+  Content,
+  Left,
+  Right,
+  Button,
+  Icon,
+  Body,
+  Title,
+  List,
+  Card,
+  CardItem
+} from 'native-base';
+import { Colors, Images, Fonts } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import InformationModal from '../../components/InformationModal';
 import { Actions } from 'react-native-router-flux';
@@ -17,6 +29,7 @@ export default class AllTrips extends Component {
       luggageChecked:true,
       refundTickets:true,
       open:false,
+      isNOtifyAvailable: false,
     }
   }
 
@@ -43,14 +56,20 @@ export default class AllTrips extends Component {
   };
 
   openModal =() =>{
-    this.setState({
-      open:!this.state.open,
-      availability:!this.state.availability
-    })
+    // this.setState({
+    //   open:!this.state.open,
+    //   availability:!this.state.availability
+    // })
+
+    this.refs.informationmodal.showInformationDialog();
   };
 
   onPressGoBack = () =>{
     Actions.pop();
+  };
+
+  onPressNotifyWhenAvailable = () => {
+    this.setState({ isNOtifyAvailable : !this.state.isNOtifyAvailable });
   };
 
 
@@ -377,8 +396,32 @@ export default class AllTrips extends Component {
                             {(item.seats === 0) &&
 
                                 <View style={styles.seatUnavailableButton}>
-                                  <Button rounded bordered style={{borderColor:Colors.reminderButtonColor}}>
-                                    <Text style={styles.seatUnavailableButtonText}>Notify when available</Text>
+                                  <Button
+                                    rounded
+                                    bordered
+                                    transparent
+                                    style={(this.state.isNOtifyAvailable) ?
+                                      {
+                                        backgroundColor:Colors.reminderButtonColor,
+                                        borderColor:Colors.reminderButtonColor
+                                      }
+                                      :
+                                      {
+                                        borderColor:Colors.reminderButtonColor,
+                                        backgroundColor:Colors.white
+                                      }
+                                    }
+                                    onPress={this.onPressNotifyWhenAvailable}>
+                                    {(!this.state.isNOtifyAvailable) ?
+                                      <Text
+                                        style={styles.seatUnavailableButtonText}>Notify when available</Text>
+                                      :
+                                      <Text
+                                        style={{
+                                          ...Fonts.style.availabiltyNone,
+                                          color: Colors.white
+                                        }}>Request sent</Text>
+                                    }
                                   </Button>
                                 </View>
                             }
@@ -474,12 +517,15 @@ export default class AllTrips extends Component {
               }
             />
           </View>
-          {this.state.open &&
-          <InformationModal open ={()=> this.openModal()}/>
-          }
+
 
         </Content>
+        <InformationModal ref="informationmodal" />
       </Container>
     )
   }
 }
+/*{this.state.open &&
+ <InformationModal open ={()=> this.openModal()}/>
+ }
+ */

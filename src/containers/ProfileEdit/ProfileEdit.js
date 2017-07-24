@@ -19,8 +19,8 @@ export default class ProfileEdit extends Component {
   render(){
 
     return (
-      <View style={styles.profileInfo}>
-        <Card>
+      <Card style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+        <View style={styles.profileInfo}>
           <Form>
             <View style={styles.formFirstRow}>
               <View style={styles.inputContainer}>
@@ -251,9 +251,8 @@ export default class ProfileEdit extends Component {
               </TouchableOpacity>
             </View>
           </Form>
-        </Card>
-      </View>
-
+       </View>
+      </Card>
     );
   }
 }

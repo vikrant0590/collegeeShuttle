@@ -15,7 +15,7 @@ export default StyleSheet.create({
     flex:1,
     backgroundColor:Colors.transparent,
     marginTop:15,
-    marginLeft:15,
+    marginLeft:10,
     marginRight:10,
     marginBottom:10,
 

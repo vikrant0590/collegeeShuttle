@@ -1,8 +1,24 @@
 import React,{ Component } from 'react';
-import {View, Text, Image } from 'react-native';
-import { Container, Header, Left, Body, Content,
-  Right, Icon, Title, Button, List, ListItem, Card, CardItem } from 'native-base';
-import { Colors, } from '../../theme';
+import {
+  View,
+  Text,
+  Image }
+  from 'react-native';
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Content,
+  Right,
+  Icon,
+  Title,
+  Button,
+  List,
+  ListItem,
+  Card,
+  CardItem } from 'native-base';
+import { Colors, Metrics } from '../../theme';
 import styles from './FriendListStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -25,7 +41,7 @@ export default class FriendList extends  Component {
       {index: 2, name: 'Susan',university:'VN University', trips:3},
       {index: 3, name: 'Muru', university:'VN University', trips:3}];
     return(
-      <View style={{flex:1,backgroundColor:Colors.base,}}>
+      <View style={styles.container}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -42,14 +58,14 @@ export default class FriendList extends  Component {
             </Right>
           </Header>
         </LinearGradient>
-        <Content>
+        <Content style={{margin:10}}>
           <Card>
-            <CardItem>
-              <List dataArray={friends}
+              <List
+                dataArray={friends}
                 renderRow={(item) =>
-                  <ListItem bordered="true">
+                  <ListItem bordered="true" style={{borderColor: Colors.thinLineColor,marginRight:-19}}>
                     <View style={styles.listContainer}>
-                      <View style={{flex:0.2}}>
+                      <View style={styles.profileImageContainer}>
                         <Image style={styles.profileImage}/>
                       </View>
                       <View style={styles.nameContainer}>
@@ -63,7 +79,6 @@ export default class FriendList extends  Component {
                   </ListItem>
                 }
               />
-            </CardItem>
           </Card>
         </Content>
       </View>

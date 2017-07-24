@@ -3,7 +3,7 @@ import {View, Image, Text, TouchableOpacity} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title,Content } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { PropTypes } from 'prop-types';
-import { Colors, Images, Metrics } from '../../theme';
+import { Colors, Images } from '../../theme';
 import styles from './PackageStyle';
 
 export default class Packages extends  Component {
@@ -19,7 +19,7 @@ export default class Packages extends  Component {
 
   render(){
     return(
-      <Container style={{backgroundColor:Colors.base, marginBottom: Metrics.tabBarHeight}}>
+      <Container style={{backgroundColor:Colors.base}}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -29,7 +29,7 @@ export default class Packages extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>Packages</Title>
+            <Title style={{color: Colors.white}}>Packages</Title>
             </Body>
             <Right>
             </Right>

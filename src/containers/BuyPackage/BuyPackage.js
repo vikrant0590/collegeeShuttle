@@ -35,7 +35,7 @@ export default class BuyPackage extends  Component {
     ];
 
     return(
-      <Container style={{flex: 1,backgroundColor:Colors.base, marginBottom: Metrics.tabBarHeight}}>
+      <Container style={{flex: 1,backgroundColor:Colors.base }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent}}>
             <Left>

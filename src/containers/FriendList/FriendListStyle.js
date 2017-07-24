@@ -18,29 +18,34 @@ export default StyleSheet.create({
 
   },
   container:{
-    height:Metrics.screenHeight/2,
-    backgroundColor:Colors.transparent,
-    margin:15
+    flex:1,
+    backgroundColor:Colors.base
   },
+
   listContainer:{
     flexDirection:'row',
-    flex:1
+    flex:1,
   },
   profileImageContainer:{
-    flex:0.2
+    flex:0.2,
+    alignSelf:'flex-start',
+
   },
   nameContainer:{
     flexDirection:'column',
     flex:0.4,
   },
   tripDetails:{
-    flex:0.4
+    flex:0.4,
+    justifyContent:"center",
+    alignItems:"flex-start"
   },
   profileImage:{
     height:46,
     width:46,
     borderRadius:23,
-    backgroundColor:Colors.black
+    backgroundColor:Colors.black,
+
   },
 
 

@@ -81,7 +81,7 @@ export default StyleSheet.create({
     color: Colors.black
   },
 
-  searchBtnView: {
+  searchBtn: {
     flex: 1,
     height: 52,
     width: Metrics.screenWidth/2,
@@ -95,31 +95,9 @@ export default StyleSheet.create({
     borderRadius: 26
   },
 
-  swiperPagerBtn: {
-    flex: 1,
-    width: Metrics.screenWidth - 30,
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 15,
-    bottom : 0
-  },
-
-  lineCol: {
-    flex: 1,
-    height: Metrics.screenHeight/ 7,
-    backgroundColor: Colors.thinLineColor
-  },
-
-  searchBtn: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.transparent
-  },
-
   searchBtnText: {
     fontSize: Fonts.size.regular,
-    fontFamily: Fonts.lato.base,
+    fontFamily: Fonts.lato.bold,
     color: Colors.white,
     alignSelf: 'center'
   },

@@ -100,6 +100,7 @@ export default class AppRouter extends Component {
               key="home"
               component={Home}
               hideNavBar={true}/>
+            <Scene key="buypackages" component={BuyPackage} hideNavBar={true}/>
             <Scene
               key="allTrips"
               component={AllTrips}

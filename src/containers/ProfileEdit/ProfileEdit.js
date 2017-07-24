@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { View, Text,Image, TouchableOpacity, Platform} from 'react-native';
-import { Form, Item, Label, Input, Row, Col } from 'native-base';
+import { Form, Item, Label, Input, Row, Col, Content } from 'native-base';
 import { Fonts, Colors , Images, Metrics} from '../../theme';
 import styles from './ProfileEditStyle';
 import ModalDropdown from 'react-native-modal-dropdown';

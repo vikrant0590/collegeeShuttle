@@ -10,11 +10,11 @@ export default class FriendList extends  Component {
 
   static get propTypes() {
     return {
-      isActive:PropTypes.any
+      myProfile:PropTypes.any
     };
   }
   back = () => {
-    this.props.isActive();
+    this.props.myProfile();
   };
 
   render(){

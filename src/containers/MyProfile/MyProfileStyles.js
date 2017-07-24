@@ -22,14 +22,14 @@ export default StyleSheet.create({
   },
   avatarContainer:{
     flex:1,
-    height:Metrics.screenHeight/5,
+    height:Metrics.screenHeight/4.4,
     backgroundColor:Colors.transparent,
     alignItems:'center',
   },
   editPicture:{
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   avatar:{
     width:90,

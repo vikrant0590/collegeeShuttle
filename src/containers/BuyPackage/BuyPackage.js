@@ -12,15 +12,15 @@ export default class BuyPackage extends  Component {
 
   static get propTypes() {
     return {
-      isActive:PropTypes.func
+      myProfile:PropTypes.func
     };
   }
 
   onPressBackButton = () => {
-    if (this.props.isActive === undefined) {
+    if (this.props.myProfile === undefined) {
       NavAction.pop();
     } else {
-      this.props.isActive();
+      this.props.myProfile();
     }
   };
   onPressBuyNow = () =>{

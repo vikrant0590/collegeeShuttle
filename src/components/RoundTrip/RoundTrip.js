@@ -14,12 +14,7 @@ export default class RoundTrip extends Component {
   };
 
   onPressGetOff = () =>{
-    Actions.buypackage();
-  };
-
-
-  onPressGetOff = () =>{
-    Actions.buypackage();
+    Actions.buypackages();
   };
 
 

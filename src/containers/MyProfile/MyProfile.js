@@ -49,7 +49,8 @@ export default class MyProfile extends Component {
     if(item.index === 0){
       this.setState({
         profileDetail:true,
-        list:false
+        list:false,
+        myprofile:true
       })
     }
     else if(item.index === 2){
@@ -74,6 +75,16 @@ export default class MyProfile extends Component {
       })
     }
   };
+  myProfile = () =>{
+    this.setState({
+      myprofile:true,
+      list:true,
+      profileDetail:false,
+      buyPackage:false,
+      friendList:false,
+      refer: false,
+    })
+  };
 
   saveData=()=>{
     this.setState({
@@ -82,30 +93,7 @@ export default class MyProfile extends Component {
     })
   };
 
-  friendList = () => {
-    this.setState({
-      friendlist: false,
-      list:true,
-      myprofile:true
-    })
-  };
-
-  buyPackage =() => {
-    this.setState({
-      buyPackage:false,
-      list:true,
-      myprofile:true
-    })
-  };
-  refer =() => {
-    this.setState({
-      refer:false,
-      myprofile:true,
-      list:true
-    })
-  };
-
-  myprofile = () =>{
+  setMyProfile = () =>{
     if(this.state.profileDetail === true){
       this.setState({
         myprofile:true,
@@ -161,11 +149,9 @@ export default class MyProfile extends Component {
 
       <Container style={{ marginBottom: Metrics.tabBarHeight }}>
         {(this.state.myprofile) &&
-<<<<<<< HEAD
+
         <Header style={{ backgroundColor: '#FC214F',borderBottomColor:Colors.transparent}}>
-=======
-        <Header style={{ backgroundColor: '#FC214F', borderBottomWidth: 0 }}>
->>>>>>> origin/master
+
           <Left>
             <Button transparent onPress={this.myprofile}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>
@@ -181,29 +167,49 @@ export default class MyProfile extends Component {
           </Right>
         </Header>
         }
-        <Content>
-          { (this.state.myprofile) &&
-          <LinearGradient colors={['#FC214F', '#D32735']}>
-            <View style={styles.avatarContainer}>
-              <TouchableOpacity onPress={this.selectPhotoTapped}>
-                <View style={styles.avatar}>
-                  { this.state.avatarSource === null ? null :
-                    <Image source={this.state.avatarSource}/>
-                  }
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={this.selectPhotoTapped}>
-                <View style={styles.editPicture}>
-                  <Image source={Images.edit} style={styles.pencil}/>
-                  <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-          }
 
-          {(this.state.list === true) &&
+        { (this.state.profileDetail && this.state.myprofile && this.state.list === false) &&
+          <Content>
+            <LinearGradient colors={['#FC214F', '#D32735']}>
+              <View style={styles.avatarContainer}>
+                <TouchableOpacity onPress={this.selectPhotoTapped}>
+                  <View style={styles.avatar}>
+                    { this.state.avatarSource === null ? null :
+                      <Image source={this.state.avatarSource}/>
+                    }
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.selectPhotoTapped}>
+                  <View style={styles.editPicture}>
+                    <Image source={Images.edit} style={styles.pencil}/>
+                    <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </LinearGradient>
+            <ProfileEdit/>
+          </Content>
+        }
+
+        {(this.state.myprofile && this.state.list ) &&
             <Content>
+              <LinearGradient colors={['#FC214F', '#D32735']}>
+                <View style={styles.avatarContainer}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped}>
+                    <View style={styles.avatar}>
+                      { this.state.avatarSource === null ? null :
+                        <Image source={this.state.avatarSource}/>
+                      }
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={this.selectPhotoTapped}>
+                    <View style={styles.editPicture}>
+                      <Image source={Images.edit} style={styles.pencil}/>
+                      <Text style={{color: Colors.white}}> Edit Profile Picture</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </LinearGradient>
               <View style={styles.listContainer}>
                 <Card>
                   <CardItem>
@@ -228,21 +234,17 @@ export default class MyProfile extends Component {
                 </Card>
               </View>
             </Content>
-          }
-          {(this.state.profileDetail) &&
-            <ProfileEdit/>
-          }
-          {(this.state.refer) &&
-          <Packages isActive ={() => this.refer()}/>
-          }
-          {(this.state.friendlist) &&
-          <FriendList isActive={() => this.friendList()}/>
-          }
-          {(this.state.buyPackage) &&
-            <BuyPackage isActive={() => this.buyPackage()}/>
-          }
-        </Content>
+        }
 
+        {(this.state.refer) &&
+        <Packages myProfile ={() => this.setMyProfile()}/>
+        }
+        {(this.state.friendlist) &&
+        <FriendList myProfile={() => this.setMyProfile()}/>
+        }
+        {(this.state.buyPackage) &&
+          <BuyPackage myProfile={() => this.setMyProfile()}/>
+        }
       </Container>
     )
   }

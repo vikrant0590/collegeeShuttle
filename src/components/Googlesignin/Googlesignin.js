@@ -17,12 +17,6 @@ import { GoogleSignin } from 'react-native-google-signin';
 import { googlesignin } from '../../redux/modules/socialAuth';
 
 export default class Googlesignin extends Component {
-  constructor(){
-    super();
-    this.state = {
-
-    }
-  }
 
   static contextTypes = {
     store: PropTypes.object

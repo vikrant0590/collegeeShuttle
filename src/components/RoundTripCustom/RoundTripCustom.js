@@ -6,12 +6,8 @@ import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
 import { Calender } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
-import PropTypes from 'prop-types';
-export default class RoundTripCustom extends Component {
 
-  static propTypes = {
-    isActive: PropTypes.bool
-  };
+export default class RoundTripCustom extends Component {
 
   constructor() {
     super();
@@ -24,6 +20,7 @@ export default class RoundTripCustom extends Component {
     this.setState({ selectedButtonIndex: index});
 
   };
+
   onPressSearch =() =>{
     Actions.allTrips();
   };
@@ -56,7 +53,7 @@ export default class RoundTripCustom extends Component {
         </Card>
         <LinearGradient colors={['#FC214F', '#D32735']}  style={styles.searchBtn}>
           <TouchableOpacity
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.transparent }}
+            style={styles.searchBtnStyle}
             onPress={this.onPressSearch}>
             <Text style={styles.searchBtnText}>Search</Text>
           </TouchableOpacity>

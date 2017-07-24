@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {View, Text, Image, TouchableOpacity } from 'react-native';
 import { Container, Header, Left, Body, Right, Icon, Title,Content, Button, Card, CardItem, List, } from 'native-base';
-import { Colors, Fonts, Images, Metrics  } from '../../theme';
+import { Colors, Images, Metrics  } from '../../theme';
 import styles from './BuyPackageStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -57,21 +57,16 @@ export default class BuyPackage extends  Component {
                 <Card style={{ flex: 1}}>
                   <CardItem style={{ width: Metrics.screenWidth - 30}}>
                     <View style={styles.tripItem}>
-
                       <View style={styles.tripHeading}>
-
                         <View style={styles.tripHeadingItem}>
                           <Text style={styles.choice}>Triple Play</Text>
                           <Image source={Images.ellipse} style={styles.ellipse}/>
                           <Text style={styles.choice}>{item.totalTrips} Trips</Text>
                         </View>
-
                         <View style={{flex:1}}>
                           <Text style={styles.price}>{item.amount}</Text>
                         </View>
-
                       </View>
-
                       <View style={styles.tripDescription}>
                         <View style={styles.tripDetails}>
                           <Text style={{color: Colors.black}}>{item.weekend} Weekend Trip{"\n"}</Text>
@@ -89,7 +84,6 @@ export default class BuyPackage extends  Component {
                         </View>
                       </View>
                     </View>
-
                   </CardItem>
                 </Card>
               }/>

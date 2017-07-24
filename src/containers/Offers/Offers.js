@@ -5,12 +5,7 @@ import { Colors, Fonts, Metrics, Images } from '../../theme';
 import styles from './OffersStyle';
 import { Actions } from 'react-native-router-flux';
 export default class Offers extends Component{
-  constructor(){
-    super();
-    this.state ={
 
-    }
-  }
 
   render(){
     return(

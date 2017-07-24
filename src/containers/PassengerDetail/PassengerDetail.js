@@ -9,8 +9,6 @@ import styles from './PassengerDetailStyle';
 
 export default class PassengerDetail extends Component {
 
-
-
   onPressPassengerDetails = () =>{
     NavActions.payment();
   };
@@ -19,12 +17,10 @@ export default class PassengerDetail extends Component {
     NavActions.pop();
   };
 
-
   render(){
     const passengerDetail =[
       {id:1, firstName:'John',lastName:'Doe', mobile:'09210301030' }
     ];
-
     return(
       <Container>
         <LinearGradient colors={['#FC214F', '#D32735']}>

@@ -25,9 +25,6 @@ export default class PaymentFailedBox extends Component {
     Actions.payment();
   };
 
-
-
-
   onPressCloseBtn = () => {
     this.setState({open: false});
   };
@@ -37,7 +34,7 @@ export default class PaymentFailedBox extends Component {
     return(
       <PaymentModalFailed
         open={open}
-        overlayBackground={'rgba(0, 0, 0, 0.3)'}
+        overlayBackground={Colors.modalBgColor}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.PaymentViewConatiner}
         modalStyle={styles.PaymentViewStyle}

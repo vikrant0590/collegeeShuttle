@@ -54,7 +54,7 @@ export default class PaymentSuccess extends Component {
     return(
       <PaymentModalSuccess
         open={open}
-        overlayBackground={'rgba(0, 0, 0, 0.3)'}
+        overlayBackground={Colors.modalBgColor}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.PaymentViewConatiner}
         modalStyle={styles.PaymentViewStyle}>

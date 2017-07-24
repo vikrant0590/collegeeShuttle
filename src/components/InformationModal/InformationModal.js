@@ -53,7 +53,7 @@ export default class InformationModal extends  Component {
       <Modal
         open={this.state.open}
         modalDidClose={this.closeModal}
-        overlayBackground={'rgba(0, 0, 0, 0.40)'}
+        overlayBackground={Colors.modalBgColor}
         modalStyle={{
           margin: 25,
           padding: 0,

@@ -126,15 +126,6 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 10,
     width: Metrics.screenWidth - 80,
-    // ...Platform.select({
-    //   ios: {
-    //     aspectRatio:(Metrics.screenWidth === 320) ?  6.5 :  9.5,
-    //     marginLeft:(Metrics.screenWidth === 320) ?  - Metrics.screenWidth/22 : - Metrics.screenWidth/13,
-    //   },
-    //   android:{
-    //     //set icon and text style...
-    //   }
-    // }),
   },
 
   headerDesText: {

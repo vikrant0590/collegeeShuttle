@@ -2,16 +2,10 @@ import React, { Component } from 'react';
 import { Text, TouchableOpacity, Image, View } from 'react-native';
 import { Card, Row, Col, CardItem, Body, Icon } from 'native-base';
 import styles from './MyTripCellStyle';
-import { Colors, Fonts, Images, Metrics } from '../../theme';
+import { Colors, Fonts, Metrics } from '../../theme';
 
 export default class MyTripCell extends Component {
-
-  constructor(){
-    super();
-    this.state = {
-
-    }
-  }
+  
 
   render(){
     return(

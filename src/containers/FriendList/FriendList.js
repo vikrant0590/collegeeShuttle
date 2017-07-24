@@ -19,7 +19,7 @@ export default class FriendList extends  Component {
 
   render(){
 
-    var friends = [
+    const friends = [
       {index: 0, name: 'Chris', university:'VN University',trips:3},
       {index: 1, name: 'Mark', university:'VN University', trips:3},
       {index: 2, name: 'Susan',university:'VN University', trips:3},

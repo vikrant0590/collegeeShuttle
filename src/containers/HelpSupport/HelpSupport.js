@@ -11,12 +11,6 @@ const items = ['What do I need to Board Shuttle',
   'Cancelation Policy'];
 
 export default class HelpSupport extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
 
   onPressGoBack = () =>{
     Actions.pop();

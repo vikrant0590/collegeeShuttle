@@ -116,4 +116,10 @@ export default StyleSheet.create({
     paddingTop: 5,
     alignSelf: 'center'
   },
+  searchBtnStyle: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.transparent
+  },
 });

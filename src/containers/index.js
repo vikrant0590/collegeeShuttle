@@ -4,7 +4,6 @@ import SignUp from './Signup';
 import Login from './Login';
 import MyProfile from './MyProfile';
 import MyTrips from './MyTrips';
-import BottomTabBar from './BottomTabBar';
 import Setting from './Setting';
 import ProfileEdit from './ProfileEdit';
 import Packages from './Packages';
@@ -17,6 +16,7 @@ import HelpSupport from './HelpSupport';
 import Payment from './Payment';
 import Offers from './Offers';
 import AddCard from './AddCard';
+import MyPackage from './MyPackage';
 
 
 export {
@@ -26,7 +26,6 @@ export {
   Login,
   MyProfile,
   MyTrips,
-  BottomTabBar,
   Setting,
   ProfileEdit,
   Packages,
@@ -39,4 +38,5 @@ export {
   Payment,
   Offers,
   AddCard,
+  MyPackage
 };

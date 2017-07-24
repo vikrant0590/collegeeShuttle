@@ -17,7 +17,8 @@ import {
   Offers,
   HelpSupport,
   Payment,
-  AddCard
+  AddCard,
+  MyPackage
 } from './containers';
 import {
   InformationModal,
@@ -133,6 +134,11 @@ export default class AppRouter extends Component {
             <Scene
               key ="myprofile"
               component={MyProfile}
+              hideNavBar={true}/>
+
+            <Scene
+              key="mypackage"
+              component={MyPackage}
               hideNavBar={true}/>
           </Scene>
 

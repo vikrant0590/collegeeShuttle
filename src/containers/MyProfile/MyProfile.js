@@ -60,11 +60,12 @@ export default class MyProfile extends Component {
       })
     }
     else if(item.index === 3){
-      this.setState({
-        myprofile:false,
-        list:false,
-        buyPackage:true
-      })
+      // this.setState({
+      //   myprofile:false,
+      //   list:false,
+      //   buyPackage:true
+      // })
+      NavAction.mypackage();
     }
     else if(item.index === 4){
       this.setState({

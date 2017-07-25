@@ -19,7 +19,8 @@ import {
   Payment,
   AddCard,
   MyPackage,
-  Notification
+  Notification,
+  MyTripMap
 } from './containers';
 import {
   InformationModal,
@@ -113,6 +114,7 @@ export default class AppRouter extends Component {
             titleStyle={{ color: Colors.placeholderTextColor }}>
 
             <Scene key="mytrips" component={MyTrips} title="My Trips" hideNavBar={true}/>
+            <Scene key="mytripsmap" component={MyTripMap} title="My Trips" hideNavBar={true}/>
           </Scene>
 
           <Scene

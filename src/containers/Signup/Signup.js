@@ -5,7 +5,6 @@ import {Actions as NavAction} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { validationOnEmail} from '../../helpers/EmailValidation';
-
 import styles from './SignupStyles';
 import { Images, Colors } from '../../theme';
 import getTheme from '../../../native-base-theme/components';

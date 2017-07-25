@@ -18,7 +18,7 @@ import Offers from './Offers';
 import AddCard from './AddCard';
 import MyPackage from './MyPackage';
 import Notification from './Notification';
-
+import MyTripMap from './MyTripMap';
 export {
   WalkThrough,
   Home,
@@ -39,5 +39,6 @@ export {
   Offers,
   AddCard,
   MyPackage,
-  Notification
+  Notification,
+  MyTripMap,
 };

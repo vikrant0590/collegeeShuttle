@@ -11,11 +11,13 @@ import MyTripCell from './MyTripCell';
 import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
 import PaymentSuccess from './PaymentSuccessBox';
-import MyTripMap from './MyTripMap';
 import GoogleLogin from './Googlesignin';
 import FaceboolLogin from './Facebooksignin';
 import TabIcon from './TabIcon';
 import NotificationCell from './NotificationCell';
+import GoogleMap from './GoogleMap';
+import DriverContactModalBox from './DriverContactModalBox';
+
 export {
   WalkThroughFirst,
   WalkThroughSecond,
@@ -30,9 +32,10 @@ export {
   OfferBox,
   PaymentFailed,
   PaymentSuccess,
-  MyTripMap,
   GoogleLogin,
   FaceboolLogin,
   TabIcon,
-  NotificationCell
+  NotificationCell,
+  GoogleMap,
+  DriverContactModalBox
 };

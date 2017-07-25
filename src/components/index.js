@@ -15,6 +15,7 @@ import MyTripMap from './MyTripMap';
 import GoogleLogin from './Googlesignin';
 import FaceboolLogin from './Facebooksignin';
 import TabIcon from './TabIcon';
+import NotificationCell from './NotificationCell';
 export {
   WalkThroughFirst,
   WalkThroughSecond,
@@ -32,5 +33,6 @@ export {
   MyTripMap,
   GoogleLogin,
   FaceboolLogin,
-  TabIcon
+  TabIcon,
+  NotificationCell
 };

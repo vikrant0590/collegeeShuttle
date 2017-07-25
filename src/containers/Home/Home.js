@@ -10,7 +10,7 @@ import {
   RoundTripCustom,
   OfferBox
 } from '../../components';
-
+import { Actions } from 'react-native-router-flux';
 export default class Home extends Component {
 
   constructor(){
@@ -41,7 +41,7 @@ export default class Home extends Component {
   };
 
   onPressNotificationButton = () => {
-
+    Actions.notification();
   };
 
   onPressUniversityButton = () =>{

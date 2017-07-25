@@ -60,25 +60,25 @@ export default class FriendList extends  Component {
         </LinearGradient>
         <Content style={{margin:10}}>
           <Card>
-              <List
-                dataArray={friends}
-                renderRow={(item) =>
-                  <ListItem bordered="true" style={{borderColor: Colors.thinLineColor,marginRight:-19}}>
-                    <View style={styles.listContainer}>
-                      <View style={styles.profileImageContainer}>
-                        <Image style={styles.profileImage}/>
-                      </View>
-                      <View style={styles.nameContainer}>
-                        <Text style={styles.name}>{item.name}</Text>
-                        <Text style={styles.university}>{item.university}</Text>
-                      </View>
-                      <View style={styles.tripDetails}>
-                        <Text style={styles.trip}>{item.trips} Trips Done</Text>
-                      </View>
+            <List
+              dataArray={friends}
+              renderRow={(item) =>
+                <ListItem bordered="true" style={{borderColor: Colors.thinLineColor,marginRight:-19}}>
+                  <View style={styles.listContainer}>
+                    <View style={styles.profileImageContainer}>
+                      <Image style={styles.profileImage}/>
                     </View>
-                  </ListItem>
-                }
-              />
+                    <View style={styles.nameContainer}>
+                      <Text style={styles.name}>{item.name}</Text>
+                      <Text style={styles.university}>{item.university}</Text>
+                    </View>
+                    <View style={styles.tripDetails}>
+                      <Text style={styles.trip}>{item.trips} Trips Done</Text>
+                    </View>
+                  </View>
+                </ListItem>
+              }
+            />
           </Card>
         </Content>
       </View>

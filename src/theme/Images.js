@@ -53,6 +53,7 @@ const images = {
   halfStar: require('../images/halfStar.png'),
   checkbox: require('../images/checkbox.png'),
   tick: require('../images/tick.png'),
-  closeButton: require("../images/closeButton.png")
+  closeButton: require("../images/closeButton.png"),
+  profileicon: require("../images/dummyprofileicon.png")
 };
 export default images;

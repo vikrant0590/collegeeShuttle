@@ -17,7 +17,7 @@ import Payment from './Payment';
 import Offers from './Offers';
 import AddCard from './AddCard';
 import MyPackage from './MyPackage';
-
+import Notification from './Notification';
 
 export {
   WalkThrough,
@@ -38,5 +38,6 @@ export {
   Payment,
   Offers,
   AddCard,
-  MyPackage
+  MyPackage,
+  Notification
 };

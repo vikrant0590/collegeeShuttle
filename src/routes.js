@@ -18,7 +18,8 @@ import {
   HelpSupport,
   Payment,
   AddCard,
-  MyPackage
+  MyPackage,
+  Notification
 } from './containers';
 import {
   InformationModal,
@@ -97,15 +98,10 @@ export default class AppRouter extends Component {
             selectedTabIcon={Images.homeActive}
             titleStyle={{ color: Colors.placeholderTextColor }}>
 
-            <Scene
-              key="home"
-              component={Home}
-              hideNavBar={true}/>
+            <Scene key="home" component={Home} hideNavBar={true}/>
             <Scene key="buypackages" component={BuyPackage} hideNavBar={true}/>
-            <Scene
-              key="allTrips"
-              component={AllTrips}
-              hideNavBar={true}/>
+            <Scene key="allTrips" component={AllTrips} hideNavBar={true}/>
+            <Scene key="notification" component={Notification} hideNavBar={true}/>
           </Scene>
 
           <Scene
@@ -116,11 +112,7 @@ export default class AppRouter extends Component {
             selectedTabIcon={Images.travelActive}
             titleStyle={{ color: Colors.placeholderTextColor }}>
 
-            <Scene
-              key="mytrips"
-              component={MyTrips}
-              title="My Trips"
-              hideNavBar={true}/>
+            <Scene key="mytrips" component={MyTrips} title="My Trips" hideNavBar={true}/>
           </Scene>
 
           <Scene
@@ -131,15 +123,8 @@ export default class AppRouter extends Component {
             tabIcon={Images.profile}
             titleStyle={{ color: Colors.placeholderTextColor }}>
 
-            <Scene
-              key ="myprofile"
-              component={MyProfile}
-              hideNavBar={true}/>
-
-            <Scene
-              key="mypackage"
-              component={MyPackage}
-              hideNavBar={true}/>
+            <Scene key ="myprofile" component={MyProfile} hideNavBar={true}/>
+            <Scene key="mypackage" component={MyPackage} hideNavBar={true}/>
           </Scene>
 
           <Scene

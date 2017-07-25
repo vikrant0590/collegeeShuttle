@@ -75,6 +75,7 @@ const colors = {
   tabBarbgColor: 'rgba(219,38,58,0.14)',
   hpmeSubHeaderBtnColor: 'rgba(255, 255, 255, 0.6)',
   modalBgColor: 'rgba(0, 0, 0, 0.3)',
+  userProfileBorderColor: '#E0DDD7',
 };
 
 export default colors;

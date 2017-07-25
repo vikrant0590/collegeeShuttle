@@ -43,10 +43,10 @@ export default class PaymentFailedBox extends Component {
         <View style={styles.container}>
           <View style={{ flex: 0.2 }}>
             <Row>
-              <Col style={{  flex: 0.9, alignItems: 'center', marginLeft: 30, marginTop: 10 }}>
+              <Col style={{  flex: 0.92, alignItems: 'center', marginLeft: 30, marginTop: 10 }}>
                 <Image style={styles.headerImage} source={Images.paymenterroricon}/>
               </Col>
-              <Col style={{ flex: 0.15, marginRight: 10  }}>
+              <Col style={{ flex: 0.08, marginRight: 10 }}>
                 <Button
                   transparent
                   style={{

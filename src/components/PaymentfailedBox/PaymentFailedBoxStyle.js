@@ -29,7 +29,7 @@ export default StyleSheet.create({
     marginTop: 30,
     marginLeft: 32,
     marginRight: 32,
-    backgroundColor: Colors.timeColor,
+    backgroundColor: Colors.unselectColor,
     borderRadius: 20,
     height: 45,
     width: 120,

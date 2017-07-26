@@ -10,13 +10,20 @@ export default class RoundTrip extends Component {
 
 
   onPressInviteButton = () =>{
-    Actions.invitefriend();
+    Actions.friendlist();
   };
 
   onPressGetOff = () =>{
-    Actions.buypackages();
+    Actions.homebuypackage();
   };
 
+  onPressTrackNow = () => {
+    Actions.mytripsmap();
+  };
+
+  onPressOffer = () =>{
+    Actions.offers();
+  };
 
   render(){
     return(
@@ -57,7 +64,7 @@ export default class RoundTrip extends Component {
             <Body style={{ marginTop: 10, marginBottom: 20 }}>
               <TouchableOpacity
                 style={styles.trackNowBtn}
-                onPress={this.onPressRoundTripButton}>
+                onPress={this.onPressTrackNow}>
                 <Image source={Images.roundtriptrackicon} style={styles.trackIcon} />
                 <Text style={styles.trackText}>Track Now</Text>
               </TouchableOpacity>
@@ -81,15 +88,36 @@ export default class RoundTrip extends Component {
             marginBottom:20,
             height: Metrics.screenHeight/ 5.5,
           }}
-          onPress={this.onPressGetOff}>
-          <Card style={{ flex: 1, marginLeft: -13, marginRight: -13, marginTop: -10, marginBottom: -13 }}>
-            <Row style={{ flex: 0.25}}>
-              <CardItem>
-                <Body style={{ }}>
-                  <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
-                </Body>
-              </CardItem>
+          onPress={this.onPressOffer}>
+          <Card
+            style={{
+              flex: 1,
+              marginLeft: -13,
+              marginRight: -13,
+              marginTop: -10,
+              marginBottom: -13
+            }}>
+            <Row
+              style={{
+                flex: 0.25,
+                marginTop: 10,
+                marginLeft: 10,
+                alignItems: 'center'
+              }}>
+              <View>
+                <Text style={styles.headerDesText}>Get upto</Text>
+              </View>
+              <View style={{ marginLeft: -10 }}>
+                <Button
+                  transparent
+                  style={{ alignItems: 'center', justifyContent: 'flex-start' }}
+                  onPress={this.onPressGetOff}>
+                  <Text style={[styles.headerDesText,{ color: Colors.roundTripColor}]}>30% OFF</Text>
+                </Button>
+              </View>
+              <View style={{ marginLeft: -10 }}>
+                <Text style={styles.headerDesText}>on your booking</Text>
+              </View>
             </Row>
             <Row style={{ flex: 0.5 }}>
               <CardItem  style={{ marginTop: 10}}>

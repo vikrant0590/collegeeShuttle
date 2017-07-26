@@ -54,6 +54,8 @@ const images = {
   checkbox: require('../images/checkbox.png'),
   tick: require('../images/tick.png'),
   closeButton: require("../images/closeButton.png"),
-  profileicon: require("../images/dummyprofileicon.png")
+  profileicon: require("../images/dummyprofileicon.png"),
+  checkitemicon: require("../images/checked.png"),
+  uncheckitemicon: require("../images/square.png")
 };
 export default images;

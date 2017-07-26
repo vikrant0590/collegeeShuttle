@@ -111,7 +111,7 @@ export default class Payment extends Component{
               marginTop: 15,
               marginLeft: 15,
               marginRight: 15,
-              height: Metrics.screenWidth/2,
+              height: Metrics.screenWidth/2.2,
               justifyContent:'center',
               alignItems:'center'
             }}>
@@ -119,31 +119,31 @@ export default class Payment extends Component{
             <Button transparent style={{ marginTop: 15, alignSelf: 'center', flex: 1 }}>
               <Text
                 style={{
-                  fontSize: Fonts.size.h3,
+                  fontSize: Fonts.size.paymentheader,
                   fontFamily: Fonts.lato.base,
                   color: Colors.timeColor
                 }}>Triple Play</Text>
             </Button>
-            <Button transparent style={{ marginTop: 5, alignSelf: 'center',  flex: 1 }}>
+            <Button transparent style={{ alignSelf: 'center',  flex: 1 }}>
               <Text
                 style={{
-                  fontSize: Fonts.size.h4,
+                  fontSize: Fonts.size.input,
                   fontFamily: Fonts.lato.base,
                   color: Colors.timeColor
                 }}>3 Trips</Text>
             </Button>
-            <Button transparent style={{ marginTop: 5, alignSelf: 'center',  flex: 1 }}>
+            <Button transparent style={{ alignSelf: 'center',  flex: 1 }}>
               <Text
                 style={{
-                  fontSize: Fonts.size.h5,
+                  fontSize: Fonts.size.regular,
                   fontFamily: Fonts.lato.base,
                   color: Colors.black
                 }}>3 Weekend Trip</Text>
             </Button>
-            <Button transparent style={{ marginTop: 2.5, marginBottom: 15, alignSelf: 'center',  flex: 1 }}>
+            <Button transparent style={{ marginBottom: 15, alignSelf: 'center',  flex: 1 }}>
               <Text
                 style={{
-                  fontSize: Fonts.size.h5,
+                  fontSize: Fonts.size.regular,
                   fontFamily: Fonts.lato.base,
                   color: Colors.black
                 }}>1 Holiday Trip</Text>
@@ -177,7 +177,11 @@ export default class Payment extends Component{
               height: Metrics.screenHeight/3,
             }}>
             <List
-              style={{ height: Metrics.screenHeight/4, width: Metrics.screenWidth-30, flex: 1 }}>
+              style={{
+                height: Metrics.screenHeight/4,
+                width: Metrics.screenWidth-30,
+                flex: 1
+              }}>
               <ListItem
                 style={{
                   alignItems: 'center',
@@ -189,10 +193,7 @@ export default class Payment extends Component{
                 <Text
                   style={styles.paymnetOPtion}>Payment Options</Text>
               </ListItem>
-              <ListItem
-                style={{
-                  height: (Metrics.screenHeight/4)/3,
-                }}>
+              <ListItem style={{height: (Metrics.screenHeight/4)/3}}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
@@ -204,7 +205,7 @@ export default class Payment extends Component{
                   <Col style={{ flex: 0.3 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
-                      onPress={this.onPressBuyNow}>
+                      onPress={this.onPressCard}>
                       <Text
                         style={styles.buyNow}>Buy Now</Text>
                     </TouchableOpacity>
@@ -213,29 +214,37 @@ export default class Payment extends Component{
               </ListItem>
 
               <ListItem style={{ height: (Metrics.screenHeight/4)/3 }}>
-                <Row style={{ flex: 1}}>
+                <TouchableOpacity
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    height: (Metrics.screenHeight/4)/3 - 5
+                  }}
+                  onPress={this.onPressCard}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
-                      <Text style={styles.creditcardText}>Credit Card</Text>
-                    </Button>
+                    <Text style={styles.creditcardText}>Credit Card</Text>
                   </Col>
-                </Row>
+                </TouchableOpacity>
               </ListItem>
 
-              <ListItem style={{ borderBottomWidth: 0 }}>
-                <Row style={{ flex: 1}}>
+              <ListItem style={{ borderBottomWidth: 0, height: (Metrics.screenHeight/4)/3 - 5 }}>
+                <TouchableOpacity
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    height: (Metrics.screenHeight/4)/3 - 5
+                  }}
+                  onPress={this.onPressCard}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
-                      <Text style={styles.creditcardText}>Debit Card</Text>
-                    </Button>
+                    <Text style={styles.creditcardText}>Debit Card</Text>
                   </Col>
-                </Row>
+                </TouchableOpacity>
               </ListItem>
 
             </List>

@@ -65,30 +65,16 @@ export default class MyTripMap extends Component {
               }}>
               <Row
                 style={{
-                  marginTop: 20,
+                  marginTop: (Metrics.screenWidth === 320 ) ? 15 : 20,
                   marginLeft: 10,
-                  marginBottom: 20,
+                  marginBottom: (Metrics.screenWidth === 320 ) ? 15 : 20,
                   marginRight: 10 }}>
-                <Col style={{ flex: 0.58 }}>
-                  <Text
-                    style={{
-                      fontSize: Fonts.size.h4,
-                      fontFamily: Fonts.lato.light,
-                      color: Colors.black
-                    }}>College Shuttle</Text>
+                <Col style={(Metrics.screenWidth === 320 ) ? { flex: 0.54 } : { flex: 0.58 }}>
+                  <Text style={styles.collegeShuttleText}>College Shuttle</Text>
                 </Col>
-                <Col style={{ flex: 0.42 }}>
-                  <Text
-                    style={{
-                      fontSize: Fonts.size.regular,
-                      fontFamily: Fonts.lato.base,
-                      color: Colors.black}}>Bus No. GN73839</Text>
-                  <Text
-                    style={{
-                      fontSize: Fonts.size.regular,
-                      fontFamily: Fonts.lato.base,
-                      color: Colors.timeColor,
-                      textAlign: 'center'}}>View Bus image</Text>
+                <Col style={(Metrics.screenWidth === 320 ) ? { flex: 0.46 } : { flex: 0.42 }}>
+                  <Text style={styles.busnoText}>Bus No. GN73839</Text>
+                  <Text style={styles.viewBusText}>View Bus image</Text>
                 </Col>
               </Row>
             </Card>
@@ -104,35 +90,34 @@ export default class MyTripMap extends Component {
                 marginBottom: 20,
                 justifyContent: 'center'
               }}>
-              <Col style={{ flex: 0.2, justifyContent: 'center' }}>
-                <Image
-                  style={{
-                    resizeMode: 'contain',
-                    height: 60,
-                    width: 60,
-                    borderRadius: 30,
-                    borderColor: Colors.userProfileBorderColor,
-                    borderWidth: 1
-                  }} source={Images.profileicon} />
+              <Col
+                style={(Metrics.screenWidth === 320 ) ? {
+                  flex: 0.18, justifyContent: 'center' } : { flex: 0.2, justifyContent: 'center' }}>
+                <Image style={styles.driverProfileImage} source={Images.profileicon} />
               </Col>
-              <Col style={{ flex: 0.4, justifyContent: 'center' }}>
+              <Col
+                style={(Metrics.screenWidth === 320 ) ? {
+                  flex: 0.3,
+                  justifyContent: 'center'
+                } : {
+                  flex: 0.4,
+                  justifyContent: 'center'
+                }}>
                 <Row style={{ marginTop: 5, marginBottom: -2 }}>
-                  <Text
-                    style={{
-                      fontSize: Fonts.size.regular,
-                      fontFamily: Fonts.lato.light,
-                      color: Colors.black
-                    }}>Bus Driver</Text>
+                  <Text style={styles.busDriverText}>Bus Driver</Text>
                 </Row>
                 <Row style={{ marginTop: -2, marginBottom: 5 }}>
-                  <Text
-                    style={{
-                      fontSize: Fonts.size.regular,
-                      fontFamily: Fonts.lato.base,
-                      color: Colors.black}}>Danial Mathew</Text>
+                  <Text style={styles.busDriverNameText}>Danial Mathew</Text>
                 </Row>
               </Col>
-              <Col style={{ flex: 0.4, justifyContent: 'center' }}>
+              <Col
+                style={(Metrics.screenWidth === 320 ) ? {
+                  flex: 0.3,
+                  justifyContent: 'center'
+                } : {
+                  flex: 0.4,
+                  justifyContent: 'center'
+                }}>
                 <Row style={{ marginTop: 5, marginBottom: -2 }}>
                   <Button
                     transparent
@@ -140,16 +125,10 @@ export default class MyTripMap extends Component {
                       flex: 1,
                       backgroundColor: Colors.timeColor,
                       justifyContent: 'center',
-                      borderRadius: 24,
-
+                      borderRadius: 24
                     }}
                     onPress={this.onPressContactDriver}>
-                    <Text
-                      style={{
-                        fontFamily: Fonts.lato.base,
-                        fontSize: Fonts.size.regular,
-                        color: Colors.white
-                      }}>Contact</Text>
+                    <Text style={styles.contactText}>Contact</Text>
                   </Button>
                 </Row>
               </Col>

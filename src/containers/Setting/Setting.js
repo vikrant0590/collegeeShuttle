@@ -40,7 +40,7 @@ onPressLogout =() => {
 };
 
 onPressPackageCode=() => {
-  NavAction.buypackage();
+  NavAction.settingbuypackage();
 };
 
 
@@ -178,7 +178,7 @@ render(){
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
                 <Left
                   style={{
-                    top: 6.5
+                    top: 3.5
                   }}>
                   <Text style={styles.listText}>
                     Default Payment
@@ -203,7 +203,7 @@ render(){
               >
                 <Left
                   style={{
-                    top: 6.5
+                    top: 3.5
                   }}>
                   <Text style={styles.listText}>
                   Package Code
@@ -222,7 +222,7 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
-                <Left style={{ top: 6.5 }}>
+                <Left style={{ top: 3.5 }}>
                   <Text style={styles.listText}>
                   About Us
                   </Text>
@@ -240,7 +240,7 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
-                <Left style={{ top: 6.5 }}>
+                <Left style={{ top: 3.5 }}>
                   <Text style={styles.listText}>
                     Terms and Condition
                   </Text>

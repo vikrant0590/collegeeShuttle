@@ -5,7 +5,6 @@ import {
   Image }
   from 'react-native';
 import {
-  Container,
   Header,
   Left,
   Body,
@@ -17,20 +16,20 @@ import {
   List,
   ListItem,
   Card,
-  CardItem } from 'native-base';
-import { Colors, Metrics, Fonts } from '../../theme';
+} from 'native-base';
+import { Colors, Fonts } from '../../theme';
 import styles from './FriendListStyle';
-import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
+import { Actions } from 'react-native-router-flux';
+
 export default class FriendList extends  Component {
 
-  static get propTypes() {
-    return {
-      myProfile:PropTypes.any
-    };
-  }
-  back = () => {
-    this.props.myProfile();
+  onPressBack = () => {
+    Actions.pop();
+  };
+
+  onPressInviteFriend = () =>{
+    Actions.invitefriend();
   };
 
   render(){
@@ -46,7 +45,7 @@ export default class FriendList extends  Component {
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
             <Left>
-              <Button transparent onPress={this.back}>
+              <Button transparent onPress={this.onPressBack}>
                 <Icon name="arrow-back" style={{color:Colors.white}}/>
               </Button>
             </Left>
@@ -54,7 +53,9 @@ export default class FriendList extends  Component {
               <Title style={{color: Colors.white, ...Fonts.style.title }}>Friends</Title>
             </Body>
             <Right>
-              <Icon name="ios-person-add" style={{marginRight:10,color:'white'}}/>
+              <Button transparent onPress={this.onPressInviteFriend}>
+                <Icon name="ios-person-add" style={{marginRight:10,color:'white'}}/>
+              </Button>
             </Right>
           </Header>
         </LinearGradient>

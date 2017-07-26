@@ -22,22 +22,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Actions } from 'react-native-router-flux';
 import styles from './NotificatioStyle';
 import { NotificationCell } from '../../components';
-import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class Notification extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      isVisible : false
-    }
-  }
-
-
   onPressNotificationButton = () => {
-    this.setState({
-      isVisible: true
-    });
+
   };
 
 
@@ -52,7 +41,6 @@ export default class Notification extends Component {
 
     return(
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
-        <Spinner visible={this.state.isVisible} textContent={"Refresh..."} textStyle={{color: Colors.white}} />
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
             backgroundColor: Colors.transparent }}>

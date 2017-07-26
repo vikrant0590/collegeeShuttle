@@ -32,7 +32,7 @@ export default class MyPackage extends Component {
 
   render() {
     return(
-      <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
+      <Container style={{ backgroundColor: Colors.base }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
             backgroundColor: Colors.transparent }}>

@@ -4,10 +4,7 @@
 
 import React, { Component } from 'react';
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import {
-  StyleSheet,
-  View
-} from 'react-native';
+import { View } from 'react-native';
 import { } from 'native-base';
 import { } from '../../theme';
 import styles from './GoogleMapStyle';
@@ -24,7 +21,7 @@ export default class GoogleMap extends Component {
             latitudeDelta: 0.011,
             longitudeDelta: 0.011
           }}
-          style={StyleSheet.absoluteFillObject}
+          style={styles.map}
         />
       </View>
     );

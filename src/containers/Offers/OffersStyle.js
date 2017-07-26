@@ -82,8 +82,8 @@ export default StyleSheet.create({
 
   descriptionView: {
     marginTop: 10,
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 20,
+    marginRight: 20
   },
 
   descriptionText: {
@@ -94,8 +94,8 @@ export default StyleSheet.create({
 
   subDescriptionView: {
     marginTop: 10,
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 20,
+    marginRight: 20
   },
 
   subDescriptionText: {

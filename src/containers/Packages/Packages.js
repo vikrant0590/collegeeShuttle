@@ -2,30 +2,27 @@ import React,{ Component } from 'react';
 import {View, Image, Text, TouchableOpacity, StatusBar} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title,Content } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import { PropTypes } from 'prop-types';
-import { Colors, Images, Fonts } from '../../theme';
+import { Colors, Images, Fonts, Metrics } from '../../theme';
 import styles from './PackageStyle';
-
+import { Actions } from 'react-native-router-flux';
 export default class Packages extends  Component {
 
-  static get propTypes() {
-    return {
-      myProfile:PropTypes.func
-    };
-  }
-  back = () => {
-    this.props.myProfile();
+  onPressBack = () => {
+    Actions.pop();
   };
 
   render(){
     return(
-      <Container style={{backgroundColor:Colors.base}}>
+      <Container style={{ backgroundColor:Colors.base, marginBottom: Metrics.tabBarHeight }}>
         <StatusBar barStyle="light-content" />
         <LinearGradient colors={['#FC214F', '#D32735']}>
-          <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
-            shadowOffset:{height:0,width:0},shadowOpacity:0}}>
+          <Header
+            style={{
+              backgroundColor: Colors.transparent,
+              borderBottomWidth: 0
+            }}>
             <Left>
-              <Button transparent onPress={this.back}>
+              <Button transparent onPress={this.onPressBack}>
                 <Icon name="arrow-back" style={{color:Colors.white}}/>
               </Button>
             </Left>

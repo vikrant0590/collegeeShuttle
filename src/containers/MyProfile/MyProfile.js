@@ -53,26 +53,13 @@ export default class MyProfile extends Component {
       })
     }
     else if(item.index === 2){
-      this.setState({
-        myprofile:false,
-        list:false,
-        friendlist:true
-      })
+      NavAction.friendlist();
     }
     else if(item.index === 3){
-      // this.setState({
-      //   myprofile:false,
-      //   list:false,
-      //   buyPackage:true
-      // })
       NavAction.mypackage();
     }
     else if(item.index === 4){
-      this.setState({
-        myprofile:false,
-        refer:true,
-        list:false
-      })
+      NavAction.packages();
     }
   };
 
@@ -141,7 +128,7 @@ export default class MyProfile extends Component {
       {index: 0, title: 'Profile Detail'},
       {index: 1, title: 'Saved Cards'},
       {index: 2, title: 'Friends List'},
-      {index: 3, title: 'Buy Package'},
+      {index: 3, title: 'My Package'},
       {index: 4, title: 'Refer & Earn'},
       {index: 5, title: 'My Offers'}];
 
@@ -149,9 +136,7 @@ export default class MyProfile extends Component {
 
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         {(this.state.myprofile) &&
-
         <Header style={{ backgroundColor: '#FC214F',borderBottomColor:Colors.transparent}}>
-
           <Left>
             <Button transparent onPress={this.setMyProfile}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>
@@ -248,15 +233,6 @@ export default class MyProfile extends Component {
             </Content>
         }
 
-        {(this.state.refer) &&
-        <Packages myProfile ={() => this.setMyProfile()}/>
-        }
-        {(this.state.friendlist) &&
-        <FriendList myProfile={() => this.setMyProfile()}/>
-        }
-        {(this.state.buyPackage) &&
-          <BuyPackage myProfile={() => this.setMyProfile()}/>
-        }
       </Container>
     )
   }

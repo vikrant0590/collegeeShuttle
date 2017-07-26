@@ -14,6 +14,10 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   map: {
-    backgroundColor: Colors.black
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 });

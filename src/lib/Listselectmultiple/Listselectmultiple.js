@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, ListView, Text, TouchableOpacity, Image } from 'react-native'
 import styles from './ListselectmultipleStyle';
 import PropTypes from 'prop-types';
-import { Fonts, Colors, Metrics, Images } from '../../theme';
+import { Colors, Images } from '../../theme';
 
 const checkbox = Images.uncheckitemicon;
 const checkboxChecked = Images.checkitemicon;
@@ -22,6 +22,7 @@ const sourceType = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
 // A customiseable ListView that allows you to select multiple rows
 export default class SelectMultiple extends Component {
+
   static propTypes = {
     items: PropTypes.arrayOf(itemType).isRequired,
     selectedItems: PropTypes.arrayOf(itemType),
@@ -83,19 +84,14 @@ export default class SelectMultiple extends Component {
 
   onRowPress (row) {
     row = Object.assign({}, row);
-
     let { selectedItems } = this.props;
-
     selectedItems = (selectedItems || []).map(this.toLabelValueObject);
-
     const index = selectedItems.findIndex((selectedItem) => selectedItem.value === row.value);
-
     if (index > -1) {
       selectedItems = selectedItems.filter((selectedItem) => selectedItem.value !== row.value)
     } else {
       selectedItems = selectedItems.concat(row)
     }
-
     this.props.onSelectionsChange(selectedItems, row)
   }
 
@@ -150,9 +146,17 @@ export default class SelectMultiple extends Component {
 
     return (
       <TouchableOpacity onPress={() => this.onRowPress(row)}>
-        <View style={{ flex: 1, flexDirection: 'column' }}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'column'
+          }}>
           <View style={rowStyle}>
-            <View style={{ flex: 2, justifyContent: 'center' }}>
+            <View
+              style={{
+                flex: 2,
+                justifyContent: 'center'
+              }}>
               <Image style={{ height: 52, width: 52, borderRadius: 26 }} source={Images.profileicon} />
             </View>
             <View style={{ flex: 6.5, justifyContent: 'center', marginLeft: -5 }}>

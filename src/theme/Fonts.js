@@ -32,7 +32,7 @@ const lato = {
 const normalize = (size) => {
   if(pixelRatio == 2 ){
     if(SCREEN_WIDTH == 375){
-      return size * (Platform.OS === 'ios' ? 1 : size);
+      return size * (Platform.OS === 'ios' ? 1.05 : size);
     }
     return size * (Platform.OS === 'ios' ? 0.95 : size) ;
   }
@@ -61,6 +61,7 @@ const size = {
   small: normalize(13),
   tiny: normalize(8.5),
   tab:normalize(9),
+  paymentheader: normalize(24),
   headingText:normalize(13),
 };
 

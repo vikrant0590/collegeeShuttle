@@ -50,65 +50,6 @@ export default class Payment extends Component{
   };
 
   render(){
-    const paymentswiper = [];
-    for(let index = 0; index < 2; index ++){
-      paymentswiper.push(
-        <Card
-          style={{
-            flex: 1,
-            marginLeft: 15,
-            marginRight: 15,
-            marginTop: 15,
-            width: Metrics.screenWidth - 30,
-            height: Metrics.screenHeight/ 3.5
-          }} key={index}>
-          <Row style={{ flex: 0.75, width: Metrics.screenWidth - 30 }}>
-            <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
-              <CardItem>
-                <Body style={{ alignItems: 'center' }}>
-                  <Text style={styles.paymentDateText}>25</Text>
-                  <Text style={styles.paymentDayText}>Friday</Text>
-                  <Text style={styles.paymentmonthText}>Feb, 2017</Text>
-                </Body>
-              </CardItem>
-            </Col>
-            <Col style={{ marginTop: Metrics.screenWidth/23, marginBottom: Metrics.screenWidth/23, width: 1 }}>
-              <View style={styles.thinLine} />
-            </Col>
-            <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
-              <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
-                <CardItem>
-                  <Body style={{ justifyContent: 'flex-start' }}>
-                    <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
-                    <Text style={styles.paymentUniversityText}>University - Home</Text>
-                    <Text style={[styles.paymentUpcomingText,{paddingTop: 10}]}>BUS NAME</Text>
-                    <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
-                  </Body>
-                </CardItem>
-              </Row>
-            </Col>
-          </Row>
-          <Row style={{ flex: 0.25, width: Metrics.screenWidth - 30, marginBottom: 10, marginTop: 10 }}>
-            <Col style={{ flex: 0.5, width: Metrics.screenWidth/5 }}>
-              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
-                <Body style={{ alignItems: 'flex-start' }}>
-                  <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
-                  <Text style={styles.paymentUniText}>Uni Circle</Text>
-                </Body>
-              </CardItem>
-            </Col>
-            <Col style={{flex: 0.6, marginRight: 5, width: Metrics.screenWidth/3 }}>
-              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
-                <Body style={{justifyContent: 'flex-start'}}>
-                  <Text style={styles.paymentPickupText}>DROP</Text>
-                  <Text style={styles.paymentUniText}>Metro Station</Text>
-                </Body>
-              </CardItem>
-            </Col>
-          </Row>
-        </Card>
-      );
-    }
 
     const BankCardSwiper = [];
     for(let index = 0; index < 2; index ++){
@@ -147,7 +88,6 @@ export default class Payment extends Component{
       );
     }
 
-
     return(
       <Container style={{ flex:1, backgroundColor: Colors.base }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
@@ -166,30 +106,53 @@ export default class Payment extends Component{
         </LinearGradient>
 
         <Content>
-          <SwipePayment
-            circleDefaultStyle = {{
-              backgroundColor: Colors.thinLineColor,
-              height: 10,
-              width: 10,
-              borderRadius: 5,
-              marginTop: Metrics.screenHeight/14
-            }}
-            style = {{ backgroundColor: Colors.base }}
-            circleActiveStyle = {{
-              backgroundColor: Colors.timeColor,
-              height: 10,
-              width: 10,
-              borderRadius: 5,
-              marginTop: Metrics.screenHeight/14,
-              marginHorizontal: 2.5,
-              marginVertical: 3
+          <Card
+            style={{
+              marginTop: 15,
+              marginLeft: 15,
+              marginRight: 15,
+              height: Metrics.screenWidth/2.2,
+              justifyContent:'center',
+              alignItems:'center'
             }}>
-            {paymentswiper}
-          </SwipePayment>
+
+            <Button transparent style={{ marginTop: 15, alignSelf: 'center', flex: 1 }}>
+              <Text
+                style={{
+                  fontSize: Fonts.size.paymentheader,
+                  fontFamily: Fonts.lato.base,
+                  color: Colors.timeColor
+                }}>Triple Play</Text>
+            </Button>
+            <Button transparent style={{ alignSelf: 'center',  flex: 1 }}>
+              <Text
+                style={{
+                  fontSize: Fonts.size.input,
+                  fontFamily: Fonts.lato.base,
+                  color: Colors.timeColor
+                }}>3 Trips</Text>
+            </Button>
+            <Button transparent style={{ alignSelf: 'center',  flex: 1 }}>
+              <Text
+                style={{
+                  fontSize: Fonts.size.regular,
+                  fontFamily: Fonts.lato.base,
+                  color: Colors.black
+                }}>3 Weekend Trip</Text>
+            </Button>
+            <Button transparent style={{ marginBottom: 15, alignSelf: 'center',  flex: 1 }}>
+              <Text
+                style={{
+                  fontSize: Fonts.size.regular,
+                  fontFamily: Fonts.lato.base,
+                  color: Colors.black
+                }}>1 Holiday Trip</Text>
+            </Button>
+          </Card>
 
           <Card
             style={{
-              marginTop: Metrics.screenHeight/15,
+              marginTop: 15,
               marginLeft: 15,
               marginRight: 15,
               height: Metrics.screenWidth/6,
@@ -214,7 +177,11 @@ export default class Payment extends Component{
               height: Metrics.screenHeight/3,
             }}>
             <List
-              style={{ height: Metrics.screenHeight/4, width: Metrics.screenWidth-30, flex: 1 }}>
+              style={{
+                height: Metrics.screenHeight/4,
+                width: Metrics.screenWidth-30,
+                flex: 1
+              }}>
               <ListItem
                 style={{
                   alignItems: 'center',
@@ -226,10 +193,7 @@ export default class Payment extends Component{
                 <Text
                   style={styles.paymnetOPtion}>Payment Options</Text>
               </ListItem>
-              <ListItem
-                style={{
-                  height: (Metrics.screenHeight/4)/3,
-                }}>
+              <ListItem style={{height: (Metrics.screenHeight/4)/3}}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
@@ -241,7 +205,7 @@ export default class Payment extends Component{
                   <Col style={{ flex: 0.3 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
-                      onPress={this.onPressBuyNow}>
+                      onPress={this.onPressCard}>
                       <Text
                         style={styles.buyNow}>Buy Now</Text>
                     </TouchableOpacity>
@@ -250,29 +214,37 @@ export default class Payment extends Component{
               </ListItem>
 
               <ListItem style={{ height: (Metrics.screenHeight/4)/3 }}>
-                <Row style={{ flex: 1}}>
+                <TouchableOpacity
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    height: (Metrics.screenHeight/4)/3 - 5
+                  }}
+                  onPress={this.onPressCard}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
-                      <Text style={styles.creditcardText}>Credit Card</Text>
-                    </Button>
+                    <Text style={styles.creditcardText}>Credit Card</Text>
                   </Col>
-                </Row>
+                </TouchableOpacity>
               </ListItem>
 
-              <ListItem style={{ borderBottomWidth: 0 }}>
-                <Row style={{ flex: 1}}>
+              <ListItem style={{ borderBottomWidth: 0, height: (Metrics.screenHeight/4)/3 - 5 }}>
+                <TouchableOpacity
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    height: (Metrics.screenHeight/4)/3 - 5
+                  }}
+                  onPress={this.onPressCard}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
                   </Col>
                   <Col style={{ flex: 0.9, justifyContent: 'center'}}>
-                    <Button style={{marginLeft:-15,height:25}} transparent onPress={this.onPressCard}>
-                      <Text style={styles.creditcardText}>Debit Card</Text>
-                    </Button>
+                    <Text style={styles.creditcardText}>Debit Card</Text>
                   </Col>
-                </Row>
+                </TouchableOpacity>
               </ListItem>
 
             </List>

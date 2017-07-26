@@ -4,17 +4,18 @@ import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container:{
-    height: Metrics.screenHeight - Metrics.screenHeight/3
+    height: Metrics.screenHeight - Metrics.screenHeight/3,
   },
   headerImage: {
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: 10
+    marginTop: 10,
+
   },
   subView:{
     backgroundColor: Colors.offerContentColor,
     flex: 1,
-    marginTop: 50,
+    marginTop: 30,
     marginLeft: -10,
     marginRight: -10,
     marginBottom: -10

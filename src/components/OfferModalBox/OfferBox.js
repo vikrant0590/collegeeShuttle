@@ -4,7 +4,7 @@ import OfferModalBox from 'react-native-simple-modal';
 import {Actions as NavAction} from 'react-native-router-flux';
 import { Row, Col } from 'native-base';
 import styles from './OfferBoxStyle';
-import { Images, Fonts, Colors } from '../../theme';
+import { Images, Fonts, Colors, Metrics } from '../../theme';
 export default class OfferBox extends Component {
 
   constructor(){
@@ -45,7 +45,17 @@ export default class OfferBox extends Component {
       >
 
         <View style={styles.container}>
-          <Image style={styles.headerImage} source={Images.offerboxbgicon}/>
+          <View
+            style={{
+              backgroundColor: Colors.white,
+              height: Metrics.screenHeight/4 ,
+              marginTop: -10,
+              marginRight: -10,
+              marginLeft: -10,
+              marginBottom: -25
+            }}>
+            <Image style={styles.headerImage} source={Images.offerboxbgicon}/>
+          </View>
           <View
             style={styles.subView}>
             <View style={styles.marginTextHeaderView}>

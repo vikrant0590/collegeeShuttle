@@ -122,14 +122,14 @@ export default StyleSheet.create({
   },
 
   busIcon:{
-    marginRight: 20,
+    marginRight: (Metrics.screenWidth === 320) ? 10 : 20,
     resizeMode: 'contain',
     marginBottom: 10,
-    width: Metrics.screenWidth - 72,
+    width: (Metrics.screenWidth === 320) ? Metrics.screenWidth - 62 : Metrics.screenWidth - 72,
   },
 
   headerDesText: {
-    fontSize: Fonts.size.h6,
+    fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.base
   },
 

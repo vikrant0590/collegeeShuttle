@@ -5,7 +5,6 @@ import {Actions as NavAction} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { validationOnEmail} from '../../helpers/EmailValidation';
-
 import styles from './SignupStyles';
 import { Images, Colors } from '../../theme';
 import getTheme from '../../../native-base-theme/components';
@@ -13,8 +12,8 @@ import material from '../../../native-base-theme/variables/material';
 import { GoogleLogin, FaceboolLogin } from '../../components';
 import { register } from '../../redux/modules/register';
 import { toast } from '../../helpers/ToastMessage';
-import Facebooksignin from "../../components/Facebooksignin/Facebooksignin";
-import Googlesignin from "../../components/Googlesignin/Googlesignin";
+// import Facebooksignin from "../../components/Facebooksignin/Facebooksignin";
+// import Googlesignin from "../../components/Googlesignin/Googlesignin";
 
 
 export default class Signup extends Component {
@@ -89,10 +88,10 @@ export default class Signup extends Component {
                 </Text>
               </View>
               <View style={styles.loginFacebookContainer}>
-                <Facebooksignin/>
+                <FaceboolLogin/>
               </View>
               <View style={styles.loginGoogleContainer}>
-                <Googlesignin/>
+                <GoogleLogin/>
               </View>
               <View style={styles.optionalContainer}>
                 <View>

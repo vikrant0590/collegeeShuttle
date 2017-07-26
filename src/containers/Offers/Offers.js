@@ -4,23 +4,27 @@ import { Container, Content, Header, Left, Title, Body, Right, Button, Icon, Row
 import { Colors, Fonts, Metrics, Images } from '../../theme';
 import styles from './OffersStyle';
 import { Actions } from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
 export default class Offers extends Component{
 
 
   render(){
     return(
       <Container style={{ flex:1, backgroundColor: Colors.base }}>
-        <Header style={{ backgroundColor:Colors.headerColor, borderBottomWidth:0 }}>
-          <Left/>
-          <Body>
-            <Title style={{ color:Colors.white, ...Fonts.style.title }}>Offers</Title>
-          </Body>
-          <Right>
-            <Button transparent onPress={()=> Actions.pop()}>
-              <Icon name='md-close' style={{ color: Colors.white, fontSize: Fonts.size.h5 }} />
-            </Button>
-          </Right>
-        </Header>
+        <LinearGradient colors={['#FC214F', '#D32735']}>
+          <Header style={{ backgroundColor: Colors.transparent, borderBottomWidth:0 }}>
+            <Left/>
+            <Body>
+              <Title style={{color: Colors.white, ...Fonts.style.title}}>Offers</Title>
+            </Body>
+            <Right>
+              <Button transparent onPress={()=> Actions.pop()}>
+                <Icon name='md-close' style={{ color: Colors.white, fontSize: Fonts.size.h5 }} />
+              </Button>
+            </Right>
+          </Header>
+        </LinearGradient>
+
         <Content>
           <View
             style={styles.offerContainer}>

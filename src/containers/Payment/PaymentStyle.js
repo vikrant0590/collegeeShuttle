@@ -137,13 +137,14 @@ export default StyleSheet.create({
     fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.base,
     color: Colors.placeholderTextColor,
-    padding: 8,
+    paddingTop: 5,
   },
 
   paymentmonthText: {
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
+    paddingTop: 5,
   },
 
   paymentUpcomingText: {
@@ -156,7 +157,7 @@ export default StyleSheet.create({
     fontSize: Fonts.size.regular,
     fontFamily: Fonts.lato.base,
     color: Colors.black,
-    paddingTop: 5,
+    paddingTop: 2,
   },
 
   paymentPickupText: {

@@ -14,7 +14,7 @@ export default class RoundTrip extends Component {
   };
 
   onPressGetOff = () =>{
-    Actions.buypackage();
+    Actions.buypackages();
   };
 
 
@@ -33,7 +33,7 @@ export default class RoundTrip extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ flex: 1.1 }}>
+            <Col style={{ flex: 1.1, marginRight: 3 }}>
               <CardItem>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={styles.titleHeaderText}>DESTINATION</Text>
@@ -63,16 +63,14 @@ export default class RoundTrip extends Component {
               </TouchableOpacity>
             </Body>
             <Body style={{ marginTop: 30, marginBottom: 20, marginRight: 10 }}>
-              <View style={styles.inviteView}>
-                <TouchableOpacity
-                  style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
-                  onPress={this.onPressInviteButton}>
-                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
-                  <Icon name='ios-contact' style={{ fontSize: Fonts.size.h8, alignSelf: 'center', marginLeft: 10 }} />
-                  <Image source={Images.roundtripaddicon} style={styles.tripicon} />
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity
+                style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
+                onPress={this.onPressInviteButton}>
+                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
+                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
+                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
+                <Image source={Images.roundtripaddicon} style={styles.tripicon} />
+              </TouchableOpacity>
             </Body>
           </CardItem>
         </Card>
@@ -89,7 +87,7 @@ export default class RoundTrip extends Component {
               <CardItem>
                 <Body style={{ }}>
                   <Text style={styles.headerDesText}>Get upto
-                    <Text style={{ color: Colors.roundTripColor}}>30% OFF</Text> on your booking</Text>
+                    <Text style={{ color: Colors.roundTripColor}}> 30% OFF</Text> on your booking</Text>
                 </Body>
               </CardItem>
             </Row>

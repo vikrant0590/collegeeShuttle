@@ -3,8 +3,8 @@ import { WalkThroughFirst, WalkThroughSecond, WalkThroughThird } from '../../com
 import SwipeALot from 'react-native-swipe-a-lot';
 
 export default class WalkThrough extends Component {
-  render() {
 
+  render() {
     return (
       <SwipeALot>
         <WalkThroughFirst />

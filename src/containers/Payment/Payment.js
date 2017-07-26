@@ -3,7 +3,8 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import {
   Container,
@@ -22,7 +23,7 @@ import {
   ListItem,
 } from 'native-base';
 import { PaymentFailed, PaymentSuccess } from '../../components';
-import { Colors, Metrics, Images } from '../../theme';
+import { Colors, Metrics, Images, Fonts } from '../../theme';
 import SwipePayment from 'react-native-swipe-a-lot';
 import styles from './PaymentStyle';
 import { Actions } from 'react-native-router-flux';
@@ -48,9 +49,7 @@ export default class Payment extends Component{
     Actions.addCard();
   };
 
-
   render(){
-
     const paymentswiper = [];
     for(let index = 0; index < 2; index ++){
       paymentswiper.push(
@@ -63,7 +62,7 @@ export default class Payment extends Component{
             width: Metrics.screenWidth - 30,
             height: Metrics.screenHeight/ 3.5
           }} key={index}>
-          <Row style={{ flex: 0.65, width: Metrics.screenWidth - 30 }}>
+          <Row style={{ flex: 0.75, width: Metrics.screenWidth - 30 }}>
             <Col style={{ flex: 0.75, width: Metrics.screenWidth/ 2 }}>
               <CardItem>
                 <Body style={{ alignItems: 'center' }}>
@@ -78,31 +77,29 @@ export default class Payment extends Component{
             </Col>
             <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2 }}>
               <Row style={{ flex: 0.65, width: Metrics.screenWidth/ 2 }}>
-                <Col style={{ flex: 0.85 }}>
-                  <CardItem>
-                    <Body style={{ justifyContent: 'flex-start' }}>
-                      <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
-                      <Text style={styles.paymentUniversityText}>University - Home</Text>
-                      <Text style={[styles.paymentUpcomingText,{paddingTop: 15}]}>BUS NAME</Text>
-                      <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
-                    </Body>
-                  </CardItem>
-                </Col>
+                <CardItem>
+                  <Body style={{ justifyContent: 'flex-start' }}>
+                    <Text style={styles.paymentUpcomingText}>DESTINATION</Text>
+                    <Text style={styles.paymentUniversityText}>University - Home</Text>
+                    <Text style={[styles.paymentUpcomingText,{paddingTop: 10}]}>BUS NAME</Text>
+                    <Text style={styles.paymentUniversityText}>College Shuttle Pro</Text>
+                  </Body>
+                </CardItem>
               </Row>
             </Col>
           </Row>
-          <Row style={{ flex: 0.33, width: Metrics.screenWidth - 30 }}>
-            <Col style={{ flex: 0.80 }}>
-              <CardItem style={{ backgroundColor: Colors.transparent }}>
+          <Row style={{ flex: 0.25, width: Metrics.screenWidth - 30, marginBottom: 10, marginTop: 10 }}>
+            <Col style={{ flex: 0.5, width: Metrics.screenWidth/5 }}>
+              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={[styles.paymentPickupText]}>PICKUP POINT</Text>
                   <Text style={styles.paymentUniText}>Uni Circle</Text>
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{flex: 1.20, marginRight: 5 }}>
-              <CardItem>
-                <Body style={{justifyContent: 'flex-start', marginTop: -2}}>
+            <Col style={{flex: 0.6, marginRight: 5, width: Metrics.screenWidth/3 }}>
+              <CardItem style={{ backgroundColor: Colors.transparent, marginTop: -10 }}>
+                <Body style={{justifyContent: 'flex-start'}}>
                   <Text style={styles.paymentPickupText}>DROP</Text>
                   <Text style={styles.paymentUniText}>Metro Station</Text>
                 </Body>
@@ -119,10 +116,10 @@ export default class Payment extends Component{
         <Card
           style={{
             flex: 1,
-            marginLeft: 15,
-            marginRight: 15,
+            marginLeft: (index === 0) ? 15 : -40,
+            marginRight: (index === 0) ? 50 : 15,
             marginTop: 15,
-            width: Metrics.screenWidth - 30,
+            width: Metrics.screenWidth - 60,
             height: Metrics.screenHeight/ 5
           }} key={index}>
           <Row
@@ -134,12 +131,12 @@ export default class Payment extends Component{
             <Image style={styles.bankmastercardimage} source={Images.bankmastercardicon} />
           </Row>
           <Row style={{ marginLeft: Metrics.screenWidth/50, marginRight: Metrics.screenWidth/50 }}>
-            <Col style={{ flex: 0.5 }}>
+            <Col style={{ flex: 0.6 }}>
               <Text style={styles.cardnumberText}>CARD NUMBER</Text>
               <Text
                 style={styles.cardDetails}>6757 **** **** 8979</Text>
             </Col>
-            <Col style={{ flex: 0.5 }}>
+            <Col style={{ flex: 0.4 }}>
               <Text
                 style={styles.expiryDate}>EXPIRY DATE</Text>
               <Text
@@ -162,7 +159,7 @@ export default class Payment extends Component{
               </Button>
             </Left>
             <Body>
-              <Title style={{ color:Colors.white }}>Payment</Title>
+              <Title style={{ color:Colors.white, ...Fonts.style.title }}>Payment</Title>
             </Body>
             <Right />
           </Header>
@@ -202,23 +199,11 @@ export default class Payment extends Component{
             <Text style={styles.totalamount}>Total Payble Amount: $72</Text>
           </Card>
 
-          <SwipePayment
-            circleDefaultStyle = {{
-              backgroundColor: Colors.thinLineColor,
-              height: 0,
-              width: 0,
-              borderRadius: 0,
-
-            }}
-            style = {{ backgroundColor: Colors.base }}
-            circleActiveStyle = {{
-              backgroundColor: Colors.timeColor,
-              height: 0,
-              width: 0,
-              borderRadius: 0,
-            }}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator= {false}>
             {BankCardSwiper}
-          </SwipePayment>
+          </ScrollView>
 
           <Card
             style={{
@@ -229,27 +214,31 @@ export default class Payment extends Component{
               height: Metrics.screenHeight/3,
             }}>
             <List
-              style={{ height: Metrics.screenHeight/3, width: Metrics.screenWidth-30, flex: 1 }}>
+              style={{ height: Metrics.screenHeight/4, width: Metrics.screenWidth-30, flex: 1 }}>
               <ListItem
                 style={{
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginLeft: 0,
+                  height: (Metrics.screenHeight/4)/3,
                   backgroundColor: Colors.profileInputHeadingColor
                 }}>
                 <Text
                   style={styles.paymnetOPtion}>Payment Options</Text>
               </ListItem>
-              <ListItem >
+              <ListItem
+                style={{
+                  height: (Metrics.screenHeight/4)/3,
+                }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.packageicon} />
                   </Col>
-                  <Col style={{ flex: 0.7}}>
+                  <Col style={{ flex: 0.6}}>
                     <Text
                       style={styles.collegeText}>College Shuttle Package</Text>
                   </Col>
-                  <Col style={{ flex: 0.2 }}>
+                  <Col style={{ flex: 0.3 }}>
                     <TouchableOpacity
                       style={{flex: 1}}
                       onPress={this.onPressBuyNow}>
@@ -260,7 +249,7 @@ export default class Payment extends Component{
                 </Row>
               </ListItem>
 
-              <ListItem>
+              <ListItem style={{ height: (Metrics.screenHeight/4)/3 }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />
@@ -273,7 +262,7 @@ export default class Payment extends Component{
                 </Row>
               </ListItem>
 
-              <ListItem >
+              <ListItem style={{ borderBottomWidth: 0 }}>
                 <Row style={{ flex: 1}}>
                   <Col style={{ flex: 0.1, justifyContent: 'center'}}>
                     <Image style={{ resizeMode: 'contain' }} source={Images.creditcardicon} />

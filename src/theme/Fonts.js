@@ -34,7 +34,7 @@ const normalize = (size) => {
     if(SCREEN_WIDTH == 375){
       return size * (Platform.OS === 'ios' ? 1 : size);
     }
-    return size * (Platform.OS === 'ios' ? 0.90 : size) ;
+    return size * (Platform.OS === 'ios' ? 0.95 : size) ;
   }
   if(pixelRatio == 3){
     return size * (Platform.OS === 'ios' ? 1.15 : size);
@@ -133,7 +133,11 @@ const style = {
   rating:{
     fontSize:size.headingText,
     fontFamily:lato.light
-  }
+  },
+  title:{
+    fontSize: size.regular,
+    fontFamily: lato.base
+  },
 };
 
 export default {

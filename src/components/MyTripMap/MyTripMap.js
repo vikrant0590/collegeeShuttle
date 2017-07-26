@@ -24,11 +24,6 @@ import { Actions } from 'react-native-router-flux';
 
 export default class MyTripMap extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-    }
-  }
 
   onPressSearchList = () =>{
 

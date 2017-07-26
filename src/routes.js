@@ -30,13 +30,13 @@ import {
 } from './theme';
 import { login } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
-import { AsyncStorage  } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './routesStyle';
 export default class AppRouter extends Component {
 
   static contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
   };
   constructor(props) {
     super(props);
@@ -86,8 +86,8 @@ export default class AppRouter extends Component {
           tabBarStyle={styles.tabBarStyle}
           hideNavBar={true}
           tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
-          initial={this.state.logged}>
-
+          initial={this.state.logged}
+        >
           <Scene
             key="tab1"
             title="HOME"
@@ -100,6 +100,7 @@ export default class AppRouter extends Component {
               key="home"
               component={Home}
               hideNavBar={true}/>
+            <Scene key="buypackages" component={BuyPackage} hideNavBar={true}/>
             <Scene
               key="allTrips"
               component={AllTrips}

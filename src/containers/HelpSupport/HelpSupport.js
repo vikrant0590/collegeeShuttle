@@ -11,12 +11,6 @@ const items = ['What do I need to Board Shuttle',
   'Cancelation Policy'];
 
 export default class HelpSupport extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
 
   onPressGoBack = () =>{
     Actions.pop();
@@ -32,7 +26,7 @@ export default class HelpSupport extends Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Help Support</Title>
+            <Title style={{ color: Colors.white, ...Fonts.style.title }}>Help Support</Title>
           </Body>
           <Right />
         </Header>

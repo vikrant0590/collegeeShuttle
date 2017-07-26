@@ -22,13 +22,6 @@ import {
 
 export default class Facebooksignin extends Component {
 
-  constructor(){
-    super();
-    this.state ={
-
-    }
-  }
-
   static contextTypes = {
     store: PropTypes.object
   };

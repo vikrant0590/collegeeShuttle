@@ -5,12 +5,7 @@ import { Colors, Fonts, Metrics, Images } from '../../theme';
 import styles from './OffersStyle';
 import { Actions } from 'react-native-router-flux';
 export default class Offers extends Component{
-  constructor(){
-    super();
-    this.state ={
 
-    }
-  }
 
   render(){
     return(
@@ -18,7 +13,7 @@ export default class Offers extends Component{
         <Header style={{ backgroundColor:Colors.headerColor, borderBottomWidth:0 }}>
           <Left/>
           <Body>
-            <Title style={{ color:Colors.white }}>Offers</Title>
+            <Title style={{ color:Colors.white, ...Fonts.style.title }}>Offers</Title>
           </Body>
           <Right>
             <Button transparent onPress={()=> Actions.pop()}>

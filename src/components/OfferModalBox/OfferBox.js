@@ -4,7 +4,7 @@ import OfferModalBox from 'react-native-simple-modal';
 import {Actions as NavAction} from 'react-native-router-flux';
 import { Row, Col } from 'native-base';
 import styles from './OfferBoxStyle';
-import { Images, Fonts } from '../../theme';
+import { Images, Fonts, Colors } from '../../theme';
 export default class OfferBox extends Component {
 
   constructor(){
@@ -19,6 +19,7 @@ export default class OfferBox extends Component {
       open: true,
     })
   };
+
   onCloseModal =() =>{
     this.setState({ open : false});
   };
@@ -26,7 +27,6 @@ export default class OfferBox extends Component {
   onPressCopyCode = () =>{
     this.setState({open: false});
     NavAction.payment();
-
   };
 
   onPressValidation = () => {
@@ -38,7 +38,7 @@ export default class OfferBox extends Component {
     return(
       <OfferModalBox
         open={open}
-        overlayBackground={'rgba(0, 0, 0, 0.3)'}
+        overlayBackground={Colors.modalBgColor}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.boxViewConatiner}
         modalStyle={styles.boxViewStyle}

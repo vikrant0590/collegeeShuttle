@@ -19,7 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-  [application setStatusBarStyle:UIStatusBarStyleLightContent];
+  
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
@@ -28,12 +29,6 @@
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-// [application setStatusBarHidden:NO];
-// [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-// UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-// if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-//    statusBar.backgroundColor = [UIColor blueColor];
-//  }
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

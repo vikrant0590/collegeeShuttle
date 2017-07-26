@@ -29,8 +29,8 @@ export default class Login extends Component {
   constructor(props){
     super(props);
     this.state ={
-      eid: undefined,
-      password: undefined,
+      eid: "vikrant.thakur535@gmail.com",
+      password: "nokian7007",
       isVisible: false
     }
   }
@@ -58,8 +58,6 @@ export default class Login extends Component {
     }
 
   };
-
-
 
   render() {
     return(

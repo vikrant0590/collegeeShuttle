@@ -23,12 +23,11 @@ export default class PaymentSuccess extends Component {
 
   onPressViewDetails = () => {
     this.setState({open: false});
-    NavAction.tabbar({type:'reset', selectedTab:1 });
-
+    NavAction.tabbar({type:'reset'});
   };
 
   onPressCloseBtn = () => {
-    this.setState({open: false});
+    this.setState({ open: false });
   };
 
   onPressWhatAppShare = () =>{
@@ -54,7 +53,7 @@ export default class PaymentSuccess extends Component {
     return(
       <PaymentModalSuccess
         open={open}
-        overlayBackground={'rgba(0, 0, 0, 0.3)'}
+        overlayBackground={Colors.modalBgColor}
         modalDidClose={() => this.setState({open: false }) }
         containerStyle={styles.PaymentViewConatiner}
         modalStyle={styles.PaymentViewStyle}>

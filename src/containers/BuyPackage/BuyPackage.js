@@ -1,7 +1,20 @@
 import React,{Component} from 'react';
-import {View, Text, Image, TouchableOpacity } from 'react-native';
-import { Container, Header, Left, Body, Right, Icon, Title,Content, Button, Card, CardItem, List, } from 'native-base';
-import { Colors, Fonts, Images, Metrics  } from '../../theme';
+import {View, Text, Image, TouchableOpacity, StatusBar } from 'react-native';
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Right,
+  Icon,
+  Title,
+  Content,
+  Button,
+  Card,
+  CardItem,
+  List
+} from 'native-base';
+import { Colors, Images, Metrics, Fonts  } from '../../theme';
 import styles from './BuyPackageStyle';
 import { PropTypes } from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
@@ -12,15 +25,15 @@ export default class BuyPackage extends  Component {
 
   static get propTypes() {
     return {
-      isActive:PropTypes.func
+      myProfile:PropTypes.func
     };
   }
 
   onPressBackButton = () => {
-    if (this.props.isActive === undefined) {
+    if (this.props.myProfile === undefined) {
       NavAction.pop();
     } else {
-      this.props.isActive();
+      this.props.myProfile();
     }
   };
   onPressBuyNow = () =>{
@@ -35,7 +48,7 @@ export default class BuyPackage extends  Component {
     ];
 
     return(
-      <Container style={{flex: 1,backgroundColor:Colors.base}}>
+      <Container style={{flex: 1,backgroundColor:Colors.base }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent}}>
             <Left>
@@ -44,7 +57,7 @@ export default class BuyPackage extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>Packages</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title }}>Packages</Title>
             </Body>
             <Right>
             </Right>
@@ -57,21 +70,16 @@ export default class BuyPackage extends  Component {
                 <Card style={{ flex: 1}}>
                   <CardItem style={{ width: Metrics.screenWidth - 30}}>
                     <View style={styles.tripItem}>
-
                       <View style={styles.tripHeading}>
-
                         <View style={styles.tripHeadingItem}>
                           <Text style={styles.choice}>Triple Play</Text>
                           <Image source={Images.ellipse} style={styles.ellipse}/>
                           <Text style={styles.choice}>{item.totalTrips} Trips</Text>
                         </View>
-
                         <View style={{flex:1}}>
                           <Text style={styles.price}>{item.amount}</Text>
                         </View>
-
                       </View>
-
                       <View style={styles.tripDescription}>
                         <View style={styles.tripDetails}>
                           <Text style={{color: Colors.black}}>{item.weekend} Weekend Trip{"\n"}</Text>
@@ -89,7 +97,6 @@ export default class BuyPackage extends  Component {
                         </View>
                       </View>
                     </View>
-
                   </CardItem>
                 </Card>
               }/>

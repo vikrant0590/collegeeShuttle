@@ -125,16 +125,7 @@ export default StyleSheet.create({
     marginRight: 20,
     resizeMode: 'contain',
     marginBottom: 10,
-    width: Metrics.screenWidth - 80,
-    // ...Platform.select({
-    //   ios: {
-    //     aspectRatio:(Metrics.screenWidth === 320) ?  6.5 :  9.5,
-    //     marginLeft:(Metrics.screenWidth === 320) ?  - Metrics.screenWidth/22 : - Metrics.screenWidth/13,
-    //   },
-    //   android:{
-    //     //set icon and text style...
-    //   }
-    // }),
+    width: Metrics.screenWidth - 72,
   },
 
   headerDesText: {
@@ -143,8 +134,8 @@ export default StyleSheet.create({
   },
 
   tripicon: {
-    height: 34,
-    width: 38,
+    height: 32,
+    width: 34,
     resizeMode: 'contain',
     marginLeft: 10,
     alignSelf: 'center'

@@ -4,7 +4,7 @@ import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, B
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './SettingStyle';
 import {Switch} from 'react-native-base-switch';
-import {Colors, Images, Metrics } from '../../theme';
+import {Colors, Images, Metrics, Fonts } from '../../theme';
 import { Platform} from 'react-native';
 import { Actions as NavAction } from 'react-native-router-flux';
 
@@ -44,20 +44,18 @@ onPressPackageCode=() => {
 };
 
 
-
-
 render(){
   return(
-    <Container style={{ marginBottom: Metrics.tabBarHeight }}>
+    <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
       <LinearGradient colors={['#FC214F', '#D32735']}>
-        <Header style={{backgroundColor:Colors.transparent,borderBottomWidth:0}}>
+        <Header style={{ backgroundColor:Colors.transparent,borderBottomWidth:0 }}>
           <Left>
             <Button transparent onPress={NavAction.pop}>
               <Icon name="arrow-back" style={{color: Colors.white}}/>
             </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Settings</Title>
+            <Title style={{color:'white', ...Fonts.style.title }}>Settings</Title>
           </Body>
           <Right>
           </Right>
@@ -84,7 +82,10 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <Left>
+              <Left
+                style={{
+                  top: 6.5
+                }}>
                 <Text style={styles.listText}>
                     Show Notifications
                 </Text>
@@ -112,7 +113,10 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <Left>
+              <Left
+                style={{
+                  top: 6.5
+                }}>
                 <Text style={styles.listText}>
                   Parents Notifications
                 </Text>
@@ -140,7 +144,10 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <Left>
+              <Left
+                style={{
+                  top: 6.5
+                }}>
                 <Text style={styles.listText}>
                   Location Service
                 </Text>
@@ -169,7 +176,10 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
-                <Left>
+                <Left
+                  style={{
+                    top: 6.5
+                  }}>
                   <Text style={styles.listText}>
                     Default Payment
                   </Text>
@@ -191,7 +201,10 @@ render(){
                 onPress ={this.onPressPackageCode}
 
               >
-                <Left>
+                <Left
+                  style={{
+                    top: 6.5
+                  }}>
                   <Text style={styles.listText}>
                   Package Code
                   </Text>
@@ -209,7 +222,7 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
-                <Left>
+                <Left style={{ top: 6.5 }}>
                   <Text style={styles.listText}>
                   About Us
                   </Text>
@@ -227,7 +240,7 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
-                <Left>
+                <Left style={{ top: 6.5 }}>
                   <Text style={styles.listText}>
                     Terms and Condition
                   </Text>
@@ -243,7 +256,7 @@ render(){
                 borderBottomWidth: 0
               }}>
               <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} onPress={this.onPressLogout}>
-                <Left>
+                <Left style={{ top: 3 }}>
                   <Text style={styles.listText}>
                     Logout
                   </Text>

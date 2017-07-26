@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
@@ -103,13 +103,24 @@ export default StyleSheet.create({
   },
 
   textBackgroundView:{
+    ...Platform.select({
+      ios:{
+        marginLeft: (Metrics.screenWidth === 320) ? 45 : 60,
+        marginRight: (Metrics.screenWidth === 320) ? 45 : 60,
+        marginTop: (Metrics.screenWidth === 320) ? 32 : 40,
+        marginBottom: (Metrics.screenWidth === 320) ? 32 : 40,
+      },
+      android:{
+        marginLeft: 60,
+        marginRight: 60,
+        marginTop: 40,
+        marginBottom: 40,
+      }
+    }),
     flex: 1,
-    marginTop: 40,
-    marginLeft: 60,
-    marginRight: 60,
-    marginBottom: 40,
     backgroundColor: 'white',
-    borderRadius: 2.5
+    borderRadius: 2.5,
+
   },
 
   btnText: {
@@ -117,7 +128,7 @@ export default StyleSheet.create({
     fontFamily: Fonts.lato.base,
     paddingLeft: 5,
     textAlign: 'left',
-    color: Colors.settingHeadingTextColor
+    color: Colors.profileInputHeadingColor
   },
 
   textSeprateLine:{

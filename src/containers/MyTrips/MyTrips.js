@@ -154,7 +154,7 @@ export default class MyTrips extends Component {
     }
 
     return(
-      <Container style={{ marginBottom: Metrics.tabBarHeight }}>
+      <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{
             backgroundColor: Colors.transparent }}>
@@ -164,7 +164,7 @@ export default class MyTrips extends Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white}}>My Trips</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title}}>My Trips</Title>
             </Body>
             <Right>
             </Right>

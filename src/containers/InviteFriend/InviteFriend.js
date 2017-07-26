@@ -17,15 +17,17 @@ import {
   Col
 } from 'native-base';
 import styles from './InviteFriendStyle';
-import { Colors, Images } from '../../theme';
+import { Colors, Images, Fonts } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class InviteFriend extends Component {
-  constructor() {
+
+  constructor () {
     super();
     this.state = {
-    }
+      text: undefined
+    };
   }
 
   onPressSearchList = () =>{
@@ -40,7 +42,7 @@ export default class InviteFriend extends Component {
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
             <Left />
             <Body>
-              <Title style={{color: Colors.white}}>Invite Friends</Title>
+              <Title style={{color: Colors.white, ...Fonts.style.title }}>Invite Friends</Title>
             </Body>
             <Right>
               <Button transparent onPress={()=> Actions.pop()}>
@@ -50,7 +52,14 @@ export default class InviteFriend extends Component {
           </Header>
         </LinearGradient>
 
-        <Row style={{ flex: 1, height: 40, marginLeft: 15, marginTop: 15, marginRight: 15 }}>
+        <Row
+          style={{
+            flex: 1,
+            height: 40,
+            marginLeft: 15,
+            marginTop: 15,
+            marginRight: 15
+          }}>
           <Col style={{ flex: 0.85, height: 40 }}>
             <Row
               style={{
@@ -69,7 +78,12 @@ export default class InviteFriend extends Component {
                   value={this.state.text}
                 />
               </Col>
-              <Col style={{ flex: 0.08, alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
+              <Col
+                style={{
+                  flex: 0.08,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginRight: 10 }}>
                 <Image style={{ resizeMode: 'contain' }} source={Images.searchicon} />
               </Col>
             </Row>

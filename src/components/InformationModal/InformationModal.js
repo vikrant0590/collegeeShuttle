@@ -1,27 +1,43 @@
 import React,{ Component } from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import {List, Item, Label, Input} from 'native-base';
+import { PropTypes } from 'prop-types';
 import Modal from 'react-native-simple-modal';
 import {Actions as NavActions} from 'react-native-router-flux';
 import { Colors, Fonts, Metrics  } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './InformationModalStyle';
 
+
 export default class InformationModal extends  Component {
+
+
 
   constructor(props){
     super(props);
     this.state ={
-      open:true
+      open:false
     }
   }
 
-  componentWillReceiveProps =() =>{
-    this.setState({ open: true})
+  showInformationDialog = () => {
+    this.setState({
+      open: true,
+    })
   };
 
-  onPressPayment = () => {
+  onPressProceed = () => {
+    this.setState({ open:false});
+    NavActions.passengerDetail();
+  };
+
+  onPressSkip = () => {
+    this.setState({ open:false});
     NavActions.payment();
+  };
+
+  closeModal =() =>{
+    this.setState({ open:false });
   };
 
   render(){
@@ -32,16 +48,15 @@ export default class InformationModal extends  Component {
     return(
       <Modal
         open={this.state.open}
-        modalDidClose={()=> this.setState({open:false})}
-        overlayBackground={'rgba(0, 0, 0, 0.40)'}
+        modalDidClose={this.closeModal}
+        overlayBackground={Colors.modalBgColor}
         modalStyle={{
           margin: 25,
           padding: 0,
         }}
         containerStyle={{
           justifyContent: 'center',
-          marginBottom:Metrics.screenHeight/2,
-
+          marginBottom:0,
         }}>
 
         <List dataArray={parentsInformation}
@@ -72,13 +87,13 @@ export default class InformationModal extends  Component {
                   </Item>
                 </View>
                 <View style={styles.buttonsContainer}>
-                  <TouchableOpacity onPress={this.onPressPayment}>
+                  <TouchableOpacity onPress={this.onPressSkip}>
                     <Text style={styles.skipButtonText}>Skip</Text>
                   </TouchableOpacity>
                   <LinearGradient
                     colors={['#FC214F', '#D32735']}
                     style={styles.linearGradientColor}>
-                    <TouchableOpacity onPress={NavActions.passengerDetail}
+                    <TouchableOpacity onPress={this.onPressProceed}
                       style={styles.proceedButton}>
                       <Text style={styles.proceedButtonText}>Proceed</Text>
                     </TouchableOpacity>

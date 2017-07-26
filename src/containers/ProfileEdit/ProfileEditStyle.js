@@ -5,8 +5,6 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   profileInfo:{
     flex:1,
-    backgroundColor:Colors.white,
-    margin:10,
     width: Metrics.screenWidth-20,
   },
   formFirstRow:{
@@ -39,7 +37,8 @@ export default StyleSheet.create({
   },
   doblabel:{
     marginLeft: 20,
-    height: 20
+    height: 20,
+    marginRight: 10
   },
   dob:{
     flex:0.2,
@@ -73,7 +72,8 @@ export default StyleSheet.create({
   },
   parentsInfo:{
     marginTop:25,
-    marginLeft:20
+    marginLeft:20,
+    marginRight: 10,
   },
   addIcon:{
     marginLeft:15,

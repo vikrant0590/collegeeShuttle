@@ -30,11 +30,11 @@ export default class Calender extends Component {
           textSectionTitleColor: Colors.calenderheaderColor,
           selectedDayBackgroundColor: Colors.selectedCalenderDateColor,
           selectedDayTextColor: Colors.white,
-          todayTextColor: '#00adf5',
+          todayTextColor: Colors.black,
           dayTextColor: Colors.black,
           textDisabledColor: Colors.settingHeadingTextColor,
-          dotColor: '#00adf5',
-          selectedDotColor: '#ffffff',
+          dotColor: Colors.white,
+          selectedDotColor: Colors.white,
           arrowColor: Colors.black,
           monthTextColor: Colors.black
         }}

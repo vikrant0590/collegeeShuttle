@@ -55,7 +55,7 @@ export default class AddCard extends Component {
             }}>
               <Left/>
               <Body>
-                <Title style={{color: Colors.white,}}>Add Card</Title>
+                <Title style={{color: Colors.white, ...Fonts.style.title}}>Add Card</Title>
               </Body>
               <Right>
                 <TouchableOpacity onPress={this.onPressCloseBtn}>
@@ -132,7 +132,8 @@ export default class AddCard extends Component {
                               </TouchableOpacity>
                               :
                               <TouchableOpacity onPress={this.agreedPolicy}>
-                                <Image source={Images.checkbox}/>
+                                <View style={styles.uncheckBox}>
+                                </View>
                               </TouchableOpacity>
                             }
                           </View>

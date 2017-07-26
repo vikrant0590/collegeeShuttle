@@ -260,15 +260,16 @@ export default StyleSheet.create({
     flex:0.2
   },
   checkBoxImageContainer:{
-    marginTop:10
+    marginTop:10,
+    flex:0.1
   },
   tickImage:{
     marginTop:-13,
     marginLeft:4
   },
   luggageOptionHeading:{
+    flex:0.7,
     flexDirection:'column',
-    marginLeft:15,
     marginTop:10
   },
   boxTextColor:{
@@ -284,8 +285,8 @@ export default StyleSheet.create({
     marginTop:10
   },
   refundOptionHeading:{
+    flex:0.7,
     flexDirection:'column',
-    marginLeft:15,
   },
   bookButton:{
     width:Metrics.screenWidth/3,
@@ -332,6 +333,11 @@ export default StyleSheet.create({
     ...Fonts.style.allTripInfo,
     color:Colors.availability
   },
+  uncheckBox:{
+    backgroundColor:Colors.clockColor,
+    height:18.4,
+    width:18.4,
+  }
 
 
 });

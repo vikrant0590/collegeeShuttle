@@ -33,7 +33,6 @@ export default class Payment extends Component{
 
   onPressProceed = () => {
     const payment = Math.floor((Math.random() * 10) + 1);
-    console.log("PAYMENT",payment);
     if(payment > 5){
       this.refs.paymentsuccess.showDialogPaymentSuccess();
     } else {
@@ -266,7 +265,7 @@ export default class Payment extends Component{
               <Col style={{ flex: 0.3, justifyContent: 'center' }}>
                 <TouchableOpacity
                   style={{ flex: 1, justifyContent: 'center'}}
-                  onPress={()=>console.log('test')}>
+                  onPress={()=>{}}>
                   <Text
                     style={styles.Apply}>Apply</Text>
                 </TouchableOpacity>

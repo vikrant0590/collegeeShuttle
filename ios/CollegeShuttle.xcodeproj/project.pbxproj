@@ -92,12 +92,12 @@
 		A679A32E3CAB4F7FBC2EBAA4 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2438F1309742E884BCD1F5 /* SafariServices.framework */; };
 		AEE2B09FD18C4270851B9437 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D329F26C3FA44058879B5708 /* Lato-Regular.ttf */; };
 		B99F740B37084A6C8DFF0A28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5967820E77544BBB88C3D972 /* SystemConfiguration.framework */; };
+		CBC987418FD80A8ED10B35E2 /* libPods-CollegeShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131CE8468FB70BFF81832B3 /* libPods-CollegeShuttle.a */; };
 		CD5CCEBBEA13459C9AF3B242 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CF3EFF91B0A406CB34FB901 /* Lato-SemiboldItalic.ttf */; };
 		CDE900444C1A4AB6BC96E319 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C427964CE434F9D644974 /* EvilIcons.ttf */; };
 		D1E3B49E2C8D49CB801B34C2 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DF14C17B16642329137AE92 /* Lato-MediumItalic.ttf */; };
 		D2EDC0791F3B4C9084DA6BFE /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283BB74E0A6E48A0A09D80E6 /* Lato-Hairline.ttf */; };
 		DE771B6AE6254A3B82C93791 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */; };
-		DF08F490288A559E344EF50B /* libPods-CollegeShuttle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5362052F7FD5E7E304C5B8 /* libPods-CollegeShuttle.a */; };
 		DF90C96A68A14309BE5FD04E /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8DA226E3328492EBD9B748A /* Lato-Thin.ttf */; };
 		E09235C3C1204A88B38607D7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46FFE854332E4C19A3D03D4A /* FontAwesome.ttf */; };
 		E4276C8B3E324F22B0B24BE0 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A483F2AB95B4CF0ACA7AEC2 /* Lato-LightItalic.ttf */; };
@@ -417,12 +417,12 @@
 		2D02E47B1E0B4A5D006451C7 /* CollegeShuttle-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CollegeShuttle-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CollegeShuttle-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CollegeShuttle-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3424C64F4E4647B6ABAA7DCB /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		39D58FF32D952579F61DACC0 /* Pods-CollegeShuttle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeShuttle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle.debug.xcconfig"; sourceTree = "<group>"; };
 		3AC0783C48BE4A3A9F9DCC3E /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		4232F434A736491D8CB3A628 /* Lato-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Medium.ttf"; path = "../src/fonts/Lato-Medium.ttf"; sourceTree = "<group>"; };
 		46FFE854332E4C19A3D03D4A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		4CF3EFF91B0A406CB34FB901 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-SemiboldItalic.ttf"; path = "../src/fonts/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		4D0C427964CE434F9D644974 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		4D5362052F7FD5E7E304C5B8 /* libPods-CollegeShuttle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollegeShuttle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B073122E894D6EB0D3D3E4 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../src/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5512600E871240A5909B6029 /* SwipeALot.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SwipeALot.xcodeproj; path = "../node_modules/react-native-swipe-a-lot/ios/SwipeALot.xcodeproj"; sourceTree = "<group>"; };
 		5967820E77544BBB88C3D972 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -439,7 +439,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C70FC8AD9384DA5B4AC3476 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		7F28E862493E4C28BB359E44 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HairlineItalic.ttf"; path = "../src/fonts/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
-		820143D29B0C8AB794F45BDF /* Pods-CollegeShuttle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeShuttle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8454B7DF1F1C998D009CF677 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
 		8454B7E01F1C998D009CF677 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
@@ -497,6 +496,7 @@
 		9003C26593EB4D5B93263981 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		9D02604D46144EBC87172DAE /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../src/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
 		9FC688E6B6664C5BADAAEA5B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
+		A131CE8468FB70BFF81832B3 /* libPods-CollegeShuttle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollegeShuttle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A0FBEBE48C474098013B82 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		A730489C9D5E4826B09E639A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		A884C7191D124228BDBA9142 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../src/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
@@ -505,7 +505,6 @@
 		B23FF70C28FC4CF6B3DBB1EF /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		B31EA1AFCFD540A083FB6A8A /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B37D045DE44E4C2EB83B33B3 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		C74E9B55C12C1CBFCD2FF967 /* Pods-CollegeShuttle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeShuttle.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle.release.xcconfig"; sourceTree = "<group>"; };
 		C8A16B0532024E10BB21E5A5 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		CD6CBAC1507F4CC2B38C6099 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		D04A94A331B14F77818A54E7 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
@@ -521,6 +520,7 @@
 		EFAEA09FC9BE45919BB38D00 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F7FFA134C5BE4F94AB4D43CE /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		F93585AAACAE4F799CEF0730 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../src/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		FC436B7C63F1D405AF5F5B3C /* Pods-CollegeShuttle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeShuttle.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -564,7 +564,7 @@
 				3C801DA21BDA45A09DECF7CA /* libBVLinearGradient.a in Frameworks */,
 				EC4825D58EC2483DBB70DAC2 /* libRCTFBSDK.a in Frameworks */,
 				6C1A016DD79446D08016FCB4 /* libAirMaps.a in Frameworks */,
-				DF08F490288A559E344EF50B /* libPods-CollegeShuttle.a in Frameworks */,
+				CBC987418FD80A8ED10B35E2 /* libPods-CollegeShuttle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,7 +721,7 @@
 				DD2438F1309742E884BCD1F5 /* SafariServices.framework */,
 				5967820E77544BBB88C3D972 /* SystemConfiguration.framework */,
 				B31EA1AFCFD540A083FB6A8A /* AddressBook.framework */,
-				4D5362052F7FD5E7E304C5B8 /* libPods-CollegeShuttle.a */,
+				A131CE8468FB70BFF81832B3 /* libPods-CollegeShuttle.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -797,7 +797,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				A9A6F45277094CCA8FC9ECE6 /* Resources */,
 				5A94A025C6674927AEDB3637 /* Frameworks */,
-				8B1A03A7BD62EFD3640B0B29 /* Pods */,
+				D79900A5700756865F49729F /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -918,15 +918,6 @@
 			path = AirGoogleMaps;
 			sourceTree = "<group>";
 		};
-		8B1A03A7BD62EFD3640B0B29 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				820143D29B0C8AB794F45BDF /* Pods-CollegeShuttle.debug.xcconfig */,
-				C74E9B55C12C1CBFCD2FF967 /* Pods-CollegeShuttle.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A9A6F45277094CCA8FC9ECE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,6 +965,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		D79900A5700756865F49729F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39D58FF32D952579F61DACC0 /* Pods-CollegeShuttle.debug.xcconfig */,
+				FC436B7C63F1D405AF5F5B3C /* Pods-CollegeShuttle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -999,13 +999,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CollegeShuttle" */;
 			buildPhases = (
-				611E62258669E0C65329220D /* [CP] Check Pods Manifest.lock */,
+				378318ACAA9BA2390E298A3F /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				16F561B5B580E0D410030431 /* [CP] Embed Pods Frameworks */,
-				A0E1B54DFDBF1268482158FC /* [CP] Copy Pods Resources */,
+				3583B2851714095BEB58468F /* [CP] Embed Pods Frameworks */,
+				D605B1774077AFD0CD3E6699 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1518,21 +1518,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		16F561B5B580E0D410030431 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1547,7 +1532,22 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
-		611E62258669E0C65329220D /* [CP] Check Pods Manifest.lock */ = {
+		3583B2851714095BEB58468F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeShuttle/Pods-CollegeShuttle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		378318ACAA9BA2390E298A3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1562,7 +1562,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A0E1B54DFDBF1268482158FC /* [CP] Copy Pods Resources */ = {
+		D605B1774077AFD0CD3E6699 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1730,7 +1730,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 820143D29B0C8AB794F45BDF /* Pods-CollegeShuttle.debug.xcconfig */;
+			baseConfigurationReference = 39D58FF32D952579F61DACC0 /* Pods-CollegeShuttle.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1762,6 +1762,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1776,7 +1777,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74E9B55C12C1CBFCD2FF967 /* Pods-CollegeShuttle.release.xcconfig */;
+			baseConfigurationReference = FC436B7C63F1D405AF5F5B3C /* Pods-CollegeShuttle.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1807,6 +1808,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

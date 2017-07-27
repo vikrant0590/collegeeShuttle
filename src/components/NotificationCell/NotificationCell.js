@@ -16,7 +16,6 @@ export default class NotificationCell extends Component {
 
   render() {
     const { userRequest } = this.props;
-    console.log('userRequest', userRequest);
     return(
       <View style={{ flex: 1 }}>
         <Row>

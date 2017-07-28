@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
@@ -47,7 +47,7 @@ export default StyleSheet.create({
   SelectedButton:{
     paddingBottom:12,
     marginTop:14,
-    height: 65,
+    height:65 ,
     width: 45,
     marginLeft: 5,
     alignItems: 'center',

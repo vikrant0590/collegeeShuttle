@@ -251,7 +251,7 @@ export default class ProfileEdit extends Component {
               </TouchableOpacity>
             </View>
           </Form>
-       </View>
+        </View>
       </Card>
     );
   }

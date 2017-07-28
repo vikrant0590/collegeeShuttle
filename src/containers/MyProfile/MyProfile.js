@@ -9,7 +9,6 @@ import {
   Container,
   Content,
   List,
-  Header,
   Left,
   Body,
   Right,
@@ -64,7 +63,7 @@ export default class MyProfile extends Component {
     });
   };
 
-  setMyProfile = () =>{
+  setMyProfile =() =>{
     this.setState({
       myprofile:true,
       list:true,
@@ -73,7 +72,7 @@ export default class MyProfile extends Component {
 
   };
 
-  selectPhotoTapped = ()=> {
+  selectPhotoTapped =()=> {
     const options = {
       quality: 1.0,
       maxWidth: 500,
@@ -85,6 +84,8 @@ export default class MyProfile extends Component {
 
     ImagePicker.showImagePicker(options, (response) => {
 
+      console.log('Response = ', response);
+
       if (response.didCancel) {
         console.log('User cancelled photo picker');
       }
@@ -95,7 +96,7 @@ export default class MyProfile extends Component {
         console.log('User tapped custom button: ', response.customButton);
       }
       else {
-        let source = {uri: response.uri};
+        let source = { uri: response.uri };
         this.setState({
           avatarSource: source
         });
@@ -137,13 +138,13 @@ export default class MyProfile extends Component {
           <LinearGradient colors={['#FC214F', '#D32735']}>
             <View style={styles.avatarContainer}>
               <TouchableOpacity onPress={this.selectPhotoTapped}>
-                <Image source={Images.profileicon} style={styles.avatar}>
+                <View  style={styles.avatar}>
                   { this.state.avatarSource === null ? null :
-                    <Image source={this.state.avatarSource}/>
+                    <Image source={this.state.avatarSource} style={{ width:90, height:90, borderRadius:45,}}/>
                   }
-                </Image>
+                </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this.selectPhotoTapped}>
+              <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
                 <View style={styles.editPicture}>
                   <Image source={Images.edit} style={styles.pencil}/>
                   <Text style={{color: Colors.white}}> Edit Profile Picture</Text>

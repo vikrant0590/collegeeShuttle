@@ -20,7 +20,9 @@ import {
   AddCard,
   MyPackage,
   Notification,
-  MyTripMap
+  MyTripMap,
+  ForgotPassword,
+  PasswordReset
 } from './containers';
 import {
   InformationModal,
@@ -157,6 +159,8 @@ export default class AppRouter extends Component {
         <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
         <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
         <Scene key ="addCard" component={AddCard} hideNavBar={true} direction='vertical'/>
+        <Scene key="forgotPassword" component={ForgotPassword} hideNavBar={true}/>
+        <Scene key="passwordreset" component={PasswordReset} hideNavBar={true}/>
       </Router>
     );
   }

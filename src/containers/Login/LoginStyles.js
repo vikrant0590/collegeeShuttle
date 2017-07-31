@@ -104,6 +104,10 @@ export default StyleSheet.create({
   },
   formIcon:{
     marginRight:4,
+  },
+  forgotPasswordButton:{
+    fontSize:Fonts.size.headingText,
+    color:Colors.options
   }
 
 });

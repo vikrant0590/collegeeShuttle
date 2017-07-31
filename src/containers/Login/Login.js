@@ -29,8 +29,8 @@ export default class Login extends Component {
   constructor(props){
     super(props);
     this.state ={
-      eid: "vikrant.thakur535@gmail.com",
-      password: "nokian7007",
+      eid: "",
+      password:"" ,
       isVisible: false
     }
   }

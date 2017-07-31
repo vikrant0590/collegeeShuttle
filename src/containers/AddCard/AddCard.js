@@ -123,12 +123,12 @@ export default class AddCard extends Component {
                           </Item>
                         </View>
                         <View style={styles.confirmPolicy}>
-                          <View style={{flex:0.1}}>
+                          <View style={{flex:0.1,flexDirection:'row'}}>
                             {(this.state.agreed) ?
 
                               <TouchableOpacity onPress={this.agreedPolicy}>
-                                <Image source={Images.checkbox}/>
-                                <Image source={Images.tick} style={{marginLeft: 4, marginTop: -14}}/>
+                                <Image source={Images.checkbox} style={styles.checkedBox}/>
+                                <Image source={Images.tick} style={styles.tickImage}/>
                               </TouchableOpacity>
                               :
                               <TouchableOpacity onPress={this.agreedPolicy}>

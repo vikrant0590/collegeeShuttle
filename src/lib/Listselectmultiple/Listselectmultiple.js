@@ -161,7 +161,7 @@ export default class SelectMultiple extends Component {
             </View>
             <View style={{ flex: 6.5, justifyContent: 'center', marginLeft: -5 }}>
               <Text style={labelStyle}>{row.label}</Text>
-              <Text style={labelStyle}>{row.value}</Text>
+              <Text style={styles.university}>{row.value}</Text>
             </View>
             <View style={{ flex: 1.5, justifyContent: 'center' }}>
               <Image style={checkboxStyle} source={checkboxSource} />

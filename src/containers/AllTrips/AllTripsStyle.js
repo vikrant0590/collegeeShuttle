@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, } from '../../theme';
 import { Colors, Metrics, Fonts  } from '../../theme';
 
@@ -81,7 +81,7 @@ export default StyleSheet.create({
   secondListSecondPlace:{
     ...Fonts.style.distancePoint,
     color: Colors.profileForm,
-    marginLeft:26
+    marginLeft:(Metrics.screenWidth === 320)?20:26,
 
   },
   secondListEndPlace:{
@@ -92,7 +92,7 @@ export default StyleSheet.create({
   secondthirdPlace:{
     ...Fonts.style.distancePoint,
     color: Colors.profileForm,
-    marginLeft:42
+    marginLeft:(Metrics.screenWidth === 320) ?34 :47,
   },
   thirdListFirstPlace:{
     ...Fonts.style.distancePoint,
@@ -101,7 +101,7 @@ export default StyleSheet.create({
   thirdListSecondPlace:{
     ...Fonts.style.distancePoint,
     color: Colors.profileForm,
-    marginLeft:45
+    marginLeft:(Metrics.screenWidth === 320) ?40 :49,
   },
   thirdListThirdPlace:{
     ...Fonts.style.distancePoint,
@@ -117,7 +117,7 @@ export default StyleSheet.create({
     flex:1,
     marginLeft: 4,
     marginTop:6,
-    backgroundColor:Colors.headingColor, // Temporary
+    backgroundColor:Colors.thinLineColor,
   },
   innerEllipse:{
     marginLeft: -10,
@@ -126,7 +126,7 @@ export default StyleSheet.create({
 
   secondMiddleDistance:{
     height: 0.9,
-    backgroundColor:Colors.headingColor, // Temporary
+    backgroundColor:Colors.thinLineColor,
     marginTop: 7,
     marginLeft: 4,
     flex:1
@@ -184,7 +184,7 @@ export default StyleSheet.create({
     marginTop:20
   },
   amountContainer:{
-    marginTop:-30,
+    marginTop:(Platform.OS === 'ios' ? -30 : -40),
     flex: 0.6,
     alignSelf:'flex-end',
   },
@@ -260,12 +260,14 @@ export default StyleSheet.create({
     flex:0.2
   },
   checkBoxImageContainer:{
+    flexDirection:'row',
     marginTop:10,
     flex:0.1
   },
   tickImage:{
-    marginTop:-13,
-    marginLeft:4
+    marginTop:(Platform.OS ==='ios' ? -14 : -17),
+    marginLeft:(Platform.OS==='ios'? 4 : 6),
+    paddingBottom:5
   },
   luggageOptionHeading:{
     flex:0.7,
@@ -285,6 +287,7 @@ export default StyleSheet.create({
     marginTop:10
   },
   refundOptionHeading:{
+    marginTop:10,
     flex:0.7,
     flexDirection:'column',
   },
@@ -335,8 +338,12 @@ export default StyleSheet.create({
   },
   uncheckBox:{
     backgroundColor:Colors.clockColor,
-    height:18.4,
-    width:18.4,
+    height:(Platform.OS==='ios' ? 18.4 :24),
+    width:(Platform.OS==='ios' ? 18.4 : 23)
+  },
+  checkedBox:{
+    height:(Platform.OS==='ios' ? 19.4 : 24),
+    width:(Platform.OS==='ios' ? 19.4: 23),
   }
 
 

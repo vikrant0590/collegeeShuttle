@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, } from '../../theme';
 import { Colors, Fonts, Metrics  } from '../../theme';
 
@@ -87,9 +87,18 @@ export default StyleSheet.create({
   },
   uncheckBox:{
     backgroundColor:Colors.clockColor,
-    height:18,
-    width:18.3,
+    height:(Platform.OS==='ios' ? 18.4 :24),
+    width:(Platform.OS==='ios' ? 18.4 : 23),
     marginTop:0.2
+  },
+  checkedBox:{
+    height:(Platform.OS==='ios' ? 19.4 : 24),
+    width:(Platform.OS==='ios' ? 19.4: 23),
+  },
+  tickImage:{
+    marginTop:(Platform.OS ==='ios' ? -14 : -17),
+    marginLeft:(Platform.OS==='ios'? 4 : 6),
   }
+
 
 });

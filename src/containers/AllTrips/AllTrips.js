@@ -29,7 +29,7 @@ export default class AllTrips extends Component {
       luggageChecked:true,
       refundTickets:true,
       open:false,
-      isNOtifyAvailable: false,
+      isNotifyAvailable: false,
     }
   }
 
@@ -69,7 +69,7 @@ export default class AllTrips extends Component {
   };
 
   onPressNotifyWhenAvailable = () => {
-    this.setState({ isNOtifyAvailable : !this.state.isNOtifyAvailable });
+    this.setState({ isNotifyAvailable : !this.state.isNotifyAvailable });
   };
 
 
@@ -406,7 +406,7 @@ export default class AllTrips extends Component {
                                     rounded
                                     bordered
                                     transparent
-                                    style={(this.state.isNOtifyAvailable) ?
+                                    style={(this.state.isNotifyAvailable) ?
                                       {
                                         backgroundColor:Colors.reminderButtonColor,
                                         borderColor:Colors.reminderButtonColor
@@ -418,14 +418,14 @@ export default class AllTrips extends Component {
                                       }
                                     }
                                     onPress={this.onPressNotifyWhenAvailable}>
-                                    {(!this.state.isNOtifyAvailable) ?
+                                    {(!this.state.isNotifyAvailable) ?
                                       <Text
                                         style={styles.seatUnavailableButtonText}>Notify when available</Text>
                                       :
                                       <Text
                                         style={{
                                           ...Fonts.style.availabiltyNone,
-                                          color: Colors.white
+                                          color: Colors.white,
                                         }}>Request sent</Text>
                                     }
                                   </Button>
@@ -466,7 +466,7 @@ export default class AllTrips extends Component {
                               <View style={styles.checkBoxImageContainer}>
                                 {(this.state.luggageChecked) ?
                                   <TouchableOpacity onPress={this.luggageChecked}>
-                                    <Image source={Images.checkbox}/>
+                                    <Image source={Images.checkbox} style={styles.checkedBox}/>
                                     <Image source={Images.tick} style={styles.tickImage}/>
                                   </TouchableOpacity>
                                   :
@@ -484,10 +484,10 @@ export default class AllTrips extends Component {
                             </View>
 
                             <View style={styles.refundBoxOption}>
-                              <View style={{flex:0.1}}>
+                              <View style={styles.checkBoxImageContainer}>
                                 {(this.state.refundTickets) ?
                                   <TouchableOpacity onPress={this.refundTickets}>
-                                    <Image source={Images.checkbox}/>
+                                    <Image source={Images.checkbox} style={styles.checkedBox}/>
                                     <Image source={Images.tick} style={styles.tickImage}/>
                                   </TouchableOpacity>
                                   :

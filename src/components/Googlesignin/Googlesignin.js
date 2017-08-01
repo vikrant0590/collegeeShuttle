@@ -24,17 +24,14 @@ export default class Googlesignin extends Component {
 
   onPressGoogleSignIn = () => {
     GoogleSignin.hasPlayServices({ autoResolve: true }).then(() => {
-      console.log('Play services active');
       GoogleSignin.configure({
         iosClientId: '444844025445-j0sm6aavdfvqcuid2uu86e819qp7q78f.apps.googleusercontent.com',
       })
         .then(() => {
           GoogleSignin.signIn()
             .then((user) => {
-              console.log('Login Successful.. : ',user);
               const { store: { dispatch } } = this.context;
               if(user.photo === null){
-                console.log('login without picture');
                 dispatch( googlesignin({
                   username: user.email,
                   firstName: user.givenName,
@@ -43,7 +40,6 @@ export default class Googlesignin extends Component {
                   provider: 'google'
                 }));
               }else {
-                console.log('login with picture');
                 dispatch(googlesignin({
                   username: user.email,
                   token: user.id,
@@ -54,16 +50,11 @@ export default class Googlesignin extends Component {
                 }));
               }
             })
-            .catch((err) => {
-              console.log('WRONG SIGNIN', err);
-            })
+            .catch()
             .done();
         });
     })
-      .catch((err) => {
-        console.log('Play services error', err.code, err.message);
-      });
-
+      .catch();
   };
 
   render(){

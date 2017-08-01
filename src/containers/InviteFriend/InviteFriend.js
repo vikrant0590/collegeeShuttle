@@ -51,7 +51,6 @@ export default class InviteFriend extends Component {
 
   state = { selectedfriends: [] };
   onSelectionsChange = (selectedfriends) => {
-    // selectedFruits is array of { label, value }
     this.setState({ selectedfriends })
   };
 

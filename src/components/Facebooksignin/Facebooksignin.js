@@ -27,20 +27,17 @@ export default class Facebooksignin extends Component {
   };
 
   onPressFacebookSignIn = () => {
-    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+    LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_birthday']).then(
       (result) => {
         if (result.isCancelled) {
           console.log('Cancel');
         } else {
-          console.log('Login success with permissions: ', result);
           AccessToken
             .getCurrentAccessToken()
             .then( data => {
               const  accessToken = data.accessToken;
-              console.log('accesstoken', accessToken);
               const responseInfoCallback = async ( errorResponse, resultResponse) => {
                 const userDetails = JSON.parse(JSON.stringify(resultResponse));
-                console.log('userdetails', userDetails);
                 const { store: { dispatch }} = this.context;
                 dispatch(facebooksignin({
                   username: userDetails.email,
@@ -65,11 +62,8 @@ export default class Facebooksignin extends Component {
               );
               new GraphRequestManager().addRequest(infoRequest).start();
             })
-            .catch(ex => console.error('*ERROR ON GET ACCESS TOKEN', ex));
+            .catch();
         }
-      },
-      (error) => {
-        console.log('Login fail with error: ', error);
       }
     );
   };

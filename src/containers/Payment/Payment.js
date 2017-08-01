@@ -33,7 +33,6 @@ export default class Payment extends Component{
 
   onPressProceed = () => {
     const payment = Math.floor((Math.random() * 10) + 1);
-    console.log("PAYMENT",payment);
     if(payment > 5){
       this.refs.paymentsuccess.showDialogPaymentSuccess();
     } else {

@@ -37,5 +37,5 @@ export {
   TabIcon,
   NotificationCell,
   GoogleMap,
-  DriverContactModalBox
+  DriverContactModalBox,
 };

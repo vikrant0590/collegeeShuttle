@@ -43,6 +43,7 @@ export default class PasswordReset extends  Component {
   };
 
   onPressSubmitButton =() =>{
+    NavActions.login();
 
   };
 

@@ -39,9 +39,15 @@ export default StyleSheet.create({
     borderRadius:45,
     borderColor:Colors.white,
     marginBottom:15,
-    marginTop:5,
-    backgroundColor:Colors.white
   },
+  avatarImage:{
+    width:90,
+    height:90,
+    borderRadius:45,
+    borderWidth:2,
+    borderColor:Colors.white
+  },
+
   saveButton:{
     color:Colors.white,
     ...Fonts.style.regularFont,
@@ -62,6 +68,13 @@ export default StyleSheet.create({
     width:12,
     height:13
   },
+  avatarImage:{
+    width:90,
+    height:90,
+    borderRadius:45,
+    borderWidth:2,
+    borderColor:Colors.white
+  }
 
 
 });

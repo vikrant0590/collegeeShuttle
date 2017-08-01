@@ -11,8 +11,6 @@ const FORGOTPASSWORD_SUCCESS = 'auth/FORGOTPASSWORD_SUCCESS';
 const FORGOTPASSWORD_FAIL = 'auth/FORGOTPASSWORD_FAIL';
 
 
-
-
 const initialState = {
   user: null,
   isBusy:false,

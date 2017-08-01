@@ -138,11 +138,11 @@ export default class MyProfile extends Component {
           <LinearGradient colors={['#FC214F', '#D32735']}>
             <View style={styles.avatarContainer}>
               <TouchableOpacity onPress={this.selectPhotoTapped}>
-                <View  style={styles.avatar}>
+                <Image source={Images.profileicon}  style={styles.avatar}>
                   { this.state.avatarSource === null ? null :
-                    <Image source={this.state.avatarSource} style={{ width:90, height:90, borderRadius:45,}}/>
+                    <Image source={this.state.avatarSource} style={styles.avatarImage}/>
                   }
-                </View>
+                </Image>
               </TouchableOpacity>
               <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
                 <View style={styles.editPicture}>

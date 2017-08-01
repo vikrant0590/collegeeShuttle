@@ -92,7 +92,7 @@ export default StyleSheet.create({
   secondthirdPlace:{
     ...Fonts.style.distancePoint,
     color: Colors.profileForm,
-    marginLeft:(Metrics.screenWidth === 320) ?34 :47,
+    marginLeft:(Metrics.screenWidth === 320) ?34 :45,
   },
   thirdListFirstPlace:{
     ...Fonts.style.distancePoint,

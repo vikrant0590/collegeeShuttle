@@ -36,7 +36,6 @@ export default class ForgotPassword extends  Component {
     forgotpassword: PropTypes.object
   };
 
-
   constructor(props){
     super(props);
     this.state = {
@@ -50,28 +49,27 @@ export default class ForgotPassword extends  Component {
   };
 
   onPressSubmitButton = () => {
-    /*    const {email} = this.state;
-     if (email) {
-     if (validationOnEmail(email)) {
-     this.setState({isVisible: true});
-     const {store: {dispatch}} = this.context;
-     dispatch(forgotpassword({email: this.state.email}))
-     .then(() => {
-     this.setState({isVisible: false});*/
+    /*const {email} = this.state;
+    if (email) {
+      if (validationOnEmail(email)) {
+        this.setState({isVisible: true});
+        const {store: {dispatch}} = this.context;
+        dispatch(forgotpassword({email: this.state.email}))
+          .then(() => {
+            this.setState({isVisible: false});*/
     this.refs.emailverificationmodel.showVerificationDialog();
-    /*          }).catch(() => {
-     this.setState({isVisible: false});
-     toast('Email Not Registered.');
-     });
-     } else {
-     toast('Please Enter Valid Email Address.');
-     }
-     } else {
-     toast('Email Address Field Is Empty.');
+    /*}).catch(() => {
+            this.setState({isVisible: false});
+            toast('Email Not Registered.');
+          });
+      } else {
+        toast('Please Enter Valid Email Address.');
+      }
+    } else {
+      toast('Email Address Field Is Empty.');
 
-     }
-     };*/
-  }
+    }*/
+  };
 
   render(){
     return(

@@ -3,15 +3,20 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
 import { Images, Colors, Metrics, Fonts } from '../../theme';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
-  OfferBox
+  OfferBox,
+  SelectDestination
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-export default class Home extends Component {
+import { getLocationFrom } from '../../redux/modules/location';
+
+class Home extends Component {
 
   constructor(){
     super();
@@ -26,6 +31,27 @@ export default class Home extends Component {
       toText: 'To',
     }
   }
+
+  static contextTypes = {
+    store: PropTypes.object,
+  };
+
+  static propTypes = {
+    locationList: PropTypes.any,
+    selectDestination: PropTypes.any
+  };
+
+
+  getDestinationList = (text) => {
+    const {store: {dispatch}} = this.context;
+    dispatch(getLocationFrom())
+      .then((response) =>{
+        this.refs.selectdestination.selectDestinationBox(response, text);
+      })
+      .catch((exp) => {
+
+      })
+  };
 
 
   onPressRoundTripButton = () => {
@@ -49,12 +75,17 @@ export default class Home extends Component {
     if(this.state.isWeekly){
       this.setState({ fromText: 'From', toText: 'To' });
     }else {
-      this.setState({ fromText: 'University', toText: 'Home' });
+      this.getDestinationList(this.state.fromText)
     }
   };
 
-  onPressHomeButton = () => {
-
+  onPressToButton = () => {
+    this.setState({ isWeekly: !this.state.isWeekly });
+    if(this.state.isWeekly){
+      this.setState({ fromText: 'From', toText: 'To' });
+    }else {
+      this.getDestinationList(this.state.toText)
+    }
   };
 
   onPressWeeklyButton = () => {
@@ -65,8 +96,10 @@ export default class Home extends Component {
     this.setState({ isWeeklyActive: false, isCustomActive: true });
   };
 
-
   render(){
+
+    console.log('selectDestination', this.props.selectDestination);
+
     const { isRoundTrip, isWeekly } = this.state;
     return(
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
@@ -128,7 +161,7 @@ export default class Home extends Component {
                       justifyContent: 'flex-start',
                       alignSelf: 'center'
                     }}
-                    onPress={this.onPressHomeButton}>
+                    onPress={this.onPressToButton}>
                     <Image source={Images.roundtriphome} style={styles.textIcon} />
                     <Text
                       style={{
@@ -194,7 +227,13 @@ export default class Home extends Component {
           }
         </Content>
         <OfferBox ref="offerbox"/>
+        <SelectDestination ref="selectdestination"/>
       </Container>
     )
   }
 }
+
+export default connect(state => ({
+  locationList: state.location.locationResponse,
+  selectDestination: state.location.selectedDestination
+}))(Home)

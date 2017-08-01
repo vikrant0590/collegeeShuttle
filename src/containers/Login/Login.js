@@ -18,7 +18,6 @@ export default class Login extends Component {
 
   static  propTypes = {
     dispatch: PropTypes.func,
-
   };
 
   static contextTypes = {

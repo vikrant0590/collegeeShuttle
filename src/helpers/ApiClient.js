@@ -6,6 +6,27 @@ const api = create({
   headers: { Accept: 'application/json' }
 });
 
+function get (endpoint) {
+  return new Promise((resolve, reject) => {
+    console.log('calling url', `${config.apiUrl}${endpoint}`);
+    fetch(`${config.apiUrl}${endpoint}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(async (res) => {
+      console.log("***123****", res);
+      let response = await res.json();
+      if (!res.ok) {
+        return reject(response);
+      }
+      return resolve(response);
+
+    }).catch(reject);
+  });
+}
+
 function post (endpoint, data) {
   return new Promise((resolve, reject) => {
     console.log('calling url', `${config.apiUrl}${endpoint}`);
@@ -29,5 +50,6 @@ function post (endpoint, data) {
 }
 
 module.exports = {
-  post
+  post,
+  get
 };

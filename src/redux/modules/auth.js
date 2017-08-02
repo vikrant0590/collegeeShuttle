@@ -36,13 +36,6 @@ export default function reducer(state = initialState, action = {}) {
     case FORGOTPASSWORD_FAIL:
       return { ...state};
 
-    case RESETPASSWORD:
-      return { ...state};
-    case RESETPASSWORD_SUCCESS:
-      return { ...state};
-    case RESETPASSWORD_FAIL:
-      return { ...state};
-
     default:
       return state;
   }
@@ -87,17 +80,14 @@ export function forgotpassword(data) {
 }
 
 export function changepassword(data) {
-  console.log("DATA",data);
   return (dispatch, getState) => new Promise((resolve, reject) => {
     dispatch({type:RESETPASSWORD});
     api
       .post('/api/reset-password', data)
       .then((res) => {
-        dispatch({type: RESETPASSWORD_SUCCESS, result: res});
         resolve(res);
       })
       .catch((ex) => {
-        dispatch({type: RESETPASSWORD_FAIL, result: undefined});
         reject(ex);
       });
   });

@@ -85,6 +85,7 @@ class PasswordReset extends  Component {
         toast("Password Do Not Matched");
       }
     } else {
+      this.setState({isBusy:false});
       toast('Please Enter Both Password Fields.');
 
     }

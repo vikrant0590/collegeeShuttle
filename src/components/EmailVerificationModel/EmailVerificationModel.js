@@ -41,15 +41,15 @@ class EmailVerificationModel extends  Component {
   };
 
   onPressSubmit = () => {
-    if(this.state.resetToken!==  undefined){
+    if(this.state.resetToken){
       if(this.props.auth.forgotUser.reset_token === this.state.resetToken) {
         NavActions.passwordreset();
         this.setState({open: false});
       } else {
-        toast('Token Mismatch! Try again.');
+        toast('Verification Code Mismatch! Try again.');
       }
     } else {
-      toast('Please Enter Reset Token.');
+      toast('Please Enter Verification Code.');
     }
 
   };
@@ -63,13 +63,12 @@ class EmailVerificationModel extends  Component {
 
     const {store: {dispatch}} = this.context;
     dispatch(forgotpassword({email: this.props.auth.forgotUser.eid}))
-      .then((res) => {
+      .then(() => {
         this.setState({isBusy:false});
-        console.log("RESEND",res);
-        toast('Mail Sent.');
+        toast('Verification Code Sent On Your Email, Please Check Your Mail.');
       })
       .catch(()=>{
-        toast('Mail Not Sent.');
+        toast('Unable To Send, Please Try Again.');
       })
 
   };

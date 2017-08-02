@@ -48,24 +48,21 @@ export default class ForgotPassword extends  Component {
     if (email) {
       if (validationOnEmail(email)) {
         this.setState({isVisible: true});
-        new Promise((resolve, reject)=> {
-          const {store: {dispatch}} = this.context;
-          dispatch(forgotpassword({email: this.state.email}))
-            .then((res) => {
-              console.log("RESP",res);
-              this.setState({isVisible: false});
-              if(res.reset_token!== undefined){
-                this.refs.emailverificationmodel.getWrappedInstance().showVerificationDialog();
-              }
-              else {
-                toast('Email Not Registered.');
-              }
-              resolve();
 
-            }).catch(() => {
-              reject();
-            });
-        })
+        const {store: {dispatch}} = this.context;
+        dispatch(forgotpassword({email: this.state.email}))
+          .then((res) => {
+            this.setState({isVisible: false});
+            if(res.reset_token!== undefined){
+              this.refs.emailverificationmodel.getWrappedInstance().showVerificationDialog();
+            }
+            else {
+              toast('Email Not Registered.');
+            }
+
+          }).catch(() => {
+          });
+
       } else {
         toast('Please Enter Valid Email Address.');
       }

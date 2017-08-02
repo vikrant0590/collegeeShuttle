@@ -48,7 +48,7 @@ export default class MyPackage extends Component {
             </Right>
           </Header>
         </LinearGradient>
-        <Content style={{ }}>
+        <Content>
           <Card
             style={{
               marginLeft: 10,

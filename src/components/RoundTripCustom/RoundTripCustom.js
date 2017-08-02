@@ -4,7 +4,7 @@ import { Row, Col, Card, CardItem, Body } from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
-import { Calender } from '../../components';
+import { CalendarList, Calender } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class RoundTripCustom extends Component {

@@ -73,9 +73,9 @@ export default class RoundTrip extends Component {
               <TouchableOpacity
                 style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                 onPress={this.onPressInviteButton}>
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
                 <Image source={Images.roundtripaddicon} style={styles.tripicon} />
               </TouchableOpacity>
             </Body>

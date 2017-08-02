@@ -7,6 +7,8 @@ export default class  SelectedDestinationCell extends Component {
 
   static propTypes = {
     locationData: PropTypes.any,
+    Dismiss: PropTypes.func,
+    RequestFor: PropTypes.any
   };
 
   static contextTypes = {
@@ -14,8 +16,10 @@ export default class  SelectedDestinationCell extends Component {
   };
 
   onPressSelectLocaton = () => {
+    let data = { 'data': this.props.locationData.ct , 'requestFor': this.props.RequestFor };
     const {store: {dispatch}} = this.context;
-    dispatch(getSelectedDestination(this.props.locationData.ct));
+    dispatch(getSelectedDestination(data));
+    this.props.Dismiss();
   };
 
   render() {

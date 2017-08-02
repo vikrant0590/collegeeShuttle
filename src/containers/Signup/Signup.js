@@ -12,8 +12,6 @@ import material from '../../../native-base-theme/variables/material';
 import { GoogleLogin, FaceboolLogin } from '../../components';
 import { register } from '../../redux/modules/register';
 import { toast } from '../../helpers/ToastMessage';
-// import Facebooksignin from "../../components/Facebooksignin/Facebooksignin";
-// import Googlesignin from "../../components/Googlesignin/Googlesignin";
 
 
 export default class Signup extends Component {

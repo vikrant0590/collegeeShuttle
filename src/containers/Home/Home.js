@@ -10,16 +10,15 @@ import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
-  OfferBox,
   SelectDestination
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-import { getLocationFrom } from '../../redux/modules/location';
+import { getLocationFrom, clearSearchDestination } from '../../redux/modules/location';
 
 class Home extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       isRoundTrip: true,
       isOneWay: false,
@@ -37,20 +36,8 @@ class Home extends Component {
   };
 
   static propTypes = {
-    locationList: PropTypes.any,
+    locationResponse: PropTypes.any,
     selectDestination: PropTypes.any
-  };
-
-
-  getDestinationList = (text) => {
-    const {store: {dispatch}} = this.context;
-    dispatch(getLocationFrom())
-      .then((response) =>{
-        this.refs.selectdestination.selectDestinationBox(response, text);
-      })
-      .catch((exp) => {
-
-      })
   };
 
 
@@ -71,21 +58,26 @@ class Home extends Component {
   };
 
   onPressUniversityButton = () =>{
-    this.setState({ isWeekly: !this.state.isWeekly });
-    if(this.state.isWeekly){
-      this.setState({ fromText: 'From', toText: 'To' });
-    }else {
-      this.getDestinationList(this.state.fromText)
-    }
+    const {store: {dispatch}} = this.context;
+    dispatch(clearSearchDestination());
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox(this.props.locationResponse, "From");
+    dispatch(getLocationFrom())
+      .then(() =>{
+        this.setState({ isWeekly: true });
+      })
+      .catch()
   };
 
   onPressToButton = () => {
-    this.setState({ isWeekly: !this.state.isWeekly });
-    if(this.state.isWeekly){
-      this.setState({ fromText: 'From', toText: 'To' });
-    }else {
-      this.getDestinationList(this.state.toText)
-    }
+    const {store: {dispatch}} = this.context;
+    dispatch(clearSearchDestination());
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox(this.props.locationResponse, "To");
+    dispatch(getLocationFrom())
+      .then(() =>{
+        this.setState({ isWeekly: true });
+
+      })
+      .catch()
   };
 
   onPressWeeklyButton = () => {
@@ -96,10 +88,19 @@ class Home extends Component {
     this.setState({ isWeeklyActive: false, isCustomActive: true });
   };
 
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.selectDestination){
+      if(nextProps.selectDestination.requestFor === "To"){
+        this.setState({ toText: nextProps.selectDestination.data })
+      }
+      if(nextProps.selectDestination.requestFor === "From"){
+        this.setState({ fromText: nextProps.selectDestination.data })
+      }
+    }
+  }
+
   render(){
-
-    console.log('selectDestination', this.props.selectDestination);
-
     const { isRoundTrip, isWeekly } = this.state;
     return(
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
@@ -144,8 +145,8 @@ class Home extends Component {
                         fontFamily: Fonts.lato.base,
                         paddingLeft: 5,
                         textAlign: 'left',
-                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
-                      }}>{this.state.fromText}</Text>
+                        color: (this.state.fromText !== 'From') ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{ this.state.fromText }</Text>
                   </Button>
                 </Row>
               </Col>
@@ -169,8 +170,8 @@ class Home extends Component {
                         fontFamily: Fonts.lato.base,
                         paddingLeft: 5,
                         textAlign: 'left',
-                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
-                      }}>{this.state.toText}</Text>
+                        color: ((this.state.toText !== 'To')) ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{ this.state.toText }</Text>
                   </Button>
                 </Row>
               </Col>
@@ -219,14 +220,12 @@ class Home extends Component {
               </View>
               {(this.state.isWeeklyActive) ? <RoundTripWeekly /> :  <RoundTripCustom /> }
             </View>
-
             :
             <View style={styles.RoundTripView}>
               <RoundTrip />
             </View>
           }
         </Content>
-        <OfferBox ref="offerbox"/>
         <SelectDestination ref="selectdestination"/>
       </Container>
     )
@@ -234,6 +233,6 @@ class Home extends Component {
 }
 
 export default connect(state => ({
-  locationList: state.location.locationResponse,
+  locationResponse: state.location.locationResponse,
   selectDestination: state.location.selectedDestination
 }))(Home)

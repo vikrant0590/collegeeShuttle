@@ -29,7 +29,13 @@ export default class Facebooksignin extends Component {
   onPressFacebookSignIn = () => {
     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_birthday']).then(
       (result) => {
+<<<<<<< HEAD
         if (!result.isCancelled) {
+=======
+        if (result.isCancelled) {
+          console.log('Cancel');
+        } else {
+>>>>>>> NewChangesUI
           AccessToken
             .getCurrentAccessToken()
             .then( data => {
@@ -62,7 +68,11 @@ export default class Facebooksignin extends Component {
             })
             .catch();
         }
+<<<<<<< HEAD
+      },
+=======
       }
+>>>>>>> NewChangesUI
     );
   };
 

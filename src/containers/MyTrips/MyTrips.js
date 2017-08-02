@@ -61,7 +61,7 @@ export default class MyTrips extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 ,}}>
+            <Col style={{ marginTop: 20, marginBottom: 35, width: 1 ,}}>
               <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
             </Col>
             <Col style={{ flex: 1.25, width: Metrics.screenWidth/ 2, }}>

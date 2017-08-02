@@ -32,11 +32,10 @@ class SelectDestination extends Component {
     searchDestination: PropTypes.any
   };
 
-  selectDestinationBox = (data, placeholder) => {
+  selectDestinationBox = (placeholder) => {
     this.setState({
       open: true,
       placeholdertext: placeholder,
-      selectDestinationList: data,
       isLoading: false,
     });
   };

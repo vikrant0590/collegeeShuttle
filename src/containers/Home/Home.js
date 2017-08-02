@@ -60,24 +60,18 @@ class Home extends Component {
   onPressUniversityButton = () =>{
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
-    this.refs.selectdestination.getWrappedInstance().selectDestinationBox(this.props.locationResponse, "From");
-    dispatch(getLocationFrom())
-      .then(() =>{
-        this.setState({ isWeekly: true });
-      })
-      .catch()
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("From");
+    dispatch(getLocationFrom());
+    this.setState({ isWeekly: true });
   };
 
   onPressToButton = () => {
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
-    this.refs.selectdestination.getWrappedInstance().selectDestinationBox(this.props.locationResponse, "To");
-    dispatch(getLocationFrom())
-      .then(() =>{
-        this.setState({ isWeekly: true });
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
+    dispatch(getLocationFrom());
+    this.setState({ isWeekly: true });
 
-      })
-      .catch()
   };
 
   onPressWeeklyButton = () => {
@@ -226,7 +220,7 @@ class Home extends Component {
             </View>
           }
         </Content>
-        <SelectDestination ref="selectdestination"/>
+        <SelectDestination ref="selectdestination" />
       </Container>
     )
   }

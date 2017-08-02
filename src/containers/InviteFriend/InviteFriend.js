@@ -99,6 +99,9 @@ export default class InviteFriend extends Component {
                       onChangeText={(text) => this.setState({text})}
                       placeholderTextColor =  {Colors.settingHeadingTextColor}
                       value={this.state.text}
+                      underlineColorAndroid={Colors.transparent}
+                      autoCorrect= {false}
+
                     />
                   </Col>
                   <Col
@@ -118,7 +121,7 @@ export default class InviteFriend extends Component {
               </Col>
             </Row>
           </View>
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, }}>
             <ListSelectMultiple
               items={invitefriendlist}
               labelStyle ={{

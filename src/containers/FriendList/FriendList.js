@@ -17,7 +17,7 @@ import {
   ListItem,
   Card,
 } from 'native-base';
-import { Colors, Fonts } from '../../theme';
+import { Colors, Fonts, Images } from '../../theme';
 import styles from './FriendListStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import { Actions } from 'react-native-router-flux';
@@ -67,7 +67,7 @@ export default class FriendList extends  Component {
                 <ListItem bordered="true" style={{borderColor: Colors.thinLineColor,marginRight:-19}}>
                   <View style={styles.listContainer}>
                     <View style={styles.profileImageContainer}>
-                      <Image style={styles.profileImage}/>
+                      <Image source={Images.profileicon} style={styles.profileImage}/>
                     </View>
                     <View style={styles.nameContainer}>
                       <Text style={styles.name}>{item.name}</Text>

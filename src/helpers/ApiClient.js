@@ -17,7 +17,6 @@ function post (endpoint, data) {
       },
       body: JSON.stringify(data)
     }).then(async (res) => {
-      console.log("***123****", res);
       let response = await res.json();
       if (!res.ok) {
         return reject(response);

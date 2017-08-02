@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
@@ -22,9 +22,11 @@ export default StyleSheet.create({
   },
   avatarContainer:{
     flex:1,
-    height:Metrics.screenHeight/4.4,
+    height:(Platform.OS ==='ios' ?(Metrics.screenWidth === 320) ? Metrics.screenHeight/4 :
+      Metrics.screenHeight/4.7 : Metrics.screenHeight/4.2),
     backgroundColor:Colors.transparent,
     alignItems:'center',
+
   },
   editPicture:{
     flexDirection: 'row',
@@ -36,13 +38,21 @@ export default StyleSheet.create({
     height:90,
     borderRadius:45,
     borderColor:Colors.white,
-    marginBottom:10,
-    marginTop:10,
-    backgroundColor:Colors.white
+    marginBottom:15,
   },
+  avatarImage:{
+    width:90,
+    height:90,
+    borderRadius:45,
+    borderWidth:2,
+    borderColor:Colors.white
+  },
+
   saveButton:{
     color:Colors.white,
-    ...Fonts.style.regularFont
+    ...Fonts.style.regularFont,
+    marginRight:20,
+    marginTop:15
   },
   pencil:{
     width:16,
@@ -58,6 +68,13 @@ export default StyleSheet.create({
     width:12,
     height:13
   },
+  avatarImage:{
+    width:90,
+    height:90,
+    borderRadius:45,
+    borderWidth:2,
+    borderColor:Colors.white
+  }
 
 
 });

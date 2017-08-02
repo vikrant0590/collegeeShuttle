@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './WalkThroughThirdStyles';
-import { Images } from '../../theme';
+import { Images, Metrics } from '../../theme';
 import { Button } from 'native-base';
 import { Actions as Navigation } from 'react-native-router-flux';
 
@@ -23,8 +23,8 @@ export default class WalkThroughThird extends Component {
               style={{
                 backgroundColor:'#FFF',
                 margin: 20,
-                height:60,
-                width: 200,
+                height:(Metrics.screenHeight === 480) ? 40 : 60,
+                width: (Metrics.screenHeight === 480) ? 180 : 200,
                 justifyContent:'center',
                 alignSelf:'center'
               }}

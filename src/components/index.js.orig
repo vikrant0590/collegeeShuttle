@@ -17,8 +17,11 @@ import TabIcon from './TabIcon';
 import NotificationCell from './NotificationCell';
 import GoogleMap from './GoogleMap';
 import DriverContactModalBox from './DriverContactModalBox';
+<<<<<<< HEAD
 import SelectDestination from './SelectDestination';
+=======
 import EmailVerificationModel from './EmailVerificationModel';
+>>>>>>> origin/master
 
 export {
   WalkThroughFirst,
@@ -40,6 +43,9 @@ export {
   NotificationCell,
   GoogleMap,
   DriverContactModalBox,
-  SelectDestination,
+<<<<<<< HEAD
+  SelectDestination
+=======
   EmailVerificationModel
+>>>>>>> origin/master
 };

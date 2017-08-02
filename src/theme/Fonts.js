@@ -101,7 +101,6 @@ const style = {
   },
   secretCode:{
     fontSize:size.h6,
-    //fontFamily:"Roboto-Bold"
   },
   price:{
     fontSize:size.h10,

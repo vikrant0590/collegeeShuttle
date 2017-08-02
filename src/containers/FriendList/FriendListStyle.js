@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ApplicationStyles, Colors, Fonts, Metrics } from '../../theme';
+import { ApplicationStyles, Colors, Fonts,  } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -15,7 +15,6 @@ export default StyleSheet.create({
     ...Fonts.style.regularFont,
     color: Colors.packageHeadingColor,
     marginTop:10
-
   },
   container:{
     flex:1,
@@ -44,7 +43,7 @@ export default StyleSheet.create({
     height:46,
     width:46,
     borderRadius:23,
-    backgroundColor:Colors.black,
+
 
   },
 

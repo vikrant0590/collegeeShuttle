@@ -19,6 +19,8 @@ import AddCard from './AddCard';
 import MyPackage from './MyPackage';
 import Notification from './Notification';
 import MyTripMap from './MyTripMap';
+import ForgotPassword from './ForgotPassword';
+import PasswordReset from './PasswordReset'
 export {
   WalkThrough,
   Home,
@@ -41,4 +43,6 @@ export {
   MyPackage,
   Notification,
   MyTripMap,
+  ForgotPassword,
+  PasswordReset
 };

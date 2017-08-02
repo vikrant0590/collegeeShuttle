@@ -17,12 +17,15 @@ const initialState = {
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
+
     case LOCATION:
       return { ...state, isBusy: true };
+
     case LOCATION_SUCCESS: {
       const locations = action.result.filter((item) => item.ct.length > 0);
       return {...state, locationResponse: locations};
     }
+
     case LOCATION_FAIL:
       return { ...state, isBusy: false };
 

@@ -41,8 +41,7 @@
 		"redux-form": "^6.8.0",
 		"redux-logger": "^3.0.6",
 		"redux-persist": "^4.8.0",
-		"redux-thunk": "^2.2.0",
-		"twix": "^1.2.0"
+		"redux-thunk": "^2.2.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^7.2.3",

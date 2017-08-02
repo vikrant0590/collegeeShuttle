@@ -4,7 +4,7 @@ import { Row, Col, Card, CardItem, Body } from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripCustomStyle';
-import { CalendarList, Calender } from '../../components';
+import { Calender } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class RoundTripCustom extends Component {
@@ -37,7 +37,6 @@ export default class RoundTripCustom extends Component {
         </TouchableOpacity>
       )
     }
-
     return(
       <View style={{flex:1, backgroundColor: Colors.base }}>
         <Calender />

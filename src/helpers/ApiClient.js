@@ -16,7 +16,6 @@ function get (endpoint) {
         'Content-Type': 'application/json',
       }
     }).then(async (res) => {
-      console.log("***123****", res);
       let response = await res.json();
       if (!res.ok) {
         return reject(response);
@@ -29,7 +28,6 @@ function get (endpoint) {
 
 function post (endpoint, data) {
   return new Promise((resolve, reject) => {
-    console.log('calling url', `${config.apiUrl}${endpoint}`);
     fetch(`${config.apiUrl}${endpoint}`, {
       method: 'POST',
       headers: {
@@ -38,7 +36,6 @@ function post (endpoint, data) {
       },
       body: JSON.stringify(data)
     }).then(async (res) => {
-      console.log("***123****", res);
       let response = await res.json();
       if (!res.ok) {
         return reject(response);

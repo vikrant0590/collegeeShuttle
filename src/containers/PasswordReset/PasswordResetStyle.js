@@ -6,7 +6,7 @@ export default StyleSheet.create({
 
   submitButtonText:{
     color:Colors.reminderButtonColor,
-    marginLeft:(Metrics.screenWidth === 320) ? Metrics.screenWidth/4.3 : Metrics.screenWidth/3.6,
+    marginLeft:(Metrics.screenWidth === 320) ? Metrics.screenWidth/4.3 : Metrics.screenWidth/4.2,
     ...Fonts.style.buttonText
   },
   formIcon:{

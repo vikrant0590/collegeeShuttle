@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   submitButtonText:{
     color:Colors.reminderButtonColor,
-    marginLeft:(Metrics.screenWidth === 320) ?Metrics.screenWidth/4.5 : Metrics.screenWidth/3,
+    marginLeft:(Metrics.screenWidth === 320) ?Metrics.screenWidth/4.5 : Metrics.screenWidth/4.2,
     ...Fonts.style.buttonText
   },
   submitButton:{

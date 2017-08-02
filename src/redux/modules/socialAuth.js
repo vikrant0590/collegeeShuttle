@@ -49,18 +49,15 @@ export default function reducer(state = instialState, action = {}) {
 //in post, api aren't real .. please change the url to real.
 
 export function googlesignin(data) {
-  console.log('google data ===>>', data);
   return(dispatch, getState) => new Promise((resolve, reject) =>{
     dispatch({ type: GOOGLE_LOGIN });
     api
       .post('url', data)
       .then((response) =>{
-        console.log('res', response);
         dispatch({ type: GOOGLE_LOGIN_SUCCESS, result: response});
         resolve();
       })
       .catch((error) =>{
-        console.log('error', error);
         dispatch({ type: GOOGLE_LOGIN_FAIL });
         reject(error);
       });
@@ -69,18 +66,15 @@ export function googlesignin(data) {
 
 
 export function facebooksignin(data) {
-  console.log('facebook data ===>>', data);
   return(dispatch, getState) => new Promise((resolve, reject) => {
     dispatch({ type: FACEBOOK_LOGIN });
     api
       .post('url', data)
       .then((response) => {
-        console.log('response', response);
         dispatch({ type: FACEBOOK_LOGIN_SUCCESS, result: response });
         resolve();
       })
       .catch((error) => {
-        console.log('error', error);
         dispatch({ type: FACEBOOK_LOGIN_FAIL });
         reject(error);
       });

@@ -2,43 +2,82 @@ import React,{ Component } from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import { Item, Input} from 'native-base';
 import Modal from 'react-native-simple-modal';
+import { connect } from 'react-redux';
+import { toast } from '../../helpers/ToastMessage';
+import { forgotpassword } from '../../redux/modules/auth';
+import Spinner from 'react-native-loading-spinner-overlay';
 import {Actions as NavActions} from 'react-native-router-flux';
 import { Colors,  } from '../../theme';
+import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './EmailVerificationModelStyle'
 
 
 
-export default class EmailVerificationModel extends  Component {
+class EmailVerificationModel extends  Component {
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+    auth: PropTypes.any
+  };
+
+  static contextTypes = {
+    store: PropTypes.object
+  };
 
   constructor(props){
     super(props);
     this.state ={
-      open:false
+      open:false,
+      resetToken:undefined,
+      isBusy:false,
     }
   }
 
   showVerificationDialog = () => {
-    console.log("Iam a model");
     this.setState({
       open: true,
     })
   };
 
   onPressSubmit = () => {
-    this.setState({ open:false});
-    NavActions.passwordreset();
+    if(this.state.resetToken!==  undefined){
+      if(this.props.auth.forgotUser.reset_token === this.state.resetToken) {
+        NavActions.passwordreset();
+        this.setState({open: false});
+      } else {
+        toast('Token Mismatch! Try again.');
+      }
+    } else {
+      toast('Please Enter Reset Token.');
+    }
+
   };
 
   closeModal =() =>{
     this.setState({ open:false });
   };
-  resendCodeButton:{
+
+  resendCodeButton = () => {
+    this.setState({ isBusy:true});
+
+    const {store: {dispatch}} = this.context;
+    dispatch(forgotpassword({email: this.props.auth.forgotUser.eid}))
+      .then((res) => {
+        this.setState({isBusy:false});
+        console.log("RESEND",res);
+        toast('Mail Sent.');
+      })
+      .catch(()=>{
+        toast('Mail Not Sent.');
+      })
 
   };
 
   render(){
+
     return(
+
       <Modal
         open={this.state.open}
         modalDidClose={this.closeModal}
@@ -51,6 +90,8 @@ export default class EmailVerificationModel extends  Component {
           justifyContent: 'center',
           marginBottom:0,
         }}>
+        <Spinner visible={this.state.isBusy} textContent={"Loading..."} textStyle={{color: Colors.white}} />
+
         <View style={styles.modalScreen}>
           <View style={{alignItems:'center',justifyContent:'center',flex:0.2,}}>
             <Text style={styles.VerificationContainer}>Verification</Text>
@@ -71,7 +112,7 @@ export default class EmailVerificationModel extends  Component {
                 autoCorrect={false}
                 autoCapitalize={'none'}
                 placeholderTextColor={Colors.placeholderTextColor}
-                onChangeText={(email) => {this.setState({email});
+                onChangeText={(resetToken) => {this.setState({resetToken});
                 }}
               />
             </Item>
@@ -98,3 +139,13 @@ export default class EmailVerificationModel extends  Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  };
+};
+const  mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps, null, {withRef: true})(EmailVerificationModel)

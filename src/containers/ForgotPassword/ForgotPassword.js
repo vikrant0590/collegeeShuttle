@@ -1,9 +1,5 @@
 import React,{ Component } from 'react';
-import {
-  View,
-  Text,
-  Image }
-  from 'react-native';
+import { View, Text, Image } from 'react-native';
 import {
   Container,
   Header,
@@ -16,7 +12,6 @@ import {
   Content,
   Item,
   Input
-
 } from 'native-base';
 import { Colors, Fonts, Images, Metrics } from '../../theme';
 import styles from './ForgotPasswordStyle';
@@ -49,26 +44,35 @@ export default class ForgotPassword extends  Component {
   };
 
   onPressSubmitButton = () => {
-    /*const {email} = this.state;
+    const {email} = this.state;
     if (email) {
       if (validationOnEmail(email)) {
         this.setState({isVisible: true});
-        const {store: {dispatch}} = this.context;
-        dispatch(forgotpassword({email: this.state.email}))
-          .then(() => {
-            this.setState({isVisible: false});*/
-    this.refs.emailverificationmodel.showVerificationDialog();
-    /*}).catch(() => {
-            this.setState({isVisible: false});
-            toast('Email Not Registered.');
-          });
+        new Promise((resolve, reject)=> {
+          const {store: {dispatch}} = this.context;
+          dispatch(forgotpassword({email: this.state.email}))
+            .then((res) => {
+              console.log("RESP",res);
+              this.setState({isVisible: false});
+              if(res.reset_token!== undefined){
+                this.refs.emailverificationmodel.getWrappedInstance().showVerificationDialog();
+              }
+              else {
+                toast('Email Not Registered.');
+              }
+              resolve();
+
+            }).catch(() => {
+              reject();
+            });
+        })
       } else {
         toast('Please Enter Valid Email Address.');
       }
     } else {
       toast('Email Address Field Is Empty.');
 
-    }*/
+    }
   };
 
   render(){
@@ -84,7 +88,11 @@ export default class ForgotPassword extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white, ...Fonts.style.title}}>Forgot Password</Title>
+              <Title style={{
+                color: Colors.white,
+                marginLeft:-40,
+                marginRight:-40,
+                ...Fonts.style.title}}>Forgot Password</Title>
             </Body>
             <Right>
             </Right>
@@ -117,7 +125,7 @@ export default class ForgotPassword extends  Component {
           </View>
 
         </Content>
-        <EmailVerificationModel ref="emailverificationmodel"/>
+        <EmailVerificationModel ref="emailverificationmodel" />
       </Container>
     )
 

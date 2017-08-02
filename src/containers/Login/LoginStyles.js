@@ -106,6 +106,7 @@ export default StyleSheet.create({
     marginRight:4,
   },
   forgotPasswordButton:{
+    marginTop:5,
     fontSize:Fonts.size.headingText,
     color:Colors.options
   }

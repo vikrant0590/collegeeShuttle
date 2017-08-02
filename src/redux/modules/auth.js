@@ -10,20 +10,39 @@ const FORGOTPASSWORD = 'auth/FORGOTPASSWORD';
 const FORGOTPASSWORD_SUCCESS = 'auth/FORGOTPASSWORD_SUCCESS';
 const FORGOTPASSWORD_FAIL = 'auth/FORGOTPASSWORD_FAIL';
 
+const RESETPASSWORD ='auth/RESETPASSWORD';
+const RESETPASSWORD_SUCCESS ='auth/RESETPASSWORD_SUCCESS';
+const RESETPASSWORD_FAIL = 'auth/RESETPASSWORD_FAIL';
+
 
 const initialState = {
-  user: null,
-  isBusy:false,
+  user: undefined,
+  forgotUser: undefined
 };
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOGIN:
-      return { ...state, isBusy: true };
+      return { ...state };
     case LOGIN_SUCCESS:
       return { ...state, user: action.result };
     case LOGIN_FAIL:
-      return { ...state, isBusy: false };
+      return { ...state };
+
+    case FORGOTPASSWORD:
+      return { ...state };
+    case FORGOTPASSWORD_SUCCESS:
+      return { ...state, forgotUser:action.result };
+    case FORGOTPASSWORD_FAIL:
+      return { ...state};
+
+    case RESETPASSWORD:
+      return { ...state};
+    case RESETPASSWORD_SUCCESS:
+      return { ...state};
+    case RESETPASSWORD_FAIL:
+      return { ...state};
+
     default:
       return state;
   }
@@ -50,16 +69,38 @@ export function forgotpassword(data) {
   return (dispatch, getState) => new Promise((resolve, reject) =>{
     dispatch({ type: FORGOTPASSWORD});
     api
-      .post('/request-reset',data)
+      .post('/api/request-reset', data)
       .then((res) => {
-        dispatch({ type: FORGOTPASSWORD_SUCCESS, result: res});
-        config.AuthToken = res.accessToken;
-        resolve(res);
+        if(res.status) {
+          dispatch({ type: FORGOTPASSWORD_FAIL});
+          resolve(res);
+        } else {
+          dispatch({type: FORGOTPASSWORD_SUCCESS, result: res});
+          resolve(res);
+        }
       })
       .catch((ex) => {
-        dispatch({ type: FORGOTPASSWORD_FAIL });
+        dispatch({ type: FORGOTPASSWORD_FAIL});
         reject(ex);
       });
   });
 }
+
+export function changepassword(data) {
+  console.log("DATA",data);
+  return (dispatch, getState) => new Promise((resolve, reject) => {
+    dispatch({type:RESETPASSWORD});
+    api
+      .post('/api/reset-password', data)
+      .then((res) => {
+        dispatch({type: RESETPASSWORD_SUCCESS, result: res});
+        resolve(res);
+      })
+      .catch((ex) => {
+        dispatch({type: RESETPASSWORD_FAIL, result: undefined});
+        reject(ex);
+      });
+  });
+}
+
 

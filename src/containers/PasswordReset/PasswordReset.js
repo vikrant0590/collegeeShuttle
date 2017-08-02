@@ -1,9 +1,5 @@
 import React,{ Component } from 'react';
-import {
-  View,
-  Text,
-  Image
-} from 'react-native';
+import {View, Text, Image } from 'react-native';
 import {
   Item,
   Input,
@@ -19,16 +15,38 @@ import {
 } from 'native-base';
 import {Actions as NavActions} from 'react-native-router-flux';
 import { Colors, Fonts, Images, Metrics  } from '../../theme';
+import { changepassword } from '../../redux/modules/auth';
+import PropTypes from 'prop-types';
+import Spinner from 'react-native-loading-spinner-overlay';
+
+import { toast } from '../../helpers/ToastMessage';
+import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './PasswordResetStyle'
 
 
+class PasswordReset extends  Component {
 
-export default class PasswordReset extends  Component {
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+    auth: PropTypes.any
+  };
+
+  static contextTypes = {
+    store: PropTypes.object
+  };
+
 
   constructor(props){
     super(props);
     this.state ={
+      isBusy:false,
+      new_password: undefined,
+      confirmPassword: undefined,
+      user_Id: undefined,
+      reset_Token: undefined,
+
 
     };
   }
@@ -43,13 +61,39 @@ export default class PasswordReset extends  Component {
   };
 
   onPressSubmitButton =() =>{
-    NavActions.login();
+    this.setState({isBusy:true});
+    let data = {
+      'user_id': this.props.auth.forgotUser._id,
+      'reset_token': this.props.auth.forgotUser.reset_token,
+      'new_password': this.state.new_password,
+    };
 
+    const {store: {dispatch}} = this.context;
+
+    if(this.state.new_password && this.state.confirmPassword){
+      if(this.state.new_password === this.state.confirmPassword){
+        dispatch(changepassword(data))
+          .then(()=>{
+            this.setState({isBusy:false});
+            toast("Password Changed Successfuly");
+            NavActions.login();
+          })
+          .catch(() => {
+          })
+      } else {
+        this.setState({isBusy:false});
+        toast("Password Do Not Matched");
+      }
+    } else {
+      toast('Please Enter Both Password Fields.');
+
+    }
   };
 
   render(){
     return(
       <Container style={{flex:1, backgroundColor:Colors.base}}>
+        <Spinner visible={this.state.isBusy} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -59,7 +103,11 @@ export default class PasswordReset extends  Component {
               </Button>
             </Left>
             <Body>
-              <Title style={{color: Colors.white, ...Fonts.style.title}}>Forgot Password</Title>
+              <Title style={{
+                color: Colors.white,
+                marginLeft:-40,
+                marginRight:-40,
+                ...Fonts.style.title}}>Forgot Password</Title>
             </Body>
             <Right>
             </Right>
@@ -73,7 +121,7 @@ export default class PasswordReset extends  Component {
               secureTextEntry={true}
               autoCapitalize={'none'}
               placeholderTextColor={Colors.placeholderTextColor}
-              onChangeText={(email) => {this.setState({email});
+              onChangeText={(new_password) => {this.setState({new_password});
               }}
             />
           </Item>
@@ -84,8 +132,7 @@ export default class PasswordReset extends  Component {
               secureTextEntry={true}
               autoCapitalize={'none'}
               placeholderTextColor={Colors.placeholderTextColor}
-
-              onChangeText={(email) => {this.setState({email});
+              onChangeText={(confirmPassword) => {this.setState({confirmPassword});
               }}
             />
           </Item>
@@ -109,3 +156,13 @@ export default class PasswordReset extends  Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  };
+};
+const  mapDispatchToProps = {
+
+};
+
+export default  connect(mapStateToProps, mapDispatchToProps, null, {withRef: true})(PasswordReset)

@@ -16,7 +16,11 @@ export default class  SelectedDestinationCell extends Component {
   };
 
   onPressSelectLocaton = () => {
-    let data = { 'data': this.props.locationData.ct , 'requestFor': this.props.RequestFor };
+    let data = {
+      'data': this.props.locationData.ct,
+      'tripId': this.props.locationData._id,
+      'requestFor': this.props.RequestFor
+    };
     const {store: {dispatch}} = this.context;
     dispatch(getSelectedDestination(data));
     this.props.Dismiss();

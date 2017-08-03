@@ -6,7 +6,7 @@ const REGISTER_FAIL = 'register/REGISTER';
 
 
 const initialState = {
-  user: null,
+  user: undefined,
   isBusy:false
 };
 
@@ -26,7 +26,6 @@ export default function reducer(state = initialState, action = {}) {
 export function register(data) {
   return (dispatch, getState)  => new Promise((resolve, reject) => {
     dispatch({ type: REGISTER });
-
     api
       .post('/api/register', data)
       .then((res) => {
@@ -39,5 +38,3 @@ export function register(data) {
       });
   });
 }
-
-

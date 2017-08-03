@@ -19,8 +19,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import InformationModal from '../../components/InformationModal';
 import { Actions } from 'react-native-router-flux';
 import styles from './AllTripsStyle';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class AllTrips extends Component {
+
+class AllTrips extends Component {
 
   constructor(props){
     super(props);
@@ -32,6 +35,10 @@ export default class AllTrips extends Component {
       isNotifyAvailable: false,
     }
   }
+
+  static propTypes = {
+    alltrip: PropTypes.any
+  };
 
   onPressBooking = (item)=> {
     if(item.index === 0 && item.seats > 0){
@@ -88,7 +95,7 @@ export default class AllTrips extends Component {
       {index:2, name:'College Shuttle Van',amount:'$70', seats: 10, stop:2,
         fsu:'04:30 PM',ssm:'08:30 PM', totalTime:'4 hrs 00 mins',star:3.5,rating:25},
     ];
-
+    // console.log('alltrip ====>>', this.props.alltrip);
     const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
@@ -528,3 +535,6 @@ export default class AllTrips extends Component {
     )
   }
 }
+export default connect(state => ({
+  alltrip: state.seachTrip
+}))(AllTrips)

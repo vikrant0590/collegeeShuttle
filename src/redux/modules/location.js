@@ -8,6 +8,8 @@ const DESTINATION = 'DESTINATION';
 const SEARCH = 'SEARCH';
 const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
+
+
 const initialState = {
   locationResponse: undefined,
   selectedDestination: undefined,

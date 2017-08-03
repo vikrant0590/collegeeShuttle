@@ -6,7 +6,7 @@ const LOCATION_FAIL = 'LOCATION_FAIL';
 
 const DESTINATION = 'DESTINATION';
 const SEARCH = 'SEARCH';
-const CLEAN_SEARCH = 'CLEAN_SEARCH';
+const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
 const initialState = {
   locationResponse: undefined,
@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action = {}) {
 
     case LOCATION_SUCCESS: {
       const locations = action.result.filter((item) => item.ct.length > 0);
-      return {...state, locationResponse: locations};
+      return {...state, locationResponse: locations, isBusy: false };
     }
 
     case LOCATION_FAIL:
@@ -36,10 +36,10 @@ export default function reducer(state = initialState, action = {}) {
     case SEARCH: {
       let search = state.locationResponse;
       const searchData = search.filter(item => item.ct.indexOf(action.result) > -1);
-      return { ...state, searchDestination: searchData}
+      return { ...state, searchDestination: searchData }
     }
 
-    case CLEAN_SEARCH: {
+    case CLEAR_SEARCH: {
       return { ...state, searchDestination: undefined }
     }
 
@@ -78,6 +78,6 @@ export function searchSelectedDestination(text) {
 
 export function clearSearchDestination() {
   return(dispatch, getState) =>  new Promise((resolve, reject) => {
-    dispatch({ type: CLEAN_SEARCH})
+    dispatch({ type: CLEAR_SEARCH})
   })
 }

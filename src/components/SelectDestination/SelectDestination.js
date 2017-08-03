@@ -26,10 +26,7 @@ class SelectDestination extends Component {
   };
 
   static propTypes = {
-    locationResponse: PropTypes.any,
-    selectDestination: PropTypes.any,
-    locationDestination: PropTypes.any,
-    searchDestination: PropTypes.any
+    Destination: PropTypes.any
   };
 
   selectDestinationBox = (placeholder) => {
@@ -58,7 +55,7 @@ class SelectDestination extends Component {
         modalDidClose={() => this.setState({ open: false }) }
         containerStyle={styles.SelectDestinationConatiner}
         modalStyle={styles.SelectDestinationViewStyle}>
-        { this.props.locationResponse === undefined ?
+        { this.props.Destination.locationResponse === undefined ?
           <ActivityIndicator
             animating={this.state.isLoading}
             style={[styles.centering, {height: 80}]}
@@ -115,8 +112,8 @@ class SelectDestination extends Component {
                 marginBottom: -10,
               }}
               dataArray={
-                (this.props.searchDestination != undefined || this.props.searchDestination != null )
-                  ? this.props.searchDestination : this.props.locationResponse}
+                (this.props.Destination.searchDestination != undefined)
+                  ? this.props.Destination.searchDestination : this.props.Destination.locationResponse}
               renderRow={(item) => {
                 return (
                   <ListItem
@@ -141,9 +138,7 @@ class SelectDestination extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    locationResponse: state.location.locationResponse,
-    selectDestination: state.location.selectedDestination,
-    searchDestination: state.location.searchDestination
+    Destination: state.location,
   };
 };
 const mapDispatchToProps = {

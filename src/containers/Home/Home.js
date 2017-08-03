@@ -8,7 +8,8 @@ import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
-  OfferBox
+  OfferBox,
+  AutoComplete
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
 export default class Home extends Component {
@@ -96,24 +97,43 @@ export default class Home extends Component {
             <View style={styles.textBackgroundView}>
               <Col>
                 <Row>
-                  <Button
-                    transparent
-                    style={{
+                  {this.state.isWeekly ?
+                    <View style={{
                       flex: 1,
                       justifyContent: 'flex-start',
-                      alignSelf: 'center'
-                    }}
-                    onPress={this.onPressUniversityButton}>
-                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
-                    <Text
+                      alignSelf: 'center',
+                      marginTop:20,
+                    }}>
+                      <Row>
+                        <Col size={0.5}/>
+                        <Col>
+                          <Image source={Images.roundtripunivercity} style={styles.textIcon}/>
+                        </Col>
+                        <Col size={6}>
+                          <AutoComplete/>
+                        </Col>
+                      </Row>
+                    </View>
+                    :
+                    <Button
+                      transparent
                       style={{
-                        fontSize: Fonts.size.regular,
-                        fontFamily: Fonts.lato.base,
-                        paddingLeft: 5,
-                        textAlign: 'left',
-                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
-                      }}>{this.state.fromText}</Text>
-                  </Button>
+                        flex: 1,
+                        justifyContent: 'flex-start',
+                        alignSelf: 'center'
+                      }}
+                      onPress={this.onPressUniversityButton}>
+                      <Image source={Images.roundtripunivercity} style={styles.textIcon}/>
+                      <Text
+                        style={{
+                          fontSize: Fonts.size.regular,
+                          fontFamily: Fonts.lato.base,
+                          paddingLeft: 5,
+                          textAlign: 'left',
+                          color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
+                        }}>{this.state.fromText}</Text>
+                    </Button>
+                  }
                 </Row>
               </Col>
               <LinearGradient colors={['#D32735','#FF214F']} style={styles.textSeprateLine}>

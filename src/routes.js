@@ -25,7 +25,7 @@ import {
 import {
   InformationModal,
   WalkThroughFirst,
-  TabIcon
+  TabIcon, AutoComplete
 } from './components';
 import {
   Images,
@@ -157,6 +157,7 @@ export default class AppRouter extends Component {
         <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
         <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
         <Scene key ="addCard" component={AddCard} hideNavBar={true} direction='vertical'/>
+        <Scene key="AutoComplete" component={AutoComplete} title="Login" initial={false}/>
       </Router>
     );
   }

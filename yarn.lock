@@ -3853,6 +3853,10 @@ react-mixin@^2.0.2:
     object-assign "^2.0.0"
     smart-mixin "^1.2.0"
 
+react-native-autocomplete-input@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-input/-/react-native-autocomplete-input-3.3.1.tgz#70a1be97d98bddb63d94879739069610d1817f54"
+
 react-native-base-switch@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-base-switch/-/react-native-base-switch-0.0.6.tgz#c919a47f5abefd4cacea5bd14fa1f23b8d3f1d89"

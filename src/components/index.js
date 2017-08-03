@@ -17,6 +17,7 @@ import TabIcon from './TabIcon';
 import NotificationCell from './NotificationCell';
 import GoogleMap from './GoogleMap';
 import DriverContactModalBox from './DriverContactModalBox';
+import AutoComplete from './AutoComplete';
 
 export {
   WalkThroughFirst,
@@ -37,5 +38,6 @@ export {
   TabIcon,
   NotificationCell,
   GoogleMap,
-  DriverContactModalBox
+  DriverContactModalBox,
+  AutoComplete
 };

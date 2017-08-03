@@ -101,6 +101,7 @@ export default StyleSheet.create({
   },
   loginButtonContainer:{
     marginLeft:Metrics.screenWidth/7,
+    marginBottom : 20,
   },
   formIcon:{
     marginRight:4,

@@ -30,9 +30,9 @@ export default class RoundTrip extends Component {
       <View>
         <Card>
           <Row style={{ flex: 1 }}>
-            <Col style={{ flex: 0.9 }}>
+            <Col style={{ flex: 0.44 }}>
               <CardItem>
-                <Body style={{ borderRightColor: Colors.thinLineColor, borderRightWidth: 1.5, alignItems: 'center' }}>
+                <Body style={{ alignItems: 'center' }}>
                   <Text style={styles.titleHeaderText}>Upcoming Trips</Text>
                   <Text style={styles.dayText}>25</Text>
                   <Text style={styles.monthText}>Feb, 2017</Text>
@@ -40,7 +40,10 @@ export default class RoundTrip extends Component {
                 </Body>
               </CardItem>
             </Col>
-            <Col style={{ flex: 1.1, marginRight: 3 }}>
+            <Col style={{ marginTop: 20, marginBottom: 20, width: 1 }}>
+              <View style={{ flex: 1, height: Metrics.screenHeight/ 7, backgroundColor: Colors.thinLineColor}} />
+            </Col>
+            <Col style={{ flex: 0.55, marginRight: 3 }}>
               <CardItem>
                 <Body style={{ alignItems: 'flex-start' }}>
                   <Text style={styles.titleHeaderText}>DESTINATION</Text>
@@ -73,9 +76,9 @@ export default class RoundTrip extends Component {
               <TouchableOpacity
                 style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                 onPress={this.onPressInviteButton}>
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
-                <Icon name='ios-contact' style={{ fontSize: Fonts.size.h1, alignSelf: 'center', marginLeft: 10 }} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
+                <Image source={Images.profileicon} style={styles.tripicon} />
                 <Image source={Images.roundtripaddicon} style={styles.tripicon} />
               </TouchableOpacity>
             </Body>

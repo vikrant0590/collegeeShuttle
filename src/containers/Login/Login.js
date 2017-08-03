@@ -18,7 +18,6 @@ export default class Login extends Component {
 
   static  propTypes = {
     dispatch: PropTypes.func,
-
   };
 
   static contextTypes = {
@@ -36,6 +35,7 @@ export default class Login extends Component {
   }
 
   onPressLoginButton = () => {
+    NavAction.tabbar();
     const {eid, password} = this.state;
     if (eid && password) {
       if (validationOnEmail(eid)) {

@@ -37,7 +37,6 @@ export default class RoundTripCustom extends Component {
         </TouchableOpacity>
       )
     }
-
     return(
       <View style={{flex:1, backgroundColor: Colors.base }}>
         <Calender />

@@ -21,9 +21,16 @@ export default StyleSheet.create({
 
   },
   avatarContainer:{
+    ...Platform.select({
+      ios:{
+       height: (Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? Metrics.screenHeight/2.5 : Metrics.screenHeight/2.7 : Metrics.screenHeight/2.9,
+      },
+      android:{
+        height: Metrics.screenHeight/4,
+      }
+    }),
+
     flex:1,
-    height:(Platform.OS ==='ios' ?(Metrics.screenWidth === 320) ? Metrics.screenHeight/4 :
-      Metrics.screenHeight/4.7 : Metrics.screenHeight/4.2),
     backgroundColor:Colors.transparent,
     alignItems:'center',
 
@@ -34,11 +41,25 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   avatar:{
-    width:90,
-    height:90,
-    borderRadius:45,
-    borderColor:Colors.white,
-    marginBottom:15,
+    ...Platform.select({
+      ios:{
+        width:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 74 : 80 : 90,
+        height:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 74 : 80 : 90,
+        borderRadius:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 37 : 40 : 45,
+        borderColor:Colors.white,
+        borderWidth: 1.5,
+        marginBottom:15
+      },
+      android:{
+        width:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 70 : 80 : 90,
+        height:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 70 : 80 : 90,
+        borderRadius:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 35 : 40 : 45,
+        borderColor:Colors.white,
+        marginBottom:15,
+        borderWidth: 1.5,
+      }
+    }),
+
   },
   avatarImage:{
     width:90,

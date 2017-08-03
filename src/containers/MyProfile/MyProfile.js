@@ -17,6 +17,7 @@ import {
   Icon,
   ListItem,
   Card,
+  Row
 } from 'native-base';
 import { ProfileEdit} from '../../containers'
 import ImagePicker from 'react-native-image-picker';
@@ -87,13 +88,13 @@ export default class MyProfile extends Component {
       console.log('Response = ', response);
 
       if (response.didCancel) {
-        console.log('User cancelled photo picker');
+
       }
       else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
+
       }
       else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
+
       }
       else {
         let source = { uri: response.uri };
@@ -117,26 +118,28 @@ export default class MyProfile extends Component {
     return (
 
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
-
-
         <Content>
-          <View style={{ backgroundColor: '#FC214F',borderBottomColor:Colors.transparent, flexDirection:'row'}}>
-            <Left style={{marginTop:15}}>
-              <Button transparent onPress={this.setMyProfile}>
-                <Icon name="arrow-back" style={{color: Colors.white, marginLeft:1}}/>
-              </Button>
-            </Left>
-            <Body>
-              <Title style={{color: Colors.white, ...Fonts.style.title,marginTop:15}}>My Profile</Title>
-            </Body>
-            <Right>
-              <TouchableOpacity onPress={this.onPressSave}>
-                <Text style={styles.saveButton}>SAVE</Text>
-              </TouchableOpacity>
-            </Right>
-          </View>
-          <LinearGradient colors={['#FC214F', '#D32735']}>
-            <View style={styles.avatarContainer}>
+          <LinearGradient colors={['#FC214F', '#D32735']} style={styles.avatarContainer}>
+            <Row style={(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? { marginTop: -30 } : { marginTop: -35 } : { marginTop: -45 }}>
+              <Left style={{marginTop:15}}>
+                <Button transparent onPress={this.setMyProfile}>
+                  <Icon name="arrow-back" style={{color: Colors.white, marginLeft:1 , fontSize: Fonts.size.h2}}/>
+                </Button>
+              </Left>
+              <Body>
+                <Title style={{color: Colors.white, ...Fonts.style.title,marginTop:15}}>My Profile</Title>
+              </Body>
+              <Right>
+                <TouchableOpacity onPress={this.onPressSave}>
+                  <Text style={styles.saveButton}>SAVE</Text>
+                </TouchableOpacity>
+              </Right>
+            </Row>
+            <View style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? -30  :  -35 :  -40 }}>
               <TouchableOpacity onPress={this.selectPhotoTapped}>
                 <Image source={Images.profileicon}  style={styles.avatar}>
                   { this.state.avatarSource === null ? null :

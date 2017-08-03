@@ -3,18 +3,22 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Button, Col, Row } from 'native-base';
 import styles from './HomeStyle';
 import { Images, Colors, Metrics, Fonts } from '../../theme';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
-  OfferBox
+  SelectDestination
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-export default class Home extends Component {
+import { getLocationFrom, clearSearchDestination } from '../../redux/modules/location';
 
-  constructor(){
-    super();
+class Home extends Component {
+
+  constructor(props){
+    super(props);
     this.state = {
       isRoundTrip: true,
       isOneWay: false,
@@ -26,6 +30,15 @@ export default class Home extends Component {
       toText: 'To',
     }
   }
+
+  static contextTypes = {
+    store: PropTypes.object,
+  };
+
+  static propTypes = {
+    locationResponse: PropTypes.any,
+    selectDestination: PropTypes.any
+  };
 
 
   onPressRoundTripButton = () => {
@@ -45,15 +58,19 @@ export default class Home extends Component {
   };
 
   onPressUniversityButton = () =>{
-    this.setState({ isWeekly: !this.state.isWeekly });
-    if(this.state.isWeekly){
-      this.setState({ fromText: 'From', toText: 'To' });
-    }else {
-      this.setState({ fromText: 'University', toText: 'Home' });
-    }
+    const {store: {dispatch}} = this.context;
+    dispatch(clearSearchDestination());
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("From");
+    dispatch(getLocationFrom());
+    this.setState({ isWeekly: true });
   };
 
-  onPressHomeButton = () => {
+  onPressToButton = () => {
+    const {store: {dispatch}} = this.context;
+    dispatch(clearSearchDestination());
+    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
+    dispatch(getLocationFrom());
+    this.setState({ isWeekly: true });
 
   };
 
@@ -65,6 +82,17 @@ export default class Home extends Component {
     this.setState({ isWeeklyActive: false, isCustomActive: true });
   };
 
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.selectDestination){
+      if(nextProps.selectDestination.requestFor === "To"){
+        this.setState({ toText: nextProps.selectDestination.data })
+      }
+      if(nextProps.selectDestination.requestFor === "From"){
+        this.setState({ fromText: nextProps.selectDestination.data })
+      }
+    }
+  }
 
   render(){
     const { isRoundTrip, isWeekly } = this.state;
@@ -111,8 +139,8 @@ export default class Home extends Component {
                         fontFamily: Fonts.lato.base,
                         paddingLeft: 5,
                         textAlign: 'left',
-                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
-                      }}>{this.state.fromText}</Text>
+                        color: (this.state.fromText !== 'From') ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{ this.state.fromText }</Text>
                   </Button>
                 </Row>
               </Col>
@@ -128,7 +156,7 @@ export default class Home extends Component {
                       justifyContent: 'flex-start',
                       alignSelf: 'center'
                     }}
-                    onPress={this.onPressHomeButton}>
+                    onPress={this.onPressToButton}>
                     <Image source={Images.roundtriphome} style={styles.textIcon} />
                     <Text
                       style={{
@@ -136,8 +164,8 @@ export default class Home extends Component {
                         fontFamily: Fonts.lato.base,
                         paddingLeft: 5,
                         textAlign: 'left',
-                        color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
-                      }}>{this.state.toText}</Text>
+                        color: ((this.state.toText !== 'To')) ? Colors.black : Colors.profileInputHeadingColor
+                      }}>{ this.state.toText }</Text>
                   </Button>
                 </Row>
               </Col>
@@ -186,15 +214,19 @@ export default class Home extends Component {
               </View>
               {(this.state.isWeeklyActive) ? <RoundTripWeekly /> :  <RoundTripCustom /> }
             </View>
-
             :
             <View style={styles.RoundTripView}>
               <RoundTrip />
             </View>
           }
         </Content>
-        <OfferBox ref="offerbox"/>
+        <SelectDestination ref="selectdestination" />
       </Container>
     )
   }
 }
+
+export default connect(state => ({
+  locationResponse: state.location.locationResponse,
+  selectDestination: state.location.selectedDestination
+}))(Home)

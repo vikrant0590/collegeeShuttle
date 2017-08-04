@@ -12,7 +12,7 @@ import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
 import PaymentSuccess from './PaymentSuccessBox';
 import GoogleLogin from './Googlesignin';
-import FaceboolLogin from './Facebooksignin';
+import FacebookLogin from './Facebooksignin';
 import TabIcon from './TabIcon';
 import NotificationCell from './NotificationCell';
 import GoogleMap from './GoogleMap';
@@ -35,7 +35,7 @@ export {
   PaymentFailed,
   PaymentSuccess,
   GoogleLogin,
-  FaceboolLogin,
+  FacebookLogin,
   TabIcon,
   NotificationCell,
   GoogleMap,

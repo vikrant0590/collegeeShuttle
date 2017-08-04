@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import {Container, Content, Item, Input, StyleProvider } from 'native-base';
 import {Actions as NavAction} from 'react-native-router-flux';
 import { Images,Colors } from '../../theme';
-import { GoogleLogin, FaceboolLogin } from '../../components';
+import { GoogleLogin, FacebookLogin } from '../../components';
 import Spinner from 'react-native-loading-spinner-overlay';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ import { validationOnEmail} from '../../helpers/EmailValidation';
 import styles from './LoginStyles';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
-import { login, } from '../../redux/modules/auth';
+import { login } from '../../redux/modules/auth';
 import { toast } from '../../helpers/ToastMessage';
 
 export default class Login extends Component {
@@ -35,7 +35,6 @@ export default class Login extends Component {
   }
 
   onPressLoginButton = () => {
-    NavAction.tabbar();
     const {eid, password} = this.state;
     if (eid && password) {
       if (validationOnEmail(eid)) {
@@ -75,7 +74,7 @@ export default class Login extends Component {
           </View>
 
           <View style={styles.loginFacebookContainer}>
-            <FaceboolLogin />
+            <FacebookLogin />
           </View>
 
           <View style={styles.loginGoogleContainer}>

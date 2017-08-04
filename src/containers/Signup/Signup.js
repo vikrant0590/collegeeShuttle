@@ -9,7 +9,7 @@ import styles from './SignupStyles';
 import { Images, Colors } from '../../theme';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
-import { GoogleLogin, FaceboolLogin } from '../../components';
+import { GoogleLogin, FacebookLogin} from '../../components';
 import { register } from '../../redux/modules/register';
 import { toast } from '../../helpers/ToastMessage';
 
@@ -86,7 +86,7 @@ export default class Signup extends Component {
                 </Text>
               </View>
               <View style={styles.loginFacebookContainer}>
-                <FaceboolLogin/>
+                <FacebookLogin/>
               </View>
               <View style={styles.loginGoogleContainer}>
                 <GoogleLogin/>

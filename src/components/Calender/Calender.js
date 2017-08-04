@@ -6,6 +6,7 @@ import {Calendar} from 'react-native-calendars';
 import moment from 'moment';
 let minkey, maxkey = undefined;
 export default class Calender extends Component {
+
   constructor(props) {
     super(props);
     this.state = {

@@ -9,14 +9,22 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import { Images } from '../../theme';
-import { } from 'react-native-router-flux';
+import { Images, Colors } from '../../theme';
 import styles from './GooglesigninStyle';
 import PropTypes from 'prop-types';
+import Spinner from 'react-native-loading-spinner-overlay';
+import {Actions} from 'react-native-router-flux';
 import { GoogleSignin } from 'react-native-google-signin';
-import { googlesignin } from '../../redux/modules/socialAuth';
+import { googlesignin } from '../../redux/modules/auth';
 
 export default class Googlesignin extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      isVisible:false
+    };
+  }
 
   static contextTypes = {
     store: PropTypes.object
@@ -31,24 +39,13 @@ export default class Googlesignin extends Component {
           GoogleSignin.signIn()
             .then((user) => {
               const { store: { dispatch } } = this.context;
-              if(user.photo === null){
-                dispatch( googlesignin({
-                  username: user.email,
-                  firstName: user.givenName,
-                  lastName:user.familyName,
-                  token: user.id,
-                  provider: 'google'
-                }));
-              }else {
-                dispatch(googlesignin({
-                  username: user.email,
-                  token: user.id,
-                  firstName: user.givenName,
-                  lastName:user.familyName,
-                  provider: 'google',
-                  imageUrl: user.photo
-                }));
-              }
+              dispatch( googlesignin(user))
+                .then(() => {
+                  this.setState({ isVisible:false});
+                  Actions.tabbar();
+                }).catch(() => {
+                  this.setState({isVisible: false});
+                });
             })
             .catch()
             .done();
@@ -60,6 +57,7 @@ export default class Googlesignin extends Component {
   render(){
     return(
       <TouchableOpacity style={styles.googleLoginBtn} onPress={this.onPressGoogleSignIn}>
+        <Spinner visible={this.state.isVisible} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <View style={styles.googleLoginLogoView}>
           <Image style={styles.googlelogo} source= { Images.googleIcon }/>
         </View>

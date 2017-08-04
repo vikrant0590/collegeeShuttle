@@ -33,7 +33,7 @@ import {
   Images,
   Colors
 } from './theme';
-import { login } from './redux/modules/auth';
+import { login, facebooksignin, googlesignin } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
@@ -51,13 +51,46 @@ export default class AppRouter extends Component {
     };
   }
 
-  componentWillMount() {
-    AsyncStorage.getItem('userCredentials')
-      .then( (value) =>{
-        if (value) {
-          const  userCredentials = JSON.parse(value);
-          const {store: {dispatch}} = this.context;
-          dispatch(login(userCredentials, true))
+  async componentWillMount() {
+    try {
+      const userCredential = await AsyncStorage.getItem('userCredentials');
+      const  savedUserParams = JSON.parse(userCredential);
+      if(!savedUserParams){
+        this.setState({ loading: false });
+
+      } else {
+        const password = savedUserParams.password;
+        const {store: {dispatch}} = this.context;
+        if(password === undefined){
+          if(savedUserParams.key === "facebook"){
+            dispatch(facebooksignin(savedUserParams))
+              .then( () => {
+                this.setState({
+                  logged: true,
+                  loading: false,
+                });
+              })
+              .catch( () => {
+                this.setState({
+                  loading: false,
+                })
+              });
+          } else {
+            dispatch(googlesignin(savedUserParams))
+              .then( () => {
+                this.setState({
+                  logged: true,
+                  loading: false,
+                });
+              })
+              .catch( () => {
+                this.setState({
+                  loading: false,
+                })
+              });
+          }
+        } else {
+          dispatch(login(savedUserParams, true))
             .then( () => {
               this.setState({
                 logged: true,
@@ -69,12 +102,13 @@ export default class AppRouter extends Component {
                 loading: false,
               })
             });
-        } else {
-          this.setState({ loading: false });
         }
-      });
-  }
 
+      }
+    } catch (err){
+    }
+
+  }
   render() {
     if (this.state.loading) {
       return <WalkThroughFirst />

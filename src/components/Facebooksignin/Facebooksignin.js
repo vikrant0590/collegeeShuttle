@@ -8,11 +8,13 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import { Images } from '../../theme';
+import { Images, Colors } from '../../theme';
 import { } from 'react-native-router-flux';
 import styles from './FacebooksigninStyle';
+import Spinner from 'react-native-loading-spinner-overlay';
+import {Actions} from 'react-native-router-flux';
 import PropTypes from 'prop-types';
-import { facebooksignin } from '../../redux/modules/socialAuth';
+import { facebooksignin } from '../../redux/modules/auth';
 import {
   LoginManager,
   AccessToken,
@@ -22,13 +24,21 @@ import {
 
 export default class Facebooksignin extends Component {
 
+  constructor(props){
+    super(props);
+    this.state={
+      isVisible:false
+    };
+  }
+
   static contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
   };
 
   onPressFacebookSignIn = () => {
     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_birthday']).then(
       (result) => {
+        this.setState({ isVisible: true});
         if (!result.isCancelled) {
           AccessToken
             .getCurrentAccessToken()
@@ -37,14 +47,13 @@ export default class Facebooksignin extends Component {
               const responseInfoCallback = async ( errorResponse, resultResponse) => {
                 const userDetails = JSON.parse(JSON.stringify(resultResponse));
                 const { store: { dispatch }} = this.context;
-                dispatch(facebooksignin({
-                  username: userDetails.email,
-                  token: accessToken,
-                  firstName:userDetails.first_name,
-                  lastName:userDetails.last_name,
-                  provider: 'facebook',
-                  imageUrl: userDetails.picture.data.url
-                }));
+                dispatch(facebooksignin(userDetails))
+                  .then(() => {
+                    this.setState({ isVisible:false});
+                    Actions.tabbar();
+                  }).catch(() => {
+                    this.setState({isVisible: false});
+                  });
               };
               const infoRequest = new GraphRequest (
                 '/me',
@@ -69,7 +78,10 @@ export default class Facebooksignin extends Component {
 
   render(){
     return(
+
       <TouchableOpacity style={styles.facebookLoginBtn} onPress={this.onPressFacebookSignIn}>
+        <Spinner visible={this.state.isVisible} textContent={"Loading..."} textStyle={{color: Colors.white}} />
+
         <View style={styles.facebookLogoView}>
           <Image style={styles.facebookLogo} source= { Images.facebookIcon }/>
         </View>

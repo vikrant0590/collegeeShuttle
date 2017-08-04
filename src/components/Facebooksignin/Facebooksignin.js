@@ -33,7 +33,6 @@ export default class Facebooksignin extends Component {
 
   static contextTypes = {
     store: PropTypes.object,
-    facebooksignin:PropTypes.object
   };
 
   onPressFacebookSignIn = () => {

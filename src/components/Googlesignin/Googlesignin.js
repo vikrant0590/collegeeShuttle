@@ -10,7 +10,6 @@ import {
   Image
 } from 'react-native';
 import { Images, Colors } from '../../theme';
-import { } from 'react-native-router-flux';
 import styles from './GooglesigninStyle';
 import PropTypes from 'prop-types';
 import Spinner from 'react-native-loading-spinner-overlay';

@@ -13,7 +13,7 @@ import {
   SelectDestination
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-import { getLocationFrom, clearSearchDestination } from '../../redux/modules/location';
+import { getLocationFrom, clearSearchDestination, getLocationTo } from '../../redux/modules/location';
 import { toast } from '../../helpers/ToastMessage';
 class Home extends Component {
 
@@ -70,7 +70,7 @@ class Home extends Component {
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
     this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
-    dispatch(getLocationFrom());
+    dispatch(getLocationTo());
     this.setState({ isWeekly: true });
 
   };

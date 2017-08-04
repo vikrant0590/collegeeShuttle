@@ -39,13 +39,19 @@ class SelectDestination extends Component {
     this.setState({ open: false });
   };
 
-  onChangeText = (text) => {
+  onChangeText = (text, searchforText) => {
     const {store: {dispatch}} = this.context;
-    dispatch(searchSelectedDestination(text))
+    dispatch(searchSelectedDestination(text, searchforText))
   };
 
   render() {
     const { open } = this.state;
+    let locationSelectList = undefined;
+    if(this.state.placeholdertext === 'To'){
+      locationSelectList = this.props.location.toLocation
+    }else {
+      locationSelectList = this.props.location.fromLocation
+    }
     return(
       <SelectDestinationModalSuccess
         open={open}
@@ -93,7 +99,7 @@ class SelectDestination extends Component {
                       autoCorrect = {false}
                       returnKeyType = 'search'
                       placeholder={this.state.placeholdertext}
-                      onChangeText={(text) => this.onChangeText(text)}
+                      onChangeText={(text) => this.onChangeText(text, this.state.placeholdertext)}
                       placeholderTextColor={Colors.settingHeadingTextColor}
                       value={this.state.text}
                     />
@@ -110,8 +116,8 @@ class SelectDestination extends Component {
                 marginBottom: -10,
               }}
               dataArray={
-                (this.props.location.searchDestination != undefined)
-                  ? this.props.location.searchDestination : this.props.location.locationResponse}
+                (this.props.location.searchLocation != undefined)
+                  ? this.props.location.searchLocation : locationSelectList}
               renderRow={(item) => {
                 return (
                   <ListItem

@@ -11,8 +11,7 @@ import {
   Body,
   Title,
   List,
-  Card,
-  CardItem
+  ListItem,
 } from 'native-base';
 import { Colors, Images, Fonts } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
@@ -21,18 +20,14 @@ import { Actions } from 'react-native-router-flux';
 import styles from './AllTripsStyle';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { AllTripCell } from '../../components';
 
 class AllTrips extends Component {
 
   constructor(props){
     super(props);
     this.state ={
-      availability:false,
-      luggageChecked:true,
-      refundTickets:true,
       open:false,
-      isNotifyAvailable: false,
     }
   }
 
@@ -40,25 +35,9 @@ class AllTrips extends Component {
     alltrip: PropTypes.any
   };
 
-  onPressBooking = (item)=> {
-    if(item.index === 0 && item.seats > 0){
-      this.setState({
-        availability:!this.state.availability,
-        luggageChecked:true,
-        refundTickets:true,
-      })
-    }
-  };
-
   luggageChecked =() =>{
     this.setState({
       luggageChecked:!this.state.luggageChecked,
-    })
-  };
-
-  refundTickets =() =>{
-    this.setState({
-      refundTickets:!this.state.refundTickets,
     })
   };
 
@@ -69,11 +48,6 @@ class AllTrips extends Component {
   onPressGoBack = () =>{
     Actions.pop();
   };
-
-  onPressNotifyWhenAvailable = () => {
-    this.setState({ isNotifyAvailable : !this.state.isNotifyAvailable });
-  };
-
 
   render(){
     let date = new Date();
@@ -95,10 +69,13 @@ class AllTrips extends Component {
       {index:2, name:'College Shuttle Van',amount:'$70', seats: 10, stop:2,
         fsu:'04:30 PM',ssm:'08:30 PM', totalTime:'4 hrs 00 mins',star:3.5,rating:25},
     ];
-    // console.log('alltrip ====>>', this.props.alltrip);
     const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
+
+    const { alltrip } = this.props;
+    let locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
+    let trips = alltrip.weeklyTrip.rTrips[0];
 
     return(
 
@@ -137,398 +114,22 @@ class AllTrips extends Component {
         </LinearGradient>
 
         <Content>
-          <View style={styles.container}>
-            <List dataArray={busService}
-              renderRow={(item) =>
-                <View>
-                  <View style ={styles.listContainer}>
-                    <Card>
-                      <CardItem>
-                        <TouchableOpacity onPress={ () => this.onPressBooking(item)}>
-                          <View style={item.seats > 0 ? styles.seatAvailable : styles.seatUnavailable}>
-
-                            <View style={styles.busNameRow}>
-                              <View style={styles.busNameHeading}>
-                                <View style={styles.busNameField}>
-                                  <Text  style = {item.seats > 0 ? styles.availableBusNameField :
-                                    styles.unavailableBusNameField}>
-                                    {item.name}
-                                  </Text>
-                                </View>
-
-                                <View style={styles.seatNameField}>
-                                  <Text style={styles.availableSeatsText}>{item.seats} Seats</Text>
-                                </View>
-                              </View>
-                            </View>
-
-                            {(item.stop === 1) &&
-                                <View style={styles.placeNameRow}>
-                                  <View style={styles.distanceNameField}>
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.placeStart}>FSU</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.placeEnd}>SSM</Text>
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-
-                            {(item.stop === 3) &&
-                                <View style={styles.placeNameRow}>
-                                  <View style={styles.distanceNameField}>
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.secondListStart}>FSU</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.secondListSecondPlace}>RKV</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.secondthirdPlace}>GBM</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.secondListEndPlace}>SSM</Text>
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-
-                            {(item.stop === 2) &&
-                                <View style={styles.placeNameRow}>
-
-                                  <View style={styles.distanceNameField}>
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.thirdListFirstPlace}>FSU</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.thirdListSecondPlace}>GBM</Text>
-                                    </View>
-
-                                    <View style={styles.distancePlace}>
-                                      <Text style={styles.thirdListThirdPlace}>SSM</Text>
-                                    </View>
-
-                                  </View>
-                                </View>
-                            }
-
-                            {(item.stop === 1) &&
-                                <View style={styles.pathRow}>
-                                  <View style={styles.pathRowContainer}>
-                                    <View style={styles.startPoint}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                    </View>
-
-                                    <View style={styles.singlePathLine}>
-                                    </View>
-                                    <Image source={Images.inteligent}/>
-                                  </View>
-                                </View>
-                            }
-                            {(item.stop === 3) &&
-
-                                <View style={styles.pathRow}>
-
-                                  <View style={styles. pathRowContainer}>
-                                    <View style={styles.pathRowValue}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                      <View style={styles.secondMiddleDistance}>
-                                      </View>
-                                    </View>
-
-                                    <View style={styles.pathRowValue}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                      <View style={styles.secondMiddleDistance}>
-                                      </View>
-                                    </View>
-
-                                    <View style={styles.pathRowValue}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                      <View style={styles.secondMiddleDistance}>
-                                      </View>
-                                      <Image source={Images.inteligent}/>
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-
-                            {(item.stop === 2) &&
-                                <View style={styles.pathRow}>
-
-                                  <View style={styles. pathRowContainer}>
-                                    <View style={styles.pathRowValue}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                      <View style={styles.secondMiddleDistance}>
-                                      </View>
-                                    </View>
-                                    <View style={styles.pathRowValue}>
-                                      <Image source={Images.ellipseOuter}/>
-                                      <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                                      <View style={styles.secondMiddleDistance}>
-                                      </View>
-                                      <Image source={Images.inteligent}/>
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-
-                            <View style={styles.timeIndicatorContainer}>
-
-                              <View style={styles.timeShowContainer}>
-
-                                <View style={styles.arriveTiming}>
-                                  <Text style={item.seats > 0 ? styles.activeArriveText : styles.inActiveArriveText}>
-                                    {item.fsu}
-                                  </Text>
-                                </View>
-
-                                <View style={styles.totalTime}>
-                                  <Text style={styles.totalTimeText}>
-                                    {item.totalTime}
-                                  </Text>
-                                </View>
-
-                                <View style={styles.reachTime}>
-                                  <Text style={item.seats > 0 ? styles.reachTimeText : styles.unReachTimeText}>
-                                    {item.ssm}
-                                  </Text>
-                                </View>
-                              </View>
-                            </View>
-
-                            {(item.star === 4.5) &&
-                                <View style={styles.amountRow}>
-
-                                  <View style={styles.starContainer}>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.halfStar}/>
-                                  </View>
-
-                                  <View style={styles.ratingRowContainer}>
-                                    <View style={styles.ratingAmountRow}>
-                                      <View style={styles.starColumnField}>
-                                        <View style={styles.starText}>
-                                          <Text style={styles.starTextColor}>{item.star}</Text>
-                                        </View>
-
-                                        <View style={styles.ratingColumnField }>
-                                          <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
-                                        </View>
-                                      </View>
-
-                                      <View style={styles.amountContainer}>
-                                        <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                                          {item.amount}
-                                        </Text>
-                                      </View>
-
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-                            {(item.star === 3) &&
-                            <View style={styles.amountRow}>
-
-                              <View style={styles.starContainer}>
-                                <Image source={Images.fullStar} style={styles.starGap}/>
-                                <Image source={Images.fullStar} style={styles.starGap}/>
-                                <Image source={Images.fullStar} style={styles.starGap}/>
-                              </View>
-                              <View style={styles.ratingRowContainer}>
-                                <View style={styles.ratingAmountRow}>
-                                  <View style={styles.starColumnField}>
-                                    <View style={styles.starText}>
-                                      <Text style={styles.starTextColor}>{item.star}</Text>
-                                    </View>
-
-                                    <View style={styles.ratingColumnField }>
-                                      <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
-                                    </View>
-                                  </View>
-
-                                  <View style={styles.amountContainer}>
-                                    <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                                      {item.amount}
-                                    </Text>
-                                  </View>
-
-                                </View>
-                              </View>
-                            </View>
-                            }
-
-                            {(item.star === 3.5) &&
-                                <View style={styles.amountRow}>
-                                  <View style={styles.starContainer}>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.fullStar} style={styles.starGap}/>
-                                    <Image source={Images.halfStar}/>
-                                  </View>
-                                  <View style={styles.ratingRowContainer}>
-                                    <View style={styles.ratingAmountRow}>
-                                      <View style={styles.starColumnField}>
-                                        <View style={styles.starText}>
-                                          <Text style={styles.starTextColor}>{item.star}</Text>
-                                        </View>
-
-                                        <View style={styles.ratingColumnField }>
-                                          <Text style={styles.ratingTextColor}>{item.rating} Ratings</Text>
-                                        </View>
-                                      </View>
-
-                                      <View style={styles.amountContainer}>
-                                        <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                                          {item.amount}
-                                        </Text>
-                                      </View>
-
-                                    </View>
-                                  </View>
-                                </View>
-                            }
-                            {(item.seats === 0) &&
-
-                                <View style={styles.seatUnavailableButton}>
-                                  <Button
-                                    rounded
-                                    bordered
-                                    transparent
-                                    style={(this.state.isNotifyAvailable) ?
-                                      {
-                                        backgroundColor:Colors.reminderButtonColor,
-                                        borderColor:Colors.reminderButtonColor
-                                      }
-                                      :
-                                      {
-                                        borderColor:Colors.reminderButtonColor,
-                                        backgroundColor:Colors.white
-                                      }
-                                    }
-                                    onPress={this.onPressNotifyWhenAvailable}>
-                                    {(!this.state.isNotifyAvailable) ?
-                                      <Text
-                                        style={styles.seatUnavailableButtonText}>Notify when available</Text>
-                                      :
-                                      <Text
-                                        style={{
-                                          ...Fonts.style.availabiltyNone,
-                                          color: Colors.white,
-                                        }}>Request sent</Text>
-                                    }
-                                  </Button>
-                                </View>
-                            }
-                          </View>
-                        </TouchableOpacity>
-                      </CardItem>
-                    </Card>
-                  </View>
-
-                  {(this.state.availability && item.index === 0) &&
-                      <Card>
-                        <CardItem style={{marginTop:-9}}>
-                          <View style={styles.seatBookingContainer}>
-                            <View style={styles.pickupLocationHeadingContainer}>
-                              <Text style={styles.pickupLocationHeadingText}>
-                                BOARDING POINT
-                              </Text>
-                              <Text style={styles.dropLocationHeadingText}>
-                                DROP
-                              </Text>
-                            </View>
-                            <View style={styles.pickupPlaceContainer}>
-                              <List
-                                dataArray={busInformation}
-                                renderRow={(items) =>
-                                  <View style={styles.pickDropRow}>
-                                    <Text style={styles.pickDropPlaceText}>
-                                      {items.boardingpoint}
-                                    </Text>
-                                    <Text style={styles.pickDropPlaceText}>{items.drop}</Text>
-                                  </View>
-                                }/>
-                            </View>
-
-                            <View style={styles.luggageBoxOption}>
-                              <View style={styles.checkBoxImageContainer}>
-                                {(this.state.luggageChecked) ?
-                                  <TouchableOpacity onPress={this.luggageChecked}>
-                                    <Image source={Images.checkbox} style={styles.checkedBox}/>
-                                    <Image source={Images.tick} style={styles.tickImage}/>
-                                  </TouchableOpacity>
-                                  :
-                                  <TouchableOpacity onPress={this.luggageChecked}>
-                                    <View style={styles.uncheckBox}>
-                                    </View>
-                                  </TouchableOpacity>
-                                }
-                              </View>
-
-                              <View style={styles.luggageOptionHeading}>
-                                <Text style={styles.boxTextColor}>Book Additional Luggage</Text>
-                                <Text style={styles.boxAmountTextColor}>$28 for Additional luggage</Text>
-                              </View>
-                            </View>
-
-                            <View style={styles.refundBoxOption}>
-                              <View style={styles.checkBoxImageContainer}>
-                                {(this.state.refundTickets) ?
-                                  <TouchableOpacity onPress={this.refundTickets}>
-                                    <Image source={Images.checkbox} style={styles.checkedBox}/>
-                                    <Image source={Images.tick} style={styles.tickImage}/>
-                                  </TouchableOpacity>
-                                  :
-                                  <TouchableOpacity onPress={this.refundTickets}>
-                                    <View style={styles.uncheckBox}>
-                                    </View>
-                                  </TouchableOpacity>
-                                }
-                              </View>
-                              <View style={styles.refundOptionHeading}>
-                                <Text style={styles.boxTextColor}>
-                                  Refundable Tickets
-                                </Text>
-                                <Text style={styles.boxAmountTextColor}>
-                                  $12 for Cancellation charges
-                                </Text>
-                              </View>
-                            </View>
-                            <View style={styles.bookButtonContainer}>
-                              <LinearGradient
-                                colors={['#FC214F','#D32735']}
-                                style={styles.bookButton}>
-                                <TouchableOpacity
-                                  onPress={this.openModal}
-                                  style={styles.bookButtonDefaultColor}>
-                                  <Text style={styles.bookButtonText}>Book Now</Text>
-                                </TouchableOpacity>
-                              </LinearGradient>
-                            </View>
-                          </View>
-                        </CardItem>
-                      </Card>
-                  }
-                </View>
-              }
-            />
-          </View>
-
-
+          <List
+            style={{ flex: 1, borderBottomWidth: 0 }}
+            dataArray={locationList}
+            renderRow={(item) =>{
+              return(
+                <ListItem style={{ marginTop: -14, marginBottom: -14, borderBottomWidth: 0 }}>
+                  <AllTripCell
+                    allTripCellItem = {item}
+                    busInformation={busInformation}
+                    trips={trips}
+                    staticdata={busService}
+                    openModal = {this.openModal}/>
+                </ListItem>
+              )
+            }}
+          />
         </Content>
         <InformationModal ref="informationmodal" />
       </Container>

@@ -35,7 +35,6 @@ export default class Login extends Component {
   }
 
   onPressLoginButton = () => {
-    NavAction.tabbar();
     const {eid, password} = this.state;
     if (eid && password) {
       if (validationOnEmail(eid)) {

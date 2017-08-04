@@ -19,7 +19,7 @@ import {
   Card
 } from 'native-base';
 import styles from './InviteFriendStyle';
-import { Colors, Images, Fonts } from '../../theme';
+import { Colors, Images, Fonts, Metrics } from '../../theme';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import { ListSelectMultiple } from '../../lib';
@@ -51,7 +51,6 @@ export default class InviteFriend extends Component {
 
   state = { selectedfriends: [] };
   onSelectionsChange = (selectedfriends) => {
-    // selectedFruits is array of { label, value }
     this.setState({ selectedfriends })
   };
 
@@ -95,7 +94,7 @@ export default class InviteFriend extends Component {
                   }}>
                   <Col style={{ flex: 0.92 }}>
                     <TextInput
-                      style={{ flex: 1, backgroundColor: Colors.white }}
+                      style={{ flex: 1, backgroundColor: Colors.white, borderRadius: 4 }}
                       onChangeText={(text) => this.setState({text})}
                       placeholderTextColor =  {Colors.settingHeadingTextColor}
                       value={this.state.text}
@@ -134,7 +133,7 @@ export default class InviteFriend extends Component {
           </View>
         </Content>
         {(this.state.selectedfriends !== undefined && this.state.selectedfriends.length > 0) &&
-        <Card style={{ flex: 0.1, marginLeft: 0, marginRight: 0, marginBottom: 0 }}>
+        <Card style={{flex:(Metrics.screenHeight === 480) ?  0.15 :  0.11 , marginLeft: 0, marginRight: 0, marginBottom: 0 }}>
           <Row>
             <View style={styles.cardSelectedItemView}>
               <Text style={styles.selectedItemText}>{this.state.selectedfriends.length}</Text>

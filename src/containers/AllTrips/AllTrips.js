@@ -56,11 +56,6 @@ export default class AllTrips extends Component {
   };
 
   openModal =() =>{
-    // this.setState({
-    //   open:!this.state.open,
-    //   availability:!this.state.availability
-    // })
-
     this.refs.informationmodal.showInformationDialog();
   };
 

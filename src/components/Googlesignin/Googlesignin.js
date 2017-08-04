@@ -55,7 +55,6 @@ export default class Googlesignin extends Component {
         });
     })
       .catch();
-
   };
 
   render(){

@@ -27,7 +27,7 @@ export default class Facebooksignin extends Component {
   };
 
   onPressFacebookSignIn = () => {
-    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+    LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_birthday']).then(
       (result) => {
         if (!result.isCancelled) {
           AccessToken
@@ -62,7 +62,7 @@ export default class Facebooksignin extends Component {
             })
             .catch();
         }
-      },
+      }
     );
   };
 

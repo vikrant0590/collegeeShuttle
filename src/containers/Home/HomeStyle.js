@@ -107,8 +107,8 @@ export default StyleSheet.create({
       ios:{
         marginLeft: (Metrics.screenWidth === 320) ? 45 : 60,
         marginRight: (Metrics.screenWidth === 320) ? 45 : 60,
-        marginTop: (Metrics.screenWidth === 320) ? 32 : 40,
-        marginBottom: (Metrics.screenWidth === 320) ? 32 : 40,
+        marginTop: (Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 24 : 40 : 60,
+        marginBottom: (Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 24 : 32 : 40,
       },
       android:{
         marginLeft: 60,

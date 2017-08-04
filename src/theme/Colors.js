@@ -45,6 +45,7 @@ const colors = {
   googleIconBg:'#c03b2b',
   facebookIconBg:'#314190',
   options:'#333333',
+  pureBlack:'#1B1B1B',
   unselectedTabBarTextColor: '#F0C68F',
   base:'#FDFBF6',
   settingHeadingTextColor:'#C7C7C7',
@@ -75,6 +76,7 @@ const colors = {
   tabBarbgColor: 'rgba(219,38,58,0.14)',
   hpmeSubHeaderBtnColor: 'rgba(255, 255, 255, 0.6)',
   modalBgColor: 'rgba(0, 0, 0, 0.3)',
+  selectDestinationColor: 'rgba(0, 0, 0, 0.6)',
   userProfileBorderColor: '#E0DDD7',
 };
 

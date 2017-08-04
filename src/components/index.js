@@ -6,7 +6,7 @@ import RoundTrip from './RoundTrip';
 import RoundTripWeekly from './RoundTripWeekly';
 import RoundTripCustom from './RoundTripCustom';
 import Calender from './Calender';
-import InviteFriendCell from './InviteFriendCell';
+import SelectedDestinationCell from './SelectedDestinationCell';
 import MyTripCell from './MyTripCell';
 import OfferBox from './OfferModalBox';
 import PaymentFailed from './PaymentfailedBox';
@@ -17,7 +17,8 @@ import TabIcon from './TabIcon';
 import NotificationCell from './NotificationCell';
 import GoogleMap from './GoogleMap';
 import DriverContactModalBox from './DriverContactModalBox';
-import AutoComplete from './AutoComplete';
+import SelectDestination from './SelectDestination';
+import EmailVerificationModel from './EmailVerificationModel';
 
 export {
   WalkThroughFirst,
@@ -28,7 +29,7 @@ export {
   RoundTripWeekly,
   RoundTripCustom,
   Calender,
-  InviteFriendCell,
+  SelectedDestinationCell,
   MyTripCell,
   OfferBox,
   PaymentFailed,
@@ -39,5 +40,6 @@ export {
   NotificationCell,
   GoogleMap,
   DriverContactModalBox,
-  AutoComplete
+  SelectDestination,
+  EmailVerificationModel
 };

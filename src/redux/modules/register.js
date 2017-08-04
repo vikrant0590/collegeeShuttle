@@ -18,12 +18,13 @@ export default function reducer(state = initialState, action = {}) {
       return { ...state, isBusy: false };
     case REGISTER_FAIL:
       return { ...state, isBusy: false };
+
     default:
       return state;
   }
 }
 
-export function register(data) {
+export  function register(data) {
   return (dispatch, getState)  => new Promise((resolve, reject) => {
     dispatch({ type: REGISTER });
     api

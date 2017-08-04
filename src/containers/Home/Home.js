@@ -98,7 +98,7 @@ class Home extends Component {
   checkFieldForDestination = () => {
     if(this.state.fromText === 'From' && this.state.toText === 'To'){
       toast('From and To Required.')
-    }else if(this.state.toText === 'From'){
+    }else if(this.state.fromText === 'From'){
       toast('From Required.')
     }else if(this.state.toText === 'To'){
       toast('To Requird.')

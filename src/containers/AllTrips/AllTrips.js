@@ -72,10 +72,14 @@ class AllTrips extends Component {
     const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
+    let locationList, trips = undefined;
 
     const { alltrip } = this.props;
-    let locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
-    let trips = alltrip.weeklyTrip.rTrips[0];
+    if(alltrip != undefined){
+      locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
+      trips = alltrip.weeklyTrip.rTrips[0];
+    }
+
 
     return(
 

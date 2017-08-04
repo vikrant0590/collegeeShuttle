@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { ApplicationStyles, Fonts } from '../../theme';
+import { StyleSheet, Platform } from 'react-native';
+import { ApplicationStyles, Fonts, Metrics } from '../../theme';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -8,8 +8,18 @@ export default StyleSheet.create({
   },
   bag: {
     //marginTop: 100,
-    paddingTop: 60,
-    paddingBottom : 60,
+
+    ...Platform.select({
+      ios: {
+        marginTop:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 40 : 50  : 55,
+        marginBottom:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 40 : 50  : 55,
+
+      },
+      android:{
+        marginTop: 55,
+        marginBottom: 55,
+      }
+    }),
     alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
@@ -37,5 +47,21 @@ export default StyleSheet.create({
     backgroundColor:'transparent',
     color:'#D32735',
     textAlign:'center'
+  },
+
+  mobilelogo:{
+    ...Platform.select({
+      ios: {
+        marginTop:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 10 : 10  : 5,
+        marginBottom:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 15 : 10  : 5,
+        marginLeft:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 20 : 10  : 5,
+        marginRight:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? 20 : 10  : 5,
+        resizeMode: 'contain'
+      },
+      android:{
+        resizeMode: 'contain'
+      }
+    })
   }
+
 });

@@ -19,6 +19,7 @@ import GoogleMap from './GoogleMap';
 import DriverContactModalBox from './DriverContactModalBox';
 import SelectDestination from './SelectDestination';
 import EmailVerificationModel from './EmailVerificationModel';
+import AllTripCell from './AllTripCell';
 
 export {
   WalkThroughFirst,
@@ -41,5 +42,6 @@ export {
   GoogleMap,
   DriverContactModalBox,
   SelectDestination,
-  EmailVerificationModel
+  EmailVerificationModel,
+  AllTripCell
 };

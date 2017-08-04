@@ -61,7 +61,21 @@ export default class AppRouter extends Component {
       } else {
         const password = savedUserParams.password;
         const {store: {dispatch}} = this.context;
-        if(password === undefined){
+        if(password){
+          dispatch(login(savedUserParams, true))
+            .then( () => {
+              this.setState({
+                logged: true,
+                loading: false,
+              });
+            })
+            .catch( () => {
+              this.setState({
+                loading: false,
+              })
+            });
+
+        } else {
           if(savedUserParams.key === "facebook"){
             dispatch(facebooksignin(savedUserParams))
               .then( () => {
@@ -89,19 +103,7 @@ export default class AppRouter extends Component {
                 })
               });
           }
-        } else {
-          dispatch(login(savedUserParams, true))
-            .then( () => {
-              this.setState({
-                logged: true,
-                loading: false,
-              });
-            })
-            .catch( () => {
-              this.setState({
-                loading: false,
-              })
-            });
+
         }
 
       }

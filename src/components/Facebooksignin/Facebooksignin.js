@@ -47,7 +47,6 @@ export default class Facebooksignin extends Component {
               const  accessToken = data.accessToken;
               const responseInfoCallback = async ( errorResponse, resultResponse) => {
                 const userDetails = JSON.parse(JSON.stringify(resultResponse));
-                console.log("USER DETAILS", userDetails);
                 const { store: { dispatch }} = this.context;
                 dispatch(facebooksignin(userDetails))
                   .then(() => {

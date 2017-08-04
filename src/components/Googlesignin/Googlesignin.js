@@ -39,7 +39,6 @@ export default class Googlesignin extends Component {
         .then(() => {
           GoogleSignin.signIn()
             .then((user) => {
-              console.log("USER",user);
               const { store: { dispatch } } = this.context;
               dispatch( googlesignin(user))
                 .then(() => {

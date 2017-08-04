@@ -12,7 +12,7 @@ export default class WalkThroughThird extends Component {
       <LinearGradient colors={['#FC214F','#D32735']} style={styles.linearGradient}>
         <View style={styles.bag}>
           <Image style={{ resizeMode: 'contain' }} source={ Images.logo } />
-          <Image style={{ resizeMode: 'contain' }} source={ Images.mobilelogo } />
+          <Image style={styles.mobilelogo} source={ Images.mobilelogo } />
           <View style={styles.loginSection}>
             <Text style={styles.introText}>Track real time location of your trip.{'\n'}
               <Text style={styles.introText}>Share your trip with friends and family.</Text>

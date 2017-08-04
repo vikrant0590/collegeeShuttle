@@ -13,21 +13,29 @@ import {
   CardItem,
   Body,
 } from 'native-base';
-
+import { toast } from '../../helpers/ToastMessage';
 import { Actions as NavAction } from 'react-native-router-flux';
+import { weeklyTripSearch } from '../../redux/modules/searchTrip';
 import { Colors, Metrics } from '../../theme';
 import styles from './RoundTripWeeklyStyle';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const items = [
-  {index: 0, header: 'THIS WEEK', date: '25', day: 'Friday', month: 'Feb, 2017', time: '04:00 PM'},
-  {index: 1, header: 'NEXT WEEK', date: '02', day: 'Sunday', month: 'Mar, 2017', time: '05:00 PM'}];
+  {index: 0, header: 'THIS WEEK'},
+  {index: 1, header: 'NEXT WEEK'}];
 
 export default class RoundTripWeekly extends Component {
 
   static propTypes = {
-    isActive: PropTypes.bool
+    isActiveSearch: PropTypes.bool,
+    selectDestination: PropTypes.any,
+    checkField: PropTypes.func
+  };
+
+  static contextTypes = {
+    store: PropTypes.object,
   };
 
   constructor(){
@@ -35,7 +43,7 @@ export default class RoundTripWeekly extends Component {
     this.state = {
       isPlanThisWeek : false,
       isPlanNextWeek : false,
-      selectedButtonIndex: 0
+      selectedButtonIndex: 0,
     }
   }
 
@@ -44,7 +52,27 @@ export default class RoundTripWeekly extends Component {
   };
 
   onPressSearch = () => {
-    NavAction.allTrips();
+
+    this.props.checkField();
+
+    if(this.props.isActiveSearch){
+      if((this.state.isPlanThisWeek || this.state.isPlanNextWeek)){
+        let data = {
+          //here pkid & dpid are static, dynamic values are commented.. please not remove.
+          // "pkId": this.props.selectDestination.pkid,
+          // "dpId": this.props.selectDestination.dpid,
+          "pkId": "58498e1cf72e5d0f1e29424b",
+          "dpId": "584990adf72e5d0f1e29424f",
+          "rTrip": true,
+          "date": "2017-02-24"
+        };
+        const {store: {dispatch}} = this.context;
+        dispatch(weeklyTripSearch(data));
+        NavAction.allTrips();
+      }else {
+        toast('Please select trip date.');
+      }
+    }
   };
 
   onPressThisWeekPlan = () => {
@@ -56,6 +84,18 @@ export default class RoundTripWeekly extends Component {
   };
 
   calenderThisWeekPlainView = () => {
+
+    let startDateOfThisWeek = moment().startOf('isoWeek').toDate();
+    let endDateOfThisWeek = moment().endOf('isoWeek').toDate();
+    const startDayOfWeek =  moment(startDateOfThisWeek).format('dddd');
+    const startDateOfWeek =  moment(startDateOfThisWeek).format('DD');
+    const startMonthOfWeek =  moment(startDateOfThisWeek).format('MMM, YYYY');
+    const startTimeOfWeek =  moment(startDateOfThisWeek).format('hh:mm A');
+    const endDayOfWeek =  moment(endDateOfThisWeek).format('dddd');
+    const endDateOfWeek =  moment(endDateOfThisWeek).format('DD');
+    const endMonthOfWeek =  moment(endDateOfThisWeek).format('MMM, YYYY');
+    const endTimeOfWeek =  moment(endDateOfThisWeek).format('hh:mm A');
+
     return(
       <TouchableOpacity
         style={styles.swiperPagerBtn}
@@ -92,10 +132,10 @@ export default class RoundTripWeekly extends Component {
                     style={{
                       alignItems: 'center'
                     }}>
-                    <Text style={styles.dateWeekText}>{items[0].date}</Text>
-                    <Text style={styles.dayWeekText}>{items[0].day}</Text>
-                    <Text style={styles.monthWeekText}>{items[0].month}</Text>
-                    <Text style={styles.timeWeekText}>{items[0].time}</Text>
+                    <Text style={styles.dateWeekText}>{startDateOfWeek}</Text>
+                    <Text style={styles.dayWeekText}>{startDayOfWeek}</Text>
+                    <Text style={styles.monthWeekText}>{startMonthOfWeek}</Text>
+                    <Text style={styles.timeWeekText}>{startTimeOfWeek}</Text>
                   </Body>
                 </CardItem>
               </Col>
@@ -105,10 +145,10 @@ export default class RoundTripWeekly extends Component {
               <Col style={{ flex: 0.99 }}>
                 <CardItem>
                   <Body style={{ alignItems: 'center' }}>
-                    <Text style={styles.dateWeekText}>{items[0].date}</Text>
-                    <Text style={styles.dayWeekText}>{items[0].day}</Text>
-                    <Text style={styles.monthWeekText}>{items[0].month}</Text>
-                    <Text style={styles.timeWeekText}>{items[0].time}</Text>
+                    <Text style={styles.dateWeekText}>{endDateOfWeek}</Text>
+                    <Text style={styles.dayWeekText}>{endDayOfWeek}</Text>
+                    <Text style={styles.monthWeekText}>{endMonthOfWeek}</Text>
+                    <Text style={styles.timeWeekText}>{endTimeOfWeek}</Text>
                   </Body>
                 </CardItem>
               </Col>
@@ -120,6 +160,20 @@ export default class RoundTripWeekly extends Component {
   };
 
   calenderNextWeekPlainView = () => {
+
+    let startDateOfNextWeek = moment().add(1, 'weeks').startOf('isoWeek').toDate();
+    let endDateOfNextWeek = moment().add(1, 'weeks').endOf('isoWeek').toDate();
+
+    const startDayOfWeek =  moment(startDateOfNextWeek).format('dddd');
+    const startDateOfWeek =  moment(startDateOfNextWeek).format('DD');
+    const startMonthOfWeek =  moment(startDateOfNextWeek).format('MMM, YYYY');
+    const startTimeOfWeek =  moment(startDateOfNextWeek).format('hh:mm A');
+
+    const endDayOfWeek =  moment(endDateOfNextWeek).format('dddd');
+    const endDateOfWeek =  moment(endDateOfNextWeek).format('DD');
+    const endMonthOfWeek =  moment(endDateOfNextWeek).format('MMM, YYYY');
+    const endTimeOfWeek =  moment(endDateOfNextWeek).format('hh:mm A');
+
     return(
       <TouchableOpacity
         style={styles.swiperPagerBtn}
@@ -156,10 +210,10 @@ export default class RoundTripWeekly extends Component {
                     style={{
                       alignItems: 'center'
                     }}>
-                    <Text style={styles.dateWeekText}>{items[1].date}</Text>
-                    <Text style={styles.dayWeekText}>{items[1].day}</Text>
-                    <Text style={styles.monthWeekText}>{items[1].month}</Text>
-                    <Text style={styles.timeWeekText}>{items[1].time}</Text>
+                    <Text style={styles.dateWeekText}>{startDateOfWeek}</Text>
+                    <Text style={styles.dayWeekText}>{startDayOfWeek}</Text>
+                    <Text style={styles.monthWeekText}>{startMonthOfWeek}</Text>
+                    <Text style={styles.timeWeekText}>{startTimeOfWeek}</Text>
                   </Body>
                 </CardItem>
               </Col>
@@ -169,10 +223,10 @@ export default class RoundTripWeekly extends Component {
               <Col style={{ flex: 0.99 }}>
                 <CardItem>
                   <Body style={{ alignItems: 'center' }}>
-                    <Text style={styles.dateWeekText}>{items[1].date}</Text>
-                    <Text style={styles.dayWeekText}>{items[1].day}</Text>
-                    <Text style={styles.monthWeekText}>{items[1].month}</Text>
-                    <Text style={styles.timeWeekText}>{items[1].time}</Text>
+                    <Text style={styles.dateWeekText}>{endDateOfWeek}</Text>
+                    <Text style={styles.dayWeekText}>{endDayOfWeek}</Text>
+                    <Text style={styles.monthWeekText}>{endMonthOfWeek}</Text>
+                    <Text style={styles.timeWeekText}>{endTimeOfWeek}</Text>
                   </Body>
                 </CardItem>
               </Col>
@@ -184,6 +238,7 @@ export default class RoundTripWeekly extends Component {
   };
 
   render(){
+
     const passenger = [];
     for (let index = 0; index < 5; index ++){
       passenger.push(

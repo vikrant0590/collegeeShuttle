@@ -13,8 +13,8 @@ import {
   SelectDestination
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-import { getLocationFrom, clearSearchDestination } from '../../redux/modules/location';
-
+import { getLocationFrom, clearSearchDestination, getLocationTo } from '../../redux/modules/location';
+import { toast } from '../../helpers/ToastMessage';
 class Home extends Component {
 
   constructor(props){
@@ -28,6 +28,9 @@ class Home extends Component {
       isCustomActive: false,
       fromText: 'From',
       toText: 'To',
+      pkid: undefined,
+      dpid: undefined,
+      isActiveSearch: undefined
     }
   }
 
@@ -36,10 +39,8 @@ class Home extends Component {
   };
 
   static propTypes = {
-    locationResponse: PropTypes.any,
-    selectDestination: PropTypes.any
+    selectDestination: PropTypes.any,
   };
-
 
   onPressRoundTripButton = () => {
     if(this.state.isOneWay){
@@ -69,7 +70,7 @@ class Home extends Component {
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
     this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
-    dispatch(getLocationFrom());
+    dispatch(getLocationTo());
     this.setState({ isWeekly: true });
 
   };
@@ -86,16 +87,35 @@ class Home extends Component {
   componentWillReceiveProps(nextProps){
     if(nextProps.selectDestination){
       if(nextProps.selectDestination.requestFor === "To"){
-        this.setState({ toText: nextProps.selectDestination.data })
+        this.setState({ toText: nextProps.selectDestination.data, dpid: nextProps.selectDestination.tripId })
       }
       if(nextProps.selectDestination.requestFor === "From"){
-        this.setState({ fromText: nextProps.selectDestination.data })
+        this.setState({ fromText: nextProps.selectDestination.data, pkid: nextProps.selectDestination.tripId })
       }
     }
   }
 
+  checkFieldForDestination = () => {
+    if(this.state.fromText === 'From' && this.state.toText === 'To'){
+      toast('From and To Required.')
+    }else if(this.state.fromText === 'From'){
+      toast('From Required.')
+    }else if(this.state.toText === 'To'){
+      toast('To Requird.')
+    }
+  };
+
   render(){
     const { isRoundTrip, isWeekly } = this.state;
+    let isActiveSearch = false;
+    let selectDestination = undefined;
+    if(this.state.fromText != 'From' && this.state.toText != 'To'){
+      isActiveSearch = true;
+      selectDestination = {
+        'pkid': this.state.pkid,
+        'dpid': this.state.dpid
+      }
+    }
     return(
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         <Content>
@@ -212,7 +232,13 @@ class Home extends Component {
                     }}>CUSTOM</Text>
                 </TouchableOpacity>
               </View>
-              {(this.state.isWeeklyActive) ? <RoundTripWeekly /> :  <RoundTripCustom /> }
+              {(this.state.isWeeklyActive) ?
+                <RoundTripWeekly
+                  isActiveSearch={isActiveSearch}
+                  selectDestination={selectDestination}
+                  checkField={this.checkFieldForDestination}/>
+                :
+                <RoundTripCustom /> }
             </View>
             :
             <View style={styles.RoundTripView}>
@@ -227,6 +253,5 @@ class Home extends Component {
 }
 
 export default connect(state => ({
-  locationResponse: state.location.locationResponse,
   selectDestination: state.location.selectedDestination
 }))(Home)

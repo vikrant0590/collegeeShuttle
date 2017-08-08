@@ -21,6 +21,9 @@ import styles from './AllTripsStyle';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { AllTripCell } from '../../components';
+import { weeklyTripSearch } from '../../redux/modules/searchTrip';
+import moment from 'moment';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 class AllTrips extends Component {
 
@@ -28,12 +31,34 @@ class AllTrips extends Component {
     super(props);
     this.state ={
       open:false,
+      increase: 1,
+      decrease: 1,
+      nextDate: moment(new Date()).format("DD"),
+      previousDate: undefined,
+      todayDate: moment(new Date()).format("DD-MMM, YYYY"),
     }
   }
+  static contextTypes = {
+    store: PropTypes.object,
+  };
 
   static propTypes = {
-    alltrip: PropTypes.any
+    alltrip: PropTypes.any,
+    allTripData: PropTypes.any
   };
+
+  componentWillMount(){
+    if(this.props.allTripData){
+      let data = {
+        "pkId": this.props.allTripData.pkId,
+        "dpId": this.props.allTripData.dpId,
+        "rTrip": this.props.allTripData.rTrip,
+        "date":  this.props.allTripData.date
+      };
+      const {store: {dispatch}} = this.context;
+      dispatch(weeklyTripSearch(data));
+    }
+  }
 
   luggageChecked =() =>{
     this.setState({
@@ -49,17 +74,49 @@ class AllTrips extends Component {
     Actions.pop();
   };
 
+  onPressPreviousDate = () => {
+    let todayDay = this.props.allTripData.date;
+    if(this.state.nextDate > moment(new Date()).format('DD')) {
+      this.setState({ increase: this.state.increase - 1, nextDate: moment(this.state.todayDate).subtract(1, "days").format("DD")},() =>{
+        this.setState({
+          todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
+            .format("DD-MMM, YYYY")});
+      });
+
+      let data = {
+        "pkId": this.props.allTripData.pkId,
+        "dpId": this.props.allTripData.dpId,
+        "rTrip": this.props.allTripData.rTrip,
+        "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
+      };
+      console.log('data pervious ===>> ', data);
+      const {store: {dispatch}} = this.context;
+      dispatch(weeklyTripSearch(data));
+
+    }
+  };
+
+  onPressNextDate = (increase) => {
+    let todayDay = this.props.allTripData.date;
+    if(this.state.nextDate < moment(this.props.allTripData.endDateOfWeek).format('DD')) {
+      this.setState({ increase: this.state.increase + 1, nextDate: moment().add(increase, 'days').format('DD')},() =>{
+        this.setState({
+          todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
+            .format("DD-MMM, YYYY")});
+      });
+      let data = {
+        "pkId": this.props.allTripData.pkId,
+        "dpId": this.props.allTripData.dpId,
+        "rTrip": this.props.allTripData.rTrip,
+        "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
+      };
+      console.log('data next ===>> ', data);
+      const {store: {dispatch}} = this.context;
+      dispatch(weeklyTripSearch(data));
+    }
+  };
+
   render(){
-    let date = new Date();
-    let monthNames = [
-      "Jan", "Feb", "Mar",
-      "Apr", "May", "June", "Jul",
-      "Aug", "Sept", "Oct",
-      "Nov", "Dec"
-    ];
-    let day = date.getDate();
-    let monthIndex = date.getMonth();
-    let year = date.getFullYear();
 
     const busService =[
       {index:0, name:'College Shuttle Van',amount:'$72', seats:10, stop:1,
@@ -75,15 +132,17 @@ class AllTrips extends Component {
     let locationList, trips = undefined;
 
     const { alltrip } = this.props;
-    if(alltrip){
+    if(alltrip.weeklyTrip.rTrips[0]){
       locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
+    }
+    if(alltrip.weeklyTrip.rTrips[0]){
       trips = alltrip.weeklyTrip.rTrips[0];
     }
-
 
     return(
 
       <Container style={{backgroundColor:Colors.base, marginBottom: 60 }}>
+        <Spinner visible={this.props.alltrip.isBusy} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <LinearGradient colors={['#FC214F', '#D32735']}>
           <Header style={{backgroundColor: Colors.transparent, borderBottomWidth: 0,
             shadowOffset:{height:0,width:0},shadowOpacity:0}}>
@@ -100,14 +159,14 @@ class AllTrips extends Component {
                     marginLeft:-40,
                     marginRight:-40,
                     ...Fonts.style.title
-                  }}>University - Home</Title>
+                  }}>{this.props.allTripData.fromDestination} - {this.props.allTripData.toDestination}</Title>
               </View>
               <View style={styles.dateRow}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.onPressPreviousDate.bind((this))}>
                   <Image source={Images.arrowBack} style={styles.backDate}/>
                 </TouchableOpacity>
-                <Text style={{color: Colors.white}}>{day + ' '+ monthNames[monthIndex]+ ','+' ' + year}</Text>
-                <TouchableOpacity>
+                <Text style={{color: Colors.white}}>{this.state.todayDate}</Text>
+                <TouchableOpacity onPress={this.onPressNextDate.bind(this, this.state.increase)}>
                   <Image source={Images.arrowForward} style={styles.nextDate}/>
                 </TouchableOpacity>
               </View>

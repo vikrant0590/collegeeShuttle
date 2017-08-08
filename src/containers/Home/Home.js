@@ -72,7 +72,6 @@ class Home extends Component {
     this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
     dispatch(getLocationTo());
     this.setState({ isWeekly: true });
-
   };
 
   onPressWeeklyButton = () => {
@@ -113,7 +112,10 @@ class Home extends Component {
       isActiveSearch = true;
       selectDestination = {
         'pkid': this.state.pkid,
-        'dpid': this.state.dpid
+        'dpid': this.state.dpid,
+        'rTrip': this.state.isRoundTrip,
+        'fromDestination': this.state.fromText,
+        'toDestination': this.state.toText
       }
     }
     return(

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -73,7 +74,6 @@
 		8459DF811F28EAD50055CEA4 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8459DF801F28EAD50055CEA4 /* libc++abi.tbd */; };
 		8459DF831F28EAE50055CEA4 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8459DF821F28EAE50055CEA4 /* libc++.1.tbd */; };
 		8459DF851F28EAF30055CEA4 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8459DF841F28EAF30055CEA4 /* libc.tbd */; };
-		8459DF871F28EAFF0055CEA4 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8459DF861F28EAFF0055CEA4 /* libicucore.tbd */; };
 		8459DF891F28EDA10055CEA4 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8459DF881F28EDA10055CEA4 /* GoogleMaps.bundle */; };
 		847357811F1CCCD5007289E4 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473577C1F1CCCD5007289E4 /* GoogleAppUtilities.framework */; };
 		847357831F1CCCD5007289E4 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473577E1F1CCCD5007289E4 /* GoogleSignIn.framework */; };
@@ -112,7 +112,6 @@
 		CDE900444C1A4AB6BC96E319 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C427964CE434F9D644974 /* EvilIcons.ttf */; };
 		D1E3B49E2C8D49CB801B34C2 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DF14C17B16642329137AE92 /* Lato-MediumItalic.ttf */; };
 		D2EDC0791F3B4C9084DA6BFE /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283BB74E0A6E48A0A09D80E6 /* Lato-Hairline.ttf */; };
-		D82FB6771F2B57A40040583E /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BB66411F1E120B00F3C664 /* libRNImagePicker.a */; };
 		DE771B6AE6254A3B82C93791 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */; };
 		DF90C96A68A14309BE5FD04E /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8DA226E3328492EBD9B748A /* Lato-Thin.ttf */; };
 		E09235C3C1204A88B38607D7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46FFE854332E4C19A3D03D4A /* FontAwesome.ttf */; };
@@ -531,7 +530,6 @@
 		9003C26593EB4D5B93263981 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		9D02604D46144EBC87172DAE /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../src/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
 		9FC688E6B6664C5BADAAEA5B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
-		A131CE8468FB70BFF81832B3 /* libPods-CollegeShuttle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollegeShuttle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A0FBEBE48C474098013B82 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		A730489C9D5E4826B09E639A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		A884C7191D124228BDBA9142 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../src/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
@@ -545,6 +543,7 @@
 		D04A94A331B14F77818A54E7 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		D329F26C3FA44058879B5708 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../src/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		D63873C863574B358603B2EA /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		D8C18A991F39C57C006BEA94 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		DD2438F1309742E884BCD1F5 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../src/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		E28366AF83ED484A823754E0 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -570,8 +569,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D82FB6771F2B57A40040583E /* libRNImagePicker.a in Frameworks */,
-				8459DF871F28EAFF0055CEA4 /* libicucore.tbd in Frameworks */,
 				8459DF851F28EAF30055CEA4 /* libc.tbd in Frameworks */,
 				8459DF831F28EAE50055CEA4 /* libc++.1.tbd in Frameworks */,
 				8459DF811F28EAD50055CEA4 /* libc++abi.tbd in Frameworks */,
@@ -759,6 +756,7 @@
 		5A94A025C6674927AEDB3637 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8C18A991F39C57C006BEA94 /* Bolts.framework */,
 				8459DF861F28EAFF0055CEA4 /* libicucore.tbd */,
 				8459DF841F28EAF30055CEA4 /* libc.tbd */,
 				8459DF821F28EAE50055CEA4 /* libc++.1.tbd */,
@@ -1759,6 +1757,11 @@
 				DEVELOPMENT_TEAM = 4S25KUPQC2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/GoogleSignin",
+					"~/Documents/FacebookSDK",
+					"$(PROJECT_DIR)/GoogleMap",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(PROJECT_DIR)/GoogleSignin",
 					"~/Documents/FacebookSDK",
 					"$(PROJECT_DIR)/GoogleMap",

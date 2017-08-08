@@ -52,6 +52,7 @@ class SelectDestination extends Component {
     }else {
       locationSelectList = this.props.location.fromLocation
     }
+
     return(
       <SelectDestinationModalSuccess
         open={open}
@@ -59,7 +60,7 @@ class SelectDestination extends Component {
         modalDidClose={() => this.setState({ open: false }) }
         containerStyle={styles.SelectDestinationConatiner}
         modalStyle={styles.SelectDestinationViewStyle}>
-        { this.props.location.locationResponse === undefined ?
+        { locationSelectList === undefined ?
           <ActivityIndicator
             animating={this.props.location.isBusy}
             style={[styles.centering, {height: 80}]}
@@ -116,8 +117,8 @@ class SelectDestination extends Component {
                 marginBottom: -10,
               }}
               dataArray={
-                (this.props.location.searchLocation != undefined)
-                  ? this.props.location.searchLocation : locationSelectList}
+                (this.props.location.searchLocation === undefined)
+                  ? locationSelectList : this.props.location.searchLocation}
               renderRow={(item) => {
                 return (
                   <ListItem

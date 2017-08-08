@@ -10,11 +10,16 @@ import {
   RoundTrip,
   RoundTripWeekly,
   RoundTripCustom,
+<<<<<<< HEAD
+  OfferBox,
+  AutoComplete
+=======
   SelectDestination
+>>>>>>> origin/master
 } from '../../components';
 import { Actions } from 'react-native-router-flux';
-import { getLocationFrom, clearSearchDestination, getLocationTo } from '../../redux/modules/location';
-import { toast } from '../../helpers/ToastMessage';
+import { getLocationFrom, clearSearchDestination } from '../../redux/modules/location';
+
 class Home extends Component {
 
   constructor(props){
@@ -28,9 +33,6 @@ class Home extends Component {
       isCustomActive: false,
       fromText: 'From',
       toText: 'To',
-      pkid: undefined,
-      dpid: undefined,
-      isActiveSearch: undefined
     }
   }
 
@@ -39,8 +41,10 @@ class Home extends Component {
   };
 
   static propTypes = {
-    selectDestination: PropTypes.any,
+    locationResponse: PropTypes.any,
+    selectDestination: PropTypes.any
   };
+
 
   onPressRoundTripButton = () => {
     if(this.state.isOneWay){
@@ -70,7 +74,7 @@ class Home extends Component {
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
     this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
-    dispatch(getLocationTo());
+    dispatch(getLocationFrom());
     this.setState({ isWeekly: true });
 
   };
@@ -87,35 +91,16 @@ class Home extends Component {
   componentWillReceiveProps(nextProps){
     if(nextProps.selectDestination){
       if(nextProps.selectDestination.requestFor === "To"){
-        this.setState({ toText: nextProps.selectDestination.data, dpid: nextProps.selectDestination.tripId })
+        this.setState({ toText: nextProps.selectDestination.data })
       }
       if(nextProps.selectDestination.requestFor === "From"){
-        this.setState({ fromText: nextProps.selectDestination.data, pkid: nextProps.selectDestination.tripId })
+        this.setState({ fromText: nextProps.selectDestination.data })
       }
     }
   }
 
-  checkFieldForDestination = () => {
-    if(this.state.fromText === 'From' && this.state.toText === 'To'){
-      toast('From and To Required.')
-    }else if(this.state.fromText === 'From'){
-      toast('From Required.')
-    }else if(this.state.toText === 'To'){
-      toast('To Requird.')
-    }
-  };
-
   render(){
     const { isRoundTrip, isWeekly } = this.state;
-    let isActiveSearch = false;
-    let selectDestination = undefined;
-    if(this.state.fromText != 'From' && this.state.toText != 'To'){
-      isActiveSearch = true;
-      selectDestination = {
-        'pkid': this.state.pkid,
-        'dpid': this.state.dpid
-      }
-    }
     return(
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         <Content>
@@ -144,17 +129,45 @@ class Home extends Component {
             <View style={styles.textBackgroundView}>
               <Col>
                 <Row>
-                  <Button
-                    transparent
-                    style={{
+                  {this.state.isWeekly ?
+                    <View style={{
                       flex: 1,
                       justifyContent: 'flex-start',
-                      alignSelf: 'center'
-                    }}
-                    onPress={this.onPressUniversityButton}>
-                    <Image source={Images.roundtripunivercity} style={styles.textIcon} />
-                    <Text
+                      alignSelf: 'center',
+                      marginTop:20,
+                    }}>
+                      <Row>
+                        <Col size={0.5}/>
+                        <Col>
+                          <Image source={Images.roundtripunivercity} style={styles.textIcon}/>
+                        </Col>
+                        <Col size={6}>
+                          <AutoComplete/>
+                        </Col>
+                      </Row>
+                    </View>
+                    :
+                    <Button
+                      transparent
                       style={{
+<<<<<<< HEAD
+                        flex: 1,
+                        justifyContent: 'flex-start',
+                        alignSelf: 'center'
+                      }}
+                      onPress={this.onPressUniversityButton}>
+                      <Image source={Images.roundtripunivercity} style={styles.textIcon}/>
+                      <Text
+                        style={{
+                          fontSize: Fonts.size.regular,
+                          fontFamily: Fonts.lato.base,
+                          paddingLeft: 5,
+                          textAlign: 'left',
+                          color: (this.state.isWeekly) ? Colors.black : Colors.profileInputHeadingColor
+                        }}>{this.state.fromText}</Text>
+                    </Button>
+                  }
+=======
                         fontSize: Fonts.size.regular,
                         fontFamily: Fonts.lato.base,
                         paddingLeft: 5,
@@ -162,6 +175,7 @@ class Home extends Component {
                         color: (this.state.fromText !== 'From') ? Colors.black : Colors.profileInputHeadingColor
                       }}>{ this.state.fromText }</Text>
                   </Button>
+>>>>>>> origin/master
                 </Row>
               </Col>
               <LinearGradient colors={['#D32735','#FF214F']} style={styles.textSeprateLine}>
@@ -232,13 +246,7 @@ class Home extends Component {
                     }}>CUSTOM</Text>
                 </TouchableOpacity>
               </View>
-              {(this.state.isWeeklyActive) ?
-                <RoundTripWeekly
-                  isActiveSearch={isActiveSearch}
-                  selectDestination={selectDestination}
-                  checkField={this.checkFieldForDestination}/>
-                :
-                <RoundTripCustom /> }
+              {(this.state.isWeeklyActive) ? <RoundTripWeekly /> :  <RoundTripCustom /> }
             </View>
             :
             <View style={styles.RoundTripView}>
@@ -253,5 +261,6 @@ class Home extends Component {
 }
 
 export default connect(state => ({
+  locationResponse: state.location.locationResponse,
   selectDestination: state.location.selectedDestination
 }))(Home)

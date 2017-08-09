@@ -56,12 +56,45 @@ export default class AllTripCell extends Component {
     this.setState({ isNotifyAvailable : !this.state.isNotifyAvailable });
   };
 
-
   render() {
 
     let allTripData = this.props.allTripCellItem;
     let busInformation = this.props.busInformation;
     let bustrip = this.props.staticdata;
+
+    const tripPoints = [];
+    const tripPointsDesc = [];
+    const locationLength = allTripData.rLocations.length;
+    for(let i = 0; i < allTripData.rLocations.length; i++ ){
+      let flexContent = undefined;
+      if(i === 0) {
+        flexContent = {marginBottom: 10, alignItems: 'flex-start', flex: 1, marginLeft: -10, justifyContent: 'center'};
+      } else if (i === (locationLength -1)) {
+        flexContent = {marginBottom: 10, alignItems: 'flex-end', flex: 1, marginRight: -10, justifyContent: 'center'};
+      }else {
+        flexContent = {marginBottom: 10, alignItems: 'center', flex: 1, margin: 5, justifyContent: 'center'};
+      }
+      tripPointsDesc.push(
+        <View style={flexContent}>
+          <Text style={{ textAlign: 'center'}} numberOfLines={2}>{allTripData.rLocations[i].desc}</Text>
+        </View>
+      );
+      if (i === (locationLength -1)) {
+        tripPoints.push(
+          <View style={styles.pointBackgroundViewStyle}>
+            <Image source={Images.inteligent} />
+          </View>
+        );
+      } else {
+        tripPoints.push(
+          <View style={styles.pointBackgroundViewStyle}>
+            <Image source={Images.ellipseOuter} style={styles.backgroundViewImageStyle}>
+              <Image source={Images.ellipse} style={{ alignSelf: 'center' }}/>
+            </Image>
+          </View>
+        );
+      }
+    }
 
     return(
       <View style={styles.container}>
@@ -87,135 +120,15 @@ export default class AllTripCell extends Component {
                     </View>
                   </View>
 
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 2 :
-                    allTripData.locations.length === 2) &&
-                  <View style={styles.placeNameRow}>
-                    <View style={styles.distanceNameField}>
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.placeStart}>FSU</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.placeEnd}>SSM</Text>
-                      </View>
+                  <View style={styles.pointViewStyle}>
+                    <View style={styles.descTextViewStyle}>
+                      {tripPointsDesc}
+                    </View>
+                    <View style={styles.lineDrawerStyle} />
+                    <View style={styles.tipPointStyle}>
+                      {tripPoints}
                     </View>
                   </View>
-                  }
-
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 4 :
-                    allTripData.locations.length === 4) &&
-                  <View style={styles.placeNameRow}>
-                    <View style={styles.distanceNameField}>
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.secondListStart}>FSU</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.secondListSecondPlace}>RKV</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.secondthirdPlace}>GBM</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.secondListEndPlace}>SSM</Text>
-                      </View>
-                    </View>
-                  </View>
-                  }
-
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 3 :
-                    allTripData.locations.length === 3) &&
-                  <View style={styles.placeNameRow}>
-
-                    <View style={styles.distanceNameField}>
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.thirdListFirstPlace}>FSU</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.thirdListSecondPlace}>GBM</Text>
-                      </View>
-
-                      <View style={styles.distancePlace}>
-                        <Text style={styles.thirdListThirdPlace}>SSM</Text>
-                      </View>
-
-                    </View>
-                  </View>
-                  }
-
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 1 :
-                    allTripData.locations.length === 1) &&
-                  <View style={styles.pathRow}>
-                    <View style={styles.pathRowContainer}>
-                      <View style={styles.startPoint}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                      </View>
-
-                      <View style={styles.singlePathLine}>
-                      </View>
-                      <Image source={Images.inteligent}/>
-                    </View>
-                  </View>
-                  }
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 4 :
-                    allTripData.locations.length === 4
-                  ) &&
-
-                  <View style={styles.pathRow}>
-
-                    <View style={styles.pathRowContainer}>
-                      <View style={styles.pathRowValue}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                        <View style={styles.secondMiddleDistance} />
-                      </View>
-
-                      <View style={styles.pathRowValue}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                        <View style={styles.secondMiddleDistance} />
-                      </View>
-
-                      <View style={styles.pathRowValue}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                        <View style={styles.secondMiddleDistance} />
-                        <Image source={Images.inteligent}/>
-                      </View>
-                    </View>
-                  </View>
-                  }
-
-                  {((this.props.roundTrip) ?
-                    allTripData.rLocations.length === 2 :
-                    allTripData.locations.length === 2
-                  ) &&
-                  <View style={styles.pathRow}>
-
-                    <View style={styles. pathRowContainer}>
-                      <View style={styles.pathRowValue}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                        <View style={styles.secondMiddleDistance} />
-                      </View>
-                      <View style={styles.pathRowValue}>
-                        <Image source={Images.ellipseOuter}/>
-                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
-                        <View style={styles.secondMiddleDistance} />
-                        <Image source={Images.inteligent}/>
-                      </View>
-                    </View>
-                  </View>
-                  }
 
                   <View style={styles.timeIndicatorContainer}>
                     <View style={styles.timeShowContainer}>
@@ -264,7 +177,7 @@ export default class AllTripCell extends Component {
 
                         <View style={styles.amountContainer}>
                           <Text style={1 > 0 ? styles.activeAmount :styles.inActiveAmount}>
-                            {bustrip[0].amount}
+                            ${allTripData.price}
                           </Text>
                         </View>
 

@@ -322,5 +322,32 @@ export default StyleSheet.create({
     color:Colors.profileForm,
     ...Fonts.style.availabiltyNone
   },
+  pointViewStyle: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  descTextViewStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  lineDrawerStyle: {
+    backgroundColor: Colors.thinLineColor,
+    height: 1.6,
+  },
+  tipPointStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  pointBackgroundViewStyle:{
+    height: 12,
+    width: 12,
+    borderRadius: 6,
+    marginTop: -10,
+    alignSelf: 'center',
+  },
+  backgroundViewImageStyle:{
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 
 });

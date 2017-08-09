@@ -78,7 +78,6 @@ export function getLocationFrom() {
       .get('/api/locations/type/1')
       .then((response) => {
         dispatch({ type: FROM_LOCATION_SUCCESS, result: response });
-        console.log('from response', response);
         resolve();
       })
       .catch((exp) => {
@@ -96,7 +95,6 @@ export function getLocationTo(regionID) {
       .get(`/api/locations/region/${regionID}`)
       .then((response) => {
         dispatch({ type: TO_LOCATION_SUCCESS, result: response });
-        console.log('to response', response);
         resolve();
       })
       .catch((exp) => {

@@ -33,6 +33,7 @@ export function weeklyTripSearch( data ) {
       .post('/api/trip/search', data)
       .then((response) => {
         dispatch({ type: TRIP_SEARCH_SUCCESS, result: response });
+        console.log('search reasponse ==>>', response);
         resolve();
       })
       .catch((exp) => {

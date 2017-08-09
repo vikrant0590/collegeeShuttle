@@ -12,6 +12,8 @@ import {
   Title,
   List,
   ListItem,
+  Card,
+  CardItem,
 } from 'native-base';
 import { Colors, Images, Fonts } from '../../theme';
 import LinearGradient from 'react-native-linear-gradient';
@@ -49,12 +51,19 @@ class AllTrips extends Component {
 
   componentWillMount(){
     if(this.props.allTripData){
+      // let data = {
+      //   "pkId": this.props.allTripData.pkId,
+      //   "dpId": this.props.allTripData.dpId,
+      //   "rTrip": this.props.allTripData.rTrip,
+      //   "date":  this.props.allTripData.date
+      // };
       let data = {
-        "pkId": this.props.allTripData.pkId,
-        "dpId": this.props.allTripData.dpId,
-        "rTrip": this.props.allTripData.rTrip,
-        "date":  this.props.allTripData.date
+        "pkId": "594b04bcee789f7765e8ced6",
+        "dpId": "584990adf72e5d0f1e29424f",
+        "rTrip": true,
+        "date":  "2017-08-18"
       };
+
       const {store: {dispatch}} = this.context;
       dispatch(weeklyTripSearch(data));
     }
@@ -77,7 +86,9 @@ class AllTrips extends Component {
   onPressPreviousDate = () => {
     let todayDay = this.props.allTripData.date;
     if(this.state.nextDate > moment(new Date()).format('DD')) {
-      this.setState({ increase: this.state.increase - 1, nextDate: moment(this.state.todayDate).subtract(1, "days").format("DD")},() =>{
+      this.setState({
+        increase: this.state.increase - 1,
+        nextDate: moment(this.state.todayDate).subtract(1, "days").format("DD")},() =>{
         this.setState({
           todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
             .format("DD-MMM, YYYY")});
@@ -89,7 +100,6 @@ class AllTrips extends Component {
         "rTrip": this.props.allTripData.rTrip,
         "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
       };
-      console.log('data pervious ===>> ', data);
       const {store: {dispatch}} = this.context;
       dispatch(weeklyTripSearch(data));
 
@@ -99,7 +109,9 @@ class AllTrips extends Component {
   onPressNextDate = (increase) => {
     let todayDay = this.props.allTripData.date;
     if(this.state.nextDate < moment(this.props.allTripData.endDateOfWeek).format('DD')) {
-      this.setState({ increase: this.state.increase + 1, nextDate: moment().add(increase, 'days').format('DD')},() =>{
+      this.setState({
+        increase: this.state.increase + 1,
+        nextDate: moment().add(increase, 'days').format('DD')},() =>{
         this.setState({
           todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
             .format("DD-MMM, YYYY")});
@@ -110,7 +122,6 @@ class AllTrips extends Component {
         "rTrip": this.props.allTripData.rTrip,
         "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
       };
-      console.log('data next ===>> ', data);
       const {store: {dispatch}} = this.context;
       dispatch(weeklyTripSearch(data));
     }
@@ -129,15 +140,14 @@ class AllTrips extends Component {
     const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
-    let locationList, trips = undefined;
-
+    let locationList = undefined;
     const { alltrip } = this.props;
-    if(alltrip.weeklyTrip.rTrips[0]){
-      locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
+    if(this.props.allTripData.rTrip){
+      locationList = alltrip.weeklyTrip.rTrips;
+    }else {
+      locationList = alltrip.weeklyTrip.trips;
     }
-    if(alltrip.weeklyTrip.rTrips[0]){
-      trips = alltrip.weeklyTrip.rTrips[0];
-    }
+
 
     return(
 
@@ -177,22 +187,34 @@ class AllTrips extends Component {
         </LinearGradient>
 
         <Content>
-          <List
-            style={{ flex: 1, borderBottomWidth: 0 }}
-            dataArray={locationList}
-            renderRow={(item) =>{
-              return(
-                <ListItem style={{ marginTop: -14, marginBottom: -14, borderBottomWidth: 0 }}>
-                  <AllTripCell
-                    allTripCellItem = {item}
-                    busInformation={busInformation}
-                    trips={trips}
-                    staticdata={busService}
-                    openModal = {this.openModal}/>
-                </ListItem>
-              )
-            }}
-          />
+          {locationList ?
+            <List
+              style={{ flex: 1, borderBottomWidth: 0 }}
+              dataArray={locationList}
+              renderRow={(item) =>{
+                return(
+                  <ListItem style={{ marginTop: -14, marginBottom: -14, borderBottomWidth: 0 }}>
+                    <AllTripCell
+                      allTripCellItem = {item}
+                      busInformation={busInformation}
+                      roundTrip={this.props.allTripData.rTrip}
+                      staticdata={busService}
+                      openModal = {this.openModal}/>
+                  </ListItem>
+                )
+              }}
+            /> :
+            <Card>
+              <CardItem style={{ alignSelf: 'center' }}>
+                <Text style={{
+                  fontSize: Fonts.size.h3,
+                  fontFamily: Fonts.lato.base,
+                  alignSelf: 'center',
+                  color: Colors.timeColor
+                }}>No trip found.</Text>
+              </CardItem>
+            </Card>
+          }
         </Content>
         <InformationModal ref="informationmodal" />
       </Container>

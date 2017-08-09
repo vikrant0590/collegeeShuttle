@@ -32,8 +32,8 @@ export default class AllTripCell extends Component {
   static propTypes = {
     allTripCellItem: PropTypes.any,
     busInformation: PropTypes.any,
-    trips: PropTypes.any,
-    staticdata: PropTypes.any
+    staticdata: PropTypes.any,
+    roundTrip: PropTypes.any
   };
 
   onPressBooking = (item)=> {
@@ -59,9 +59,8 @@ export default class AllTripCell extends Component {
 
   render() {
 
-    let item = this.props.allTripCellItem;
+    let allTripData = this.props.allTripCellItem;
     let busInformation = this.props.busInformation;
-    let trip = this.props.trips;
     let bustrip = this.props.staticdata;
 
     return(
@@ -69,7 +68,7 @@ export default class AllTripCell extends Component {
         <View style ={styles.listContainer}>
           <Card>
             <CardItem>
-              <TouchableOpacity onPress={ () => this.onPressBooking(item)}>
+              <TouchableOpacity onPress={ () => this.onPressBooking(allTripData)}>
                 <View style={bustrip[0].seats > 0 ? styles.seatAvailable : styles.seatUnavailable}>
                   <View style={styles.busNameRow}>
                     <View style={styles.busNameHeading}>
@@ -78,17 +77,19 @@ export default class AllTripCell extends Component {
                           style = {bustrip[0].seats > 0 ?
                             styles.availableBusNameField :
                             styles.unavailableBusNameField}>
-                          {item.nm}
+                          {(this.props.roundTrip) ? allTripData.rLocations[0].nm : allTripData.locations[0].nm }
                         </Text>
                       </View>
 
                       <View style={styles.seatNameField}>
-                        <Text style={styles.availableSeatsText}>{trip.ts} Seats</Text>
+                        <Text style={styles.availableSeatsText}>{allTripData.ts}Seats</Text>
                       </View>
                     </View>
                   </View>
 
-                  {(bustrip[1].stop === 1) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 2 :
+                    allTripData.locations.length === 2) &&
                   <View style={styles.placeNameRow}>
                     <View style={styles.distanceNameField}>
                       <View style={styles.distancePlace}>
@@ -102,7 +103,9 @@ export default class AllTripCell extends Component {
                   </View>
                   }
 
-                  {(4 === 3) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 4 :
+                    allTripData.locations.length === 4) &&
                   <View style={styles.placeNameRow}>
                     <View style={styles.distanceNameField}>
                       <View style={styles.distancePlace}>
@@ -124,7 +127,9 @@ export default class AllTripCell extends Component {
                   </View>
                   }
 
-                  {(2 === 2) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 3 :
+                    allTripData.locations.length === 3) &&
                   <View style={styles.placeNameRow}>
 
                     <View style={styles.distanceNameField}>
@@ -144,7 +149,9 @@ export default class AllTripCell extends Component {
                   </View>
                   }
 
-                  {(3 === 1) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 1 :
+                    allTripData.locations.length === 1) &&
                   <View style={styles.pathRow}>
                     <View style={styles.pathRowContainer}>
                       <View style={styles.startPoint}>
@@ -158,11 +165,14 @@ export default class AllTripCell extends Component {
                     </View>
                   </View>
                   }
-                  {(2 === 3) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 4 :
+                    allTripData.locations.length === 4
+                  ) &&
 
                   <View style={styles.pathRow}>
 
-                    <View style={styles. pathRowContainer}>
+                    <View style={styles.pathRowContainer}>
                       <View style={styles.pathRowValue}>
                         <Image source={Images.ellipseOuter}/>
                         <Image source={Images.ellipse} style={styles.innerEllipse}/>
@@ -185,7 +195,10 @@ export default class AllTripCell extends Component {
                   </View>
                   }
 
-                  {(2 === 2) &&
+                  {((this.props.roundTrip) ?
+                    allTripData.rLocations.length === 2 :
+                    allTripData.locations.length === 2
+                  ) &&
                   <View style={styles.pathRow}>
 
                     <View style={styles. pathRowContainer}>
@@ -207,20 +220,20 @@ export default class AllTripCell extends Component {
                   <View style={styles.timeIndicatorContainer}>
                     <View style={styles.timeShowContainer}>
                       <View style={styles.arriveTiming}>
-                        <Text style={trip.ts > 0 ? styles.activeArriveText : styles.inActiveArriveText}>
-                          {moment(trip.dt).format('hh:mm A')}
+                        <Text style={1 > 0 ? styles.activeArriveText : styles.inActiveArriveText}>
+                          {moment("12:30").format('hh:mm A')}
                         </Text>
                       </View>
 
                       <View style={styles.totalTime}>
                         <Text style={styles.totalTimeText}>
-                          {moment(item.tm).format('hh:mm A')}
+                          {moment(allTripData.rLocations[0].tm).format('hh:mm A')}
                         </Text>
                       </View>
 
                       <View style={styles.reachTime}>
-                        <Text style={trip.ts > 0 ? styles.reachTimeText : styles.unReachTimeText}>
-                          {item.ssm}
+                        <Text style={1 > 0 ? styles.reachTimeText : styles.unReachTimeText}>
+                          {allTripData.rLocations[0].ssm}
                         </Text>
                       </View>
                     </View>
@@ -250,7 +263,7 @@ export default class AllTripCell extends Component {
                         </View>
 
                         <View style={styles.amountContainer}>
-                          <Text style={trip.ts > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                          <Text style={1 > 0 ? styles.activeAmount :styles.inActiveAmount}>
                             {bustrip[0].amount}
                           </Text>
                         </View>
@@ -259,7 +272,7 @@ export default class AllTripCell extends Component {
                     </View>
                   </View>
                   }
-                  {(5 === 3) &&
+                  {(allTripData.length === 3) &&
                   <View style={styles.amountRow}>
 
                     <View style={styles.starContainer}>
@@ -271,16 +284,16 @@ export default class AllTripCell extends Component {
                       <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
-                            <Text style={styles.starTextColor}>{trip.rs}</Text>
+                            <Text style={styles.starTextColor}>{1}</Text>
                           </View>
 
                           <View style={styles.ratingColumnField }>
-                            <Text style={styles.ratingTextColor}>{trip.rs} Ratings</Text>
+                            <Text style={styles.ratingTextColor}>{1} Ratings</Text>
                           </View>
                         </View>
 
                         <View style={styles.amountContainer}>
-                          <Text style={trip.ts > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                          <Text style={1 > 0 ? styles.activeAmount :styles.inActiveAmount}>
                             {bustrip[0].amount}
                           </Text>
                         </View>
@@ -302,16 +315,16 @@ export default class AllTripCell extends Component {
                       <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
-                            <Text style={styles.starTextColor}>{item.star}</Text>
+                            <Text style={styles.starTextColor}>{allTripData.location.star}</Text>
                           </View>
 
                           <View style={styles.ratingColumnField }>
-                            <Text style={styles.ratingTextColor}>{trip.rs} Ratings</Text>
+                            <Text style={styles.ratingTextColor}>{1} Ratings</Text>
                           </View>
                         </View>
 
                         <View style={styles.amountContainer}>
-                          <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                          <Text style={allTripData.location.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
                             {bustrip[0].amount}
                           </Text>
                         </View>

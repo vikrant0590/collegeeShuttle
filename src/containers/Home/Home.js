@@ -30,6 +30,7 @@ class Home extends Component {
       toText: 'To',
       pkid: undefined,
       dpid: undefined,
+      regionID: undefined,
       isActiveSearch: undefined
     }
   }
@@ -61,17 +62,19 @@ class Home extends Component {
   onPressUniversityButton = () =>{
     const {store: {dispatch}} = this.context;
     dispatch(clearSearchDestination());
-    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("From");
-    dispatch(getLocationFrom());
+    this.refs.selectdestination.getWrappedInstance().selectFromDestinationBox("From");
     this.setState({ isWeekly: true });
   };
 
   onPressToButton = () => {
-    const {store: {dispatch}} = this.context;
-    dispatch(clearSearchDestination());
-    this.refs.selectdestination.getWrappedInstance().selectDestinationBox("To");
-    dispatch(getLocationTo());
-    this.setState({ isWeekly: true });
+    if(this.state.fromText !== 'From'){
+      const {store: {dispatch}} = this.context;
+      dispatch(clearSearchDestination());
+      this.refs.selectdestination.getWrappedInstance().selectToDestinationBox("To", this.state.regionID);
+      this.setState({ isWeekly: true });
+    }else {
+      toast('Please select FROM first.')
+    }
   };
 
   onPressWeeklyButton = () => {
@@ -89,7 +92,11 @@ class Home extends Component {
         this.setState({ toText: nextProps.selectDestination.data, dpid: nextProps.selectDestination.tripId })
       }
       if(nextProps.selectDestination.requestFor === "From"){
-        this.setState({ fromText: nextProps.selectDestination.data, pkid: nextProps.selectDestination.tripId })
+        this.setState({
+          fromText: nextProps.selectDestination.data,
+          pkid: nextProps.selectDestination.tripId,
+          regionID: nextProps.selectDestination.regionID
+        })
       }
     }
   }

@@ -8,7 +8,7 @@ import SelectDestinationModalSuccess from 'react-native-simple-modal';
 import { SelectedDestinationCell } from '../../components';
 import { searchSelectedDestination } from '../../redux/modules/location';
 import PropTypes from 'prop-types';
-
+import { getLocationTo, getLocationFrom } from '../../redux/modules/location';
 class SelectDestination extends Component {
 
   constructor(){
@@ -16,7 +16,8 @@ class SelectDestination extends Component {
     this.state = {
       open: false,
       placeholdertext: undefined,
-      selectDestinationList: undefined
+      selectDestinationList: undefined,
+      regionID: undefined
     }
   }
 
@@ -28,10 +29,24 @@ class SelectDestination extends Component {
     location: PropTypes.any
   };
 
-  selectDestinationBox = (placeholder) => {
+  selectFromDestinationBox = (placeholder) => {
     this.setState({
       open: true,
       placeholdertext: placeholder,
+    },() => {
+      const {store: {dispatch}} = this.context;
+      dispatch(getLocationFrom());
+    });
+  };
+
+  selectToDestinationBox = (placeholder, rid) => {
+    this.setState({
+      open: true,
+      placeholdertext: placeholder,
+      regionID: rid
+    }, ()=> {
+      const {store: {dispatch}} = this.context;
+      dispatch(getLocationTo(this.state.regionID));
     });
   };
 
@@ -46,12 +61,7 @@ class SelectDestination extends Component {
 
   render() {
     const { open } = this.state;
-    let locationSelectList = undefined;
-    if(this.state.placeholdertext === 'To'){
-      locationSelectList = this.props.location.toLocation
-    }else {
-      locationSelectList = this.props.location.fromLocation
-    }
+
     return(
       <SelectDestinationModalSuccess
         open={open}
@@ -117,7 +127,9 @@ class SelectDestination extends Component {
               }}
               dataArray={
                 (this.props.location.searchLocation != undefined)
-                  ? this.props.location.searchLocation : locationSelectList}
+                  ? this.props.location.searchLocation :
+                  (this.state.placeholdertext === 'To') ?
+                    this.props.location.toLocation : this.props.location.fromLocation }
               renderRow={(item) => {
                 return (
                   <ListItem

@@ -3865,12 +3865,6 @@ react-native-base-switch@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-base-switch/-/react-native-base-switch-0.0.6.tgz#c919a47f5abefd4cacea5bd14fa1f23b8d3f1d89"
 
-react-native-calendar-select@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-calendar-select/-/react-native-calendar-select-0.1.1.tgz#da2abdcfd38abbb941e8cd9fcfdc21718d156733"
-  dependencies:
-    moment "^2.18.1"
-
 react-native-calendars@^1.4.0:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.5.3.tgz#882937a40045152d97fb20a5159c68783ce26601"
@@ -3955,6 +3949,10 @@ react-native-scrollable-tab-view@^0.6.7:
   resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.6.7.tgz#3a5fe8a4bd5bc7eb023f306099323bbd9cc284a2"
   dependencies:
     react-timer-mixin "^0.13.3"
+
+react-native-share@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-1.0.20.tgz#38ba820a4ddfc5afe1dec0e1456ced11f14352bc"
 
 react-native-simple-modal@^6.0.0:
   version "6.0.0"
@@ -4886,10 +4884,6 @@ tween-functions@^1.0.1:
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
-
-twix@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/twix/-/twix-1.2.0.tgz#6ac4e3b4cde65459c2f3f4e38be9b489c439d704"
 
 type-check@~0.3.2:
   version "0.3.2"

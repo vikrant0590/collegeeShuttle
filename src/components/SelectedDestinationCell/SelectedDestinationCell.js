@@ -17,9 +17,10 @@ export default class  SelectedDestinationCell extends Component {
 
   onPressSelectLocaton = () => {
     let data = {
-      'data': this.props.locationData.ct,
+      'data': this.props.locationData.nm,
       'tripId': this.props.locationData._id,
-      'requestFor': this.props.RequestFor
+      'requestFor': this.props.RequestFor,
+      'regionID': this.props.locationData.rid
     };
     const {store: {dispatch}} = this.context;
     dispatch(getSelectedDestination(data));
@@ -34,24 +35,7 @@ export default class  SelectedDestinationCell extends Component {
             fontSize: Fonts.size.regular,
             fontFamily: Fonts.lato.base,
             color: Colors.black
-          }}>{this.props.locationData.ct}</Text>
-        { (this.props.locationData.desc.length > 0) &&
-          <Text
-            style={{
-              fontSize: Fonts.size.regular,
-              fontFamily: Fonts.lato.base,
-              color: Colors.timeColor}}>
-            {', '}
-          </Text>
-
-        }
-        <Text
-          style={{
-            fontSize: Fonts.size.regular,
-            fontFamily: Fonts.lato.base,
-            color: Colors.black
-          }}>{this.props.locationData.desc}</Text>
-
+          }}>{this.props.locationData.nm}</Text>
       </TouchableOpacity>
     );
   }

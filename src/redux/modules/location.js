@@ -29,7 +29,7 @@ export default function reducer(state = initialState, action = {}) {
       return{ ...state, isBusy: true };
     }
     case FROM_LOCATION_SUCCESS: {
-      const locations = action.result.filter((item) => item.ct.length > 0);
+      const locations = action.result.filter((item) => item.nm.length > 0);
       return{ ...state, fromLocation: locations, isBusy: false };
     }
     case FROM_LOCATION_FAIL: {
@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action = {}) {
       return{ ...state, isBusy: true };
     }
     case TO_LOCATION_SUCCESS: {
-      const locations = action.result.filter((item) => item.ct.length > 0);
+      const locations = action.result.filter((item) => item.nm.length > 0);
       return{ ...state, toLocation: locations, isBusy: false };
     }
     case TO_LOCATION_FAIL: {
@@ -58,7 +58,7 @@ export default function reducer(state = initialState, action = {}) {
       }else {
         search = state.fromLocation;
       }
-      const searchData = search.filter(item => item.ct.indexOf(action.result) > -1);
+      const searchData = search.filter(item => item.nm.indexOf(action.result) > -1);
       return { ...state, searchLocation: searchData }
     }
 
@@ -88,11 +88,11 @@ export function getLocationFrom() {
 }
 
 
-export function getLocationTo() {
+export function getLocationTo(regionID) {
   return(dispatch, getState) => new Promise((resolve, reject) => {
     dispatch({ type: TO_LOCATION });
     api
-      .get('/api/locations/type/2')
+      .get(`/api/locations/region/${regionID}`)
       .then((response) => {
         dispatch({ type: TO_LOCATION_SUCCESS, result: response });
         resolve();

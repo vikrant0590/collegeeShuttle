@@ -84,17 +84,11 @@ export default class MyProfile extends Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-
-      console.log('Response = ', response);
-
       if (response.didCancel) {
-
       }
       else if (response.error) {
-
       }
       else if (response.customButton) {
-
       }
       else {
         let source = { uri: response.uri };

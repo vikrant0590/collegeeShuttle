@@ -11,6 +11,7 @@ export default StyleSheet.create({
     marginBottom:15,
     marginTop:5,
     marginLeft:20,
+    marginRight:15,
     fontSize:Fonts.size.medium,
     fontFamily:Fonts.lato.bold,
   },
@@ -31,6 +32,7 @@ export default StyleSheet.create({
   },
   points:{
     marginLeft:5,
+    marginRight:10,
     fontSize:Fonts.size.medium,
     fontFamily:Fonts.lato.base,
     color:Colors.black

@@ -26,6 +26,7 @@ import ReservationsHelp from './ReservationsHelp';
 import PaymentHelp from './PaymentHelp';
 import GeneralQuestionsHelp from './GeneralQuestionsHelp';
 import CommonQuestions from './CommonQuestions';
+import TermsAndConditions from './TermsAndConditions';
 export {
   WalkThrough,
   Home,
@@ -54,5 +55,6 @@ export {
   ReservationsHelp,
   PaymentHelp,
   GeneralQuestionsHelp,
-  CommonQuestions
+  CommonQuestions,
+  TermsAndConditions
 };

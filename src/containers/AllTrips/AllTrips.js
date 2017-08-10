@@ -83,6 +83,53 @@ class AllTrips extends Component {
     Actions.pop();
   };
 
+
+  onPressPreviousDate = () => {
+    let todayDay = this.props.allTripData.date;
+    if(this.state.nextDate > moment(new Date()).format('DD')) {
+      this.setState({
+        increase: this.state.increase - 1,
+        nextDate: moment(this.state.todayDate).subtract(1, "days").format("DD")},() =>{
+        this.setState({
+          todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
+            .format("DD-MMM, YYYY")});
+      });
+
+      let data = {
+        "pkId": this.props.allTripData.pkId,
+        "dpId": this.props.allTripData.dpId,
+        "rTrip": this.props.allTripData.rTrip,
+        "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
+      };
+      const {store: {dispatch}} = this.context;
+      dispatch(weeklyTripSearch(data));
+
+    }
+  };
+
+  onPressNextDate = (increase) => {
+    let todayDay = this.props.allTripData.date;
+    if(this.state.nextDate < moment(this.props.allTripData.endDateOfWeek).format('DD')) {
+      this.setState({
+        increase: this.state.increase + 1,
+        nextDate: moment().add(increase, 'days').format('DD')},() =>{
+        this.setState({
+          todayDate: moment(`${ moment(todayDay).format('YYYY')}-${moment(todayDay).format('MM')}-${this.state.nextDate}`)
+            .format("DD-MMM, YYYY")});
+      });
+      let data = {
+        "pkId": this.props.allTripData.pkId,
+        "dpId": this.props.allTripData.dpId,
+        "rTrip": this.props.allTripData.rTrip,
+        "date":  moment(this.state.todayDate).format('YYYY-MM-DD')
+      };
+      const {store: {dispatch}} = this.context;
+      dispatch(weeklyTripSearch(data));
+    }
+  };
+
+
+
   render(){
 
     const busService =[

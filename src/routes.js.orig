@@ -22,23 +22,18 @@ import {
   Notification,
   MyTripMap,
   ForgotPassword,
-  PasswordReset,
-  LuggageHelp,
-  ReservationsHelp,
-  PaymentHelp,
-  GeneralQuestionsHelp,
-  CommonQuestions
+  PasswordReset
 } from './containers';
 import {
   InformationModal,
   WalkThroughFirst,
-  TabIcon
+  TabIcon, AutoComplete
 } from './components';
 import {
   Images,
   Colors
 } from './theme';
-import { login, facebooksignin, googlesignin } from './redux/modules/auth';
+import { login } from './redux/modules/auth';
 import { Router, Scene } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
@@ -56,18 +51,13 @@ export default class AppRouter extends Component {
     };
   }
 
-  async componentWillMount() {
-    try {
-      const userCredential = await AsyncStorage.getItem('userCredentials');
-      const  savedUserParams = JSON.parse(userCredential);
-      if(!savedUserParams){
-        this.setState({ loading: false });
-
-      } else {
-        const password = savedUserParams.password;
-        const {store: {dispatch}} = this.context;
-        if(password){
-          dispatch(login(savedUserParams, true))
+  componentWillMount() {
+    AsyncStorage.getItem('userCredentials')
+      .then( (value) =>{
+        if (value) {
+          const  userCredentials = JSON.parse(value);
+          const {store: {dispatch}} = this.context;
+          dispatch(login(userCredentials, true))
             .then( () => {
               this.setState({
                 logged: true,
@@ -79,43 +69,12 @@ export default class AppRouter extends Component {
                 loading: false,
               })
             });
-
         } else {
-          if(savedUserParams.key === "facebook"){
-            dispatch(facebooksignin(savedUserParams))
-              .then( () => {
-                this.setState({
-                  logged: true,
-                  loading: false,
-                });
-              })
-              .catch( () => {
-                this.setState({
-                  loading: false,
-                })
-              });
-          } else {
-            dispatch(googlesignin(savedUserParams))
-              .then( () => {
-                this.setState({
-                  logged: true,
-                  loading: false,
-                });
-              })
-              .catch( () => {
-                this.setState({
-                  loading: false,
-                })
-              });
-          }
-
+          this.setState({ loading: false });
         }
-
-      }
-    } catch (err){
-    }
-
+      });
   }
+
   render() {
     if (this.state.loading) {
       return <WalkThroughFirst />
@@ -200,16 +159,14 @@ export default class AppRouter extends Component {
         <Scene key="passengerDetail" component={PassengerDetail} hideNavBar={true}/>
         <Scene key="informationModal" component={InformationModal} hideNavBar={true}/>
         <Scene key ="addCard" component={AddCard} hideNavBar={true} direction='vertical'/>
+<<<<<<< HEAD
+        <Scene key="AutoComplete" component={AutoComplete} title="Login" initial={false}/>
+=======
         <Scene key="forgotPassword" component={ForgotPassword} hideNavBar={true}/>
         <Scene key="passwordreset" component={PasswordReset} hideNavBar={true}/>
-        <Scene key="luggagehelp" component={LuggageHelp} hideNavBar={true}/>
-        <Scene key="reservationshelp" component={ReservationsHelp} hideNavBar={true}/>
-        <Scene key="paymenthelp" component={PaymentHelp} hideNavBar={true}/>
-        <Scene key="generalquestions" component={GeneralQuestionsHelp} hideNavBar={true}/>
-        <Scene key="commonquestions" component={CommonQuestions} hideNavBar={true}/>
+>>>>>>> origin/master
       </Router>
     );
   }
 }
-
 

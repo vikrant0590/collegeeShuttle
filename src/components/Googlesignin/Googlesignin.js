@@ -41,13 +41,15 @@ export default class Googlesignin extends Component {
               const { store: { dispatch } } = this.context;
               dispatch( googlesignin(user))
                 .then(() => {
-                  this.setState({ isVisible:false});
+                  this.setState({ isVisible: false });
                   Actions.tabbar();
                 }).catch(() => {
-                  this.setState({isVisible: false});
+                  this.setState({ isVisible: false });
                 });
             })
-            .catch()
+            .catch(() => {
+              this.setState({ isVisible: false });
+            })
             .done();
         });
     })

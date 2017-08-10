@@ -23,6 +23,13 @@ const FORGOTPASSWORD_FAIL = 'auth/FORGOTPASSWORD_FAIL';
 const RESETPASSWORD ='auth/RESETPASSWORD';
 const RESETPASSWORD_SUCCESS ='auth/RESETPASSWORD_SUCCESS';
 
+const USER_UPDATE ="auth/USER_UPDATE";
+const USER_UPDATE_SUCCESS = 'auth/USER_UPADTE_SUCCESS';
+
+const CLEAR_PROFILE = 'CLEAR_PROFILE';
+
+
+
 
 const initialState = {
   user: undefined,
@@ -75,6 +82,15 @@ export default function reducer(state = initialState, action = {}) {
     }
     case FACEBOOK_LOGIN_FAIL: {
       return{...state};
+    }
+
+    // user updation
+
+    case USER_UPDATE:{
+      return{...state}
+    }
+    case CLEAR_PROFILE: {
+      return { ...state, user:undefined }
     }
 
     default:
@@ -169,6 +185,38 @@ export function facebooksignin(data) {
       .catch((error) => {
         dispatch({ type: FACEBOOK_LOGIN_FAIL });
         reject(error);
+      });
+  });
+}
+
+export function userupdate(data) {
+  return (dispatch, getState) => new Promise((resolve, reject) => {
+    dispatch({type:USER_UPDATE});
+    api
+      .post('api/user/:userId', data)
+      .then((res) => {
+        dispatch({ type:USER_UPDATE_SUCCESS, result:res});
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+
+}
+
+export function logout() {
+  return (dispatch, getState) => new Promise((resolve, reject) => {
+    api
+      .get('/api/logout')
+      .then((res) => {
+        dispatch({type: CLEAR_PROFILE });
+        Actions.login();
+        resolve();
+      })
+      .catch((ex) => {
+        Actions.login();
+        reject();
       });
   });
 }

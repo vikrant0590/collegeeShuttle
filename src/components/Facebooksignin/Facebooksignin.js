@@ -70,6 +70,8 @@ export default class Facebooksignin extends Component {
               new GraphRequestManager().addRequest(infoRequest).start();
             })
             .catch();
+        } else {
+          this.setState({ isVisible: false})
         }
       }
     );

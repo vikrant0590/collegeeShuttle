@@ -39,12 +39,16 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+<<<<<<< HEAD
             new RNSharePackage(),
             new RNGoogleSigninPackage(),
+=======
+>>>>>>> origin/helpSupport
             new MapsPackage(),
             new LinearGradientPackage(),
             new VectorIconsPackage(),
             new ImagePickerPackage(),
+            new RNGoogleSigninPackage(),
             new FBSDKPackage(mCallbackManager)
       );
     }

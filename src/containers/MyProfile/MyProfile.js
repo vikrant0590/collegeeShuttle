@@ -28,6 +28,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export default class MyProfile extends Component {
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -58,10 +59,13 @@ export default class MyProfile extends Component {
   };
 
   onPressSave=()=>{
-    this.setState({
-      profileDetail:false,
-      list:true
-    });
+    if(this.state.profileDetail) {
+
+      this.setState({
+        profileDetail: false,
+        list: true
+      });
+    }
   };
 
   setMyProfile =() =>{
@@ -114,7 +118,8 @@ export default class MyProfile extends Component {
       <Container style={{ marginBottom: Metrics.tabBarHeight, backgroundColor: Colors.base }}>
         <Content>
           <LinearGradient colors={['#FC214F', '#D32735']} style={styles.avatarContainer}>
-            <Row style={(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? { marginTop: -30 } : { marginTop: -35 } : { marginTop: -45 }}>
+            <Row style={(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ?
+              { marginTop: -30 } : { marginTop: -35 } : { marginTop: -45 }}>
               <Left style={{marginTop:15}}>
                 <Button transparent onPress={this.setMyProfile}>
                   <Icon name="arrow-back" style={{color: Colors.white, marginLeft:1 , fontSize: Fonts.size.h2}}/>

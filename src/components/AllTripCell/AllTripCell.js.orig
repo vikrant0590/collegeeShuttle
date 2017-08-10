@@ -32,8 +32,13 @@ export default class AllTripCell extends Component {
   static propTypes = {
     allTripCellItem: PropTypes.any,
     busInformation: PropTypes.any,
+<<<<<<< HEAD
     staticdata: PropTypes.any,
     roundTrip: PropTypes.any
+=======
+    trips: PropTypes.any,
+    staticdata: PropTypes.any
+>>>>>>> origin/helpSupport
   };
 
   onPressBooking = (item)=> {
@@ -56,7 +61,7 @@ export default class AllTripCell extends Component {
     this.setState({ isNotifyAvailable : !this.state.isNotifyAvailable });
   };
 
-
+<<<<<<< HEAD
   render() {
 
     let allTripData = this.props.allTripCellItem;
@@ -97,12 +102,26 @@ export default class AllTripCell extends Component {
       }
     }
 
+=======
+
+  render() {
+
+    let item = this.props.allTripCellItem;
+    let busInformation = this.props.busInformation;
+    let trip = this.props.trips;
+    let bustrip = this.props.staticdata;
+
+>>>>>>> origin/helpSupport
     return(
       <View style={styles.container}>
         <View style ={styles.listContainer}>
           <Card>
             <CardItem>
+<<<<<<< HEAD
               <TouchableOpacity onPress={ () => this.onPressBooking(allTripData)}>
+=======
+              <TouchableOpacity onPress={ () => this.onPressBooking(item)}>
+>>>>>>> origin/helpSupport
                 <View style={bustrip[0].seats > 0 ? styles.seatAvailable : styles.seatUnavailable}>
                   <View style={styles.busNameRow}>
                     <View style={styles.busNameHeading}>
@@ -111,11 +130,16 @@ export default class AllTripCell extends Component {
                           style = {bustrip[0].seats > 0 ?
                             styles.availableBusNameField :
                             styles.unavailableBusNameField}>
+<<<<<<< HEAD
                           {(this.props.roundTrip) ? allTripData.rLocations[0].nm : allTripData.locations[0].nm }
+=======
+                          {item.nm}
+>>>>>>> origin/helpSupport
                         </Text>
                       </View>
 
                       <View style={styles.seatNameField}>
+<<<<<<< HEAD
                         <Text style={styles.availableSeatsText}>{allTripData.ts}Seats</Text>
                       </View>
                     </View>
@@ -130,24 +154,160 @@ export default class AllTripCell extends Component {
                       {tripPoints}
                     </View>
                   </View>
+=======
+                        <Text style={styles.availableSeatsText}>{trip.ts} Seats</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  {(bustrip[1].stop === 1) &&
+                  <View style={styles.placeNameRow}>
+                    <View style={styles.distanceNameField}>
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.placeStart}>FSU</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.placeEnd}>SSM</Text>
+                      </View>
+                    </View>
+                  </View>
+                  }
+
+                  {(4 === 3) &&
+                  <View style={styles.placeNameRow}>
+                    <View style={styles.distanceNameField}>
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.secondListStart}>FSU</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.secondListSecondPlace}>RKV</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.secondthirdPlace}>GBM</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.secondListEndPlace}>SSM</Text>
+                      </View>
+                    </View>
+                  </View>
+                  }
+
+                  {(2 === 2) &&
+                  <View style={styles.placeNameRow}>
+
+                    <View style={styles.distanceNameField}>
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.thirdListFirstPlace}>FSU</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.thirdListSecondPlace}>GBM</Text>
+                      </View>
+
+                      <View style={styles.distancePlace}>
+                        <Text style={styles.thirdListThirdPlace}>SSM</Text>
+                      </View>
+
+                    </View>
+                  </View>
+                  }
+
+                  {(3 === 1) &&
+                  <View style={styles.pathRow}>
+                    <View style={styles.pathRowContainer}>
+                      <View style={styles.startPoint}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                      </View>
+
+                      <View style={styles.singlePathLine}>
+                      </View>
+                      <Image source={Images.inteligent}/>
+                    </View>
+                  </View>
+                  }
+                  {(2 === 3) &&
+
+                  <View style={styles.pathRow}>
+
+                    <View style={styles. pathRowContainer}>
+                      <View style={styles.pathRowValue}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                        <View style={styles.secondMiddleDistance} />
+                      </View>
+
+                      <View style={styles.pathRowValue}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                        <View style={styles.secondMiddleDistance} />
+                      </View>
+
+                      <View style={styles.pathRowValue}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                        <View style={styles.secondMiddleDistance} />
+                        <Image source={Images.inteligent}/>
+                      </View>
+                    </View>
+                  </View>
+                  }
+
+                  {(2 === 2) &&
+                  <View style={styles.pathRow}>
+
+                    <View style={styles. pathRowContainer}>
+                      <View style={styles.pathRowValue}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                        <View style={styles.secondMiddleDistance} />
+                      </View>
+                      <View style={styles.pathRowValue}>
+                        <Image source={Images.ellipseOuter}/>
+                        <Image source={Images.ellipse} style={styles.innerEllipse}/>
+                        <View style={styles.secondMiddleDistance} />
+                        <Image source={Images.inteligent}/>
+                      </View>
+                    </View>
+                  </View>
+                  }
+>>>>>>> origin/helpSupport
 
                   <View style={styles.timeIndicatorContainer}>
                     <View style={styles.timeShowContainer}>
                       <View style={styles.arriveTiming}>
+<<<<<<< HEAD
                         <Text style={1 > 0 ? styles.activeArriveText : styles.inActiveArriveText}>
                           {moment("12:30").format('hh:mm A')}
+=======
+                        <Text style={trip.ts > 0 ? styles.activeArriveText : styles.inActiveArriveText}>
+                          {moment(trip.dt).format('hh:mm A')}
+>>>>>>> origin/helpSupport
                         </Text>
                       </View>
 
                       <View style={styles.totalTime}>
                         <Text style={styles.totalTimeText}>
+<<<<<<< HEAD
                           {moment(allTripData.rLocations[0].tm).format('hh:mm A')}
+=======
+                          {moment(item.tm).format('hh:mm A')}
+>>>>>>> origin/helpSupport
                         </Text>
                       </View>
 
                       <View style={styles.reachTime}>
+<<<<<<< HEAD
                         <Text style={1 > 0 ? styles.reachTimeText : styles.unReachTimeText}>
                           {allTripData.rLocations[0].ssm}
+=======
+                        <Text style={trip.ts > 0 ? styles.reachTimeText : styles.unReachTimeText}>
+                          {item.ssm}
+>>>>>>> origin/helpSupport
                         </Text>
                       </View>
                     </View>
@@ -177,8 +337,13 @@ export default class AllTripCell extends Component {
                         </View>
 
                         <View style={styles.amountContainer}>
+<<<<<<< HEAD
                           <Text style={1 > 0 ? styles.activeAmount :styles.inActiveAmount}>
                             ${allTripData.price}
+=======
+                          <Text style={trip.ts > 0 ? styles.activeAmount :styles.inActiveAmount}>
+                            {bustrip[0].amount}
+>>>>>>> origin/helpSupport
                           </Text>
                         </View>
 
@@ -186,7 +351,11 @@ export default class AllTripCell extends Component {
                     </View>
                   </View>
                   }
+<<<<<<< HEAD
                   {(allTripData.length === 3) &&
+=======
+                  {(5 === 3) &&
+>>>>>>> origin/helpSupport
                   <View style={styles.amountRow}>
 
                     <View style={styles.starContainer}>
@@ -198,16 +367,28 @@ export default class AllTripCell extends Component {
                       <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
+<<<<<<< HEAD
                             <Text style={styles.starTextColor}>{1}</Text>
                           </View>
 
                           <View style={styles.ratingColumnField }>
                             <Text style={styles.ratingTextColor}>{1} Ratings</Text>
+=======
+                            <Text style={styles.starTextColor}>{trip.rs}</Text>
+                          </View>
+
+                          <View style={styles.ratingColumnField }>
+                            <Text style={styles.ratingTextColor}>{trip.rs} Ratings</Text>
+>>>>>>> origin/helpSupport
                           </View>
                         </View>
 
                         <View style={styles.amountContainer}>
+<<<<<<< HEAD
                           <Text style={1 > 0 ? styles.activeAmount :styles.inActiveAmount}>
+=======
+                          <Text style={trip.ts > 0 ? styles.activeAmount :styles.inActiveAmount}>
+>>>>>>> origin/helpSupport
                             {bustrip[0].amount}
                           </Text>
                         </View>
@@ -229,16 +410,28 @@ export default class AllTripCell extends Component {
                       <View style={styles.ratingAmountRow}>
                         <View style={styles.starColumnField}>
                           <View style={styles.starText}>
+<<<<<<< HEAD
                             <Text style={styles.starTextColor}>{allTripData.location.star}</Text>
                           </View>
 
                           <View style={styles.ratingColumnField }>
                             <Text style={styles.ratingTextColor}>{1} Ratings</Text>
+=======
+                            <Text style={styles.starTextColor}>{item.star}</Text>
+                          </View>
+
+                          <View style={styles.ratingColumnField }>
+                            <Text style={styles.ratingTextColor}>{trip.rs} Ratings</Text>
+>>>>>>> origin/helpSupport
                           </View>
                         </View>
 
                         <View style={styles.amountContainer}>
+<<<<<<< HEAD
                           <Text style={allTripData.location.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+=======
+                          <Text style={item.seats > 0 ? styles.activeAmount :styles.inActiveAmount}>
+>>>>>>> origin/helpSupport
                             {bustrip[0].amount}
                           </Text>
                         </View>

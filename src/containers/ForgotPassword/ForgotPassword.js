@@ -52,6 +52,7 @@ export default class ForgotPassword extends  Component {
         const {store: {dispatch}} = this.context;
         dispatch(forgotpassword({email: this.state.email}))
           .then((res) => {
+            console.log("PASSWORD",res);
             this.setState({isVisible: false});
             if(res.reset_token!== undefined){
               this.refs.emailverificationmodel.getWrappedInstance().showVerificationDialog();

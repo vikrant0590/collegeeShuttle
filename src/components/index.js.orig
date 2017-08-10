@@ -20,8 +20,11 @@ import DriverContactModalBox from './DriverContactModalBox';
 import SelectDestination from './SelectDestination';
 import EmailVerificationModel from './EmailVerificationModel';
 import AllTripCell from './AllTripCell';
+<<<<<<< HEAD
+=======
 import HelpSupportCell from './HelpSupportCell';
 import PaymentRefunds from './PaymentRefunds';
+>>>>>>> origin/helpSupport
 
 export {
   WalkThroughFirst,
@@ -45,7 +48,11 @@ export {
   DriverContactModalBox,
   SelectDestination,
   EmailVerificationModel,
+<<<<<<< HEAD
+  AllTripCell
+=======
   AllTripCell,
   HelpSupportCell,
   PaymentRefunds
+>>>>>>> origin/helpSupport
 };

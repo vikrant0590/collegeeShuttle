@@ -1,14 +1,26 @@
 import React,{ Component } from 'react';
-import { Text, View, TouchableOpacity,Image, AsyncStorage } from 'react-native';
+import { Text, TouchableOpacity,Image, AsyncStorage } from 'react-native';
 import { Container, Content, List, ListItem, Header, Left, Body, Right, Title, Button, Icon, Card } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
+import { GoogleSignin } from 'react-native-google-signin';
 import styles from './SettingStyle';
+import PropTypes from 'prop-types';
+import { logout } from '../../redux/modules/auth'
 import {Switch} from 'react-native-base-switch';
 import {Colors, Images, Metrics, Fonts } from '../../theme';
 import { Platform} from 'react-native';
 import { Actions as NavAction } from 'react-native-router-flux';
-
+import {
+  LoginManager
+} from 'react-native-fbsdk';
 export default class Setting extends Component {
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+  };
+  static contextTypes = {
+    store: PropTypes.object,
+  };
   constructor(props){
     super(props);
     this.state={
@@ -34,15 +46,18 @@ locationService = () => {
   });
 };
 
-onPressLogout =() => {
-  AsyncStorage.removeItem('userCredentials');
-  NavAction.login();
+onPressLogout = async () => {
+  GoogleSignin.signOut();
+  LoginManager.logOut();
+  await AsyncStorage.removeItem('userCredentials');
+  const {store: {dispatch}} = this.context;
+  dispatch(logout());
 };
 
 onPressPackageCode=() => {
   NavAction.settingbuypackage();
 };
-
+;
 
 render(){
   return(
@@ -239,7 +254,10 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                onPress={NavAction.helpsupport}
+                hitSlop={{top:10,bottom:10,right:300}}
+                style={{flexDirection:'row'}}>
                 <Left style={{ top: 3.5 }}>
                   <Text style={styles.listText}>
                     Terms and Condition

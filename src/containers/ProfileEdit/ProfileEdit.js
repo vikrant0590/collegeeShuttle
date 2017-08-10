@@ -1,11 +1,16 @@
 import React,{ Component } from 'react';
 import { View, Text,Image, TouchableOpacity, Platform} from 'react-native';
-import { Form, Item, Label, Input, Row, Col, Content, Card } from 'native-base';
+import { Form, Item, Label, Input, Row, Col, Card } from 'native-base';
 import { Fonts, Colors , Images, Metrics} from '../../theme';
+import PropTypes from 'prop-types';
 import styles from './ProfileEditStyle';
 import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class ProfileEdit extends Component {
+
+  static  propTypes = {
+    dispatch: PropTypes.func,
+  };
 
   constructor(props){
     super(props);
@@ -14,6 +19,15 @@ export default class ProfileEdit extends Component {
       university:'--CHOOSE--',
       dropPoint:'--CHOOSE--',
       relationship:'--CHOOSE--',
+      fn:undefined,
+      email:undefined,
+      date:undefined,
+      month:undefined,
+      yr:undefined,
+      pn:undefined,
+      pfn:undefined,
+      ppn:undefined
+
     }
   }
   render(){
@@ -30,6 +44,9 @@ export default class ProfileEdit extends Component {
                     style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
+                    onChangeText={(fn) => {
+                      this.setState({fn});
+                    }}
                   />
                 </Item>
               </View>
@@ -40,6 +57,9 @@ export default class ProfileEdit extends Component {
                     style={{...Fonts.style.profileInput, color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
+                    onChangeText={(ln) => {
+                      this.setState({ln});
+                    }}
                   />
                 </Item>
               </View>
@@ -51,6 +71,9 @@ export default class ProfileEdit extends Component {
                   style={{...Fonts.style.profileInput,  color:Colors.options}}
                   autoCorrect={false}
                   autoCapitalize="none"
+                  onChangeText={(email) => {
+                    this.setState({email});
+                  }}
                 />
               </Item>
             </View>
@@ -69,6 +92,9 @@ export default class ProfileEdit extends Component {
                     autoCaptalize="none"
                     keyboardType='numeric'
                     maxLength={2}
+                    onChangeText={(date) => {
+                      this.setState({date});
+                    }}
                   />
                 </Item>
               </View>
@@ -80,6 +106,9 @@ export default class ProfileEdit extends Component {
                     autoCaptalize="none"
                     keyboardType='numeric'
                     maxLength={2}
+                    onChangeText={(month) => {
+                      this.setState({month});
+                    }}
                   />
                 </Item>
               </View>
@@ -91,6 +120,9 @@ export default class ProfileEdit extends Component {
                     autoCaptalize="none"
                     keyboardType='numeric'
                     maxLength={4}
+                    onChangeText={(yr) => {
+                      this.setState({yr});
+                    }}
                   />
                 </Item>
               </View>
@@ -104,6 +136,10 @@ export default class ProfileEdit extends Component {
                   autoCorrect={false}
                   autoCapitalize="none"
                   keyboardType='numeric'
+                  onChangeText={(pn) => {
+                    this.setState({pn});
+                  }}
+
                 />
               </Item>
             </View>
@@ -198,6 +234,9 @@ export default class ProfileEdit extends Component {
                     style={{...Fonts.style.profileInput,color:Colors.options}}
                     autoCorrect={false}
                     autoCapitalize="none"
+                    onChangeText={(pfn) => {
+                      this.setState({pfn});
+                    }}
                   />
                 </Item>
               </View>
@@ -240,6 +279,9 @@ export default class ProfileEdit extends Component {
                     autoCorrect={false}
                     autoCapitalize="none"
                     keyboardType='numeric'
+                    onChangeText={(ppn) => {
+                      this.setState({ppn});
+                    }}
                   />
                 </Item>
               </View>

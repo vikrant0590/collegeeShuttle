@@ -59,7 +59,7 @@ class SelectDestination extends Component {
         modalDidClose={() => this.setState({ open: false }) }
         containerStyle={styles.SelectDestinationConatiner}
         modalStyle={styles.SelectDestinationViewStyle}>
-        { this.props.location.locationResponse === undefined ?
+        { locationSelectList === undefined ?
           <ActivityIndicator
             animating={this.props.location.isBusy}
             style={[styles.centering, {height: 80}]}

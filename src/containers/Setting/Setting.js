@@ -254,7 +254,10 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                onPress={NavAction.helpsupport}
+                hitSlop={{top:10,bottom:10,right:300}}
+                style={{flexDirection:'row'}}>
                 <Left style={{ top: 3.5 }}>
                   <Text style={styles.listText}>
                     Terms and Condition

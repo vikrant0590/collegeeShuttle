@@ -22,7 +22,12 @@ import {
   Notification,
   MyTripMap,
   ForgotPassword,
-  PasswordReset
+  PasswordReset,
+  LuggageHelp,
+  ReservationsHelp,
+  PaymentHelp,
+  GeneralQuestionsHelp,
+  CommonQuestions
 } from './containers';
 import {
   InformationModal,
@@ -197,6 +202,11 @@ export default class AppRouter extends Component {
         <Scene key ="addCard" component={AddCard} hideNavBar={true} direction='vertical'/>
         <Scene key="forgotPassword" component={ForgotPassword} hideNavBar={true}/>
         <Scene key="passwordreset" component={PasswordReset} hideNavBar={true}/>
+        <Scene key="luggagehelp" component={LuggageHelp} hideNavBar={true}/>
+        <Scene key="reservationshelp" component={ReservationsHelp} hideNavBar={true}/>
+        <Scene key="paymenthelp" component={PaymentHelp} hideNavBar={true}/>
+        <Scene key="generalquestions" component={GeneralQuestionsHelp} hideNavBar={true}/>
+        <Scene key="commonquestions" component={CommonQuestions} hideNavBar={true}/>
       </Router>
     );
   }

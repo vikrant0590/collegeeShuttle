@@ -76,8 +76,8 @@ class AllTrips extends Component {
 
     const { alltrip } = this.props;
     if(alltrip){
-      locationList = alltrip.weeklyTrip.rTrips[0].rLocations;
-      trips = alltrip.weeklyTrip.rTrips[0];
+      locationList = alltrip.weeklyTrip;
+      trips = alltrip.weeklyTrip
     }
 
 

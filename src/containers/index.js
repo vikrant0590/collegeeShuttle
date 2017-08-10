@@ -20,7 +20,12 @@ import MyPackage from './MyPackage';
 import Notification from './Notification';
 import MyTripMap from './MyTripMap';
 import ForgotPassword from './ForgotPassword';
-import PasswordReset from './PasswordReset'
+import PasswordReset from './PasswordReset';
+import LuggageHelp from './LuggageHelp';
+import ReservationsHelp from './ReservationsHelp';
+import PaymentHelp from './PaymentHelp';
+import GeneralQuestionsHelp from './GeneralQuestionsHelp';
+import CommonQuestions from './CommonQuestions';
 export {
   WalkThrough,
   Home,
@@ -44,5 +49,10 @@ export {
   Notification,
   MyTripMap,
   ForgotPassword,
-  PasswordReset
+  PasswordReset,
+  LuggageHelp,
+  ReservationsHelp,
+  PaymentHelp,
+  GeneralQuestionsHelp,
+  CommonQuestions
 };

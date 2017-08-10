@@ -96,6 +96,7 @@ const style = {
     fontFamily:"Roboto-Regular"
   },
   headingText:{
+    marginTop:5,
     fontSize:size.h3,
     fontFamily:lato.medium,
   },

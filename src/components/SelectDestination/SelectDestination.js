@@ -61,7 +61,12 @@ class SelectDestination extends Component {
 
   render() {
     const { open } = this.state;
-
+    let selectedLocation = undefined;
+    if(this.state.placeholdertext === 'To'){
+      selectedLocation = this.props.location.toLocation;
+    }else {
+      selectedLocation = this.props.location.fromLocation;
+    }
     return(
       <SelectDestinationModalSuccess
         open={open}
@@ -69,7 +74,7 @@ class SelectDestination extends Component {
         modalDidClose={() => this.setState({ open: false }) }
         containerStyle={styles.SelectDestinationConatiner}
         modalStyle={styles.SelectDestinationViewStyle}>
-        { this.props.location.locationResponse === undefined ?
+        { selectedLocation === undefined ?
           <ActivityIndicator
             animating={this.props.location.isBusy}
             style={[styles.centering, {height: 80}]}

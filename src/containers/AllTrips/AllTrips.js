@@ -60,7 +60,7 @@ class AllTrips extends Component {
       let data = {
         "pkId": "594b04bcee789f7765e8ced6",
         "dpId": "584990adf72e5d0f1e29424f",
-        "rTrip": true,
+        "rTrip": this.props.allTripData.rTrip,
         "date":  "2017-08-18"
       };
 
@@ -96,17 +96,11 @@ class AllTrips extends Component {
     const busInformation = [
       {index:0, boardingpoint:'University Campus', drop:'MetroStation'}
     ];
-    let locationList = undefined;
-    const { alltrip } = this.props;
-    if(this.props.allTripData.rTrip){
-      locationList = alltrip.weeklyTrip.rTrips;
-    }else {
-      locationList = alltrip.weeklyTrip.trips;
-    }
 
+    const { alltrip } = this.props;
+    // console.log('alltrip.weeklyTrip ==>', alltrip.weeklyTrip);
 
     return(
-
       <Container style={{backgroundColor:Colors.base, marginBottom: 60 }}>
         <Spinner visible={this.props.alltrip.isBusy} textContent={"Loading..."} textStyle={{color: Colors.white}} />
         <LinearGradient colors={['#FC214F', '#D32735']}>
@@ -143,10 +137,10 @@ class AllTrips extends Component {
         </LinearGradient>
 
         <Content>
-          {locationList ?
+          {alltrip.weeklyTrip ?
             <List
               style={{ flex: 1, borderBottomWidth: 0 }}
-              dataArray={locationList}
+              dataArray={[alltrip.weeklyTrip]}
               renderRow={(item) =>{
                 return(
                   <ListItem style={{ marginTop: -14, marginBottom: -14, borderBottomWidth: 0 }}>

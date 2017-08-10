@@ -336,18 +336,19 @@ export default StyleSheet.create({
   },
   tipPointStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: -10,
   },
   pointBackgroundViewStyle:{
-    height: 12,
-    width: 12,
-    borderRadius: 6,
-    marginTop: -10,
+    height: 15,
+    width: 15,
     alignSelf: 'center',
+    backgroundColor: Colors.white,
   },
   backgroundViewImageStyle:{
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    resizeMode: 'contain'
   },
 
 });

@@ -236,7 +236,8 @@ render(){
                 marginRight: -19,
                 borderColor: Colors.thinLineColor
               }}>
-              <TouchableOpacity hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                hitSlop={{top:10,bottom:10,right:300}} style={{flexDirection:'row'}}>
                 <Left style={{ top: 3.5 }}>
                   <Text style={styles.listText}>
                   About Us
@@ -255,7 +256,7 @@ render(){
                 borderColor: Colors.thinLineColor
               }}>
               <TouchableOpacity
-                onPress={NavAction.helpsupport}
+                onPress={NavAction.termsandconditions}
                 hitSlop={{top:10,bottom:10,right:300}}
                 style={{flexDirection:'row'}}>
                 <Left style={{ top: 3.5 }}>
@@ -268,6 +269,28 @@ render(){
                 </Right>
               </TouchableOpacity>
             </ListItem>
+            <ListItem
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: -19,
+                borderColor: Colors.thinLineColor
+              }}>
+              <TouchableOpacity
+                onPress={NavAction.helpsupport}
+                hitSlop={{top:10,bottom:10,right:300}}
+                style={{flexDirection:'row'}}>
+                <Left style={{ top: 3.5 }}>
+                  <Text style={styles.listText}>
+                    Help Support
+                  </Text>
+                </Left>
+                <Right>
+                  <Image source={Images.rightArrow} style={styles.rightArrow}/>
+                </Right>
+              </TouchableOpacity>
+            </ListItem>
+
             <ListItem
               style={{
                 marginRight: -19,

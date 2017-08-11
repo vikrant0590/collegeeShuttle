@@ -113,6 +113,7 @@
 		CDE900444C1A4AB6BC96E319 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C427964CE434F9D644974 /* EvilIcons.ttf */; };
 		D1E3B49E2C8D49CB801B34C2 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DF14C17B16642329137AE92 /* Lato-MediumItalic.ttf */; };
 		D2EDC0791F3B4C9084DA6BFE /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283BB74E0A6E48A0A09D80E6 /* Lato-Hairline.ttf */; };
+		D8318B281F3DDB490081AA5E /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BB66411F1E120B00F3C664 /* libRNImagePicker.a */; };
 		DE771B6AE6254A3B82C93791 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22CC58C9A1B48DA91E89A0A /* Lato-Black.ttf */; };
 		DF90C96A68A14309BE5FD04E /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8DA226E3328492EBD9B748A /* Lato-Thin.ttf */; };
 		E09235C3C1204A88B38607D7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46FFE854332E4C19A3D03D4A /* FontAwesome.ttf */; };
@@ -579,6 +580,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8318B281F3DDB490081AA5E /* libRNImagePicker.a in Frameworks */,
 				8459DF851F28EAF30055CEA4 /* libc.tbd in Frameworks */,
 				8459DF831F28EAE50055CEA4 /* libc++.1.tbd in Frameworks */,
 				8459DF811F28EAD50055CEA4 /* libc++abi.tbd in Frameworks */,
@@ -1733,9 +1735,7 @@
 				INFOPLIST_FILE = CollegeShuttleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1764,9 +1764,7 @@
 				INFOPLIST_FILE = CollegeShuttleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1897,9 +1895,7 @@
 				);
 				INFOPLIST_FILE = "CollegeShuttle-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1937,9 +1933,7 @@
 				);
 				INFOPLIST_FILE = "CollegeShuttle-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1965,9 +1959,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "CollegeShuttle-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CollegeShuttle-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1989,9 +1981,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "CollegeShuttle-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.CollegeShuttle-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

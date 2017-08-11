@@ -23,7 +23,8 @@ export default StyleSheet.create({
   avatarContainer:{
     ...Platform.select({
       ios:{
-       height: (Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? Metrics.screenHeight/2.5 : Metrics.screenHeight/2.7 : Metrics.screenHeight/2.9,
+        height: (Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ?
+          Metrics.screenHeight/2.5 : Metrics.screenHeight/2.7 : Metrics.screenHeight/2.9,
       },
       android:{
         height: Metrics.screenHeight/4,
@@ -65,8 +66,8 @@ export default StyleSheet.create({
     width:90,
     height:90,
     borderRadius:45,
-    borderWidth:2,
-    borderColor:Colors.white
+    borderWidth:1.5,
+    borderColor:Colors.white,
   },
 
   saveButton:{
@@ -89,13 +90,6 @@ export default StyleSheet.create({
     width:12,
     height:13
   },
-  avatarImage:{
-    width:90,
-    height:90,
-    borderRadius:45,
-    borderWidth:2,
-    borderColor:Colors.white
-  }
 
 
 });

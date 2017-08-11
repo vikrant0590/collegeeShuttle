@@ -30,7 +30,7 @@ const questions =[
     answer:{
       bold:false,
       ans:"Please call to explain the necessary needs of the customer to a college shuttle representative" +
-        "and after understanding we will let you know the best option."
+        " and after understanding we will let you know the best option."
     }
   },
   { index:3,

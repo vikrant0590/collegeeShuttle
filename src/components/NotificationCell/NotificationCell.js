@@ -2,8 +2,8 @@
  * Created by Admin on 25/07/17.
  */
 
-import React, { Component } from 'react';
-import { Image, View, Text } from 'react-native';
+import React, { Component, } from 'react';
+import { Image, View, Text, Platform } from 'react-native';
 import { Col, Row } from 'native-base';
 import { Images, Colors } from '../../theme';
 import styles from './NotificationCellStyle';
@@ -22,13 +22,27 @@ export default class NotificationCell extends Component {
           <Col style={{ flex: 0.2, alignItems: 'center', justifyContent: 'center' }}>
             <Image
               style={{
-                resizeMode: 'contain',
-                width: 48,
-                height: 48,
-                borderRadius: 24,
-                borderColor: Colors.userProfileBorderColor,
-                borderWidth: 1.5,
-                marginLeft: -5 }} source={Images.profileicon} />
+                ...Platform.select({
+                  ios: {
+                    resizeMode:'contain',
+                    width: 48,
+                    height: 48,
+                    borderRadius: 24,
+                    borderColor: Colors.userProfileBorderColor,
+                    borderWidth: 1.5,
+                    marginLeft: -5
+                  },
+                  android:{
+                    width: 48,
+                    height: 48,
+                    borderRadius: 24,
+                    borderColor: Colors.userProfileBorderColor,
+                    borderWidth: 1.5,
+                    marginLeft: -5
+                  }
+                })
+              }}
+              source={Images.profileicon} />
           </Col>
           <Col style={{ flex: 0.8 }}>
             <Row>

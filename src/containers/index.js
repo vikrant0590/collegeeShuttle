@@ -27,6 +27,7 @@ import PaymentHelp from './PaymentHelp';
 import GeneralQuestionsHelp from './GeneralQuestionsHelp';
 import CommonQuestions from './CommonQuestions';
 import TermsAndConditions from './TermsAndConditions';
+import Feedback from './Feedback';
 export {
   WalkThrough,
   Home,
@@ -56,5 +57,6 @@ export {
   PaymentHelp,
   GeneralQuestionsHelp,
   CommonQuestions,
-  TermsAndConditions
+  TermsAndConditions,
+  Feedback
 };

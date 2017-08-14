@@ -29,6 +29,7 @@ import {
   GeneralQuestionsHelp,
   CommonQuestions,
   TermsAndConditions,
+  Feedback
 } from './containers';
 import {
   InformationModal,
@@ -209,6 +210,8 @@ export default class AppRouter extends Component {
         <Scene key="generalquestions" component={GeneralQuestionsHelp} hideNavBar={true}/>
         <Scene key="commonquestions" component={CommonQuestions} hideNavBar={true}/>
         <Scene key="termsandconditions" component={TermsAndConditions} hideNavBar={true}/>
+        <Scene key="feedback" component={Feedback} hideNavBar={true}/>
+
       </Router>
     );
   }

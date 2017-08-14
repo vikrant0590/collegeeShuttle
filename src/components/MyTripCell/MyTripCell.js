@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { Text, TouchableOpacity, Image, View } from 'react-native';
 import { Card, Row, Col, CardItem, Body, Icon } from 'native-base';
 import styles from './MyTripCellStyle';
+import {Actions} from 'react-native-router-flux';
 import { Colors, Fonts, Metrics } from '../../theme';
 
 export default class MyTripCell extends Component {
+
+  onPressRateUs = () =>{
+    Actions.feedback();
+  };
   
 
   render(){
@@ -86,7 +91,7 @@ export default class MyTripCell extends Component {
                 <Body>
                   <TouchableOpacity
                     style={styles.myTripTrackNowBtn}
-                    onPress={this.onPressRoundTripButton}>
+                    onPress={this.onPressRateUs}>
                     <Icon
                       name='md-star-outline'
                       style={{

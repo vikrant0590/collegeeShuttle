@@ -56,6 +56,11 @@ const images = {
   closeButton: require("../images/closeButton.png"),
   profileicon: require("../images/dummyprofileicon.png"),
   checkitemicon: require("../images/checked.png"),
-  uncheckitemicon: require("../images/square.png")
+  uncheckitemicon: require("../images/square.png"),
+  cute: require("../images/cute.png"),
+  dump: require("../images/dump.png"),
+  moody: require("../images/moody.png"),
+  sad: require("../images/sad.png"),
+  smile: require("../images/smile.png"),
 };
 export default images;

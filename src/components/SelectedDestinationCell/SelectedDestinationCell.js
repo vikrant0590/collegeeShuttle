@@ -28,6 +28,7 @@ export default class  SelectedDestinationCell extends Component {
   };
 
   render() {
+    console.log('this.props.locationData.ct', this.props.locationData.ct);
     return (
       <TouchableOpacity style={{ flexDirection: 'row', flex: 1 }} onPress={this.onPressSelectLocaton}>
         <Text

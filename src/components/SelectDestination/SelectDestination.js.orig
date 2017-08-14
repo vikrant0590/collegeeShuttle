@@ -75,7 +75,11 @@ class SelectDestination extends Component {
         modalDidClose={() => this.setState({ open: false }) }
         containerStyle={styles.SelectDestinationConatiner}
         modalStyle={styles.SelectDestinationViewStyle}>
+<<<<<<< HEAD
         { selectedLocation === undefined ?
+=======
+        { locationSelectList === undefined ?
+>>>>>>> origin/TripSearch
           <ActivityIndicator
             animating={this.props.location.isBusy}
             style={[styles.centering, {height: 80}]}
@@ -132,10 +136,15 @@ class SelectDestination extends Component {
                 marginBottom: -10,
               }}
               dataArray={
+<<<<<<< HEAD
                 (this.props.location.searchLocation != undefined)
                   ? this.props.location.searchLocation :
                   (this.state.placeholdertext === 'To') ?
                     this.props.location.toLocation : this.props.location.fromLocation }
+=======
+                (this.props.location.searchLocation === undefined)
+                  ? locationSelectList : this.props.location.searchLocation}
+>>>>>>> origin/TripSearch
               renderRow={(item) => {
                 return (
                   <ListItem

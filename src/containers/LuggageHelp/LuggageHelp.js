@@ -17,7 +17,7 @@ const questions =[
     answer:{
       bold:false,
       ans:"College Shuttle does not check luggage or provide receipts for luggage transported on the"+
-        " Shuttle by the passenger.Passengers are advised that College Shuttle will accept up to one piece" +
+        " Shuttle by the passenger. Passengers are advised that College Shuttle will accept up to one piece" +
       " of luggage per passenger. For guidance this should be no more than the size of a small duffel or Gym bag."+
       " Passengers can also take on board one small piece of luggage that must fit either on your lap or under the"+
       " seat in front of you.  Please be advised that passengers wishing to travel with more luggage than "+

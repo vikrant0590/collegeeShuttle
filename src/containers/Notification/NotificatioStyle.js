@@ -10,7 +10,7 @@ export default StyleSheet.create({
 
 
   notificationIcon:{
-    marginRight: 5
+    marginRight: 5,
   },
 
 });

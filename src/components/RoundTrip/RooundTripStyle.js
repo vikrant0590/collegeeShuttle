@@ -134,14 +134,27 @@ export default StyleSheet.create({
   },
 
   tripicon: {
-    height: (Metrics.screenWidth === 320) ? 24 : 34,
-    width: (Metrics.screenWidth === 320) ? 24 : 34,
-    borderRadius: (Metrics.screenWidth === 320) ? 12 : 17,
-    borderWidth: 1,
-    borderColor: Colors.userProfileBorderColor,
-    resizeMode: 'contain',
-    marginLeft: (Metrics.screenWidth === 320) ? 7: 9,
-    alignSelf: 'center'
+    ...Platform.select({
+      ios: {
+        height: (Metrics.screenWidth === 320) ? 24 : 34,
+        width: (Metrics.screenWidth === 320) ? 24 : 34,
+        borderRadius: (Metrics.screenWidth === 320) ? 12 : 17,
+        borderWidth: 1,
+        borderColor: Colors.userProfileBorderColor,
+        resizeMode: 'contain',
+        marginLeft: (Metrics.screenWidth === 320) ? 7 : 9,
+        alignSelf: 'center'
+      },
+      android:{
+        height: (Metrics.screenWidth === 320) ? 24 : 34,
+        width: (Metrics.screenWidth === 320) ? 24 : 34,
+        borderRadius: (Metrics.screenWidth === 320) ? 12 : 17,
+        borderWidth: 1,
+        borderColor: Colors.userProfileBorderColor,
+        marginLeft: (Metrics.screenWidth === 320) ? 7 : 9,
+        alignSelf: 'center'
+      }
+    }),
   },
 
   descriptionText: {

@@ -140,11 +140,10 @@ export default class MyProfile extends Component {
               justifyContent: 'center',
               marginTop:(Metrics.screenWidth === 320) ? (Metrics.screenHeight === 480) ? -30  :  -35 :  -40 }}>
               <TouchableOpacity onPress={this.selectPhotoTapped}>
-                <Image source={Images.profileicon}  style={styles.avatar}>
-                  { this.state.avatarSource === null ? null :
-                    <Image source={this.state.avatarSource} style={styles.avatarImage}/>
-                  }
-                </Image>
+
+                { this.state.avatarSource === null ? <Image source={Images.profileicon}  style={styles.avatar}/> :
+                  <Image source={this.state.avatarSource} style={styles.avatarImage}/>
+                }
               </TouchableOpacity>
               <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
                 <View style={styles.editPicture}>

@@ -72,7 +72,7 @@ export default class RoundTrip extends Component {
                 <Text style={styles.trackText}>Track Now</Text>
               </TouchableOpacity>
             </Body>
-            <Body style={{ marginTop: 30, marginBottom: 20, marginRight: 10 }}>
+            <Body style={{ marginTop: 30, marginBottom: 20, marginRight: 10}}>
               <TouchableOpacity
                 style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}
                 onPress={this.onPressInviteButton}>
